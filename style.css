@@ -1,187 +1,69 @@
-:root {
-    --color-black: #000000;
-    --color-blue-main: #4C88FF;
-    --color-blue-light: #B2CCFF;
-    --margin-sides: 75px;
-    --margin-bottom-section: 150px;
-    --margin-top-footer: 75px;
-}
-
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #ffffff;
-    color: var(--color-black);
-    /* Убедитесь, что шрифты Uncage и NeutralFace подключены через @font-face выше */
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* --- Header --- */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--margin-sides) var(--margin-sides) 0; /* 75px top, 75px sides, 0 bottom */
-}
-
-.logo {
-    font-family: 'Uncage SemiBold', sans-serif;
-    font-size: 27.5px;
-    font-weight: 600;
-}
-
-.nav-menu a {
-    font-family: 'Inter', sans-serif;
-    font-size: 25px;
-    font-weight: 500;
-    margin-right: 50px; /* Отступ между элементами навигации */
-}
-
-.contact-button {
-    font-family: 'Inter', sans-serif;
-    font-size: 22.5px;
-    font-weight: 500;
-    background-color: var(--color-black);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* --- Main Content Layout --- */
-.main-content {
-    /* Контент начинается через 75px от левого края и заканчивается за 150px до правого края */
-    padding-left: var(--margin-sides);
-    padding-right: 150px; 
-    max-width: 1440px; /* Примерная ширина макета */
-    margin: 0 auto;
-}
-
-.header-main-gap {
-    /* Отступ 600px между навигацией и первым блоком */
-    height: 600px; 
-}
-
-.footer-gap {
-    /* Отступ 75px снизу */
-    height: var(--margin-top-footer);
-}
-
-.section-block {
-    margin-bottom: var(--margin-bottom-section); /* Отступ между блоками 150px */
-}
-
-/* --- Hero Section (Main Title) --- */
-.hero-section {
-    /* Размеры шрифтов в этом блоке уникальны */
-    text-align: center; /* Центрируем, как на макете */
-    margin-bottom: var(--margin-bottom-section);
-}
-
-.main-logo-large {
-    font-family: 'Uncage SemiBold', sans-serif;
-    font-size: 185px;
-    line-height: 1;
-}
-
-.tagline {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 47px;
-    font-style: italic; /* Используем Regular Italic */
-    margin-top: 10px;
-}
-
-.tagline span:last-child {
-    color: var(--color-blue-main);
-    font-style: normal; /* "больше действий" было написано Montserrat Regular */
-}
-
-/* --- Section Titles & Descriptions --- */
-.section-title {
-    font-family: 'Neutral Face Bold', sans-serif;
-    font-size: 75px;
-    font-weight: bold;
-    margin-bottom: 50px; /* Между заголовком и описанием 50px */
-}
-
-.section-description,
-.feedback-item p {
-    font-family: 'Helvetica Light', sans-serif;
-    font-size: 40px;
-    font-weight: 300; /* Light weight */
+    /* Установка шрифта по умолчанию для body, как Inter Medium 25px */
+    font-family: 'Inter', sans-serif; 
+    font-size: 25px; 
     line-height: 1.2;
 }
 
-/* --- Portfolio Section --- */
-.portfolio-grid {
-    display: flex; /* Используем flexbox для горизонтального расположения */
-    gap: 77px; /* Отступ по горизонтали 77px */
-    margin-bottom: 75px; /* Отступ по вертикали 75px до следующего текста */
-    align-items: center; /* Центрируем вертикально */
-}
-
-.portfolio-item-placeholder {
-    width: 500px;
-    height: 500px;
-    background-color: var(--color-blue-light); /* Светло-голубой фон */
-    border-radius: 40px; /* Закругления углов 40 */
-    flex-shrink: 0; /* Не сжимать элементы */
-}
-
-/* --- Feedback Section --- */
-.feedback-container {
-    margin-bottom: 50px;
-}
-
-.feedback-item {
-    border-left: 10px solid var(--color-blue-main); /* Широкая голубая полоса слева */
-    padding-left: 20px;
-    margin-bottom: 50px; /* Отступ между отзывами 50px */
-}
-
-.feedback-item p {
-    margin-top: 5px;
-}
-
-.feedback-source {
-    font-family: 'Helvetica Regular', sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-    color: var(--color-black);
-    display: block;
-}
-
-/* --- Contact Section --- */
-.contact-links-grid {
+.header {
     display: flex;
-    gap: 100px; /* Отступ между контактами 100px */
+    /* Горизонтальное выравнивание: лого слева, навигация в центре (автоматически), кнопка справа */
+    justify-content: space-between; 
+    /* Вертикальное выравнивание всех элементов по центру (относительно самой высокой части, в данном случае кнопки) */
+    align-items: center; 
+    /* Отступ сверху и по бокам от краев 75px */
+    padding: 75px; 
 }
 
-.contact-type {
-    font-family: 'Helvetica Regular', sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-    color: var(--color-black);
-    margin-bottom: 10px;
+.logo {
+    display: flex;
+    flex-direction: column;
+    /* Общий размер логотипа 55px (27.5px * 2 строки) */
+    font-size: 27.5px; 
+    line-height: 1; /* Чтобы строки были вплотную */
+    font-family: 'Uncage Semibold', sans-serif;
 }
 
-.contact-link {
-    font-family: 'Helvetica Light', sans-serif;
-    font-size: 40px;
-    color: var(--color-blue-main);
-    display: block;
+.logo-top {
+    color: #4C88FF;
 }
 
-.contact-link.bold {
-    font-family: 'Helvetica Bold', sans-serif;
-    font-weight: bold;
+.logo-bottom {
+    color: inherit; /* Использует цвет родителя или черный по умолчанию */
+}
+
+.navigation {
+    display: flex;
+    /* Отступ 75px от края логотипа (автоматически благодаря space-between) и 
+    отступ между разделами 50px */
+    gap: 50px; 
+    margin-left: 75px; 
+    /* Навигация также выравнивается по вертикали благодаря align-items: center на родителе .header */
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+    /* Шрифт Inter Medium 25px (унаследован от body) */
+}
+
+.button {
+    /* Размеры кнопки 277.5 x 75 px */
+    width: 277.5px;
+    height: 75px;
+    /* Округление углов 22.5px */
+    border-radius: 22.5px; 
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /* Текст в центре, Inter 22.5px */
+    font-family: 'Inter', sans-serif;
+    font-size: 22.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
