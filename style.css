@@ -1,69 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    /* Установка шрифта по умолчанию для body, как Inter Medium 25px */
-    font-family: 'Inter', sans-serif; 
-    font-size: 25px; 
-    line-height: 1.2;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
-    display: flex;
-    /* Горизонтальное выравнивание: лого слева, навигация в центре (автоматически), кнопка справа */
-    justify-content: space-between; 
-    /* Вертикальное выравнивание всех элементов по центру (относительно самой высокой части, в данном случае кнопки) */
-    align-items: center; 
-    /* Отступ сверху и по бокам от краев 75px */
-    padding: 75px; 
+  width: 100%;
+  padding: 25px 0;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
 .logo {
-    display: flex;
-    flex-direction: column;
-    /* Общий размер логотипа 55px (27.5px * 2 строки) */
-    font-size: 27.5px; 
-    line-height: 1; /* Чтобы строки были вплотную */
-    font-family: 'Uncage Semibold', sans-serif;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.logo-top {
-    color: #4C88FF;
+.logo-blue {
+  color: #3b82f6;
+  font-size: 18px;
+  letter-spacing: 1px;
 }
 
-.logo-bottom {
-    color: inherit; /* Использует цвет родителя или черный по умолчанию */
+.logo-black {
+  color: #000;
+  font-size: 18px;
+  letter-spacing: 1px;
 }
 
-.navigation {
-    display: flex;
-    /* Отступ 75px от края логотипа (автоматически благодаря space-between) и 
-    отступ между разделами 50px */
-    gap: 50px; 
-    margin-left: 75px; 
-    /* Навигация также выравнивается по вертикали благодаря align-items: center на родителе .header */
+/* NAV */
+.nav {
+  display: flex;
+  gap: 40px;
 }
 
-.navigation a {
-    text-decoration: none;
-    color: black;
-    /* Шрифт Inter Medium 25px (унаследован от body) */
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
 }
 
-.button {
-    /* Размеры кнопки 277.5 x 75 px */
-    width: 277.5px;
-    height: 75px;
-    /* Округление углов 22.5px */
-    border-radius: 22.5px; 
-    background-color: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-    /* Текст в центре, Inter 22.5px */
-    font-family: 'Inter', sans-serif;
-    font-size: 22.5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
+/* BUTTON */
+.order-btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
 }
