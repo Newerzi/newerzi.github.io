@@ -1,0 +1,81 @@
+index.html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Дизайн для онлайн-проектов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 22px;
+      margin-top: 60px;
+      margin-bottom: 16px;
+    }
+    p {
+      margin-bottom: 12px;
+      color: #333;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .contact {
+      margin-top: 40px;
+    }
+    .contact a {
+      color: #111;
+      text-decoration: none;
+      border-bottom: 1px solid #111;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Дизайн для онлайн-проектов и малого бизнеса</h1>
+
+    <p>
+      Делаю аккуратный и понятный дизайн без визуального шума.
+      Работаю с обложками, сайтами и визуалом для проектов.
+    </p>
+
+    <h2>Услуги</h2>
+    <ul>
+      <li>Обложки для YouTube и соцсетей</li>
+      <li>Одностраничные сайты</li>
+      <li>Визуал для брендов и онлайн-проектов</li>
+    </ul>
+
+    <h2>Как я работаю</h2>
+    <ul>
+      <li>Обсуждаем задачу и цели</li>
+      <li>Согласовываем формат и сроки</li>
+      <li>Выполняю работу и вношу правки</li>
+    </ul>
+
+    <h2>Контакты</h2>
+    <div class="contact">
+      <p>Email: yourmail@mail.com</p>
+      <p>Telegram: @username</p>
+    </div>
+  </div>
+</body>
+</html>
