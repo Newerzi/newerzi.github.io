@@ -1,1 +1,201 @@
-<CSS OMITTED FOR BREVITY>
+/* =========================
+   FONTS
+   ========================= */
+
+@font-face {
+  font-family: "Uncage";
+  src: url("fonts/Uncage-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Italic.woff2") format("woff2");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Neutral Face";
+  src: url("fonts/NeutralFace-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Neutral Face";
+  src: url("fonts/NeutralFace-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Helvetica Custom";
+  src: url("fonts/Helvetica-Light.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Helvetica Custom";
+  src: url("fonts/Helvetica-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Helvetica Custom";
+  src: url("fonts/Helvetica-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+/* =========================
+   GLOBAL
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 80px;
+}
+
+.logo {
+  font-family: "Uncage";
+  font-size: 27.5px;
+  line-height: 1;
+}
+
+.nav a {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 25px;
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.hero h1 {
+  font-family: "Uncage";
+  font-size: 185px;
+  line-height: 1;
+  margin: 0;
+  color: #4C88FF;
+}
+
+.slogan {
+  margin-top: 40px;
+  font-family: "Montserrat";
+  font-size: 47px;
+  font-style: italic;
+}
+
+/* =========================
+   SECTIONS
+   ========================= */
+
+section {
+  padding: 120px 80px;
+}
+
+section h2 {
+  margin: 0 0 40px 0;
+  font-family: "Neutral Face";
+  font-weight: 700;
+  font-size: 75px;
+  color: #B2CCFF;
+}
+
+section p {
+  margin: 0;
+  font-family: "Helvetica Custom";
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1.25;
+}
+
+/* =========================
+   PORTFOLIO
+   ========================= */
+
+.portfolio p {
+  max-width: 1200px;
+}
+
+/* =========================
+   FEEDBACK
+   ========================= */
+
+.feedback .review {
+  margin-top: 60px;
+  max-width: 1400px;
+}
+
+.feedback .review p {
+  font-family: "Helvetica Custom";
+  font-weight: 400;
+  font-size: 40px;
+}
+
+.feedback .review span {
+  display: block;
+  margin-top: 15px;
+  font-family: "Helvetica Custom";
+  font-weight: 300;
+  font-size: 30px;
+  opacity: 0.8;
+}
+
+/* =========================
+   CONTACT
+   ========================= */
+
+.contact a {
+  display: block;
+  margin-top: 30px;
+  font-family: "Helvetica Custom";
+  font-weight: 700;
+  font-size: 40px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* =========================
+   COLORS (for reference)
+   =========================
+   #000000
+   #4C88FF
+   #B2CCFF
+   ========================= */
