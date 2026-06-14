@@ -14,36 +14,37 @@
 
 /* ===== БАЗА ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow-x: hidden; }
 body {
   font-family: 'Manrope', sans-serif;
   background: #FFF;
   color: #000;
 }
 
-/* ===== ШАПКА (пункт 1: шире, ближе к краям, белый фон) ===== */
+/* ===== ШАПКА ===== */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #FFF;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 28px 80px;
-    z-index: 1000;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 80px;
+  z-index: 1000;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .header.hidden { opacity: 0; pointer-events: none; }
 
 .logo {
   font-family: 'Manrope', sans-serif;
-  font-weight: 800;             /* ExtraBold */
+  font-weight: 800;
   font-size: 22px;
 }
 
 .contact-btn {
-  font-size: 24px;              /* чуть больше логотипа по длине */
+  font-size: 24px;
   padding: 12px 28px;
   background: #000;
   color: #FFF;
@@ -51,8 +52,8 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
-.contact-btn .label { font-family: 'Neutral Face'; font-weight: 700; }  /* Contact Bold */
-.contact-btn .at    { font-family: 'Neutral Face'; font-weight: 400; }  /* @ Regular */
+.contact-btn .label { font-family: 'Neutral Face'; font-weight: 700; }
+.contact-btn .at    { font-family: 'Neutral Face'; font-weight: 400; }
 
 /* ===== ПТИЧКА ===== */
 .bird { text-align: center; padding-top: 140px; }
@@ -60,27 +61,27 @@ body {
 
 /* ===== ЗАГОЛОВОК ===== */
 .specific-word {
-  font-weight: 700;             /* Bold */
-  color: rgba(0,0,0,0.08);      /* чёрная прозрачность 8% */
+  font-weight: 700;
+  color: rgba(0,0,0,0.08);
   text-align: center;
   font-size: 48px;
 }
 .title-jp {
-  font-weight: 800;             /* ExtraBold */
+  font-weight: 800;
   text-align: center;
   font-size: 64px;
 }
 
-/* ===== КАТЕГОРИИ (пункт 2: веб-дизайн на месте) ===== */
+/* ===== КАТЕГОРИИ ===== */
 .categories {
-  font-weight: 400;             /* Regular */
+  font-weight: 400;
   text-align: center;
   margin-top: 12px;
 }
-.cat-word { color: rgba(0,0,0,0.5); }   /* основные слова 50% */
-.cat-sep  { color: rgba(0,0,0,0.25); margin: 0 8px; } /* палочки 25% */
+.cat-word { color: rgba(0,0,0,0.5); }
+.cat-sep  { color: rgba(0,0,0,0.25); margin: 0 8px; }
 
-/* ===== ПЛАШКИ КАЧЕСТВ (пункт 3) ===== */
+/* ===== ПЛАШКИ КАЧЕСТВ ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -93,14 +94,14 @@ body {
   padding: 32px;
 }
 .card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 24px; }
-.card-title    { font-weight: 700; font-size: 20px; }          /* Bold */
-.card-subtitle { font-weight: 600; color: rgba(0,0,0,0.5); }   /* Semibold 50% */
+.card-title    { font-weight: 700; font-size: 20px; }
+.card-subtitle { font-weight: 600; color: rgba(0,0,0,0.5); }
 
 /* ===== ЗАГОЛОВКИ СЕКЦИЙ ===== */
-.section-title { font-weight: 800; font-size: 48px; padding: 0 48px; }  /* ExtraBold */
-.work-year { font-weight: 500; }                                       /* Medium */
+.section-title { font-weight: 800; font-size: 48px; padding: 0 48px; }
+.work-year { font-weight: 500; }
 
-/* ===== ПОСЛЕДНИЕ РАБОТЫ (пункт 4: ведут на .png) ===== */
+/* ===== ПОСЛЕДНИЕ РАБОТЫ ===== */
 .works {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -122,13 +123,13 @@ body {
   padding: 24px;
   cursor: pointer;
 }
-.review-name    { font-weight: 700; }                          /* Bold */
-.review-source  { font-weight: 600; color: rgba(0,0,0,0.5); }  /* SemiBold 50% */
-.review-text    { font-weight: 500; }                          /* Medium */
-.see-more { font-weight: 500; color: rgba(0,0,0,0.5); text-align: center; } /* Medium 50% */
+.review-name    { font-weight: 700; }
+.review-source  { font-weight: 600; color: rgba(0,0,0,0.5); }
+.review-text    { font-weight: 500; }
+.see-more { font-weight: 500; color: rgba(0,0,0,0.5); text-align: center; }
 
 /* ===== СОТРУДНИЧЕСТВО ===== */
-.collab { padding: 80px 48px 180px; }
+.collab { padding: 80px 48px; }
 
 .collab-buttons {
   display: flex;
@@ -138,27 +139,29 @@ body {
 }
 
 .collab-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 22px;
-    border-radius: 12px;
-    text-decoration: none;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;        /* подстраховка: иконка не вылезет из кнопки */
 }
 
 .collab-btn.telegram {
-    background: #000;
-    color: #FFF;
-    font-weight: 700;
+  background: #000;
+  color: #FFF;
+  font-weight: 700;
 }
 
 .collab-btn img {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-    display: block;
+  width: 22px !important;
+  height: 22px !important;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
 }
 
 /* Lolzteam — Regular */
@@ -174,6 +177,7 @@ body {
   font-weight: 400;
 }
 
+/* отступ снизу — ТОЛЬКО ЗДЕСЬ, на самой секции */
 #collab {
-    padding-bottom: 120px;
+  padding-bottom: 200px;
 }
