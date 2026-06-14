@@ -3,462 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEWERZI — 新时代 ДИЗАЙН.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-@font-face{
-  font-family:'Neutral Face';
-  src:url('fonts/NeutralFace-Bold.otf') format('opentype');
-  font-weight:700;font-style:normal;font-display:swap;
-}
-@font-face{
-  font-family:'Neutral Face';
-  src:url('fonts/NeutralFace.otf') format('opentype');
-  font-weight:400;font-style:normal;font-display:swap;
-}
-
-:root{
-  --black:#000;
-  --white:#FFF;
-  --pad:64px;
-  --maxw:1280px;
-  --gap-section:260px;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'Manrope',sans-serif;
-  background:var(--white);
-  color:var(--black);
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-
-/* единый контейнер — всё по одной линии с логотипом */
-.wrap{
-  width:100%;
-  max-width:var(--maxw);
-  margin:0 auto;
-  padding:0 var(--pad);
-}
-
-/* ШАПКА */
-header{
-  position:fixed;
-  top:0;left:0;right:0;
-  z-index:100;
-  padding:34px 0;
-  background:transparent;
-  transition:opacity .35s ease, transform .35s ease;
-}
-header.hidden{
-  opacity:0;
-  pointer-events:none;
-  transform:translateY(-12px);
-}
-.header-inner{
-  width:100%;
-  max-width:var(--maxw);
-  margin:0 auto;
-  padding:0 var(--pad);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.logo{
-  font-family:'Manrope',sans-serif;
-  font-weight:800;
-  font-size:22px;
-  letter-spacing:.5px;
-  color:var(--black);
-  text-decoration:none;
-}
-.contact-btn{
-  display:inline-flex;
-  align-items:center;
-  background:var(--black);
-  color:var(--white);
-  border:none;
-  cursor:pointer;
-  padding:14px 30px;
-  border-radius:10px;
-  font-size:16px;
-  text-decoration:none;
-  white-space:nowrap;
-}
-.contact-btn .c-bold{font-family:'Neutral Face',sans-serif;font-weight:700;}
-.contact-btn .c-reg{font-family:'Neutral Face',sans-serif;font-weight:400;margin-left:6px;}
-
-/* HERO */
-.hero{
-  padding-top:220px;
-  text-align:center;
-}
-.bird{
-  display:block;
-  margin:0 auto 40px;
-  width:auto;
-  max-width:560px;
-  height:auto;
-}
-.hero-spec{
-  font-family:'Manrope',sans-serif;
-  font-weight:700;
-  font-size:42px;
-  color:rgba(0,0,0,0.08);
-  line-height:1;
-  margin-bottom:-14px;
-}
-.hero-title{
-  font-family:'Manrope',sans-serif;
-  font-weight:800;
-  font-size:64px;
-  color:var(--black);
-  line-height:1.05;
-}
-.hero-sub{
-  font-family:'Manrope',sans-serif;
-  font-weight:400;
-  font-size:18px;
-  margin-top:18px;
-  color:var(--black);
-}
-.hero-sub .w{opacity:.5;}
-.hero-sub .bar{opacity:.25;margin:0 8px;}
-
-/* ПЛАШКИ */
-.cards{
-  margin-top:var(--gap-section);
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:36px;
-}
-.card{
-  background:#F4F4F4;
-  border-radius:18px;
-  padding:0;
-  overflow:hidden;
-}
-.card-img{
-  width:100%;
-  height:220px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#EFEFEF;
-}
-.card-img img{max-width:62%;max-height:70%;object-fit:contain;}
-.card-text{padding:26px 28px 32px;}
-.card-text h3{
-  font-family:'Manrope',sans-serif;
-  font-weight:700;
-  font-size:21px;
-  margin-bottom:8px;
-}
-.card-text p{
-  font-family:'Manrope',sans-serif;
-  font-weight:600;
-  font-size:15px;
-  color:rgba(0,0,0,0.5);
-  line-height:1.4;
-}
-
-/* ОБЩИЙ ЗАГОЛОВОК СЕКЦИИ */
-.section{margin-top:var(--gap-section);}
-.sec-head{
-  display:flex;
-  align-items:baseline;
-  gap:24px;
-  margin-bottom:64px;
-}
-.sec-title{
-  font-family:'Manrope',sans-serif;
-  font-weight:800;
-  font-size:72px;
-  line-height:1;
-  letter-spacing:-1px;
-}
-.sec-years{
-  font-family:'Manrope',sans-serif;
-  font-weight:500;
-  font-size:24px;
-  color:var(--black);
-  white-space:nowrap;
-}
-
-/* ПОСЛЕДНИЕ РАБОТЫ */
-.works{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:40px;
-}
-.work{
-  display:block;
-  background:#F4F4F4;
-  border-radius:20px;
-  overflow:hidden;
-  text-decoration:none;
-  color:var(--black);
-}
-.work img{
-  width:100%;
-  display:block;
-  object-fit:cover;
-}
-
-/* ОТЗЫВЫ */
-.reviews{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:36px;
-}
-.review{
-  background:#F7F7F7;
-  border:1px solid #ECECEC;
-  border-radius:18px;
-  padding:30px 32px;
-  cursor:pointer;
-  text-decoration:none;
-  color:var(--black);
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-.review:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.06);}
-.review-head{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:14px;
-}
-.review-dot{
-  width:11px;height:11px;border-radius:50%;
-  background:#8E5BFF;flex-shrink:0;
-}
-.review-name{
-  font-family:'Manrope',sans-serif;
-  font-size:17px;
-}
-.review-name b{font-weight:700;}
-.review-name span{font-weight:600;color:rgba(0,0,0,0.5);}
-.review-text{
-  font-family:'Manrope',sans-serif;
-  font-weight:500;
-  font-size:16px;
-  line-height:1.45;
-}
-.more{
-  display:block;
-  text-align:center;
-  margin-top:54px;
-  font-family:'Manrope',sans-serif;
-  font-weight:500;
-  font-size:16px;
-  color:rgba(0,0,0,0.5);
-  text-decoration:none;
-}
-
-/* СОТРУДНИЧЕСТВО — это конец страницы (подвал = эта секция) */
-#contact{
-  margin-top:var(--gap-section);
-  padding-bottom:160px;
-}
-.collab{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:60px;
-}
-.collab-title{
-  font-family:'Manrope',sans-serif;
-  font-weight:800;
-  font-size:72px;
-  line-height:1;
-  letter-spacing:-1px;
-  margin-top:6px;
-}
-.collab-btns{
-  width:46%;
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-.btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:28px;
-  border-radius:16px;
-  font-size:22px;
-  text-decoration:none;
-  transition:transform .2s ease;
-}
-.btn:hover{transform:translateY(-2px);}
-.btn-tg{
-  background:var(--black);
-  color:var(--white);
-  font-family:'Manrope',sans-serif;
-  font-weight:700;
-}
-.btn-out{
-  background:#F7F7F7;
-  border:1px solid #ECECEC;
-  color:var(--black);
-  font-family:'Manrope',sans-serif;
-  font-weight:400;
-}
-
-@media(max-width:900px){
-  :root{--pad:24px;--gap-section:140px;}
-  .cards{grid-template-columns:1fr;}
-  .works,.reviews{grid-template-columns:1fr;}
-  .sec-title,.collab-title{font-size:44px;}
-  .hero-title{font-size:42px;}
-  .collab{flex-direction:column;}
-  .collab-btns{width:100%;}
-}
-</style>
+<title>NEWERZI</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header id="header">
-  <div class="header-inner">
-    <a href="images/index.html" class="logo">NEWERZI</a>
-    <a href="#contact" class="contact-btn">
-      <span class="c-bold">CONTACT</span><span class="c-reg">@</span>
-    </a>
-  </div>
+<header class="header" id="header">
+  <div class="logo">NEWERZI</div>
+  <button class="contact-btn" id="contactBtn">
+    <span class="label">CONTACT</span> <span class="at">@</span>
+  </button>
 </header>
 
-<main class="wrap">
+<section class="bird">
+  <img src="images/bird.png" alt="bird">
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <img class="bird" src="images/bird.png" alt="bird">
-    <div class="hero-spec">специфичный</div>
-    <h1 class="hero-title">新时代 ДИЗАЙН.</h1>
-    <p class="hero-sub">
-      <span class="w">моушн-дизайн</span><span class="bar">|</span><span class="w">графический дизайн</span>
-    </p>
-  </section>
+<section>
+  <div class="specific-word">специфичный</div>
+  <div class="title-jp">新时代 ДИЗАЙН.</div>
+  <div class="categories">
+    <span class="cat-word">веб-дизайн</span>
+    <span class="cat-sep">|</span>
+    <span class="cat-word">моушн-дизайн</span>
+    <span class="cat-sep">|</span>
+    <span class="cat-word">графический дизайн</span>
+  </div>
+</section>
 
-  <!-- ПЛАШКИ -->
-  <section class="cards">
-    <div class="card">
-      <div class="card-img"><img src="images/character1.png" alt=""></div>
-      <div class="card-text">
-        <h3>2 года опыта</h3>
-        <p>Создаю проекты с августа 2024 года.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-img"><img src="images/character2.png" alt=""></div>
-      <div class="card-text">
-        <h3>Понимание работы</h3>
-        <p>Завершено более 100 успешных задач.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-img"><img src="images/character3.png" alt=""></div>
-      <div class="card-text">
-        <h3>Доверие клиентов</h3>
-        <p>Положительные отзывы о качестве.</p>
-      </div>
-    </div>
-  </section>
+<section class="cards">
+  <div class="card">
+    <img src="images/character1.png" alt="">
+    <div class="card-title">2 года опыта</div>
+    <div class="card-subtitle">Создаю проекты с августа 2024 года.</div>
+  </div>
+  <div class="card">
+    <img src="images/character2.png" alt="">
+    <div class="card-title">Понимание работы</div>
+    <div class="card-subtitle">Завершено более 100 успешных задач.</div>
+  </div>
+  <div class="card">
+    <img src="images/character3.png" alt="">
+    <div class="card-title">Доверие клиентов</div>
+    <div class="card-subtitle">Положительные отзывы о качестве.</div>
+  </div>
+</section>
 
-  <!-- ПОСЛЕДНИЕ РАБОТЫ -->
-  <section class="section">
-    <div class="sec-head">
-      <h2 class="sec-title">Последние работы</h2>
-      <span class="sec-years">[ 2024 - 2026 ]</span>
-    </div>
-    <div class="works">
-      <a class="work" href="images/works/w1.png"><img src="images/work1.png" alt=""></a>
-      <a class="work" href="images/works/w2.png"><img src="images/work2.png" alt=""></a>
-      <a class="work" href="images/works/w3.png"><img src="images/work3.png" alt=""></a>
-      <a class="work" href="images/works/w4.png"><img src="images/work4.png" alt=""></a>
-    </div>
-  </section>
+<section>
+  <h2 class="section-title">Последние работы <span class="work-year">[ 2024 - 2026 ]</span></h2>
+  <div class="works">
+    <a class="work" href="images/works/w1.png" target="_blank"><img src="images/work1.png" alt=""></a>
+    <a class="work" href="images/works/w2.png" target="_blank"><img src="images/work2.png" alt=""></a>
+    <a class="work" href="images/works/w3.png" target="_blank"><img src="images/work3.png" alt=""></a>
+    <a class="work" href="images/works/w4.png" target="_blank"><img src="images/work4.png" alt=""></a>
+  </div>
+</section>
 
-  <!-- ОТЗЫВЫ -->
-  <section class="section">
-    <div class="sec-head">
-      <h2 class="sec-title">Отзывы клиентов</h2>
-    </div>
-    <div class="reviews">
-      <a class="review" href="threads/8181867/">
-        <div class="review-head">
-          <span class="review-dot"></span>
-          <span class="review-name"><b>Whiteness VPN</b> <span>/ Lolzteam</span></span>
-        </div>
-        <p class="review-text">Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</p>
-      </a>
-      <a class="review" href="threads/8181867/">
-        <div class="review-head">
-          <span class="review-dot"></span>
-          <span class="review-name"><b>Makhkets VPN</b> <span>/ Lolzteam</span></span>
-        </div>
-        <p class="review-text">Работает быстро, качественно, принял все мои капризы насчет правок. :)</p>
-      </a>
-      <a class="review" href="threads/8181867/">
-        <div class="review-head">
-          <span class="review-dot"></span>
-          <span class="review-name"><b>Whiteness VPN</b> <span>/ Lolzteam</span></span>
-        </div>
-        <p class="review-text">Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</p>
-      </a>
-      <a class="review" href="threads/8181867/">
-        <div class="review-head">
-          <span class="review-dot"></span>
-          <span class="review-name"><b>Makhkets VPN</b> <span>/ Lolzteam</span></span>
-        </div>
-        <p class="review-text">Работает быстро, качественно, принял все мои капризы насчет правок. :)</p>
-      </a>
-    </div>
-    <a class="more" href="threads/8181867/">Посмотреть другие</a>
-  </section>
+<section>
+  <h2 class="section-title">Отзывы клиентов</h2>
+  <div class="reviews">
+    <a class="review" href="https://zelenka.guru/threads/8181867/" target="_blank">
+      <div><span class="review-name">Whiteness VPN</span> <span class="review-source">/ Lolzteam</span></div>
+      <div class="review-text">Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</div>
+    </a>
+    <a class="review" href="https://zelenka.guru/threads/8181867/" target="_blank">
+      <div><span class="review-name">Makhkets VPN</span> <span class="review-source">/ Lolzteam</span></div>
+      <div class="review-text">Работает быстро, качественно, принял все мои капризы насчет правок. :)</div>
+    </a>
+    <a class="review" href="https://zelenka.guru/threads/8181867/" target="_blank">
+      <div><span class="review-name">Whiteness VPN</span> <span class="review-source">/ Lolzteam</span></div>
+      <div class="review-text">Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</div>
+    </a>
+    <a class="review" href="https://zelenka.guru/threads/8181867/" target="_blank">
+      <div><span class="review-name">Makhkets VPN</span> <span class="review-source">/ Lolzteam</span></div>
+      <div class="review-text">Работает быстро, качественно, принял все мои капризы насчет правок. :)</div>
+    </a>
+  </div>
+  <div class="see-more">Посмотреть другие</div>
+</section>
 
-  <!-- СОТРУДНИЧЕСТВО = ПОДВАЛ -->
-  <section id="contact">
-    <div class="collab">
-      <h2 class="collab-title">Сотрудничество</h2>
-      <div class="collab-btns">
-        <a class="btn btn-tg" href="https://t.me/specfc" target="_blank" rel="nofollow noopener">
-          Telegram
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 2L11 13" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a class="btn btn-out" href="https://zelenka.guru/specific/" target="_blank" rel="nofollow noopener">Lolzteam →</a>
-        <a class="btn btn-out" href="https://t.me/newerzi" target="_blank" rel="nofollow noopener">Portfolio →</a>
-      </div>
-    </div>
-  </section>
+<section class="collab">
+  <h2 class="section-title">Сотрудничество</h2>
+  <div class="collab-buttons">
+    <a class="collab-btn telegram" href="https://t.me/specfc" target="_blank">
+      Telegram
+      <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-2.07 2.0c-.23.23-.42.42-.85.42z"/></svg>
+    </a>
+    <a class="collab-btn lolzteam" href="https://zelenka.guru/specific/" target="_blank">
+      Lolzteam →
+    </a>
+    <a class="collab-btn portfolio" href="https://t.me/newerzi" target="_blank">
+      Portfolio →
+    </a>
+  </div>
+</section>
 
-</main>
+<footer class="footer" id="footer"></footer>
 
 <script>
-(function(){
-  var header  = document.getElementById('header');
-  var contact = document.getElementById('contact');
+  const header = document.getElementById('header');
+  const footer = document.getElementById('footer');
+  const contactBtn = document.getElementById('contactBtn');
 
-  // шапка исчезает при достижении подвала (секция "Сотрудничество")
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        header.classList.add('hidden');
-      }else{
-        header.classList.remove('hidden');
-      }
+  // кнопка Contact переносит в подвал
+  contactBtn.addEventListener('click', () => {
+    footer.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // при достижении подвала шапка исчезает
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      header.classList.toggle('hidden', entry.isIntersecting);
     });
-  },{ threshold:0.18 });
+  }, { threshold: 0.1 });
 
-  io.observe(contact);
-})();
+  observer.observe(footer);
 </script>
 
 </body>
