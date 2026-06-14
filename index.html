@@ -1,77 +1,103 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEWERZI DESIGN Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Подключение шрифта, например, из Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-</head>
-<body>
-    <header class="header">
-        <div class="logo">NEWERZI DESIGN</div>
-        <nav class="nav">
-            <a href="#about">About</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#feedback">Feedback</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <a href="#" class="btn-order">Заказать</a>
-    </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEWERZI</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background:#fff; color:#111; line-height:1.4;
+    max-width:1200px; margin:0 auto; padding:0 40px;
+  }
+  a { text-decoration:none; color:inherit; }
 
-    <main class="main-content">
-        <section class="hero-section">
-            <h1>NEWERZI</h1>
-            <p>меньше слов — больше действий</p>
-        </section>
+  /* HEADER */
+  header {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:36px 0;
+  }
+  .logo { font-weight:800; letter-spacing:1px; font-size:18px; }
+  .contact-btn {
+    background:#111; color:#fff; padding:14px 26px;
+    border-radius:8px; font-weight:600; border:none; cursor:pointer;
+  }
 
-        <section id="about" class="section-block">
-            <h2>ABOUT ME</h2>
-            <p>Создаю дизайн-проекты различных направлений с августа 2024 года. За всё время было завершено более 100 успешных задач. Мои работы повышают визуал и узнаваемость продукта.</p>
-        </section>
+  /* HERO */
+  .hero { text-align:center; padding:30px 0 90px; }
+  .bird-placeholder {
+    width:280px; height:200px; margin:0 auto 10px;
+    border:2px dashed #ccc; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    color:#aaa; font-size:14px;
+  }
+  .hero-ghost {
+    font-size:42px; font-weight:800; color:#eee; margin-bottom:-18px;
+  }
+  .hero-title { font-size:54px; font-weight:800; }
+  .hero-sub { color:#888; margin-top:14px; font-size:16px; }
 
-        <section id="portfolio" class="section-block">
-            <h2>PORTFOLIO</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item"></div>
-                <div class="portfolio-item"></div>
-                <div class="portfolio-item"></div>
-                <div class="portfolio-item"></div>
-            </div>
-            <p>Сейчас здесь находятся лишь те работы, которые прошли определённый отбор. В скором времени будет пополнение. Посмотреть другие работы: t.me/newerzi</p>
-        </section>
+  /* FEATURES */
+  .features {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+    padding:40px 0 110px;
+  }
+  .feature {
+    background:#f3f3f3; border-radius:18px; padding:26px;
+  }
+  .feature-img {
+    background:#e7e7e7; border-radius:12px; height:150px; margin-bottom:24px;
+    display:flex; align-items:center; justify-content:center; color:#aaa;
+  }
+  .feature h3 { font-size:18px; margin-bottom:8px; }
+  .feature p { color:#888; font-size:14px; }
 
-        <section id="feedback" class="section-block">
-            <h2>FEEDBACK</h2>
-            <p>Положительная обратная связь от клиентов подтверждает, что мне можно доверять.</p>
-            <div class="feedback-items">
-                <div class="feedback-item">
-                    <p>Все отлично, хороший дизайн.</p>
-                    <span>• from funpay.com</span>
-                </div>
-                <div class="feedback-item">
-                    <p>Работает быстро, качественно, принял все мои капризы насчет правок. :)</p>
-                    <span>• from lolz.live</span>
-                </div>
-                <div class="feedback-item">
-                    <p>Хороший дизайнер, понял ТЗ, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. Рекомендую челика, работа за отзыв.</p>
-                    <span>• from telegram</span>
-                </div>
-            </div>
-            <p class="small-text">Прочие отзывы можно найти на указанных площадках</p>
-        </section>
+  /* WORKS */
+  .section-title { font-size:54px; font-weight:800; margin-bottom:40px; }
+  .section-title span { font-size:24px; color:#111; vertical-align:middle; }
+  .works {
+    display:grid; grid-template-columns:repeat(2,1fr); gap:28px;
+    padding-bottom:110px;
+  }
+  .work {
+    background:#f3f3f3; border-radius:18px; padding:26px; cursor:pointer;
+  }
+  .work-tag { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .dot { width:12px; height:12px; border-radius:3px; }
+  .work h3 { font-size:22px; margin-bottom:18px; }
+  .work-preview {
+    background:#e7e7e7; border-radius:12px; height:230px;
+    display:flex; align-items:center; justify-content:center; color:#aaa;
+  }
 
-        <section id="contact" class="section-block">
-            <h2>CONTACT</h2>
-            <div class="contact-items">
-                <a href="tg://resolve?domain=specfc" class="contact-item">Telegram: t.me/specfc</a>
-                <a href="https://lolz.live" class="contact-item">Lolzteam: lolz.live/specific/</a>
-                <a href="mailto:newerzi.design@outlook.com" class="contact-item">Mail: newerzi.design@outlook.com</a>
-            </div>
-        </section>
-    </main>
+  /* REVIEWS */
+  .reviews {
+    display:grid; grid-template-columns:repeat(2,1fr); gap:24px;
+    padding-bottom:30px;
+  }
+  .review { background:#f7f7f7; border-radius:14px; padding:24px; }
+  .review-head { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+  .review-dot { width:10px; height:10px; border-radius:50%; background:#7c5cff; }
+  .review-name { font-weight:700; }
+  .review-name span { color:#aaa; font-weight:400; }
+  .review p { color:#333; }
+  .more { text-align:center; color:#aaa; padding:30px 0 110px; }
 
-    <!-- Футер можно добавить при необходимости -->
-</body>
-</html>
+  /* CONTACT */
+  .contact-block {
+    display:grid; grid-template-columns:1fr 1fr; gap:40px;
+    align-items:start; padding-bottom:80px;
+  }
+  .contact-block h2 { font-size:54px; font-weight:800; }
+  .contact-buttons { display:flex; flex-direction:column; gap:18px; }
+  .btn-dark, .btn-light {
+    border:none; border-radius:12px; padding:24px;
+    font-size:18px; font-weight:700; cursor:pointer;
+  }
+  .btn-dark { background:#111; color:#fff; }
+  .btn-light { background:#eee; color:#111; }
+
+  @media(max-width:800px){
+    .features,.works,.reviews,.contact-block{grid-template-columns:1fr;}
+    .h
