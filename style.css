@@ -151,8 +151,8 @@ body {
 }
 
 .collab-btn.telegram {
-  background-color: #000 !important;
-  color: #FFF !important;
+  background-color: #000;
+  color: #FFF;
   font-weight: 700;
 }
 
