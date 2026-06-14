@@ -155,10 +155,9 @@ body {
   font-weight: 700;
 }
 /* пункт 6: своя svg-иконка телеги, а не дефолтная */
-.collab-btn.telegram svg {
-  width: 22px;
-  height: 22px;
-  fill: #FFF;
+.collab-btn.tg img {
+    width: 22px;
+    height: 22px;
 }
 
 /* Lolzteam — Regular */
