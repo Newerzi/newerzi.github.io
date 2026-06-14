@@ -4,681 +4,176 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEWERZI — Дизайн</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-@font-face {
-    font-family: 'Neutral Face';
-    src: url('fonts/NeutralFace-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Neutral Face';
-    src: url('fonts/NeutralFace.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-:root {
-    --black: #000000;
-    --white: #FFFFFF;
-    --container: 1280px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Manrope', sans-serif;
-    background: var(--white);
-    color: var(--black);
-    -webkit-font-smoothing: antialiased;
-}
-
-.container {
-    width: 100%;
-    max-width: var(--container);
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-/* ===== ШАПКА ===== */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    padding: 32px 0;
-    background: var(--white);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.header.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-20px);
-}
-
-.header__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: var(--container);
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-.logo {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 24px;
-    letter-spacing: -0.5px;
-    color: var(--black);
-}
-
-.contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--black);
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    padding: 14px 34px;
-    border-radius: 12px;
-    font-size: 16px;
-    text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.contact-btn:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-}
-
-.contact-btn .c-text {
-    font-family: 'Neutral Face', sans-serif;
-    font-weight: 700;
-}
-
-.contact-btn .c-at {
-    font-family: 'Neutral Face', sans-serif;
-    font-weight: 400;
-}
-
-/* ===== HERO ===== */
-.hero {
-    padding-top: 160px;
-    text-align: center;
-}
-
-.hero__bird {
-    width: 280px;
-    max-width: 60%;
-    margin: 0 auto 40px;
-    display: block;
-}
-
-.hero__specific {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 44px;
-    color: rgba(0, 0, 0, 0.08);
-    line-height: 1;
-    margin-bottom: -18px;
-}
-
-.hero__title {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 64px;
-    letter-spacing: -1px;
-    line-height: 1.1;
-    margin-bottom: 14px;
-}
-
-.hero__subtitle {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    color: var(--black);
-}
-
-.hero__subtitle .word {
-    opacity: 0.5;
-}
-
-.hero__subtitle .sep {
-    opacity: 0.25;
-    margin: 0 8px;
-}
-
-/* ===== ПЛАШКИ (features) ===== */
-.features {
-    padding-top: 120px;
-}
-
-.features__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-}
-
-.feature-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-    display: flex;
-    flex-direction: column;
-}
-
-.feature-card__img-wrap {
-    width: 100%;
-    aspect-ratio: 16 / 11;
-    background: #f4f4f4;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 26px;
-    overflow: hidden;
-}
-
-.feature-card__img-wrap img {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
-}
-
-.feature-card__title {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.feature-card__subtitle {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    color: rgba(0, 0, 0, 0.5);
-    line-height: 1.4;
-}
-
-/* ===== СЕКЦИИ / ЗАГОЛОВКИ ===== */
-.section {
-    padding-top: 160px;
-}
-
-.section__head {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 48px;
-}
-
-.section__title {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 56px;
-    letter-spacing: -1.5px;
-    line-height: 1;
-}
-
-.section__years {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 22px;
-    color: var(--black);
-    white-space: nowrap;
-}
-
-/* ===== ПОСЛЕДНИЕ РАБОТЫ ===== */
-.works__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-}
-
-.work-card {
-    display: block;
-    border-radius: 22px;
-    overflow: hidden;
-    text-decoration: none;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.work-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-}
-
-.work-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ===== ОТЗЫВЫ ===== */
-.reviews__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-}
-
-.review-btn {
-    display: block;
-    text-align: left;
-    width: 100%;
-    background: var(--white);
-    border: none;
-    cursor: pointer;
-    border-radius: 18px;
-    padding: 26px 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-    text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.review-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.1);
-}
-
-.review-btn__head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-}
-
-.review-btn__dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #8b5cf6;
-    flex-shrink: 0;
-}
-
-.review-btn__name {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-}
-
-.review-btn__name .muted {
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.5);
-}
-
-.review-btn__text {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--black);
-}
-
-.reviews__more {
-    display: block;
-    width: max-content;
-    margin: 44px auto 0;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.5);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.reviews__more:hover {
-    color: var(--black);
-}
-
-/* ===== СОТРУДНИЧЕСТВО ===== */
-.collab__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-}
-
-.collab__title {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 56px;
-    letter-spacing: -1.5px;
-    line-height: 1;
-}
-
-.collab__buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.collab-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 16px;
-    padding: 26px;
-    text-decoration: none;
-    text-align: center;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.collab-btn:hover {
-    transform: translateY(-3px);
-}
-
-.collab-btn--tg {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-}
-
-.collab-btn--tg img {
-    width: 22px;
-    height: 22px;
-}
-
-.collab-btn--light {
-    background: #f4f4f4;
-    color: var(--black);
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-}
-
-/* ===== ПОДВАЛ ===== */
-.footer {
-    margin-top: 160px;
-    padding: 80px 0;
-    background: var(--black);
-    color: var(--white);
-}
-
-.footer__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-}
-
-.footer__logo {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 28px;
-    color: var(--white);
-}
-
-.footer__contact {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--white);
-    color: var(--black);
-    border-radius: 12px;
-    padding: 14px 34px;
-    text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.footer__contact:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-}
-
-.footer__contact .c-text {
-    font-family: 'Neutral Face', sans-serif;
-    font-weight: 700;
-}
-
-.footer__contact .c-at {
-    font-family: 'Neutral Face', sans-serif;
-    font-weight: 400;
-}
-
-.footer__copy {
-    width: 100%;
-    margin-top: 32px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.4);
-}
-
-/* ===== АДАПТИВ ===== */
-@media (max-width: 1024px) {
-    .hero__title { font-size: 48px; }
-    .section__title,
-    .collab__title { font-size: 42px; }
-    .features__grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 768px) {
-    .container,
-    .header__inner { padding: 0 20px; }
-    .works__grid,
-    .reviews__grid,
-    .collab__grid { grid-template-columns: 1fr; }
-    .hero__title { font-size: 36px; }
-    .hero__specific { font-size: 30px; margin-bottom: -12px; }
-    .section__head { flex-wrap: wrap; gap: 10px; }
-    .section__title,
-    .collab__title { font-size: 34px; }
-    .section { padding-top: 100px; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- ШАПКА -->
 <header class="header" id="header">
-    <div class="header__inner">
-        <a href="#" class="header__logo">NEWERZI</a>
-        <a href="#footer" class="header__contact">
-            <span class="c-text">CONTACT</span>
-            <span class="c-at">@</span>
-        </a>
-    </div>
+  <span class="logo">NEWERZI</span>
+  <button class="contact-btn" id="contactBtn">
+    <span class="c-text">CONTACT</span> <span class="c-at">@</span>
+  </button>
 </header>
 
-<main>
-    <!-- HERO -->
-    <section class="hero container">
-        <div class="hero__bird">
-            <img src="images/bird.png" alt="bird">
-        </div>
+<!-- ПТИЧКА -->
+<section class="bird-section">
+  <img src="images/bird.png" alt="bird">
+</section>
 
-        <p class="hero__specific">специфичный</p>
+<!-- ХЕРО-ТЕКСТ -->
+<section class="hero-text">
+  <div class="hero-specific">специфичный</div>
+  <div class="hero-title">新时代 ДИЗАЙН.</div>
+  <div class="hero-sub">
+    <span class="word">веб-дизайн</span>
+    <span class="bar">|</span>
+    <span class="word">моушн-дизайн</span>
+    <span class="bar">|</span>
+    <span class="word">графический дизайн</span>
+  </div>
+</section>
 
-        <h1 class="hero__title">
-            <span class="hero__title-jp">新时代</span> ДИЗАЙН.
-        </h1>
+<div class="container">
 
-        <p class="hero__tags">
-            веб-дизайн <span class="bar">|</span>
-            моушн-дизайн <span class="bar">|</span>
-            графический дизайн
-        </p>
-    </section>
-
-    <!-- ПЛАШКИ -->
-    <section class="features container">
-        <div class="features__grid">
-
-            <div class="feature-card">
-                <div class="feature-card__img-wrap">
-                    <img src="images/character1.png" alt="">
-                </div>
-                <h3 class="feature-card__title">2 года опыта</h3>
-                <p class="feature-card__subtitle">Создаю проекты с августа 2024 года.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-card__img-wrap">
-                    <img src="images/character2.png" alt="">
-                </div>
-                <h3 class="feature-card__title">Понимание работы</h3>
-                <p class="feature-card__subtitle">Завершено более 100 успешных задач.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-card__img-wrap">
-                    <img src="images/character3.png" alt="">
-                </div>
-                <h3 class="feature-card__title">Доверие клиентов</h3>
-                <p class="feature-card__subtitle">Положительные отзывы о качестве.</p>
-            </div>
-
-        </div>
-    </section>
+  <!-- ПЛАШКИ -->
+  <section class="cards">
+    <div class="card">
+      <div class="card-img"><img src="images/character1.png" alt=""></div>
+      <div class="card-title">2 года опыта</div>
+      <div class="card-sub">Создаю проекты с августа 2024 года.</div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="images/character2.png" alt=""></div>
+      <div class="card-title">Понимание работы</div>
+      <div class="card-sub">Завершено более 100 успешных задач.</div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="images/character3.png" alt=""></div>
+      <div class="card-title">Доверие клиентов</div>
+      <div class="card-sub">Положительные отзывы о качестве.</div>
+    </div>
+  </section>
 
 <!-- ПОСЛЕДНИЕ РАБОТЫ -->
-    <section class="section container">
-        <div class="section__head">
-            <h2 class="section__title">Последние работы</h2>
-            <span class="section__years">[ 2024 - 2026 ]</span>
+  <section class="section">
+    <h2 class="section-title">Последние работы <span class="years">[ 2024 - 2026 ]</span></h2>
+
+    <div class="works">
+      <a class="work" href="images/works/w1.png" target="_blank">
+        <div class="work-head">
+          <span class="work-dot" style="background:#2f6bff;"></span>
+          <span class="work-name">SweetSpot</span>
         </div>
+        <div class="work-type">Приложение <span class="amp">&amp;</span> Логотип</div>
+        <img src="images/work1.png" alt="">
+      </a>
 
-        <div class="works__grid">
-
-            <a href="images/works/w1.html" class="work-card">
-                <img src="images/work1.png" alt="SweetSpot">
-            </a>
-
-            <a href="images/works/w2.html" class="work-card">
-                <img src="images/work2.png" alt="Gambling Circus">
-            </a>
-
-            <a href="images/works/w3.html" class="work-card">
-                <img src="images/work3.png" alt="SweetSpot">
-            </a>
-
-            <a href="images/works/w4.html" class="work-card">
-                <img src="images/work4.png" alt="Gambling Circus">
-            </a>
-
+      <a class="work" href="images/works/w2.png" target="_blank">
+        <div class="work-head">
+          <span class="work-dot" style="background:#e02424;"></span>
+          <span class="work-name">Gambling Circus</span>
         </div>
-    </section>
+        <div class="work-type">Сайт <span class="amp">&amp;</span> Логотип</div>
+        <img src="images/work2.png" alt="">
+      </a>
 
-    <!-- ОТЗЫВЫ -->
-    <section class="section container">
-        <h2 class="section__title">Отзывы клиентов</h2>
-
-        <div class="reviews__grid">
-
-            <a href="https://zelenka.guru/threads/8181867/" target="_blank" class="review-btn">
-                <div class="review-btn__head">
-                    <span class="review-btn__dot"></span>
-                    <span class="review-btn__name">Whiteness VPN <span class="muted">/ Lolzteam</span></span>
-                </div>
-                <p class="review-btn__text">Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</p>
-            </a>
-
-            <a href="https://zelenka.guru/threads/8181867/" target="_blank" class="review-btn">
-                <div class="review-btn__head">
-                    <span class="review-btn__dot"></span>
-                    <span class="review-btn__name">Makhkets VPN <span class="muted">/ Lolzteam</span></span>
-                </div>
-                <p class="review-btn__text">Работает быстро, качественно, принял все мои капризы насчет правок. :)</p>
-            </a>
-
-            <a href="https://zelenka.guru/threads/8181867/" target="_blank" class="review-btn">
-                <div class="review-btn__head">
-                    <span class="review-btn__dot"></span>
-                    <span class="review-btn__name">Whiteness VPN <span class="muted">/ Lolzteam</span></span>
-                </div>
-                <p class="review-btn__text">Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</p>
-            </a>
-
-            <a href="https://zelenka.guru/threads/8181867/" target="_blank" class="review-btn">
-                <div class="review-btn__head">
-                    <span class="review-btn__dot"></span>
-                    <span class="review-btn__name">Makhkets VPN <span class="muted">/ Lolzteam</span></span>
-                </div>
-                <p class="review-btn__text">Работает быстро, качественно, принял все мои капризы насчет правок. :)</p>
-            </a>
-
+      <a class="work" href="images/works/w3.png" target="_blank">
+        <div class="work-head">
+          <span class="work-dot" style="background:#2f6bff;"></span>
+          <span class="work-name">SweetSpot</span>
         </div>
+        <div class="work-type">Приложение <span class="amp">&amp;</span> Логотип</div>
+        <img src="images/work3.png" alt="">
+      </a>
 
-        <a href="https://zelenka.guru/threads/8181867/" target="_blank" class="reviews__more">Посмотреть другие</a>
-    </section>
-
-<!-- СОТРУДНИЧЕСТВО -->
-    <section class="section container">
-        <div class="collab__grid">
-
-            <h2 class="collab__title">Сотрудничество</h2>
-
-            <div class="collab__buttons">
-                <a href="https://t.me/specfc" target="_blank" class="collab-btn collab-btn--tg">
-                    <span>Telegram</span>
-                    <img src="images/logo_tg.svg" alt="" class="collab-btn__tg-icon">
-                </a>
-
-                <a href="https://zelenka.guru/members/3637473/" target="_blank" class="collab-btn collab-btn--light">
-                    <span>Lolzteam →</span>
-                </a>
-
-                <a href="https://t.me/newerzi" target="_blank" class="collab-btn collab-btn--light">
-                    <span>Portfolio →</span>
-                </a>
-            </div>
-
+      <a class="work" href="images/works/w4.png" target="_blank">
+        <div class="work-head">
+          <span class="work-dot" style="background:#e02424;"></span>
+          <span class="work-name">Gambling Circus</span>
         </div>
-    </section>
-</main>
-
-<!-- ПОДВАЛ -->
-<footer class="footer" id="footer">
-    <div class="container footer__inner">
-        <span class="footer__logo">NEWERZI</span>
-        <a href="https://t.me/specfc" target="_blank" class="footer__contact">
-            <span class="c-text">CONTACT</span>
-            <span class="c-at">@</span>
-        </a>
-        <span class="footer__copy"> 2024 - 2026 NEWERZI. Все права защищены.</span>
+        <div class="work-type">Сайт <span class="amp">&amp;</span> Логотип</div>
+        <img src="images/work4.png" alt="">
+      </a>
     </div>
-</footer>
+  </section>
+
+  <!-- ОТЗЫВЫ -->
+  <section class="section">
+    <h2 class="section-title">Отзывы клиентов</h2>
+
+    <div class="reviews">
+      <a class="review" href="https://zelenka.guru/threads/8181867/" target="_blank">
+        <div class="review-head">
+          <span class="review-avatar"></span>
+          <span class="review-name"><span class="n-bold">Whiteness VPN</span> <span class="n-sub">/ Lolzteam</span></span>
+        </div>
+        <div class="review-text">Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</div>
+      </a>
+
+      <a class="review" href="https://zelenka.guru/threads/8181867/" target="_blank">
+        <div class="review-head">
+          <span class="review-avatar"></span>
+          <span class="review-name"><span class="n-bold">Makhkets VPN</span> <span class="n-sub">/ Lolzteam</span></span>
+        </div>
+        <div class="review-text">Работает быстро, качественно, принял все мои капризы насчет правок. :)</div>
+      </a>
+
+      <a class="review" href="https://zelenka.guru/threads/8181867/" target="_blank">
+        <div class="review-head">
+          <span class="review-avatar"></span>
+          <span class="review-name"><span class="n-bold">Whiteness VPN</span> <span class="n-sub">/ Lolzteam</span></span>
+        </div>
+        <div class="review-text">Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</div>
+      </a>
+
+      <a class="review" href="https://zelenka.guru/threads/8181867/" target="_blank">
+        <div class="review-head">
+          <span class="review-avatar"></span>
+          <span class="review-name"><span class="n-bold">Makhkets VPN</span> <span class="n-sub">/ Lolzteam</span></span>
+        </div>
+        <div class="review-text">Работает быстро, качественно, принял все мои капризы насчет правок. :)</div>
+      </a>
+    </div>
+
+    <div class="reviews-more">Посмотреть другие</div>
+  </section>
+
+<!-- СОТРУДНИЧЕСТВО (ПОДВАЛ) -->
+  <footer class="collab" id="footer">
+    <h2 class="section-title">Сотрудничество</h2>
+
+    <div class="collab-buttons">
+      <a class="collab-btn tg" href="https://t.me/specfc" target="_blank">
+        Telegram <img src="images/logo_tg.svg" alt="">
+      </a>
+      <a class="collab-btn gray" href="https://zelenka.guru/specific/" target="_blank">
+        Lolzteam &rarr;
+      </a>
+      <a class="collab-btn gray" href="https://t.me/newerzi" target="_blank">
+        Portfolio &rarr;
+      </a>
+    </div>
+  </footer>
+
+</div><!-- /container -->
 
 <script>
-    const header = document.getElementById('header');
-    const footer = document.getElementById('footer');
+  // кнопка CONTACT @ ведёт в подвал
+  document.getElementById('contactBtn').addEventListener('click', function () {
+    document.getElementById('footer').scrollIntoView({ behavior: 'smooth' });
+  });
 
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                header.classList.add('header--hidden');
-            } else {
-                header.classList.remove('header--hidden');
-            }
-        });
-    }, { threshold: 0.05 });
-
-    observer.observe(footer);
+  // шапка исчезает при достижении подвала
+  const header = document.getElementById('header');
+  const footer = document.getElementById('footer');
+  const obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      header.style.opacity     = e.isIntersecting ? '0' : '1';
+      header.style.pointerEvents = e.isIntersecting ? 'none' : 'auto';
+    });
+  }, { threshold: 0.15 });
+  obs.observe(footer);
 </script>
 
 </body>
