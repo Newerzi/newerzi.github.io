@@ -147,21 +147,19 @@ body {
   border-radius: 12px;
   text-decoration: none;
   cursor: pointer;
-  overflow: hidden;        /* подстраховка: иконка не вылезет из кнопки */
+  overflow: hidden;
 }
 
 .collab-btn.telegram {
-  background: #000;
-  color: #FFF;
+  background-color: #000 !important;
+  color: #FFF !important;
   font-weight: 700;
 }
 
-.collab-btn img {
-  width: 22px !important;
-  height: 22px !important;
-  flex-shrink: 0;
-  display: block;
-  object-fit: contain;
+.collab-btn.secondary {
+  background-color: #F2F2F2;
+  color: #000;
+  font-weight: 400;
 }
 
 /* Lolzteam — Regular */
