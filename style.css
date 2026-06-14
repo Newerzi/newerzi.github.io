@@ -128,7 +128,7 @@ body {
 .see-more { font-weight: 500; color: rgba(0,0,0,0.5); text-align: center; } /* Medium 50% */
 
 /* ===== СОТРУДНИЧЕСТВО ===== */
-.collab { padding: 80px 48px; }
+.collab { padding: 80px 48px 180px; }
 
 .collab-buttons {
   display: flex;
