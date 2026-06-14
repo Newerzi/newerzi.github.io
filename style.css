@@ -23,16 +23,16 @@ body {
 /* ===== ШАПКА (пункт 1: шире, ближе к краям, белый фон) ===== */
 .header {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
-    box-sizing: border-box;
-    padding: 24px 48px;
+    background: #FFF;          ← ДОБАВЬ ЭТУ СТРОКУ
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: #FFF;
+    justify-content: space-between;
+    padding: 28px 80px;
     z-index: 1000;
-    transition: opacity .3s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .header.hidden { opacity: 0; pointer-events: none; }
 
