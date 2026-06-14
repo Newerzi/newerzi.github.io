@@ -13,91 +13,154 @@
   }
   a { text-decoration:none; color:inherit; }
 
-  /* HEADER */
-  header {
-    display:flex; justify-content:space-between; align-items:center;
-    padding:36px 0;
-  }
+  header { display:flex; justify-content:space-between; align-items:center; padding:36px 0; }
   .logo { font-weight:800; letter-spacing:1px; font-size:18px; }
-  .contact-btn {
-    background:#111; color:#fff; padding:14px 26px;
-    border-radius:8px; font-weight:600; border:none; cursor:pointer;
-  }
+  .contact-btn { background:#111; color:#fff; padding:14px 26px; border-radius:8px; font-weight:600; border:none; cursor:pointer; }
 
-  /* HERO */
   .hero { text-align:center; padding:30px 0 90px; }
-  .bird-placeholder {
-    width:280px; height:200px; margin:0 auto 10px;
-    border:2px dashed #ccc; border-radius:12px;
-    display:flex; align-items:center; justify-content:center;
-    color:#aaa; font-size:14px;
-  }
-  .hero-ghost {
-    font-size:42px; font-weight:800; color:#eee; margin-bottom:-18px;
-  }
+  .bird-placeholder { width:280px; height:200px; margin:0 auto 10px; border:2px dashed #ccc; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#aaa; font-size:14px; }
+  .hero-ghost { font-size:42px; font-weight:800; color:#eee; margin-bottom:-18px; }
   .hero-title { font-size:54px; font-weight:800; }
   .hero-sub { color:#888; margin-top:14px; font-size:16px; }
 
-  /* FEATURES */
-  .features {
-    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
-    padding:40px 0 110px;
-  }
-  .feature {
-    background:#f3f3f3; border-radius:18px; padding:26px;
-  }
-  .feature-img {
-    background:#e7e7e7; border-radius:12px; height:150px; margin-bottom:24px;
-    display:flex; align-items:center; justify-content:center; color:#aaa;
-  }
+  .features { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; padding:40px 0 110px; }
+  .feature { background:#f3f3f3; border-radius:18px; padding:26px; }
+  .feature-img { background:#e7e7e7; border-radius:12px; height:150px; margin-bottom:24px; display:flex; align-items:center; justify-content:center; color:#aaa; }
   .feature h3 { font-size:18px; margin-bottom:8px; }
   .feature p { color:#888; font-size:14px; }
 
-  /* WORKS */
   .section-title { font-size:54px; font-weight:800; margin-bottom:40px; }
-  .section-title span { font-size:24px; color:#111; vertical-align:middle; }
-  .works {
-    display:grid; grid-template-columns:repeat(2,1fr); gap:28px;
-    padding-bottom:110px;
-  }
-  .work {
-    background:#f3f3f3; border-radius:18px; padding:26px; cursor:pointer;
-  }
+  .section-title span { font-size:24px; vertical-align:middle; }
+  .works { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; padding-bottom:110px; }
+  .work { background:#f3f3f3; border-radius:18px; padding:26px; cursor:pointer; }
   .work-tag { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
   .dot { width:12px; height:12px; border-radius:3px; }
   .work h3 { font-size:22px; margin-bottom:18px; }
-  .work-preview {
-    background:#e7e7e7; border-radius:12px; height:230px;
-    display:flex; align-items:center; justify-content:center; color:#aaa;
-  }
+  .work-preview { background:#e7e7e7; border-radius:12px; height:230px; display:flex; align-items:center; justify-content:center; color:#aaa; }
 
-  /* REVIEWS */
-  .reviews {
-    display:grid; grid-template-columns:repeat(2,1fr); gap:24px;
-    padding-bottom:30px;
-  }
+  .reviews { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; padding-bottom:30px; }
   .review { background:#f7f7f7; border-radius:14px; padding:24px; }
   .review-head { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
   .review-dot { width:10px; height:10px; border-radius:50%; background:#7c5cff; }
   .review-name { font-weight:700; }
   .review-name span { color:#aaa; font-weight:400; }
   .review p { color:#333; }
-  .more { text-align:center; color:#aaa; padding:30px 0 110px; }
+  .more { text-align:center; color:#aaa; padding:30px 0 110px; cursor:pointer; }
 
-  /* CONTACT */
-  .contact-block {
-    display:grid; grid-template-columns:1fr 1fr; gap:40px;
-    align-items:start; padding-bottom:80px;
-  }
+  .contact-block { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; padding-bottom:80px; }
   .contact-block h2 { font-size:54px; font-weight:800; }
   .contact-buttons { display:flex; flex-direction:column; gap:18px; }
-  .btn-dark, .btn-light {
-    border:none; border-radius:12px; padding:24px;
-    font-size:18px; font-weight:700; cursor:pointer;
-  }
+  .btn-dark, .btn-light { border:none; border-radius:12px; padding:24px; font-size:18px; font-weight:700; cursor:pointer; text-align:center; }
   .btn-dark { background:#111; color:#fff; }
   .btn-light { background:#eee; color:#111; }
 
   @media(max-width:800px){
-    .features,.works,.reviews,.contact-block{grid-template-columns:1fr;}
-    .h
+    body { padding:0 20px; }
+    .features, .works, .reviews, .contact-block { grid-template-columns:1fr; }
+    .hero-title, .section-title { font-size:38px; }
+    .contact-block h2 { font-size:38px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">NEWERZI</div>
+    <button class="contact-btn">CONTACT @</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bird-placeholder">[ птичка-изображение ]</div>
+    <div class="hero-ghost">специфичный</div>
+    <h1 class="hero-title">新时代 ДИЗАЙН.</h1>
+    <p class="hero-sub">веб-дизайн | моушн-дизайн | графический дизайн</p>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature">
+      <div class="feature-img">[ img ]</div>
+      <h3>2 года опыта</h3>
+      <p>Создаю проекты с августа 2024 года.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-img">[ img ]</div>
+      <h3>Понимание работы</h3>
+      <p>Завершено более 100 успешных задач.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-img">[ img ]</div>
+      <h3>Доверие клиентов</h3>
+      <p>Положительные отзывы о качестве.</p>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <h2 class="section-title">Последние работы <span>[ 2024–2026 ]</span></h2>
+  <section class="works">
+    <div class="work">
+      <div class="work-tag"><span class="dot" style="background:#2563ff"></span> SweetSpot</div>
+      <h3>Приложение &amp; Логотип</h3>
+      <div class="work-preview">[ превью работы ]</div>
+    </div>
+    <div class="work">
+      <div class="work-tag"><span class="dot" style="background:#e11d2a"></span> Gambling Circus</div>
+      <h3>Сайт &amp; Логотип</h3>
+      <div class="work-preview">[ превью работы ]</div>
+    </div>
+    <div class="work">
+      <div class="work-tag"><span class="dot" style="background:#2563ff"></span> SweetSpot</div>
+      <h3>Приложение &amp; Логотип</h3>
+      <div class="work-preview">[ превью работы ]</div>
+    </div>
+    <div class="work">
+      <div class="work-tag"><span class="dot" style="background:#e11d2a"></span> Gambling Circus</div>
+      <h3>Сайт &amp; Логотип</h3>
+      <div class="work-preview">[ превью работы ]</div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <h2 class="section-title">Отзывы клиентов</h2>
+  <section class="reviews">
+    <div class="review">
+      <div class="review-head"><span class="review-dot"></span>
+        <div class="review-name">Whiteness VPN <span>/ Lolzteam</span></div>
+      </div>
+      <p>Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</p>
+    </div>
+    <div class="review">
+      <div class="review-head"><span class="review-dot"></span>
+        <div class="review-name">Makhkets VPN <span>/ Lolzteam</span></div>
+      </div>
+      <p>Работает быстро, качественно, принял все мои капризы насчет правок. :)</p>
+    </div>
+    <div class="review">
+      <div class="review-head"><span class="review-dot"></span>
+        <div class="review-name">Whiteness VPN <span>/ Lolzteam</span></div>
+      </div>
+      <p>Срабатываемся уже два раза, оформил два моих проекта! Сделал все четко и круто!</p>
+    </div>
+    <div class="review">
+      <div class="review-head"><span class="review-dot"></span>
+        <div class="review-name">Makhkets VPN <span>/ Lolzteam</span></div>
+      </div>
+      <p>Работает быстро, качественно, принял все мои капризы насчет правок. :)</p>
+    </div>
+  </section>
+  <div class="more">Посмотреть другие</div>
+
+  <!-- CONTACT -->
+  <section class="contact-block">
+    <h2>Сотрудничество</h2>
+    <div class="contact-buttons">
+      <button class="btn-dark">Telegram </button>
+      <button class="btn-light">Lolzteam →</button>
+      <button class="btn-light">Portfolio →</button>
+    </div>
+  </section>
+
+</body>
+</html>
