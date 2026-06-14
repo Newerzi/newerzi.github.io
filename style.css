@@ -37,15 +37,15 @@ a { text-decoration: none; color: inherit; }
 /* ===== ШАПКА (фиксированная) ===== */
 .header {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 40px;
-  background: #FFF;
-  z-index: 1000;
-  transition: opacity .3s ease, transform .3s ease;
+  padding: 24px 40px;        /* было больше — теперь ближе к краям */
+  background: #FFFFFF;        /* сплошной белый фон */
 }
 .header.hidden {
   opacity: 0;
