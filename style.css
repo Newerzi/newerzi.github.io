@@ -22,16 +22,17 @@ body {
 
 /* ===== ШАПКА (пункт 1: шире, ближе к краям, белый фон) ===== */
 .header {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  padding: 24px 48px;            /* ближе к краям */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #FFF;              /* белый фон, не сливается */
-  z-index: 1000;
-  transition: opacity .3s ease;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFF;
+    z-index: 1000;
+    transition: opacity .3s ease;
 }
 .header.hidden { opacity: 0; pointer-events: none; }
 
