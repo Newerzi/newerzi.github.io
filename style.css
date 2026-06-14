@@ -5,302 +5,176 @@
   font-family: 'Neutral Face';
   src: url('fonts/NeutralFace-Bold.otf') format('opentype');
   font-weight: 700;
-  font-style: normal;
 }
 @font-face {
   font-family: 'Neutral Face';
-  src: url('fonts/NeutralFace.otf') format('opentype');
+  src: url('fonts/NeutralFace-Regular.otf') format('opentype');
   font-weight: 400;
-  font-style: normal;
 }
 
-/* ===== БАЗА / СБРОС ===== */
+/* ===== БАЗА ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Manrope', sans-serif;
   background: #FFF;
   color: #000;
-  overflow-x: hidden;
 }
 
-a { text-decoration: none; color: inherit; }
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-/* ===== ШАПКА (фиксированная) ===== */
+/* ===== ШАПКА (пункт 1: шире, ближе к краям, белый фон) ===== */
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 24px 48px;            /* ближе к краям */
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 24px 40px;        /* было больше — теперь ближе к краям */
-  background: #FFFFFF;        /* сплошной белый фон */
+  align-items: center;
+  background: #FFF;              /* белый фон, не сливается */
+  z-index: 1000;
+  transition: opacity .3s ease;
 }
-.header.hidden {
-  opacity: 0;
-  transform: translateY(-100%);
-  pointer-events: none;
-}
+.header.hidden { opacity: 0; pointer-events: none; }
 
-/* Логотип — НЕ кликабельный */
 .logo {
   font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: 24px;
-  color: #000;
-  cursor: default;
-  user-select: none;
+  font-weight: 800;             /* ExtraBold */
+  font-size: 22px;
 }
 
-/* Кнопка Contact @ — чуть длиннее логотипа */
 .contact-btn {
-  font-family: 'Neutral Face', sans-serif;
+  font-size: 24px;              /* чуть больше логотипа по длине */
+  padding: 12px 28px;
   background: #000;
   color: #FFF;
   border: none;
-  border-radius: 10px;
-  padding: 14px 32px;
-  font-size: 15px;
+  border-radius: 8px;
   cursor: pointer;
-  letter-spacing: .5px;
 }
-.contact-btn .c-text { font-weight: 700; }   /* "Contact" Bold */
-.contact-btn .c-at   { font-weight: 400; }   /* "@" Regular */
+.contact-btn .label { font-family: 'Neutral Face'; font-weight: 700; }  /* Contact Bold */
+.contact-btn .at    { font-family: 'Neutral Face'; font-weight: 400; }  /* @ Regular */
 
 /* ===== ПТИЧКА ===== */
-.bird-section {
-  padding-top: 160px;
-  text-align: center;
-}
-.bird-section img {
-  max-width: 340px;
-  width: 100%;
-  height: auto;
-}
+.bird { text-align: center; padding-top: 140px; }
+.bird img { max-width: 320px; }
 
-/* ===== ХЕРО-ТЕКСТ ===== */
-.hero-text {
+/* ===== ЗАГОЛОВОК ===== */
+.specific-word {
+  font-weight: 700;             /* Bold */
+  color: rgba(0,0,0,0.08);      /* чёрная прозрачность 8% */
   text-align: center;
-  margin-top: -20px;
-  position: relative;
+  font-size: 48px;
 }
-.hero-specific {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
+.title-jp {
+  font-weight: 800;             /* ExtraBold */
+  text-align: center;
   font-size: 64px;
-  color: rgba(0,0,0,0.08);   /* чёрный 8% */
-  line-height: .9;
 }
-.hero-title {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: 56px;
-  color: #000;
-  margin-top: -10px;
-}
-.hero-sub {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  margin-top: 14px;
-}
-.hero-sub .word { color: rgba(0,0,0,0.5); }   /* основные слова 50% */
-.hero-sub .bar  { color: rgba(0,0,0,0.25); }  /* палочки 25% */
 
-/* ===== ПЛАШКИ ===== */
+/* ===== КАТЕГОРИИ (пункт 2: веб-дизайн на месте) ===== */
+.categories {
+  font-weight: 400;             /* Regular */
+  text-align: center;
+  margin-top: 12px;
+}
+.cat-word { color: rgba(0,0,0,0.5); }   /* основные слова 50% */
+.cat-sep  { color: rgba(0,0,0,0.25); margin: 0 8px; } /* палочки 25% */
+
+/* ===== ПЛАШКИ КАЧЕСТВ (пункт 3) ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 120px;
+  gap: 24px;
+  padding: 80px 48px;
 }
 .card {
-  background: #f4f4f4;
+  background: #F5F5F5;
   border-radius: 16px;
-  padding: 24px;
+  padding: 32px;
 }
-.card-img {
-  background: #ededed;
-  border-radius: 12px;
-  height: 170px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-.card-img img { max-width: 70%; max-height: 80%; }
-.card-title {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  font-size: 17px;
-}
-.card-sub {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  color: rgba(0,0,0,0.5);
-  margin-top: 6px;
-}
+.card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 24px; }
+.card-title    { font-weight: 700; font-size: 20px; }          /* Bold */
+.card-subtitle { font-weight: 600; color: rgba(0,0,0,0.5); }   /* Semibold 50% */
 
-/* ===== ОБЩИЕ ЗАГОЛОВКИ СЕКЦИЙ ===== */
-.section-title {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: 64px;
-  display: flex;
-  align-items: baseline;   /* год по базовой линии слова */
-  gap: 20px;
-}
-.section-title .years {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 500;        /* Medium */
-  font-size: 24px;
-  color: #000;
-}
+/* ===== ЗАГОЛОВКИ СЕКЦИЙ ===== */
+.section-title { font-weight: 800; font-size: 48px; padding: 0 48px; }  /* ExtraBold */
+.work-year { font-weight: 500; }                                       /* Medium */
 
-/* отступы между большими секциями */
-.section { margin-top: 160px; }
-
-/* ===== ПОСЛЕДНИЕ РАБОТЫ ===== */
+/* ===== ПОСЛЕДНИЕ РАБОТЫ (пункт 4: ведут на .png) ===== */
 .works {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-top: 50px;
+  gap: 24px;
+  padding: 40px 48px;
 }
-.work {
-  background: #f4f4f4;
-  border-radius: 16px;
-  padding: 24px;
-  cursor: pointer;
-  transition: transform .25s ease;
-  overflow: hidden;
-}
-.work:hover { transform: translateY(-6px); }
-.work-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.work-dot {
-  width: 14px; height: 14px;
-  border-radius: 4px;
-}
-.work-name {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-}
-.work-type {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  margin: 6px 0 18px;
-}
-.work-type .amp { font-weight: 400; color: rgba(0,0,0,0.4); }
-.work img {
-  width: 100%;
-  border-radius: 12px;
-  display: block;
-}
+.work img { width: 100%; border-radius: 16px; cursor: pointer; }
 
 /* ===== ОТЗЫВЫ ===== */
 .reviews {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 50px;
+  padding: 40px 48px;
 }
 .review {
-  background: #f4f4f4;
+  background: #F5F5F5;
   border-radius: 16px;
   padding: 24px;
   cursor: pointer;
-  transition: transform .25s ease;
 }
-.review:hover { transform: translateY(-4px); }
-.review-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-.review-avatar {
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: #8a2be2;
-}
-.review-name {
-  font-family: 'Manrope', sans-serif;
-  font-size: 15px;
-}
-.review-name .n-bold { font-weight: 700; }
-.review-name .n-sub  { font-weight: 600; color: rgba(0,0,0,0.5); }
-.review-text {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 500;        /* Medium */
-  font-size: 15px;
-  line-height: 1.4;
-}
-.reviews-more {
-  text-align: center;
-  margin-top: 40px;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 500;
-  font-size: 15px;
-  color: rgba(0,0,0,0.5);
-  cursor: pointer;
-}
+.review-name    { font-weight: 700; }                          /* Bold */
+.review-source  { font-weight: 600; color: rgba(0,0,0,0.5); }  /* SemiBold 50% */
+.review-text    { font-weight: 500; }                          /* Medium */
+.see-more { font-weight: 500; color: rgba(0,0,0,0.5); text-align: center; } /* Medium 50% */
 
-/* ===== СОТРУДНИЧЕСТВО (это подвал) ===== */
-.collab {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  align-items: start;
-  margin-top: 160px;
-  padding-bottom: 120px;
-}
+/* ===== СОТРУДНИЧЕСТВО ===== */
+.collab { padding: 80px 48px; }
+
 .collab-buttons {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
+  max-width: 360px;
 }
+
 .collab-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border-radius: 14px;
-  padding: 26px;
-  font-size: 22px;
-  font-family: 'Manrope', sans-serif;
-  transition: transform .2s ease;
+  padding: 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
 }
-.collab-btn:hover { transform: translateY(-3px); }
 
-/* Telegram — чёрная, Bold */
-.collab-btn.tg {
+/* Telegram — Manrope Bold, чёрная */
+.collab-btn.telegram {
   background: #000;
   color: #FFF;
   font-weight: 700;
 }
-.collab-btn.tg img { width: 22px; height: 22px; }
+/* пункт 6: своя svg-иконка телеги, а не дефолтная */
+.collab-btn.telegram svg {
+  width: 22px;
+  height: 22px;
+  fill: #FFF;
+}
 
-/* Lolzteam / Portfolio — серые, Regular */
-.collab-btn.gray {
-  background: #f4f4f4;
+/* Lolzteam — Regular */
+.collab-btn.lolzteam {
+  background: #F5F5F5;
   color: #000;
   font-weight: 400;
+}
+/* Portfolio — Regular */
+.collab-btn.portfolio {
+  background: #F5F5F5;
+  color: #000;
+  font-weight: 400;
+}
+
+/* ===== ПОДВАЛ ===== */
+.footer {
+  padding: 60px 48px;
+  background: #FFF;
 }
