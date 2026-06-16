@@ -5,203 +5,169 @@
   font-family: 'Neutral Face';
   src: url('fonts/NeutralFace-Bold.otf') format('opentype');
   font-weight: 700;
+  font-style: normal;
 }
 @font-face {
   font-family: 'Neutral Face';
-  src: url('fonts/NeutralFace-Regular.otf') format('opentype');
+  src: url('fonts/NeutralFace.otf') format('opentype');
   font-weight: 400;
+  font-style: normal;
 }
 
-/* ===== БАЗА ===== */
+/* ===== БАЗА / СБРОС ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { overflow-x: hidden; }
+
+html { scroll-behavior: smooth; }
+
 body {
   font-family: 'Manrope', sans-serif;
   background: #FFF;
   color: #000;
+  overflow-x: hidden;
 }
 
-/* ===== ШАПКА ===== */
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ===== ШАПКА (фиксированная) ===== */
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
-  background: #FFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 80px;
+  padding: 30px 40px;
+  background: #FFF;
   z-index: 1000;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity .3s ease, transform .3s ease;
 }
-.header.hidden { opacity: 0; pointer-events: none; }
+.header.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
 
+/* Логотип — НЕ кликабельный */
 .logo {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: 22px;
+  font-size: 24px;
+  color: #000;
+  cursor: default;
+  user-select: none;
 }
 
+/* Кнопка Contact @ — чуть длиннее логотипа */
 .contact-btn {
-  font-size: 24px;
-  padding: 12px 28px;
+  font-family: 'Neutral Face', sans-serif;
   background: #000;
   color: #FFF;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+  padding: 14px 32px;
+  font-size: 15px;
   cursor: pointer;
+  letter-spacing: .5px;
 }
-.contact-btn .label { font-family: 'Neutral Face'; font-weight: 700; }
-.contact-btn .at    { font-family: 'Neutral Face'; font-weight: 400; }
+.contact-btn .c-text { font-weight: 700; }   /* "Contact" Bold */
+.contact-btn .c-at   { font-weight: 400; }   /* "@" Regular */
 
 /* ===== ПТИЧКА ===== */
-.bird { text-align: center; padding-top: 140px; }
-.bird img { max-width: 320px; }
+.bird-section {
+  padding-top: 160px;
+  text-align: center;
+}
+.bird-section img {
+  max-width: 340px;
+  width: 100%;
+  height: auto;
+}
 
-/* ===== ЗАГОЛОВОК ===== */
-.specific-word {
+/* ===== ХЕРО-ТЕКСТ ===== */
+.hero-text {
+  text-align: center;
+  margin-top: -20px;
+  position: relative;
+}
+.hero-specific {
+  font-family: 'Manrope', sans-serif;
   font-weight: 700;
-  color: rgba(0,0,0,0.08);
-  text-align: center;
-  font-size: 48px;
-}
-.title-jp {
-  font-weight: 800;
-  text-align: center;
   font-size: 64px;
+  color: rgba(0,0,0,0.08);   /* чёрный 8% */
+  line-height: .9;
 }
-
-/* ===== КАТЕГОРИИ ===== */
-.categories {
+.hero-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 56px;
+  color: #000;
+  margin-top: -10px;
+}
+.hero-sub {
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
-  text-align: center;
-  margin-top: 12px;
+  font-size: 18px;
+  margin-top: 14px;
 }
-.cat-word { color: rgba(0,0,0,0.5); }
-.cat-sep  { color: rgba(0,0,0,0.25); margin: 0 8px; }
+.hero-sub .word { color: rgba(0,0,0,0.5); }   /* основные слова 50% */
+.hero-sub .bar  { color: rgba(0,0,0,0.25); }  /* палочки 25% */
 
-/* ===== ПЛАШКИ КАЧЕСТВ ===== */
+/* ===== ПЛАШКИ ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 150px 96px;
+  gap: 30px;
+  margin-top: 120px;
 }
 .card {
-  background: #F5F5F5;
-  border-radius: 16px;
-  padding: 32px;
-}
-.card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 24px; }
-.card-title    { font-weight: 700; font-size: 20px; }
-.card-subtitle { font-weight: 600; color: rgba(0,0,0,0.5); }
-
-/* ===== ЗАГОЛОВКИ СЕКЦИЙ ===== */
-.section-title { font-weight: 800; font-size: 48px; padding: 0 48px; }
-.work-year { font-weight: 500; }
-
-/* ===== ПОСЛЕДНИЕ РАБОТЫ ===== */
-.works {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  padding: 100px 96px;
-}
-.work img { width: 100%; border-radius: 16px; cursor: pointer; }
-
-/* ===== ОТЗЫВЫ ===== */
-.reviews {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  padding: 100px 96px;
-}
-.review {
-  background: #F5F5F5;
+  background: #f4f4f4;
   border-radius: 16px;
   padding: 24px;
-  cursor: pointer;
 }
-.review-name    { font-weight: 700; }
-.review-source  { font-weight: 600; color: rgba(0,0,0,0.5); }
-.review-text    { font-weight: 500; }
-.see-more { font-weight: 500; color: rgba(0,0,0,0.5); text-align: center; }
-
-/* ===== СОТРУДНИЧЕСТВО ===== */
-.collab {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 120px 40px;
-}
-
-.collab__title {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: 64px;
-  line-height: 1;
-  color: #000;
-  margin: 0;
-  flex-shrink: 0;
-}
-
-.collab__buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 420px;
-  max-width: 100%;
-}
-
-.collab-btn {
+.card-img {
+  background: #ededed;
+  border-radius: 12px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  height: 96px;
-  border-radius: 22px;
-  text-decoration: none;
-  transition: transform .15s ease, opacity .15s ease;
+  margin-bottom: 24px;
 }
-
-.collab-btn:hover { transform: translateY(-2px); }
-.collab-btn:active { transform: translateY(0); opacity: .85; }
-
-/* Telegram — тёмная, текст Bold */
-.collab-btn--dark {
-  background: #000;
-  color: #fff;
-}
-.collab-btn--dark .collab-btn__label {
+.card-img img { max-width: 70%; max-height: 80%; }
+.card-title {
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 17px;
+}
+.card-sub {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(0,0,0,0.5);
+  margin-top: 6px;
 }
 
-/* Lolzteam / Portfolio — светлые, текст Regular */
-.collab-btn--light {
-  background: #f2f2f2;
+/* ===== ОБЩИЕ ЗАГОЛОВКИ СЕКЦИЙ ===== */
+.section-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 64px;
+  display: flex;
+  align-items: baseline;   /* год по базовой линии слова */
+  gap: 20px;
+}
+.section-title .years {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;        /* Medium */
+  font-size: 24px;
   color: #000;
 }
-.collab-btn__label--reg {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-size: 26px;
-}
 
-.collab-btn__icon { display: inline-flex; align-items: center; }
-.collab-btn__arrow { font-size: 24px; }
-
-@media (max-width: 860px) {
-  .collab {
-    flex-direction: column;
-    gap: 32px;
-    padding: 80px 24px;
-  }
-  .collab__title { font-size: 44px; }
-  .collab__buttons { width: 100%; }
-}
+/* отступы между большими секциями */
+.section { margin-top: 1
