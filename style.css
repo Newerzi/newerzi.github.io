@@ -1,5 +1,5 @@
 
-/* ===== ШРИФТЫ1 ===== */
+/* ===== ШРИФТЫ ===== */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @font-face {
@@ -204,31 +204,35 @@ img {
     flex: 1;
     min-width: 280px;
     max-width: 360px;
-    background: #f4f4f4 !important;  /* СЕРАЯ ПЛАШКА */
+    background: #f4f4f4;
     border-radius: 18px;
     padding: 24px;
     box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* ===== ИЗМЕНЕНИЕ ЦВЕТА ПРИ НАВЕДЕНИИ ===== */
+/* При наведении на карточку — только лёгкое поднятие */
 .card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
-    background: #E0E9FF !important;  /* СВЕТЛО-СИНИЙ ПРИ НАВЕДЕНИИ */
 }
 
+/* ===== ВНУТРЕННЯЯ ПЛАШКА С ИКОНКОЙ ===== */
+.card-img-wrap {
+    background: #e8e8e8;
+    border-radius: 12px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    overflow: hidden;
+    transition: background 0.4s ease;
+}
+
+/* При наведении на карточку — меняется цвет внутренней плашки */
 .card:hover .card-img-wrap {
-    background: #d0dfff !important;
-}
-
-.card:hover .card-title {
-    color: #1a2b6b;
-}
-
-.card:hover .card-sub {
-    color: rgba(0, 0, 0, 0.7);
+    background: #E0E9FF;  /* СВЕТЛО-СИНИЙ */
 }
 
 @media (max-width: 480px) {
@@ -237,21 +241,6 @@ img {
         max-width: 100%;
         padding: 20px;
     }
-}
-
-.card-img-wrap {
-    background: #ededed !important;  /* СЕРЫЙ ФОН ДЛЯ ИКОНКИ */
-    border-radius: 12px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    overflow: hidden;
-    transition: background 0.3s ease;
-}
-
-@media (max-width: 480px) {
     .card-img-wrap {
         height: 140px;
         margin-bottom: 16px;
@@ -269,7 +258,6 @@ img {
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 8px;
-    transition: color 0.3s ease;
 }
 
 @media (max-width: 480px) {
@@ -285,7 +273,6 @@ img {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.5);
     line-height: 1.4;
-    transition: color 0.3s ease;
 }
 
 @media (max-width: 480px) {
