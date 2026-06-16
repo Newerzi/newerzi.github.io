@@ -129,53 +129,79 @@ body {
 .see-more { font-weight: 500; color: rgba(0,0,0,0.5); text-align: center; }
 
 /* ===== СОТРУДНИЧЕСТВО ===== */
-.collab { padding: 80px 48px; }
+.collab {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 40px;
+}
 
-.collab-buttons {
+.collab__title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 1;
+  color: #000;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.collab__buttons {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 360px;
+  width: 420px;
+  max-width: 100%;
 }
 
 .collab-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 22px;
-  border-radius: 12px;
+  gap: 12px;
+  height: 96px;
+  border-radius: 22px;
   text-decoration: none;
-  cursor: pointer;
-  overflow: hidden;
+  transition: transform .15s ease, opacity .15s ease;
 }
 
-.collab-btn.telegram {
-  background-color: #000;
-  color: #FFF;
+.collab-btn:hover { transform: translateY(-2px); }
+.collab-btn:active { transform: translateY(0); opacity: .85; }
+
+/* Telegram — тёмная, текст Bold */
+.collab-btn--dark {
+  background: #000;
+  color: #fff;
+}
+.collab-btn--dark .collab-btn__label {
+  font-family: 'Manrope', sans-serif;
   font-weight: 700;
+  font-size: 26px;
 }
 
-.collab-btn.secondary {
-  background-color: #F2F2F2;
+/* Lolzteam / Portfolio — светлые, текст Regular */
+.collab-btn--light {
+  background: #f2f2f2;
   color: #000;
+}
+.collab-btn__label--reg {
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
+  font-size: 26px;
 }
 
-/* Lolzteam — Regular */
-.collab-btn.lolzteam {
-  background: #F5F5F5;
-  color: #000;
-  font-weight: 400;
-}
-/* Portfolio — Regular */
-.collab-btn.portfolio {
-  background: #F5F5F5;
-  color: #000;
-  font-weight: 400;
-}
+.collab-btn__icon { display: inline-flex; align-items: center; }
+.collab-btn__arrow { font-size: 24px; }
 
-/* отступ снизу — ТОЛЬКО ЗДЕСЬ, на самой секции */
-#collab {
-  padding-bottom: 200px;
+@media (max-width: 860px) {
+  .collab {
+    flex-direction: column;
+    gap: 32px;
+    padding: 80px 24px;
+  }
+  .collab__title { font-size: 44px; }
+  .collab__buttons { width: 100%; }
 }
