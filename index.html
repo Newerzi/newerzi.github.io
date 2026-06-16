@@ -358,19 +358,17 @@ body {
 
 /* ---------- СОТРУДНИЧЕСТВО ---------- */
 .collab {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
     gap: 60px;
-    flex-wrap: wrap;
 }
 
 .collab-buttons {
     display: flex;
     flex-direction: column;
     gap: 18px;
-    width: 360px;
-    max-width: 100%;
 }
 
 .collab-btn {
@@ -381,23 +379,37 @@ body {
     border-radius: 14px;
     padding: 26px;
     text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.collab-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Telegram — главная кнопка, чёрная */
+.collab-btn.telegram {
+    background: var(--black);
+    color: var(--white);
+    font-weight: 700;
     font-size: 22px;
 }
 
-.collab-btn.tg {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
+.collab-btn.telegram svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--white);
 }
 
-.collab-btn.secondary {
-    background: #f0f0f0;
+/* Lolzteam + Portfolio — светлые, Regular */
+.collab-btn.light {
+    background: var(--white);
     color: var(--black);
-    font-family: 'Manrope', sans-serif;
     font-weight: 400;
+    font-size: 20px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
-
+    
 /* ---------- АДАПТИВ ---------- */
 @media (max-width: 900px) {
     .header {
