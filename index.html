@@ -71,9 +71,21 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 24px;
+    padding: 28px 80px;
     z-index: 1000;
     transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+@media (max-width: 900px) {
+    .header {
+        padding: 20px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 16px 16px;
+    }
 }
 
 .header.hidden {
@@ -85,24 +97,31 @@ img {
 .logo {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
-    font-size: 18px;
+    font-size: 22px;
     letter-spacing: 0.5px;
     color: var(--black);
     cursor: default;
     user-select: none;
 }
 
+@media (max-width: 480px) {
+    .logo {
+        font-size: 18px;
+    }
+}
+
 .contact-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     background: var(--black);
     color: var(--white);
     border: none;
-    border-radius: 8px;
-    padding: 10px 16px;
+    border-radius: 10px;
+    padding: 14px 30px;
     cursor: pointer;
     text-decoration: none;
+    min-width: 160px;
     justify-content: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -115,30 +134,62 @@ img {
 .contact-btn .c-text {
     font-family: 'Neutral Face', sans-serif;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .contact-btn .c-at {
     font-family: 'Neutral Face', sans-serif;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 16px;
+}
+
+@media (max-width: 480px) {
+    .contact-btn {
+        padding: 10px 20px;
+        min-width: 120px;
+    }
+    .contact-btn .c-text,
+    .contact-btn .c-at {
+        font-size: 14px;
+    }
 }
 
 /* ===== HERO ===== */
 .hero {
-    padding: 120px 20px 0;
+    padding-top: 180px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+@media (max-width: 900px) {
+    .hero {
+        padding-top: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding-top: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
 .bird {
-    width: 200px;
-    max-width: 60%;
+    width: 320px;
+    max-width: 70%;
     height: auto;
     display: block;
-    margin-bottom: 40px;
+    margin-bottom: 70px;
+}
+
+@media (max-width: 480px) {
+    .bird {
+        width: 200px;
+        margin-bottom: 40px;
+    }
 }
 
 .hero-titles {
@@ -146,62 +197,109 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
 }
 
 .specific-word {
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 56px;
     color: rgba(0, 0, 0, 0.08);
     line-height: 1;
-    margin-bottom: -12px;
+    margin-bottom: -22px;
+}
+
+@media (max-width: 900px) {
+    .specific-word {
+        font-size: 40px;
+        margin-bottom: -16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .specific-word {
+        font-size: 28px;
+        margin-bottom: -12px;
+    }
 }
 
 .main-title {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
-    font-size: 32px;
+    font-size: 64px;
     line-height: 1.1;
     color: var(--black);
-    word-break: break-word;
+}
+
+@media (max-width: 900px) {
+    .main-title {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 32px;
+    }
 }
 
 .subtitle {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 14px;
-    margin-top: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px 0;
+    font-size: 18px;
+    margin-top: 14px;
+}
+
+@media (max-width: 480px) {
+    .subtitle {
+        font-size: 14px;
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 0;
+    }
 }
 
 .subtitle .word {
     color: rgba(0, 0, 0, 0.5);
-    white-space: nowrap;
 }
 
 .subtitle .bar {
     color: rgba(0, 0, 0, 0.25);
-    margin: 0 4px;
+    margin: 0 6px;
 }
 
 /* ===== ПЛАШКИ ===== */
 .cards {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 60px 20px 0;
-    max-width: 100%;
+    gap: 32px;
+    justify-content: center;
+    padding: 200px 80px 0;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+    .cards {
+        padding: 120px 24px 0;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards {
+        flex-direction: column;
+        padding: 60px 20px 0;
+        gap: 16px;
+    }
 }
 
 .card {
-    width: 100%;
+    flex: 1;
+    min-width: 280px;
+    max-width: 360px;
     background: var(--white);
-    border-radius: 16px;
-    padding: 20px;
+    border-radius: 18px;
+    padding: 24px;
     box-shadow: var(--shadow-md);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -211,75 +309,151 @@ img {
     box-shadow: var(--shadow-lg);
 }
 
+@media (max-width: 480px) {
+    .card {
+        min-width: unset;
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+
 .card-img-wrap {
     background: var(--gray-bg);
     border-radius: 12px;
-    height: 140px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     overflow: hidden;
 }
 
+@media (max-width: 480px) {
+    .card-img-wrap {
+        height: 140px;
+        margin-bottom: 16px;
+    }
+}
+
 .card-img-wrap img {
-    max-width: 60%;
-    max-height: 60%;
+    max-width: 70%;
+    max-height: 70%;
     object-fit: contain;
 }
 
 .card-title {
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
-    font-size: 18px;
-    margin-bottom: 6px;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 480px) {
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
 }
 
 .card-sub {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 14px;
     color: rgba(0, 0, 0, 0.5);
     line-height: 1.4;
 }
 
+@media (max-width: 480px) {
+    .card-sub {
+        font-size: 13px;
+    }
+}
+
 /* ===== СЕКЦИИ ===== */
 .section {
-    padding: 60px 20px 0;
-    max-width: 100%;
+    padding: 160px 80px 0;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .section {
+        padding: 120px 24px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 60px 20px 0;
+    }
 }
 
 .section-head {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
-    font-size: 30px;
+    font-size: 56px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 30px;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 900px) {
+    .section-head {
+        font-size: 38px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-head {
+        font-size: 30px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
 }
 
 .section-head .years {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 22px;
     color: rgba(0, 0, 0, 0.6);
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .section-head .years {
+        font-size: 16px;
+    }
 }
 
 /* ===== РАБОТЫ ===== */
 .works-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+@media (max-width: 900px) {
+    .works-grid {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 .work {
     display: block;
     background: var(--gray-bg);
-    border-radius: 16px;
+    border-radius: 18px;
     overflow: hidden;
     text-decoration: none;
     color: var(--black);
@@ -287,7 +461,7 @@ img {
 }
 
 .work:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
 }
 
@@ -299,14 +473,27 @@ img {
 /* ===== ОТЗЫВЫ ===== */
 .reviews-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+@media (max-width: 900px) {
+    .reviews-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
 }
 
 .review {
     background: var(--white);
-    border-radius: 14px;
-    padding: 18px 20px;
+    border-radius: 16px;
+    padding: 26px 30px;
     box-shadow: var(--shadow-sm);
     border: none;
     cursor: pointer;
@@ -318,19 +505,33 @@ img {
 }
 
 .review:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 480px) {
+    .review {
+        padding: 18px 20px;
+    }
 }
 
 .review-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 10px;
+    gap: 8px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .review-name {
+        font-size: 14px;
+        gap: 6px;
+        margin-bottom: 10px;
+    }
 }
 
 .review-name .r-source {
@@ -339,30 +540,49 @@ img {
 }
 
 .review-name .r-dot {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: #8b5cf6;
     display: inline-block;
     flex-shrink: 0;
 }
 
+@media (max-width: 480px) {
+    .review-name .r-dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
 .review-text {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .review-text {
+        font-size: 14px;
+    }
 }
 
 .see-more {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+    .see-more {
+        margin-top: 30px;
+    }
 }
 
 .see-more a {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 16px;
     color: rgba(0, 0, 0, 0.5);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -374,27 +594,48 @@ img {
 
 /* ===== СОТРУДНИЧЕСТВО ===== */
 .collab {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding-bottom: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    padding-bottom: 120px;
+}
+
+@media (max-width: 900px) {
+    .collab {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .collab {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 60px;
+    }
 }
 
 .collab-buttons {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    width: 100%;
+    gap: 18px;
+}
+
+@media (max-width: 480px) {
+    .collab-buttons {
+        gap: 14px;
+        max-width: 100%;
+    }
 }
 
 .collab-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    border-radius: 12px;
-    padding: 18px 24px;
-    font-size: 18px;
+    gap: 12px;
+    border-radius: 14px;
+    padding: 26px 32px;
+    font-size: 22px;
     font-family: 'Manrope', sans-serif;
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -402,8 +643,15 @@ img {
 }
 
 .collab-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 480px) {
+    .collab-btn {
+        padding: 18px 24px;
+        font-size: 18px;
+    }
 }
 
 .collab-btn.telegram {
@@ -414,8 +662,13 @@ img {
 
 .collab-btn.telegram svg {
     flex-shrink: 0;
-    width: 20px;
-    height: 20px;
+}
+
+@media (max-width: 480px) {
+    .collab-btn.telegram svg {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 .collab-btn.light {
@@ -427,192 +680,6 @@ img {
 
 .collab-btn.light:hover {
     background: #f8f8f8;
-}
-
-/* ===== АДАПТИВ ДЛЯ ПЛАНШЕТОВ ===== */
-@media (min-width: 600px) and (max-width: 1024px) {
-    .header {
-        padding: 24px 40px;
-    }
-    
-    .logo {
-        font-size: 22px;
-    }
-    
-    .contact-btn {
-        padding: 12px 24px;
-    }
-    
-    .contact-btn .c-text,
-    .contact-btn .c-at {
-        font-size: 15px;
-    }
-    
-    .hero {
-        padding: 150px 40px 0;
-    }
-    
-    .bird {
-        width: 260px;
-    }
-    
-    .main-title {
-        font-size: 48px;
-    }
-    
-    .specific-word {
-        font-size: 40px;
-        margin-bottom: -16px;
-    }
-    
-    .cards {
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 80px 40px 0;
-        gap: 20px;
-    }
-    
-    .card {
-        flex: 1;
-        min-width: 200px;
-        max-width: calc(33.33% - 14px);
-    }
-    
-    .section {
-        padding: 80px 40px 0;
-    }
-    
-    .section-head {
-        font-size: 40px;
-        flex-direction: row;
-        align-items: baseline;
-        gap: 16px;
-    }
-    
-    .works-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-    
-    .reviews-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .collab {
-        flex-direction: row;
-        gap: 40px;
-        align-items: start;
-    }
-    
-    .collab-buttons {
-        max-width: 360px;
-    }
-}
-
-/* ===== АДАПТИВ ДЛЯ ДЕСКТОПА ===== */
-@media (min-width: 1025px) {
-    .header {
-        padding: 28px 80px;
-    }
-    
-    .logo {
-        font-size: 22px;
-    }
-    
-    .contact-btn {
-        padding: 14px 30px;
-        min-width: 160px;
-    }
-    
-    .contact-btn .c-text,
-    .contact-btn .c-at {
-        font-size: 16px;
-    }
-    
-    .hero {
-        padding-top: 180px;
-    }
-    
-    .bird {
-        width: 320px;
-        margin-bottom: 70px;
-    }
-    
-    .specific-word {
-        font-size: 56px;
-        margin-bottom: -22px;
-    }
-    
-    .main-title {
-        font-size: 64px;
-    }
-    
-    .subtitle {
-        font-size: 18px;
-    }
-    
-    .cards {
-        flex-direction: row;
-        padding: 200px 80px 0;
-        gap: 32px;
-    }
-    
-    .card {
-        flex: 1;
-        min-width: 280px;
-        max-width: 360px;
-    }
-    
-    .card-img-wrap {
-        height: 200px;
-    }
-    
-    .section {
-        padding: 160px 80px 0;
-        max-width: 1200px;
-    }
-    
-    .section-head {
-        font-size: 56px;
-        flex-direction: row;
-        align-items: baseline;
-        gap: 18px;
-        margin-bottom: 60px;
-    }
-    
-    .section-head .years {
-        font-size: 22px;
-    }
-    
-    .works-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
-    }
-    
-    .reviews-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px;
-    }
-    
-    .review {
-        padding: 26px 30px;
-    }
-    
-    .collab {
-        flex-direction: row;
-        gap: 60px;
-        padding-bottom: 120px;
-    }
-    
-    .collab-buttons {
-        max-width: 360px;
-    }
-    
-    .collab-btn {
-        padding: 26px 32px;
-        font-size: 22px;
-    }
 }
 </style>
 </head>
@@ -725,7 +792,7 @@ img {
         <h2 class="section-head">Сотрудничество</h2>
         <div class="collab-buttons">
             <a href="https://t.me/specfc" target="_blank" class="collab-btn telegram">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                 </svg>
                 Telegram
