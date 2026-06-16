@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Работа — SweetSpot</title>
+    <title>Luwberry — работа</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -45,7 +46,7 @@
             display: block;
         }
 
-        /* ===== ШАПКА (ИДЕНТИЧНА ГЛАВНОЙ) ===== */
+        /* ===== ШАПКА ===== */
         .header {
             position: sticky;
             top: 0;
@@ -135,24 +136,74 @@
             }
         }
 
-        /* ===== ИЗОБРАЖЕНИЕ ===== */
-        .work-image {
-            width: 100%;
-            max-width: 1000px;
+        /* ===== ИЗОБРАЖЕНИЕ (кликабельное) ===== */
+        .work-image-wrapper {
+            position: relative;
             margin: 60px auto 0;
             border-radius: 16px;
+            overflow: hidden;
             box-shadow: var(--shadow-md);
-            display: block;
+            cursor: pointer;
             background: var(--gray-bg);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-image-wrapper:hover {
+            transform: scale(1.01);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .work-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
             min-height: 300px;
             object-fit: cover;
         }
 
+        .work-image-wrapper .zoom-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+        }
+
+        .work-image-wrapper:hover .zoom-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         @media (max-width: 480px) {
-            .work-image {
+            .work-image-wrapper {
                 margin: 30px auto 0;
                 min-height: 200px;
                 border-radius: 12px;
+            }
+            .work-image-wrapper img {
+                min-height: 200px;
+            }
+            .work-image-wrapper .zoom-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+                bottom: 12px;
+                right: 12px;
             }
         }
 
@@ -205,17 +256,163 @@
             }
         }
 
-        /* ===== ДОПОЛНИТЕЛЬНОЕ ИЗОБРАЖЕНИЕ (СКРЫТО, ПОКА НЕТ) ===== */
-        .work-image-extra {
-            width: 100%;
-            max-width: 1000px;
+        /* ===== ДОПОЛНИТЕЛЬНОЕ ИЗОБРАЖЕНИЕ ===== */
+        .work-image-extra-wrapper {
+            position: relative;
             margin-top: 40px;
             border-radius: 16px;
+            overflow: hidden;
             box-shadow: var(--shadow-sm);
-            display: block;
+            cursor: pointer;
             background: var(--gray-bg);
             min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-image-extra-wrapper:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .work-image-extra-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            min-height: 200px;
             object-fit: cover;
+        }
+
+        .work-image-extra-wrapper .zoom-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+        }
+
+        .work-image-extra-wrapper:hover .zoom-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ===== LIGHTBOX (полноэкранный просмотр) ===== */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(1);
+            transition: transform 0.1s ease;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .lightbox img:active {
+            cursor: grabbing;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        /* Подсказка по управлению */
+        .lightbox-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'Manrope', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            white-space: nowrap;
+            transition: opacity 0.5s ease;
+        }
+
+        .lightbox.active .lightbox-hint {
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .lightbox {
+                padding: 16px;
+            }
+            .lightbox-close {
+                top: 16px;
+                right: 16px;
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+            .lightbox-hint {
+                font-size: 11px;
+                padding: 6px 14px;
+                bottom: 20px;
+                white-space: normal;
+            }
         }
 
         /* ===== КНОПКА "НАВЕРХ" ===== */
@@ -238,6 +435,7 @@
             box-shadow: var(--shadow-md);
             opacity: 0;
             pointer-events: none;
+            z-index: 100;
         }
 
         .scroll-top.visible {
@@ -265,7 +463,7 @@
         }
 
         /* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
-        .work-image,
+        .work-image-wrapper,
         .work-info {
             opacity: 0;
             transform: translateY(30px);
@@ -280,15 +478,6 @@
                 transform: translateY(0);
             }
         }
-
-        /* ===== МЕТКА ДЛЯ ЗАМЕТКИ ===== */
-        /* 
-            📝 ДЛЯ ДОБАВЛЕНИЯ ДОПОЛНИТЕЛЬНОГО ИЗОБРАЖЕНИЯ:
-            Раскомментируй блок ниже и замени src на свой файл:
-        */
-        /*
-        <img src="images/extra-image.png" alt="Дополнительное изображение" class="work-image-extra" loading="lazy">
-        */
     </style>
 </head>
 <body>
@@ -302,28 +491,51 @@
     <!-- ===== КОНТЕНТ ===== -->
     <main class="container">
 
-        <!-- Основное изображение -->
-        <img src="w1.png" alt="SweetSpot — дизайн проект" class="work-image" loading="lazy">
+        <!-- Основное изображение (кликабельное) -->
+        <div class="work-image-wrapper" onclick="openLightbox(this.querySelector('img').src)">
+            <img src="w2.png" alt="Luwberry" loading="lazy">
+            <span class="zoom-icon">⊕</span>
+        </div>
 
         <!-- Информация о работе -->
         <div class="work-info">
-            <h1 class="work-title">SweetSpot</h1>
+            <h1 class="work-title">Luwberry</h1>
             <p class="work-description">
-                Дизайн лендинга для сервиса по поиску сладких мест в городе. 
-                Разработана современная визуальная концепция с акцентом на 
-                уют и атмосферу. Проект включает адаптивную версию для 
-                мобильных устройств и продуманную систему навигации.
+               Эстетика профиля строится на лаконичном контрасте между строгой информационной архитектурой и мягкой, почти тактильной визуальной культурой.  
+Светлая сетка с аккуратными разделителями и приглушённой гаммой создаёт ощущение упорядоченного пространства, где статусные метки, цифры и имена выделены ровно настолько, чтобы задавать иерархию, но не перетягивать внимание.  
+Взгляд скользит от аватарки к блоку с анкетой, фиксируясь на возрасте, роде деятельности и геолокации, а крупные округлые иконки в нижней панели придают интерфейсу дружелюбную телесность.  
+Монохромный фон с едва уловимым градиентом не конкурирует с контентом, а служит нейтральной опорой, благодаря чему даже служебные элементы вроде времени публикации или кнопки редактирования воспринимаются как естественная часть целого.
+
+<br><br>Каждая смысловая зона отделена от соседней продуманными отступами и лёгкими тенями, превращая экран в набор самостоятельных, но ритмично связанных карточек.  
+Это работает как система быстрого сканирования: за доли секунды считывается социальный вес аккаунта, род занятий и статусное расположение в деловом центре – без малейшего усилия по декодированию.  
+Текст подаётся минимальными, но ёмкими порциями, а визуальный акцент смещается в сторону портретного фото и метки «Анкеты», которые удерживают внимание на персоне.  
+Вспомогательные данные вынесены на периферию и решены самым мелким, но читаемым кеглем, создавая эффект многослойности без перегруженности.
+
+<br><br>Дизайн балансирует между публичной презентацией и приватным управлением, разделяя зону просмотра и зону действий – редактирование, создание публикации – так, что пользователь не теряет чувства контроля.  
+Плавные переходы между блоками и выдержанная воздушная композиция формируют впечатление дорогого, выверенного до пикселя инструмента.  
+Он одинаково хорош и для быстрого скроллинга, и для вдумчивого изучения контента, не утомляя глаз и не требуя привыкания.
             </p>
 
             <!-- 
                 📝 ДЛЯ ДОБАВЛЕНИЯ ДОПОЛНИТЕЛЬНОГО ИЗОБРАЖЕНИЯ:
-                Раскомментируй строку ниже и замени src на путь к файлу.
-                Удали эту заметку после добавления.
+                Раскомментируй блок ниже и замени src на свой файл.
             -->
-            <!-- <img src="images/extra-image.png" alt="Дополнительное изображение" class="work-image-extra" loading="lazy"> -->
+            <!--
+            <div class="work-image-extra-wrapper" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="images/w22.png" alt="Дополнительное изображение" loading="lazy">
+                <span class="zoom-icon">⊕</span>
+            </div>
+            -->
         </div>
 
     </main>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImage" src="" alt="Увеличенное изображение">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <div class="lightbox-hint">Колёсико — масштаб · Двойной клик — сброс</div>
+    </div>
 
     <!-- ===== КНОПКА "НАВЕРХ" ===== -->
     <button class="scroll-top" id="scrollTop" aria-label="Наверх">
@@ -348,6 +560,126 @@
                 behavior: 'smooth'
             });
         });
+
+        // ===== LIGHTBOX С МАСШТАБИРОВАНИЕМ =====
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        let scale = 1;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
+        let initialX, initialY;
+
+        function openLightbox(src) {
+            lightboxImage.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Сбрасываем масштаб при открытии
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
+            updateTransform();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Масштабирование колёсиком мыши
+        lightboxImage.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const delta = e.deltaY > 0 ? -0.08 : 0.08;
+            scale = Math.min(Math.max(scale + delta, 0.5), 5);
+            updateTransform();
+        });
+
+        // Масштабирование на телефоне (два пальца)
+        let lastTouchDistance = 0;
+        lightboxImage.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 2) {
+                lastTouchDistance = getTouchDistance(e);
+            }
+        });
+
+        lightboxImage.addEventListener('touchmove', function(e) {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                const distance = getTouchDistance(e);
+                const delta = (distance - lastTouchDistance) / 150;
+                scale = Math.min(Math.max(scale + delta, 0.5), 5);
+                lastTouchDistance = distance;
+                updateTransform();
+            }
+        });
+
+        function getTouchDistance(e) {
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            return Math.hypot(touch1.clientX - touch2.clientX, touch1.clientY - touch2.clientY);
+        }
+
+        // Перетаскивание (Drag)
+        lightboxImage.addEventListener('mousedown', function(e) {
+            if (scale <= 1) return;
+            isDragging = true;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+            lightboxImage.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
+            updateTransform();
+        });
+
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+            lightboxImage.style.cursor = 'grab';
+        });
+
+        // Сброс масштаба по двойному клику
+        lightboxImage.addEventListener('dblclick', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
+            updateTransform();
+        });
+
+        function updateTransform() {
+            lightboxImage.style.transform = `scale(${scale}) translate(${translateX / scale}px, ${translateY / scale}px)`;
+            // Меняем курсор при масштабе > 1
+            if (scale > 1) {
+                lightboxImage.style.cursor = 'grab';
+            } else {
+                lightboxImage.style.cursor = 'default';
+            }
+        }
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Отключаем закрытие при клике на изображение (чтобы можно было перетаскивать)
+        lightboxImage.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Подсказка исчезает через 5 секунд
+        setTimeout(function() {
+            const hint = document.querySelector('.lightbox-hint');
+            if (hint) {
+                hint.style.opacity = '0';
+                setTimeout(function() {
+                    hint.style.display = 'none';
+                }, 600);
+            }
+        }, 5000);
     </script>
 
 </body>
