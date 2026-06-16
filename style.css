@@ -170,4 +170,137 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* отступы между большими секциями */
-.section { margin-top: 1
+.section { margin-top: 160px; }
+
+/* ===== ПОСЛЕДНИЕ РАБОТЫ ===== */
+.works {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+.work {
+  background: #f4f4f4;
+  border-radius: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: transform .25s ease;
+  overflow: hidden;
+}
+.work:hover { transform: translateY(-6px); }
+.work-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.work-dot {
+  width: 14px; height: 14px;
+  border-radius: 4px;
+}
+.work-name {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+}
+.work-type {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  margin: 6px 0 18px;
+}
+.work-type .amp { font-weight: 400; color: rgba(0,0,0,0.4); }
+.work img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ===== ОТЗЫВЫ ===== */
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+.review {
+  background: #f4f4f4;
+  border-radius: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: transform .25s ease;
+}
+.review:hover { transform: translateY(-4px); }
+.review-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.review-avatar {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #8a2be2;
+}
+.review-name {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+}
+.review-name .n-bold { font-weight: 700; }
+.review-name .n-sub  { font-weight: 600; color: rgba(0,0,0,0.5); }
+.review-text {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;        /* Medium */
+  font-size: 15px;
+  line-height: 1.4;
+}
+.reviews-more {
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+/* ===== СОТРУДНИЧЕСТВО (это подвал) ===== */
+.collab {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+  margin-top: 160px;
+  padding-bottom: 120px;
+}
+.collab-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.collab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 14px;
+  padding: 26px;
+  font-size: 22px;
+  font-family: 'Manrope', sans-serif;
+  transition: transform .2s ease;
+}
+.collab-btn:hover { transform: translateY(-3px); }
+
+/* Telegram — чёрная, Bold */
+.collab-btn.tg {
+  background: #000;
+  color: #FFF;
+  font-weight: 700;
+}
+.collab-btn.tg img { width: 22px; height: 22px; }
+
+/* Lolzteam / Portfolio — серые, Regular */
+.collab-btn.gray {
+  background: #f4f4f4;
+  color: #000;
+  font-weight: 400;
+}
