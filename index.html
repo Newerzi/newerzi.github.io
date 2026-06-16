@@ -543,18 +543,24 @@ body {
 </section>
 
 <script>
-const header = document.getElementById('header');
-const footer = document.getElementById('footer');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            header.classList.add('hidden');   // достигли подвала — шапка исчезает
+(function () {
+    var header = document.getElementById('header');
+    var collab = document.getElementById('collab');
+
+    function onScroll() {
+        var rect = collab.getBoundingClientRect();
+        // когда верх блока сотрудничества появляется в зоне видимости — прячем шапку
+        if (rect.top <= window.innerHeight * 0.6) {
+            header.classList.add('hidden');
         } else {
             header.classList.remove('hidden');
         }
-    });
-}, { threshold: 0.15 });
-observer.observe(footer);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+})();
 </script>
 
 </body>
