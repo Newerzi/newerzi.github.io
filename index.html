@@ -531,51 +531,30 @@ body {
         </div>
     </section>
 
-  <!-- СОТРУДНИЧЕСТВО = ПОДВАЛ -->
-  <section class="collab" id="collab">
-  <h2 class="collab__title">Сотрудничество</h2>
+<!-- СОТРУДНИЧЕСТВО -->
 
-  <div class="collab__buttons">
-    <a class="collab-btn collab-btn--dark"
-       href="https://t.me/specfc" target="_blank" rel="nofollow noopener">
-      <span class="collab-btn__label">Telegram</span>
-    </a>
-
-    <a class="collab-btn collab-btn--light"
-       href="/specific/">
-      <span class="collab-btn__label collab-btn__label--reg">Lolzteam</span>
-      <span class="collab-btn__arrow">→</span>
-    </a>
-
-    <a class="collab-btn collab-btn--light"
-       href="https://t.me/newerzi" target="_blank" rel="nofollow noopener">
-      <span class="collab-btn__label collab-btn__label--reg">Portfolio</span>
-      <span class="collab-btn__arrow">→</span>
-    </a>
-  </div>
+<section class="section collab">
+    <h2 class="section-title">Сотрудничество</h2>
+    <div class="collab-buttons">
+        <a href="https://t.me/specfc" target="_blank" class="collab-btn telegram">Telegram</a>
+        <a href="https://zelenka.guru/specific/" target="_blank" class="collab-btn light">Lolzteam &rarr;</a>
+        <a href="https://t.me/newerzi" target="_blank" class="collab-btn light">Portfolio &rarr;</a>
+    </div>
 </section>
 
-</main>
-
 <script>
-(function () {
-    var header = document.getElementById('header');
-    var collab = document.getElementById('collab');
-
-    function onScroll() {
-        var rect = collab.getBoundingClientRect();
-        // когда верх блока сотрудничества появляется в зоне видимости — прячем шапку
-        if (rect.top <= window.innerHeight * 0.6) {
-            header.classList.add('hidden');
+const header = document.getElementById('header');
+const footer = document.getElementById('footer');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            header.classList.add('hidden');   // достигли подвала — шапка исчезает
         } else {
             header.classList.remove('hidden');
         }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    onScroll();
-})();
+    });
+}, { threshold: 0.15 });
+observer.observe(footer);
 </script>
 
 </body>
