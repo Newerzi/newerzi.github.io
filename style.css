@@ -204,34 +204,25 @@ img {
     flex: 1;
     min-width: 280px;
     max-width: 360px;
-    background: #f4f4f4;  /* ← СЕРАЯ ПЛАШКА */
+    background: #f4f4f4 !important;  /* СЕРАЯ ПЛАШКА */
     border-radius: 18px;
     padding: 24px;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeInUp 0.7s ease forwards;
-    cursor: pointer; /* ← курсор-рука при наведении */
+    cursor: pointer;
 }
-
-.card:nth-child(1) { animation-delay: 0.1s; }
-.card:nth-child(2) { animation-delay: 0.2s; }
-.card:nth-child(3) { animation-delay: 0.3s; }
 
 /* ===== ИЗМЕНЕНИЕ ЦВЕТА ПРИ НАВЕДЕНИИ ===== */
 .card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
-    background: #E0E9FF;  /* ← СВЕТЛО-СИНИЙ ПРИ НАВЕДЕНИИ */
+    background: #E0E9FF !important;  /* СВЕТЛО-СИНИЙ ПРИ НАВЕДЕНИИ */
 }
 
-/* Меняем фон иконки */
 .card:hover .card-img-wrap {
-    background: #d0dfff;
+    background: #d0dfff !important;
 }
 
-/* Меняем цвет текста для читаемости */
 .card:hover .card-title {
     color: #1a2b6b;
 }
@@ -249,7 +240,7 @@ img {
 }
 
 .card-img-wrap {
-    background: #ededed;  /* ← СЕРЫЙ ФОН ДЛЯ ИКОНКИ */
+    background: #ededed !important;  /* СЕРЫЙ ФОН ДЛЯ ИКОНКИ */
     border-radius: 12px;
     height: 200px;
     display: flex;
