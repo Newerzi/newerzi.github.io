@@ -165,7 +165,6 @@
             object-fit: cover;
         }
 
-        /* Иконка увеличения (лупа) при наведении */
         .work-image-wrapper .zoom-icon {
             position: absolute;
             bottom: 20px;
@@ -326,6 +325,7 @@
             pointer-events: none;
             transition: opacity 0.4s ease;
             padding: 40px;
+            overflow: hidden;
         }
 
         .lightbox.active {
@@ -334,17 +334,20 @@
         }
 
         .lightbox img {
-            max-width: 95%;
-            max-height: 90%;
+            max-width: 90%;
+            max-height: 85%;
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            transition: transform 0.4s ease;
+            transform: scale(1);
+            transition: transform 0.1s ease;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .lightbox.active img {
-            transform: scale(1);
+        .lightbox img:active {
+            cursor: grabbing;
         }
 
         .lightbox-close {
@@ -363,11 +366,34 @@
             align-items: center;
             justify-content: center;
             transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 10;
         }
 
         .lightbox-close:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: rotate(90deg);
+        }
+
+        /* Подсказка по управлению */
+        .lightbox-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'Manrope', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            white-space: nowrap;
+            transition: opacity 0.5s ease;
+        }
+
+        .lightbox.active .lightbox-hint {
+            opacity: 1;
         }
 
         @media (max-width: 480px) {
@@ -380,6 +406,12 @@
                 width: 40px;
                 height: 40px;
                 font-size: 22px;
+            }
+            .lightbox-hint {
+                font-size: 11px;
+                padding: 6px 14px;
+                bottom: 20px;
+                white-space: normal;
             }
         }
 
@@ -461,7 +493,7 @@
 
         <!-- Основное изображение (кликабельное) -->
         <div class="work-image-wrapper" onclick="openLightbox(this.querySelector('img').src)">
-            <img src="w1.png" alt="SweetSpot" loading="lazy">
+            <img src="w1.png" alt="SweetSpot — дизайн проект" loading="lazy">
             <span class="zoom-icon">⊕</span>
         </div>
 
@@ -469,10 +501,12 @@
         <div class="work-info">
             <h1 class="work-title">SweetSpot</h1>
             <p class="work-description">
-                Дизайн лендинга для сервиса по поиску сладких мест в городе. 
-                Разработана современная визуальная концепция с акцентом на 
-                уют и атмосферу. Проект включает адаптивную версию для 
-                мобильных устройств и продуманную систему навигации.
+                Интерфейс построен вокруг идеи максимального упрощения взаимодействия, благодаря чему внимание пользователя сосредоточено на поиске, повторе заказа и выборе новых позиций. Светлый фон, крупные скруглённые блоки и насыщенные синие акценты формируют чистую композицию, в которой самые важные действия сразу выделяются на общем фоне.
+
+Главный экран организован таким образом, чтобы адрес доставки, поиск и последний заказ находились в зоне быстрого доступа, а карточка с историей покупок позволяла повторить предыдущий заказ без лишних переходов. Согласно пояснениям на макете, отображаются только наиболее важные данные, стоимость, время доставки и ключевая информация, что избавляет пользователя от перегруженности и ускоряет принятие решений.
+
+Каталог строится на крупных фотографиях, компактных категориях и минимальном количестве текста, благодаря чему выбор основывается прежде всего на визуальном восприятии. В первую очередь демонстрируются наиболее привлекательные блюда и персонализированные рекомендации, а тёмные плашки с ценой и временем доставки остаются заметными, не отвлекая от просмотра контента, сохраняя баланс между эстетикой интерфейса и его практичностью.
+
             </p>
 
             <!-- 
@@ -493,6 +527,7 @@
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <img id="lightboxImage" src="" alt="Увеличенное изображение">
         <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <div class="lightbox-hint">Колёсико — масштаб · Двойной клик — сброс</div>
     </div>
 
     <!-- ===== КНОПКА "НАВЕРХ" ===== -->
@@ -519,14 +554,23 @@
             });
         });
 
-        // ===== LIGHTBOX =====
+        // ===== LIGHTBOX С МАСШТАБИРОВАНИЕМ =====
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightboxImage');
+        let scale = 1;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
+        let initialX, initialY;
 
         function openLightbox(src) {
             lightboxImage.src = src;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+            // Сбрасываем масштаб при открытии
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
+            updateTransform();
         }
 
         function closeLightbox() {
@@ -534,12 +578,101 @@
             document.body.style.overflow = '';
         }
 
-        // Закрытие по Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
+        // Масштабирование колёсиком мыши
+        lightboxImage.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const delta = e.deltaY > 0 ? -0.08 : 0.08;
+            scale = Math.min(Math.max(scale + delta, 0.5), 5);
+            updateTransform();
+        });
+
+        // Масштабирование на телефоне (два пальца)
+        let lastTouchDistance = 0;
+        lightboxImage.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 2) {
+                lastTouchDistance = getTouchDistance(e);
             }
         });
+
+        lightboxImage.addEventListener('touchmove', function(e) {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                const distance = getTouchDistance(e);
+                const delta = (distance - lastTouchDistance) / 150;
+                scale = Math.min(Math.max(scale + delta, 0.5), 5);
+                lastTouchDistance = distance;
+                updateTransform();
+            }
+        });
+
+        function getTouchDistance(e) {
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            return Math.hypot(touch1.clientX - touch2.clientX, touch1.clientY - touch2.clientY);
+        }
+
+        // Перетаскивание (Drag)
+        lightboxImage.addEventListener('mousedown', function(e) {
+            if (scale <= 1) return;
+            isDragging = true;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+            lightboxImage.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
+            updateTransform();
+        });
+
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+            lightboxImage.style.cursor = 'grab';
+        });
+
+        // Сброс масштаба по двойному клику
+        lightboxImage.addEventListener('dblclick', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
+            updateTransform();
+        });
+
+        function updateTransform() {
+            lightboxImage.style.transform = `scale(${scale}) translate(${translateX / scale}px, ${translateY / scale}px)`;
+            // Меняем курсор при масштабе > 1
+            if (scale > 1) {
+                lightboxImage.style.cursor = 'grab';
+            } else {
+                lightboxImage.style.cursor = 'default';
+            }
+        }
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Отключаем закрытие при клике на изображение (чтобы можно было перетаскивать)
+        lightboxImage.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Подсказка исчезает через 5 секунд
+        setTimeout(function() {
+            const hint = document.querySelector('.lightbox-hint');
+            if (hint) {
+                hint.style.opacity = '0';
+                setTimeout(function() {
+                    hint.style.display = 'none';
+                }, 600);
+            }
+        }, 5000);
     </script>
 
 </body>
