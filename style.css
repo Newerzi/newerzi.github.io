@@ -185,6 +185,21 @@ img {
     flex-wrap: wrap;
 }
 
+@media (max-width: 900px) {
+    .cards {
+        padding: 120px 24px 0;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards {
+        flex-direction: column;
+        padding: 60px 20px 0;
+        gap: 16px;
+    }
+}
+
 .card {
     flex: 1;
     min-width: 280px;
@@ -193,12 +208,38 @@ img {
     border-radius: 18px;
     padding: 24px;
     box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease; /* ← изменяем на all для плавного перехода всех свойств */
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.7s ease forwards;
 }
 
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+
+/* ===== НОВОЕ: изменение цвета при наведении ===== */
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
+    background: #E0E9FF;  /* ← новый цвет при наведении */
+}
+
+/* Меняем цвет текста на более тёмный для лучшей читаемости на светлом фоне */
+.card:hover .card-title {
+    color: #1a2b6b;
+}
+
+.card:hover .card-sub {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 480px) {
+    .card {
+        min-width: unset;
+        max-width: 100%;
+        padding: 20px;
+    }
 }
 
 .card-img-wrap {
@@ -210,6 +251,19 @@ img {
     justify-content: center;
     margin-bottom: 24px;
     overflow: hidden;
+    transition: background 0.3s ease; /* ← плавная смена фона картинки */
+}
+
+/* При наведении на карточку меняем фон блока с картинкой */
+.card:hover .card-img-wrap {
+    background: #d0dfff;
+}
+
+@media (max-width: 480px) {
+    .card-img-wrap {
+        height: 140px;
+        margin-bottom: 16px;
+    }
 }
 
 .card-img-wrap img {
@@ -223,6 +277,14 @@ img {
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 8px;
+    transition: color 0.3s ease; /* ← плавная смена цвета текста */
+}
+
+@media (max-width: 480px) {
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
 }
 
 .card-sub {
@@ -231,6 +293,13 @@ img {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.5);
     line-height: 1.4;
+    transition: color 0.3s ease; /* ← плавная смена цвета текста */
+}
+
+@media (max-width: 480px) {
+    .card-sub {
+        font-size: 13px;
+    }
 }
 
 /* ===== СЕКЦИИ ===== */
