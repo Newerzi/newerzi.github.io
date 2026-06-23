@@ -133,7 +133,7 @@ img {
 
 /* ===== HERO ===== */
 .hero {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .language {
@@ -180,7 +180,7 @@ img {
 
 .hero-grid {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     gap: 40px;
@@ -207,39 +207,11 @@ img {
     font-weight: 700;
 }
 
-.hero-description {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    margin-top: 2px;
-}
-
-.hero-description p {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    white-space: nowrap;
-}
-
-.hero-description p:nth-child(1) {
-    color: #000000;
-}
-
-.hero-description p:nth-child(2) {
-    color: #404040;
-}
-
-.hero-description p:nth-child(3) {
-    color: #808080;
-}
-
 .hero-right {
     flex-shrink: 0;
-    max-width: 40%;
+    max-width: 20%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .hero-right img {
@@ -248,10 +220,39 @@ img {
     object-fit: contain;
 }
 
+/* ===== HERO DESCRIPTION (перенесено вниз) ===== */
+.hero-description-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 20px 0 40px 0;
+    padding: 0;
+}
+
+.hero-description-section p {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.hero-description-section p:nth-child(1) {
+    color: #000000;
+}
+
+.hero-description-section p:nth-child(2) {
+    color: #404040;
+}
+
+.hero-description-section p:nth-child(3) {
+    color: #808080;
+}
+
 /* ===== BANNER ===== */
 .banner {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
@@ -507,8 +508,8 @@ img {
 /* ===== MEDIA ===== */
 @media (max-width: 1200px) {
     .hero-left h1 { font-size: 60px; }
-    .hero-description p { font-size: 26px; }
-    .hero-right { max-width: 38%; }
+    .hero-right { max-width: 18%; }
+    .hero-description-section p { font-size: 26px; }
     .project-info h2 { font-size: 48px; }
     .project-info p { font-size: 20px; }
     .project-info a { font-size: 20px; }
@@ -517,10 +518,10 @@ img {
 
 @media (max-width: 992px) {
     .hero-grid { flex-direction: column; align-items: flex-start; }
-    .hero-right { max-width: 100%; width: 100%; }
+    .hero-right { max-width: 30%; }
     .hero-left { padding-right: 0; width: 100%; }
     .hero-left h1 { font-size: 50px; }
-    .hero-description p { font-size: 22px; white-space: normal; }
+    .hero-description-section p { font-size: 22px; }
     .project { flex-direction: column; }
     .project-preview { flex: 0 0 100%; }
     .project-info { align-items: flex-start; text-align: left; padding-top: 0; }
@@ -538,7 +539,8 @@ img {
     .logo, .header-center, .header-right { font-size: 16px; }
     .language { font-size: 18px; }
     .hero-left h1 { font-size: 38px; }
-    .hero-description p { font-size: 18px; }
+    .hero-right { max-width: 25%; }
+    .hero-description-section p { font-size: 18px; }
     .section-title { font-size: 20px; }
     .project-info h2 { font-size: 30px; }
     .project-info p { font-size: 16px; }
@@ -560,7 +562,8 @@ img {
     .header-center { font-size: 14px; }
     .language { font-size: 16px; }
     .hero-left h1 { font-size: 28px; }
-    .hero-description p { font-size: 14px; }
+    .hero-right { max-width: 30%; }
+    .hero-description-section p { font-size: 14px; }
     .hero { margin-bottom: 20px; }
     .banner { margin-bottom: 30px; }
     .section-title { font-size: 16px; }
@@ -580,4 +583,5 @@ img {
     .reviews { margin-bottom: 30px; }
     .prices { margin-bottom: 30px; }
     .review { font-size: 13px; padding: 14px; }
+    .hero-description-section { margin: 10px 0 30px 0; }
 }
