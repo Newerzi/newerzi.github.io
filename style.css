@@ -278,12 +278,20 @@ img {
     margin-bottom: 100px;
 }
 
+/* отступ от баннера до портфолио — как от описания до баннера (100px) */
 .section-title {
     font-family: 'Neutral Face', sans-serif;
     font-size: 60px;
-    font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 30px;
+}
+
+.section-title .bold {
+    font-weight: 700;
+}
+
+.section-title .regular {
+    font-weight: 400;
 }
 
 .project-header {
@@ -295,46 +303,26 @@ img {
     margin-bottom: 20px;
 }
 
+/* фото 1765 на 1176.67 */
+.project-image {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1765 / 1176.67;
+    object-fit: cover;
+}
+
 .project-divider {
     width: 100%;
     height: 1px;
     background: #ccc;
     margin: 25px 0;
-}
-
-.project-name {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 60px;
-    color: #1a1a1a;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 16px;
-}
-
-.project-description {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 28px;
-    color: #1a1a1a;
-    line-height: 1.4;
-    margin-bottom: 20px;
-    max-width: 80%;
-}
-
-.project-next {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 28px;
-    color: #1a1a1a;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: opacity 0.2s;
-    display: inline-block;
-}
-
-.project-next:hover {
-    opacity: 0.6;
 }
 
 /* ===== REVIEWS ===== */
