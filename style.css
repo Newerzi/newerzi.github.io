@@ -278,13 +278,27 @@ img {
     margin-bottom: 100px;
 }
 
+/* Контейнер для левой и правой части */
+.project-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* ЛЕВАЯ ЧАСТЬ */
+.project-left {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+}
+
 /* «ПОРТФОЛИО #» — 0.8x от 75px = 60px */
 .section-title {
     font-family: 'Neutral Face', sans-serif;
     font-size: 60px;
     letter-spacing: -0.02em;
-    margin-bottom: 40px;
-    text-align: right;
+    margin-bottom: 30px;
+    text-align: left;
 }
 
 .section-title .bold {
@@ -303,21 +317,29 @@ img {
     color: #1a1a1a;
     letter-spacing: -0.02em;
     margin-bottom: 20px;
-    text-align: right;
+    text-align: left;
 }
 
-/* ИЗОБРАЖЕНИЕ — правильный размер (как в прошлых удачных моментах) */
+/* ИЗОБРАЖЕНИЕ */
 .project-image {
     width: 100%;
-    max-width: 55%;
-    margin-left: auto;
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 
 .project-image img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* ПРАВАЯ ЧАСТЬ */
+.project-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding-top: 0;
 }
 
 /* WEXON NETWORK */
@@ -330,6 +352,7 @@ img {
     line-height: 1;
     margin-bottom: 16px;
     text-align: right;
+    width: 100%;
 }
 
 /* ОПИСАНИЕ — по правому краю */
@@ -341,6 +364,7 @@ img {
     line-height: 1.4;
     margin-bottom: 30px;
     text-align: right;
+    width: 100%;
 }
 
 /* ДАЛЕЕ → */
@@ -354,6 +378,7 @@ img {
     transition: opacity 0.2s;
     display: block;
     text-align: right;
+    width: 100%;
 }
 
 .project-next:hover {
