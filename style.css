@@ -281,7 +281,7 @@ img {
 .project-wrapper {
     display: flex;
     gap: 60px;
-    align-items: stretch;
+    align-items: flex-start; /* не stretch */
 }
 
 /* ЛЕВАЯ ЧАСТЬ (без изменений) */
