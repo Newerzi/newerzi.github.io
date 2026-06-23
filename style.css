@@ -261,8 +261,8 @@ img {
 /* ===== BANNER ===== */
 .banner {
     width: 100%;
-    margin-top: 150px; /* расстояние от описания до баннера увеличено в 3 раза (было 50px) */
-    margin-bottom: 150px; /* такой же отступ после баннера */
+    margin-top: 100px; /* 2x от изначального (было 50px) */
+    margin-bottom: 100px;
     display: flex;
     justify-content: center;
 }
@@ -275,12 +275,12 @@ img {
 
 /* ===== PORTFOLIO ===== */
 .portfolio {
-    margin-bottom: 150px; /* отступ между блоками как у баннера */
+    margin-bottom: 100px;
 }
 
 .section-title {
     font-family: 'Neutral Face', sans-serif;
-    font-size: 75px; /* размер как у описания */
+    font-size: 75px; /* как строка из описания */
     letter-spacing: -0.02em;
     margin-bottom: 50px;
 }
@@ -291,6 +291,16 @@ img {
 
 .section-title .regular {
     font-weight: 400;
+}
+
+/* ПРОЕКТ [01] — возвращаем как было */
+.project-header {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 75px; /* как строка из описания */
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
 }
 
 .project {
@@ -307,18 +317,10 @@ img {
     gap: 12px;
 }
 
-.project-preview span {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 75px; /* размер как у описания */
-    color: #1a1a1a;
-    letter-spacing: -0.02em;
-}
-
 .project-preview img {
     width: 100%;
     height: auto;
-    aspect-ratio: 1765 / 1176.67; /* соотношение сторон изображения */
+    aspect-ratio: 1765 / 1176.67;
     object-fit: cover;
 }
 
@@ -328,16 +330,15 @@ img {
     flex-direction: column;
     align-items: flex-end;
     text-align: right;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-top: 0;
     height: 100%;
-    min-height: 400px;
 }
 
 .project-info h2 {
     font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 60px; /* 0.34x от 1765px ≈ 600px, но адаптивно 60px */
+    font-weight: 600; /* SemiBold */
+    font-size: 90px; /* в 1.5 раза больше (было 60px) */
     color: #1a1a1a;
     letter-spacing: -0.03em;
     line-height: 1;
@@ -348,11 +349,11 @@ img {
 
 .project-info p {
     font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 42px; /* 0.24x от 1765px ≈ 423px, но адаптивно 42px */
+    font-weight: 400; /* Regular */
+    font-size: 25px; /* в 3 раза меньше (было 75px) */
     color: #1a1a1a;
-    line-height: 0.9; /* интерлиньяж меньше */
-    text-align: right;
+    line-height: 1.1;
+    text-align: justify;
     width: 100%;
     margin-top: 16px;
 }
@@ -360,10 +361,10 @@ img {
 .project-info a {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 16px; /* 0.27x от заголовка (60px * 0.27 = 16px) */
+    font-size: 28px; /* больше (было 22px) */
     color: #1a1a1a;
     text-decoration: none;
-    margin-top: auto;
+    margin-top: 20px;
     letter-spacing: 0.02em;
     transition: opacity 0.2s;
     align-self: flex-end;
@@ -400,14 +401,7 @@ img {
 
 /* ===== REVIEWS ===== */
 .reviews {
-    margin-bottom: 150px; /* отступ как у баннера */
-}
-
-.section-title {
-    font-family: 'Neutral Face', sans-serif;
-    font-size: 75px;
-    letter-spacing: -0.02em;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .reviews-grid {
@@ -458,14 +452,7 @@ img {
 
 /* ===== PRICES ===== */
 .prices {
-    margin-bottom: 150px;
-}
-
-.section-title {
-    font-family: 'Neutral Face', sans-serif;
-    font-size: 75px;
-    letter-spacing: -0.02em;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .price-grid {
@@ -551,14 +538,14 @@ img {
     .hero-description-section p { font-size: 56px; }
     .hero-description-section { max-width: 85%; margin-top: -90px; }
     .section-title { font-size: 56px; }
-    .project-preview span { font-size: 56px; }
-    .project-info h2 { font-size: 48px; }
-    .project-info p { font-size: 34px; }
-    .project-info a { font-size: 14px; }
-    .banner { margin-top: 120px; margin-bottom: 120px; }
-    .portfolio { margin-bottom: 120px; }
-    .reviews { margin-bottom: 120px; }
-    .prices { margin-bottom: 120px; }
+    .project-header { font-size: 56px; }
+    .project-info h2 { font-size: 68px; }
+    .project-info p { font-size: 20px; }
+    .project-info a { font-size: 24px; }
+    .banner { margin-top: 80px; margin-bottom: 80px; }
+    .portfolio { margin-bottom: 80px; }
+    .reviews { margin-bottom: 80px; }
+    .prices { margin-bottom: 80px; }
     .contacts-left h2 { font-size: 56px; }
 }
 
@@ -572,22 +559,22 @@ img {
     .hero-description-section p { font-size: 42px; white-space: normal; }
     .hero-description-section { max-width: 100%; margin-top: 0; }
     .section-title { font-size: 42px; }
+    .project-header { font-size: 42px; }
     .project { flex-direction: column; gap: 30px; }
     .project-preview { flex: 0 0 100%; }
-    .project-preview span { font-size: 42px; }
-    .project-info { align-items: flex-start; text-align: left; min-height: auto; }
-    .project-info h2 { text-align: left; font-size: 36px; }
-    .project-info p { text-align: left; font-size: 28px; }
-    .project-info a { text-align: left; align-self: flex-start; font-size: 14px; }
+    .project-info { align-items: flex-start; text-align: left; }
+    .project-info h2 { text-align: left; font-size: 50px; }
+    .project-info p { text-align: justify; font-size: 18px; }
+    .project-info a { text-align: left; align-self: flex-start; font-size: 22px; }
     .reviews-grid { grid-template-columns: 1fr; }
     .price-grid { grid-template-columns: 1fr; }
     .contacts { flex-direction: column; gap: 20px; align-items: flex-start; }
     .contacts-right { flex-wrap: wrap; gap: 20px; }
     .contacts-left h2 { font-size: 42px; }
-    .banner { margin-top: 80px; margin-bottom: 80px; }
-    .portfolio { margin-bottom: 80px; }
-    .reviews { margin-bottom: 80px; }
-    .prices { margin-bottom: 80px; }
+    .banner { margin-top: 60px; margin-bottom: 60px; }
+    .portfolio { margin-bottom: 60px; }
+    .reviews { margin-bottom: 60px; }
+    .prices { margin-bottom: 60px; }
 }
 
 @media (max-width: 768px) {
@@ -601,20 +588,20 @@ img {
     .hero { margin-bottom: 30px; }
     .hero-description-section { margin-bottom: 20px; }
     .section-title { font-size: 30px; }
-    .project-preview span { font-size: 30px; }
-    .project-info h2 { font-size: 28px; }
-    .project-info p { font-size: 20px; }
-    .project-info a { font-size: 12px; }
+    .project-header { font-size: 30px; }
+    .project-info h2 { font-size: 36px; }
+    .project-info p { font-size: 16px; }
+    .project-info a { font-size: 18px; }
     .portfolio-button button { font-size: 18px; padding: 12px 32px; }
     .reviews-button button { font-size: 18px; padding: 12px 32px; }
     .price-card h3 { font-size: 22px; }
     .price-items div { font-size: 16px; }
     .contacts-left h2 { font-size: 30px; }
     .contacts-right a { font-size: 18px; }
-    .banner { margin-top: 60px; margin-bottom: 60px; }
-    .portfolio { margin-bottom: 60px; }
-    .reviews { margin-bottom: 60px; }
-    .prices { margin-bottom: 60px; }
+    .banner { margin-top: 50px; margin-bottom: 50px; }
+    .portfolio { margin-bottom: 50px; }
+    .reviews { margin-bottom: 50px; }
+    .prices { margin-bottom: 50px; }
 }
 
 @media (max-width: 480px) {
@@ -632,10 +619,10 @@ img {
     .hero-description-section { margin-bottom: 15px; }
     .banner { margin-bottom: 40px; }
     .section-title { font-size: 22px; }
-    .project-preview span { font-size: 22px; }
-    .project-info h2 { font-size: 22px; }
-    .project-info p { font-size: 16px; }
-    .project-info a { font-size: 10px; }
+    .project-header { font-size: 22px; }
+    .project-info h2 { font-size: 28px; }
+    .project-info p { font-size: 14px; }
+    .project-info a { font-size: 16px; }
     .portfolio-button button { font-size: 14px; padding: 10px 24px; }
     .reviews-button button { font-size: 14px; padding: 10px 24px; }
     .price-card { padding: 16px; min-height: 80px; }
