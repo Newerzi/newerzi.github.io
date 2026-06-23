@@ -1,4 +1,4 @@
-/* ===== F0NTS ===== */
+/* ===== FONTS ===== */
 @font-face {
     font-family: 'UNCAGE SemiBold';
     src: url('fonts/UNCAGE-SemiBold.otf') format('opentype');
@@ -238,6 +238,8 @@ img {
 .hero-right {
     flex-shrink: 0;
     max-width: 40%;
+    display: flex;
+    align-items: flex-start;
 }
 
 .hero-right img {
