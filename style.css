@@ -433,27 +433,22 @@ img {
 .reviews-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    background: #1a1a1a;
-    padding: 40px;
+    gap: 20px;
     margin-bottom: 50px;
 }
 
 .review-item {
-    padding: 16px 20px;
-    border-bottom: 1px solid #333;
-}
-
-.review-item:nth-last-child(-n+2) {
-    border-bottom: none;
+    background: #1a1a1a;
+    padding: 20px 24px;
+    border: none;
 }
 
 .review-header {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 20px;
     color: #ffffff;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .review-author {
@@ -461,11 +456,25 @@ img {
     color: #ffffff;
 }
 
+.review-divider {
+    color: #666;
+}
+
+.review-platform {
+    color: #aaaaaa;
+    font-weight: 400;
+}
+
+.review-date {
+    color: #666;
+    font-weight: 400;
+}
+
 .review-text {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 20px;
-    color: #aaaaaa;
+    font-size: 18px;
+    color: #999999;
     line-height: 1.4;
     padding-left: 0;
 }
