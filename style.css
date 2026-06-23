@@ -329,13 +329,13 @@ img {
     object-fit: cover;
 }
 
-/* ПРАВАЯ ЧАСТЬ — добавляем отступ сверху */
+/* ПРАВАЯ ЧАСТЬ — увеличиваем отступ сверху */
 .project-right {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* меняем с space-between */
-    padding: 95px 0 0 40px; /* отступ сверху 95px */
+    justify-content: flex-start;
+    padding: 160px 0 0 40px; /* увеличил с 95px до 160px */
     max-width: 80%;
 }
 
