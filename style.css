@@ -339,20 +339,20 @@ img {
     max-width: 80%;
 }
 
-/* Название — меньше в 1.25 раз (112px / 1.25 = 90px) */
+/* Название — крупное, но не слишком */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 90px;
     color: #1a1a1a;
     letter-spacing: -0.02em;
-    line-height: 0.9; /* интерлиньяж меньше */
+    line-height: 1;
     text-align: right;
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
-/* Описание — как на фото, с переносами */
+/* Описание — с правильными переносами */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
@@ -361,11 +361,11 @@ img {
     line-height: 1.4;
     text-align: justify;
     width: 100%;
-    margin-bottom: 20px;
-    white-space: pre-line; /* сохраняет переносы из HTML */
+    margin-bottom: 30px;
+    white-space: pre-line;
 }
 
-/* Кнопка ДАЛЕЕ — чуть выше */
+/* Кнопка ДАЛЕЕ → */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -377,8 +377,7 @@ img {
     display: block;
     text-align: right;
     width: 100%;
-    margin-top: -10px; /* поднимаем выше */
-    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .project-next:hover {
