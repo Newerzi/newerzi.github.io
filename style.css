@@ -261,7 +261,7 @@ img {
 /* ===== BANNER ===== */
 .banner {
     width: 100%;
-    margin-top: 100px; /* 2x от изначального (было 50px) */
+    margin-top: 100px;
     margin-bottom: 100px;
     display: flex;
     justify-content: center;
@@ -280,9 +280,9 @@ img {
 
 .section-title {
     font-family: 'Neutral Face', sans-serif;
-    font-size: 75px; /* как строка из описания */
+    font-size: 75px;
     letter-spacing: -0.02em;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .section-title .bold {
@@ -293,14 +293,15 @@ img {
     font-weight: 400;
 }
 
-/* ПРОЕКТ [01] — возвращаем как было */
+/* ПРОЕКТ [01] — больше в 1.5 раза */
 .project-header {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 75px; /* как строка из описания */
+    font-size: 112px; /* 75px * 1.5 = 112.5px */
     color: #1a1a1a;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    line-height: 1;
 }
 
 .project {
@@ -310,8 +311,9 @@ img {
     align-items: flex-start;
 }
 
+/* изображение меньше в 1.5 раза */
 .project-preview {
-    flex: 0 0 55%;
+    flex: 0 0 36.66%; /* 55% / 1.5 = 36.66% */
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -333,15 +335,17 @@ img {
     justify-content: flex-start;
     padding-top: 0;
     height: 100%;
+    position: relative;
+    min-height: 400px;
 }
 
 .project-info h2 {
     font-family: 'Manrope', sans-serif;
-    font-weight: 600; /* SemiBold */
-    font-size: 90px; /* в 1.5 раза больше (было 60px) */
+    font-weight: 600;
+    font-size: 90px;
     color: #1a1a1a;
     letter-spacing: -0.03em;
-    line-height: 1;
+    line-height: 0.9; /* интерлиньяж чуть меньше */
     text-align: right;
     width: 100%;
     margin-top: 0;
@@ -349,28 +353,33 @@ img {
 
 .project-info p {
     font-family: 'Manrope', sans-serif;
-    font-weight: 400; /* Regular */
-    font-size: 25px; /* в 3 раза меньше (было 75px) */
+    font-weight: 400;
+    font-size: 25px;
     color: #1a1a1a;
-    line-height: 1.1;
+    line-height: 1.2;
     text-align: justify;
     width: 100%;
     margin-top: 16px;
+    max-width: 80%;
+    margin-left: auto;
 }
 
-.project-info a {
+/* Кнопка ДАЛЕЕ — по нижней границе изображения, больше в 2.5 раза */
+.project-info .dalee-link {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 28px; /* больше (было 22px) */
+    font-size: 70px; /* 28px * 2.5 = 70px */
     color: #1a1a1a;
     text-decoration: none;
-    margin-top: 20px;
     letter-spacing: 0.02em;
     transition: opacity 0.2s;
     align-self: flex-end;
+    margin-top: auto;
+    padding-bottom: 0;
+    line-height: 1;
 }
 
-.project-info a:hover {
+.project-info .dalee-link:hover {
     opacity: 0.6;
 }
 
@@ -538,10 +547,11 @@ img {
     .hero-description-section p { font-size: 56px; }
     .hero-description-section { max-width: 85%; margin-top: -90px; }
     .section-title { font-size: 56px; }
-    .project-header { font-size: 56px; }
+    .project-header { font-size: 84px; }
+    .project-preview { flex: 0 0 36.66%; }
     .project-info h2 { font-size: 68px; }
-    .project-info p { font-size: 20px; }
-    .project-info a { font-size: 24px; }
+    .project-info p { font-size: 20px; max-width: 85%; }
+    .project-info .dalee-link { font-size: 52px; }
     .banner { margin-top: 80px; margin-bottom: 80px; }
     .portfolio { margin-bottom: 80px; }
     .reviews { margin-bottom: 80px; }
@@ -559,13 +569,13 @@ img {
     .hero-description-section p { font-size: 42px; white-space: normal; }
     .hero-description-section { max-width: 100%; margin-top: 0; }
     .section-title { font-size: 42px; }
-    .project-header { font-size: 42px; }
+    .project-header { font-size: 63px; }
     .project { flex-direction: column; gap: 30px; }
     .project-preview { flex: 0 0 100%; }
-    .project-info { align-items: flex-start; text-align: left; }
+    .project-info { align-items: flex-start; text-align: left; min-height: auto; }
     .project-info h2 { text-align: left; font-size: 50px; }
-    .project-info p { text-align: justify; font-size: 18px; }
-    .project-info a { text-align: left; align-self: flex-start; font-size: 22px; }
+    .project-info p { text-align: justify; font-size: 18px; max-width: 100%; margin-left: 0; }
+    .project-info .dalee-link { text-align: left; align-self: flex-start; font-size: 40px; }
     .reviews-grid { grid-template-columns: 1fr; }
     .price-grid { grid-template-columns: 1fr; }
     .contacts { flex-direction: column; gap: 20px; align-items: flex-start; }
@@ -588,10 +598,10 @@ img {
     .hero { margin-bottom: 30px; }
     .hero-description-section { margin-bottom: 20px; }
     .section-title { font-size: 30px; }
-    .project-header { font-size: 30px; }
+    .project-header { font-size: 45px; }
     .project-info h2 { font-size: 36px; }
     .project-info p { font-size: 16px; }
-    .project-info a { font-size: 18px; }
+    .project-info .dalee-link { font-size: 30px; }
     .portfolio-button button { font-size: 18px; padding: 12px 32px; }
     .reviews-button button { font-size: 18px; padding: 12px 32px; }
     .price-card h3 { font-size: 22px; }
@@ -619,10 +629,10 @@ img {
     .hero-description-section { margin-bottom: 15px; }
     .banner { margin-bottom: 40px; }
     .section-title { font-size: 22px; }
-    .project-header { font-size: 22px; }
+    .project-header { font-size: 33px; }
     .project-info h2 { font-size: 28px; }
     .project-info p { font-size: 14px; }
-    .project-info a { font-size: 16px; }
+    .project-info .dalee-link { font-size: 24px; }
     .portfolio-button button { font-size: 14px; padding: 10px 24px; }
     .reviews-button button { font-size: 14px; padding: 10px 24px; }
     .price-card { padding: 16px; min-height: 80px; }
