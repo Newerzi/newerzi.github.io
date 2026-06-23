@@ -281,7 +281,7 @@ img {
 .project-wrapper {
     display: flex;
     gap: 60px;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 /* ЛЕВАЯ ЧАСТЬ (без изменений) */
@@ -334,11 +334,10 @@ img {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* равномерное распределение по вертикали */
+    justify-content: space-between;
     padding-top: 0;
     padding-left: 40px;
     max-width: 80%;
-    min-height: 100%; /* растягиваем на всю высоту левой части */
 }
 
 /* Заголовок WEXON NETWORK */
@@ -352,8 +351,6 @@ img {
     margin-bottom: 16px;
     text-align: right;
     width: 100%;
-    margin-top: 0;
-    padding-top: 0;
 }
 
 /* Описание */
@@ -369,7 +366,7 @@ img {
     flex: 1;
 }
 
-/* Кнопка ДАЛЕЕ → — прижимаем к низу */
+/* Кнопка ДАЛЕЕ → */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -381,12 +378,6 @@ img {
     display: block;
     text-align: right;
     width: 100%;
-    margin-top: auto;
-    padding-top: 0;
-}
-
-.project-next:hover {
-    opacity: 0.6;
 }
 
 /* ===== REVIEWS ===== */
