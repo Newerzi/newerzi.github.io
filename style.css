@@ -278,91 +278,30 @@ img {
     margin-bottom: 100px;
 }
 
-/* Контейнер для левой и правой части */
-.project-wrapper {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-}
-
-/* ЛЕВАЯ ЧАСТЬ */
-.project-left {
-    flex: 0 0 45%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* «ПОРТФОЛИО #» — 0.8x от 75px = 60px */
 .section-title {
     font-family: 'Neutral Face', sans-serif;
     font-size: 60px;
+    font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 30px;
-    text-align: left;
 }
 
-.section-title .bold {
-    font-weight: 700;
-}
-
-.section-title .regular {
-    font-weight: 400;
-}
-
-/* ПРОЕКТ [01] */
 .project-header {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
     font-size: 28px;
     color: #1a1a1a;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
-    text-align: left;
+    margin-bottom: 20px;
 }
 
-/* Список проекта */
-.project-list {
-    font-family: 'Manrope', sans-serif;
-    font-size: 28px;
-    color: #1a1a1a;
-    margin-bottom: 30px;
-    padding-left: 0;
-}
-
-.project-list .name {
-    font-weight: 700;
-}
-
-.project-list .type {
-    font-weight: 400;
-    display: block;
-    padding-left: 30px;
-}
-
-/* ИЗОБРАЖЕНИЕ */
-.project-image {
+.project-divider {
     width: 100%;
-    margin-bottom: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
 }
 
-.project-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ПРАВАЯ ЧАСТЬ */
-.project-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-    padding-top: 0;
-    justify-content: flex-start;
-}
-
-/* WEXON NETWORK */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -371,24 +310,18 @@ img {
     letter-spacing: -0.02em;
     line-height: 1;
     margin-bottom: 16px;
-    text-align: right;
-    width: 100%;
-    margin-top: 0;
 }
 
-/* ОПИСАНИЕ */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 28px;
     color: #1a1a1a;
     line-height: 1.4;
-    margin-bottom: 30px;
-    text-align: justify;
-    width: 100%;
+    margin-bottom: 20px;
+    max-width: 80%;
 }
 
-/* ДАЛЕЕ → */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -397,48 +330,11 @@ img {
     text-decoration: none;
     letter-spacing: 0.02em;
     transition: opacity 0.2s;
-    display: block;
-    text-align: right;
-    width: 100%;
-    margin-top: auto;
-    padding-top: 0;
+    display: inline-block;
 }
 
 .project-next:hover {
     opacity: 0.6;
-}
-
-/* Разделитель */
-.project-divider {
-    width: 100%;
-    height: 1px;
-    background: #ccc;
-    margin: 20px 0;
-}
-
-.portfolio-button {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 60px;
-}
-
-.portfolio-button button {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 22px;
-    color: #1a1a1a;
-    padding: 14px 40px;
-    border: 2px solid #1a1a1a;
-    border-radius: 60px;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s;
-    letter-spacing: 0.02em;
-}
-
-.portfolio-button button:hover {
-    background: #1a1a1a;
-    color: #fff;
 }
 
 /* ===== REVIEWS ===== */
