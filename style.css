@@ -334,13 +334,14 @@ img {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between; /* равномерное распределение по вертикали */
     padding-top: 0;
-    padding-left: 40px; /* отступ слева, чтобы текст не пересекал область */
-    max-width: 80%; /* ограничиваем ширину */
+    padding-left: 40px;
+    max-width: 80%;
+    min-height: 100%; /* растягиваем на всю высоту левой части */
 }
 
-/* Заголовок WEXON NETWORK — 2 строки, 75px (1.25x от 60px) */
+/* Заголовок WEXON NETWORK */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -368,7 +369,7 @@ img {
     flex: 1;
 }
 
-/* Кнопка ДАЛЕЕ → */
+/* Кнопка ДАЛЕЕ → — прижимаем к низу */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
