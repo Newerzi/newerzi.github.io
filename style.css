@@ -433,13 +433,13 @@ img {
 .reviews-list {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 0;
     margin-bottom: 50px;
 }
 
 .review-item {
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .review-item:last-child {
@@ -449,22 +449,22 @@ img {
 .review-header {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 22px;
     color: #1a1a1a;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
-.review-header strong {
+.review-author {
     font-weight: 600;
 }
 
 .review-text {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 22px;
     color: #555;
     line-height: 1.4;
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 .reviews-button {
@@ -476,19 +476,18 @@ img {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 28px;
-    color: #1a1a1a;
+    color: #ffffff;
     padding: 16px 48px;
-    border: 2px solid #1a1a1a;
+    border: none;
     border-radius: 0;
-    background: transparent;
+    background: #1a1a1a;
     cursor: pointer;
     transition: all 0.3s;
     letter-spacing: 0.02em;
 }
 
 .reviews-button button:hover {
-    background: #1a1a1a;
-    color: #fff;
+    background: #333333;
 }
 
 /* ===== PRICES ===== */
