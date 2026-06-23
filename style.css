@@ -215,7 +215,7 @@ img {
 }
 
 .hero-right img {
-    width: 100%;
+    width: 66.66%; /* 2/3 от текущего размера */
     height: auto;
     object-fit: contain;
 }
@@ -509,6 +509,7 @@ img {
 @media (max-width: 1200px) {
     .hero-left h1 { font-size: 60px; }
     .hero-right { max-width: 18%; }
+    .hero-right img { width: 66.66%; }
     .hero-description-section p { font-size: 26px; }
     .project-info h2 { font-size: 48px; }
     .project-info p { font-size: 20px; }
@@ -518,7 +519,8 @@ img {
 
 @media (max-width: 992px) {
     .hero-grid { flex-direction: column; align-items: flex-start; }
-    .hero-right { max-width: 30%; }
+    .hero-right { max-width: 25%; }
+    .hero-right img { width: 66.66%; }
     .hero-left { padding-right: 0; width: 100%; }
     .hero-left h1 { font-size: 50px; }
     .hero-description-section p { font-size: 22px; }
@@ -539,7 +541,8 @@ img {
     .logo, .header-center, .header-right { font-size: 16px; }
     .language { font-size: 18px; }
     .hero-left h1 { font-size: 38px; }
-    .hero-right { max-width: 25%; }
+    .hero-right { max-width: 30%; }
+    .hero-right img { width: 66.66%; }
     .hero-description-section p { font-size: 18px; }
     .section-title { font-size: 20px; }
     .project-info h2 { font-size: 30px; }
@@ -562,7 +565,8 @@ img {
     .header-center { font-size: 14px; }
     .language { font-size: 16px; }
     .hero-left h1 { font-size: 28px; }
-    .hero-right { max-width: 30%; }
+    .hero-right { max-width: 35%; }
+    .hero-right img { width: 66.66%; }
     .hero-description-section p { font-size: 14px; }
     .hero { margin-bottom: 20px; }
     .banner { margin-bottom: 30px; }
