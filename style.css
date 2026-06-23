@@ -133,7 +133,7 @@ img {
 
 /* ===== HERO ===== */
 .hero {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     position: relative;
 }
 
@@ -185,7 +185,7 @@ img {
     justify-content: space-between;
     width: 100%;
     gap: 40px;
-    min-height: 70vh;
+    min-height: 65vh;
 }
 
 .hero-left {
@@ -194,7 +194,7 @@ img {
     flex-direction: column;
     gap: 4px;
     padding-right: 20px;
-    padding-top: 80px;
+    padding-top: 60px;
 }
 
 .hero-left h1 {
@@ -203,6 +203,7 @@ img {
     font-size: 180px;
     color: #1a1a1a;
     letter-spacing: -0.08em;
+    word-spacing: 0.15em;
     line-height: 1;
 }
 
@@ -228,18 +229,20 @@ img {
 .hero-description-section {
     display: flex;
     flex-direction: column;
-    gap: 0px;
-    margin-bottom: 60px;
+    gap: 2px;
+    margin-bottom: 50px;
     padding: 0;
     max-width: 83.33%;
+    margin-top: -10px;
 }
 
 .hero-description-section p {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 75px;
-    line-height: 0.73;
+    line-height: 1.1;
     letter-spacing: -0.02em;
+    word-spacing: 0.08em;
 }
 
 .hero-description-section p:nth-child(1) {
@@ -513,7 +516,7 @@ img {
 /* ===== MEDIA ===== */
 @media (max-width: 1200px) {
     .hero-left h1 { font-size: 130px; }
-    .hero-left { padding-top: 60px; }
+    .hero-left { padding-top: 40px; }
     .hero-right { max-width: 18%; }
     .hero-right img { width: 66.66%; }
     .hero-description-section p { font-size: 56px; }
@@ -532,7 +535,7 @@ img {
     .hero-left { padding-right: 0; width: 100%; }
     .hero-left h1 { font-size: 100px; }
     .hero-description-section p { font-size: 42px; }
-    .hero-description-section { max-width: 100%; }
+    .hero-description-section { max-width: 100%; margin-top: 0; }
     .project { flex-direction: column; }
     .project-preview { flex: 0 0 100%; }
     .project-info { align-items: flex-start; text-align: left; padding-top: 0; }
@@ -553,8 +556,8 @@ img {
     .hero-right { max-width: 30%; }
     .hero-right img { width: 66.66%; }
     .hero-description-section p { font-size: 30px; }
-    .hero { margin-bottom: 40px; }
-    .hero-description-section { margin-bottom: 40px; }
+    .hero { margin-bottom: 30px; }
+    .hero-description-section { margin-bottom: 30px; }
     .section-title { font-size: 20px; }
     .project-info h2 { font-size: 30px; }
     .project-info p { font-size: 16px; }
@@ -579,8 +582,8 @@ img {
     .hero-right { max-width: 35%; }
     .hero-right img { width: 66.66%; }
     .hero-description-section p { font-size: 22px; }
-    .hero { margin-bottom: 30px; }
-    .hero-description-section { margin-bottom: 30px; }
+    .hero { margin-bottom: 20px; }
+    .hero-description-section { margin-bottom: 20px; }
     .banner { margin-bottom: 30px; }
     .section-title { font-size: 16px; }
     .project-info h2 { font-size: 22px; }
