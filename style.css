@@ -273,17 +273,71 @@ img {
     object-fit: contain;
 }
 
-/* ПРАВАЯ ЧАСТЬ */
+/* ===== PORTFOLIO ===== */
+.portfolio {
+    margin-bottom: 100px;
+}
+
+.project-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* ЛЕВАЯ ЧАСТЬ (без изменений) */
+.project-left {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-title {
+    font-family: 'Neutral Face', sans-serif;
+    font-size: 60px;
+    letter-spacing: -0.02em;
+    margin-bottom: 30px;
+}
+
+.section-title .bold {
+    font-weight: 700;
+}
+
+.section-title .regular {
+    font-weight: 400;
+}
+
+.project-header {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+.project-image {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1765 / 1176.67;
+    object-fit: cover;
+}
+
+/* ПРАВАЯ ЧАСТЬ (исправлено) */
 .project-right {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 80px; /* опускаем заголовок ниже */
-    position: relative;
+    padding-top: 95px;
 }
 
-/* Заголовок */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -294,11 +348,8 @@ img {
     margin-bottom: 16px;
     text-align: right;
     width: 100%;
-    margin-top: 0;
-    padding-top: 0;
 }
 
-/* Описание */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
@@ -308,10 +359,8 @@ img {
     margin-bottom: 20px;
     text-align: justify;
     width: 100%;
-    flex: 1;
 }
 
-/* Кнопка — по нижней линии изображения */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -324,7 +373,6 @@ img {
     text-align: right;
     width: 100%;
     margin-top: auto;
-    padding-top: 0;
 }
 
 .project-next:hover {
