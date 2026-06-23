@@ -329,18 +329,17 @@ img {
     object-fit: cover;
 }
 
-/* ПРАВАЯ ЧАСТЬ */
+/* ===== ПРАВАЯ ЧАСТЬ — исправлено ===== */
 .project-right {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 0;
-    padding-left: 40px;
+    padding: 0 0 0 40px;
     max-width: 80%;
+    min-height: 100%;
 }
 
-/* Заголовок WEXON NETWORK — поднимаем выше */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -348,26 +347,26 @@ img {
     color: #1a1a1a;
     letter-spacing: -0.02em;
     line-height: 1;
-    margin-bottom: 16px;
     text-align: right;
     width: 100%;
-    margin-top: -10px; /* поднимаем выше */
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
 }
 
-/* Описание */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 28px;
     color: #1a1a1a;
     line-height: 1.4;
-    margin-bottom: 20px;
     text-align: justify;
     width: 100%;
+    margin: 16px 0 20px 0;
+    padding: 0;
     flex: 1;
 }
 
-/* Кнопка ДАЛЕЕ → — ровно по нижней линии изображения */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -379,11 +378,14 @@ img {
     display: block;
     text-align: right;
     width: 100%;
-    margin-top: 0;
-    padding-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
     line-height: 1;
+}
+
+.project-next:hover {
+    opacity: 0.6;
 }
 
 /* ===== REVIEWS ===== */
