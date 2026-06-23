@@ -233,7 +233,7 @@ img {
     margin-bottom: 30px;
     padding: 0;
     max-width: 83.33%;
-    margin-top: -30px; /* поднимаем выше, ближе к изображению */
+    margin-top: -60px; /* поднимаем выше на 1.15 строки (примерно 75px * 0.8 = 60px) */
 }
 
 .hero-description-section p {
@@ -241,9 +241,9 @@ img {
     font-weight: 400;
     font-size: 75px;
     line-height: 1.1;
-    letter-spacing: -0.06em; /* кернинг -6% */
+    letter-spacing: -0.06em;
     word-spacing: 0.08em;
-    white-space: nowrap; /* каждая строка в 1 строку */
+    white-space: nowrap;
 }
 
 .hero-description-section p:nth-child(1) {
