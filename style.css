@@ -340,9 +340,10 @@ img {
     align-items: flex-end;
     text-align: right;
     padding-top: 0;
+    justify-content: flex-start;
 }
 
-/* WEXON NETWORK */
+/* WEXON NETWORK — по верхней линии изображения */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -353,21 +354,22 @@ img {
     margin-bottom: 16px;
     text-align: right;
     width: 100%;
+    margin-top: 0;
 }
 
-/* ОПИСАНИЕ — по правому краю */
+/* ОПИСАНИЕ — горизонтальное выравнивание по ширине, меньше в 1.5 раза */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 18.67px; /* 28px / 1.5 = 18.67px */
     color: #1a1a1a;
     line-height: 1.4;
     margin-bottom: 30px;
-    text-align: right;
+    text-align: justify;
     width: 100%;
 }
 
-/* ДАЛЕЕ → */
+/* ДАЛЕЕ → — по нижней линии изображения */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -379,10 +381,38 @@ img {
     display: block;
     text-align: right;
     width: 100%;
+    margin-top: auto;
+    padding-top: 0;
 }
 
 .project-next:hover {
     opacity: 0.6;
+}
+
+/* Кнопка "ДРУГИЕ РАБОТЫ" */
+.portfolio-button {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 60px;
+}
+
+.portfolio-button button {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: #1a1a1a;
+    padding: 14px 40px;
+    border: 2px solid #1a1a1a;
+    border-radius: 60px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.02em;
+}
+
+.portfolio-button button:hover {
+    background: #1a1a1a;
+    color: #fff;
 }
 
 /* ===== REVIEWS ===== */
