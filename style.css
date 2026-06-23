@@ -184,6 +184,7 @@ img {
     justify-content: space-between;
     width: 100%;
     gap: 40px;
+    min-height: 70vh;
 }
 
 .hero-left {
@@ -197,9 +198,9 @@ img {
 .hero-left h1 {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 120px;
+    font-size: 180px;
     color: #1a1a1a;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.12em;
     line-height: 1;
 }
 
@@ -228,12 +229,13 @@ img {
     gap: 2px;
     margin-bottom: 60px;
     padding: 0;
+    max-width: 83.33%;
 }
 
 .hero-description-section p {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 42px;
+    font-size: 63px;
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
@@ -508,10 +510,11 @@ img {
 
 /* ===== MEDIA ===== */
 @media (max-width: 1200px) {
-    .hero-left h1 { font-size: 90px; }
+    .hero-left h1 { font-size: 130px; }
     .hero-right { max-width: 18%; }
     .hero-right img { width: 66.66%; }
-    .hero-description-section p { font-size: 34px; }
+    .hero-description-section p { font-size: 48px; }
+    .hero-description-section { max-width: 85%; }
     .project-info h2 { font-size: 48px; }
     .project-info p { font-size: 20px; }
     .project-info a { font-size: 20px; }
@@ -519,12 +522,13 @@ img {
 }
 
 @media (max-width: 992px) {
-    .hero-grid { flex-direction: column; align-items: flex-start; }
+    .hero-grid { flex-direction: column; align-items: flex-start; min-height: auto; }
     .hero-right { max-width: 25%; align-self: flex-end; }
     .hero-right img { width: 66.66%; }
     .hero-left { padding-right: 0; width: 100%; }
-    .hero-left h1 { font-size: 80px; }
-    .hero-description-section p { font-size: 28px; }
+    .hero-left h1 { font-size: 100px; }
+    .hero-description-section p { font-size: 38px; }
+    .hero-description-section { max-width: 100%; }
     .project { flex-direction: column; }
     .project-preview { flex: 0 0 100%; }
     .project-info { align-items: flex-start; text-align: left; padding-top: 0; }
@@ -541,10 +545,10 @@ img {
     body { padding: 15px; }
     .logo, .header-center, .header-right { font-size: 16px; }
     .language { font-size: 18px; }
-    .hero-left h1 { font-size: 56px; }
+    .hero-left h1 { font-size: 70px; }
     .hero-right { max-width: 30%; }
     .hero-right img { width: 66.66%; }
-    .hero-description-section p { font-size: 22px; }
+    .hero-description-section p { font-size: 28px; }
     .hero { margin-bottom: 40px; }
     .hero-description-section { margin-bottom: 40px; }
     .section-title { font-size: 20px; }
@@ -567,10 +571,10 @@ img {
     .logo, .header-right { font-size: 14px; }
     .header-center { font-size: 14px; }
     .language { font-size: 16px; }
-    .hero-left h1 { font-size: 38px; }
+    .hero-left h1 { font-size: 48px; }
     .hero-right { max-width: 35%; }
     .hero-right img { width: 66.66%; }
-    .hero-description-section p { font-size: 16px; }
+    .hero-description-section p { font-size: 20px; }
     .hero { margin-bottom: 30px; }
     .hero-description-section { margin-bottom: 30px; }
     .banner { margin-bottom: 30px; }
