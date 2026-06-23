@@ -278,10 +278,9 @@ img {
     margin-bottom: 100px;
 }
 
-/* ЗАГОЛОВОК: # ПОРТФОЛИО # — размером со строку описания */
 .section-title {
     font-family: 'Neutral Face', sans-serif;
-    font-size: 28px; /* такой же, как описание */
+    font-size: 28px;
     letter-spacing: -0.02em;
     margin-bottom: 40px;
 }
@@ -294,69 +293,38 @@ img {
     font-weight: 400;
 }
 
-/* ПРОЕКТ [01] — мелкий, как на фото */
 .project-header {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 28px; /* мелкий, как описание */
-    color: #1a1a1a;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-}
-
-/* Список проекта */
-.project-list {
-    font-family: 'Manrope', sans-serif;
     font-size: 28px;
     color: #1a1a1a;
+    letter-spacing: -0.02em;
     margin-bottom: 20px;
-    padding-left: 0;
 }
 
-.project-list .name {
-    font-weight: 700;
-}
-
-.project-list .type {
-    font-weight: 400;
-    display: block;
-    padding-left: 30px;
-}
-
-/* Разделитель */
-.project-divider {
-    width: 100%;
-    height: 1px;
-    background: #ccc;
-    margin: 25px 0;
-}
-
-/* WEXON NETWORK — крупный, как на фото */
-.project-subheader {
+.project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 60px;
     color: #1a1a1a;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
+    line-height: 1;
+    margin-bottom: 16px;
 }
 
-/* Описание — размер 28px */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 28px;
     color: #1a1a1a;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    max-width: 80%;
+    line-height: 1.4;
+    margin-bottom: 30px;
 }
 
-/* ДАЛЕЕ → — как WEXON */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 60px;
+    font-size: 28px;
     color: #1a1a1a;
     text-decoration: none;
     letter-spacing: 0.02em;
@@ -366,43 +334,6 @@ img {
 
 .project-next:hover {
     opacity: 0.6;
-}
-
-/* Изображение — возвращаем */
-.project-image {
-    width: 100%;
-    margin: 20px 0 30px 0;
-}
-
-.project-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.portfolio-button {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 40px;
-}
-
-.portfolio-button button {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 22px;
-    color: #1a1a1a;
-    padding: 14px 40px;
-    border: 2px solid #1a1a1a;
-    border-radius: 60px;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s;
-    letter-spacing: 0.02em;
-}
-
-.portfolio-button button:hover {
-    background: #1a1a1a;
-    color: #fff;
 }
 
 /* ===== REVIEWS ===== */
