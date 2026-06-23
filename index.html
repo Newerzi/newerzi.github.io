@@ -4,501 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEWERZI</title>
-    <link rel="stylesheet" href="fonts/UNCAGE_SemiBold.css">
-    <link rel="stylesheet" href="fonts/NeutralFace.css">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #f5f5f5;
-            min-height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 20px 30px;
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1400px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 0;
-            margin-bottom: 40px;
-        }
-
-        .logo {
-            font-family: 'UNCAGE SemiBold', 'Arial Black', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
-            line-height: 1;
-            text-transform: uppercase;
-            flex-shrink: 0;
-        }
-
-        .header-center {
-            font-family: 'UNCAGE SemiBold', 'Arial Black', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
-            letter-spacing: 0.15em;
-            line-height: 1;
-            text-align: center;
-            flex: 1;
-            padding: 0 15px;
-        }
-
-        .header-right {
-            font-family: 'UNCAGE SemiBold', 'Arial Black', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
-            line-height: 1;
-            text-transform: uppercase;
-            flex-shrink: 0;
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            margin-bottom: 50px;
-        }
-
-        .language {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 28px;
-            color: #1a1a1a;
-            line-height: 1;
-            margin-bottom: 30px;
-        }
-
-        .language a {
-            text-decoration: none;
-            color: #1a1a1a;
-            transition: opacity 0.2s;
-        }
-
-        .language a:hover {
-            opacity: 0.6;
-        }
-
-        .language .rus {
-            font-weight: 700;
-        }
-
-        .language .eng {
-            font-weight: 500;
-        }
-
-        .language .divider {
-            font-weight: 300;
-            color: #999;
-        }
-
-        .language img {
-            width: 1.2em;
-            height: 0.8em;
-            object-fit: cover;
-            border-radius: 2px;
-            margin-left: 6px;
-        }
-
-        .hero-grid {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            width: 100%;
-            gap: 40px;
-        }
-
-        .hero-left {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding-right: 20px;
-        }
-
-        .hero-left h1 {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 500;
-            font-size: 140px;
-            color: #1a1a1a;
-            letter-spacing: -0.05em;
-            line-height: 1;
-        }
-
-        .hero-left h1 span {
-            font-weight: 700;
-        }
-
-        .hero-description {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            margin-top: 4px;
-        }
-
-        .hero-description p {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 400;
-            font-size: 70px;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            white-space: nowrap;
-        }
-
-        .hero-description p:nth-child(1) {
-            color: #000000;
-        }
-
-        .hero-description p:nth-child(2) {
-            color: #404040;
-        }
-
-        .hero-description p:nth-child(3) {
-            color: #808080;
-        }
-
-        .hero-right {
-            flex-shrink: 0;
-            max-width: 45%;
-        }
-
-        .hero-right img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 20px;
-        }
-
-        /* ===== BANNER ===== */
-        .banner {
-            width: 100%;
-            margin-bottom: 60px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .banner img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 20px;
-        }
-
-        /* ===== PORTFOLIO ===== */
-        .portfolio {
-            margin-bottom: 60px;
-        }
-
-        .section-title {
-            font-family: 'Neutral Face', 'Arial', sans-serif;
-            font-weight: 700;
-            font-size: 35px;
-            letter-spacing: -0.02em;
-            margin-bottom: 40px;
-        }
-
-        .project {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 50px;
-            align-items: flex-start;
-        }
-
-        .project-preview {
-            flex: 0 0 45%;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .project-preview span {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 500;
-            font-size: 28px;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
-        }
-
-        .project-preview img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 16px;
-        }
-
-        .project-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            text-align: right;
-            padding-top: 40px;
-        }
-
-        .project-info h2 {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            font-size: 93px;
-            color: #1a1a1a;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            text-align: right;
-            width: 100%;
-        }
-
-        .project-info p {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 400;
-            font-size: 28px;
-            color: #1a1a1a;
-            line-height: 1.5;
-            text-align: right;
-            width: 100%;
-            margin-top: 8px;
-        }
-
-        .project-info a {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            font-size: 28px;
-            color: #1a1a1a;
-            text-decoration: none;
-            margin-top: 8px;
-            letter-spacing: 0.02em;
-            transition: opacity 0.2s;
-        }
-
-        .project-info a:hover {
-            opacity: 0.6;
-        }
-
-        .portfolio-button {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: 20px;
-        }
-
-        .portfolio-button button {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            font-size: 28px;
-            color: #1a1a1a;
-            padding: 16px 48px;
-            border: 2px solid #1a1a1a;
-            border-radius: 60px;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-            letter-spacing: 0.02em;
-        }
-
-        .portfolio-button button:hover {
-            background: #1a1a1a;
-            color: #fff;
-        }
-
-        /* ===== REVIEWS ===== */
-        .reviews {
-            margin-bottom: 60px;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .review {
-            background: #f0f0f0;
-            border-radius: 16px;
-            padding: 24px;
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 18px;
-        }
-
-        .reviews-button {
-            display: flex;
-            justify-content: flex-start;
-        }
-
-        .reviews-button button {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            font-size: 28px;
-            color: #1a1a1a;
-            padding: 16px 48px;
-            border: 2px solid #1a1a1a;
-            border-radius: 60px;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-            letter-spacing: 0.02em;
-        }
-
-        .reviews-button button:hover {
-            background: #1a1a1a;
-            color: #fff;
-        }
-
-        /* ===== PRICES ===== */
-        .prices {
-            margin-bottom: 60px;
-        }
-
-        .price-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .price-card {
-            background: #f0f0f0;
-            border-radius: 16px;
-            padding: 30px;
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1a1a1a;
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        /* ===== CONTACTS ===== */
-        .contacts {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 0;
-            border-top: 1px solid #ddd;
-        }
-
-        .contacts-left h2 {
-            font-family: 'Neutral Face', 'Arial', sans-serif;
-            font-weight: 700;
-            font-size: 35px;
-            letter-spacing: -0.02em;
-        }
-
-        .contacts-right {
-            display: flex;
-            gap: 40px;
-        }
-
-        .contacts-right a {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 500;
-            font-size: 24px;
-            color: #1a1a1a;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .contacts-right a:hover {
-            opacity: 0.6;
-        }
-
-        /* ===== MEDIA ===== */
-        @media (max-width: 1200px) {
-            .hero-left h1 { font-size: 100px; }
-            .hero-description p { font-size: 50px; }
-            .hero-right { max-width: 40%; }
-            .project-info h2 { font-size: 66px; }
-            .project-info p { font-size: 24px; }
-            .project-info a { font-size: 24px; }
-            .section-title { font-size: 28px; }
-        }
-
-        @media (max-width: 992px) {
-            .hero-grid { flex-direction: column; align-items: flex-start; }
-            .hero-right { max-width: 100%; width: 100%; }
-            .hero-left { padding-right: 0; width: 100%; }
-            .hero-left h1 { font-size: 80px; }
-            .hero-description p { font-size: 40px; white-space: normal; }
-            .project { flex-direction: column; }
-            .project-preview { flex: 0 0 100%; }
-            .project-info { align-items: flex-start; text-align: left; padding-top: 0; }
-            .project-info h2 { text-align: left; font-size: 53px; }
-            .project-info p { text-align: left; font-size: 22px; }
-            .project-info a { text-align: left; }
-            .reviews-grid { grid-template-columns: 1fr; }
-            .price-grid { grid-template-columns: 1fr; }
-            .contacts { flex-direction: column; gap: 20px; align-items: flex-start; }
-            .contacts-right { flex-wrap: wrap; gap: 20px; }
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 15px; }
-            .logo, .header-center, .header-right { font-size: 18px; }
-            .language { font-size: 22px; }
-            .hero-left h1 { font-size: 56px; }
-            .hero-description p { font-size: 28px; }
-            .section-title { font-size: 24px; }
-            .project-info h2 { font-size: 37px; }
-            .project-info p { font-size: 18px; }
-            .project-info a { font-size: 20px; }
-            .project-preview span { font-size: 20px; }
-            .portfolio-button button { font-size: 20px; padding: 12px 32px; }
-            .reviews-button button { font-size: 20px; padding: 12px 32px; }
-            .price-card { font-size: 20px; padding: 20px; }
-            .contacts-left h2 { font-size: 28px; }
-            .contacts-right a { font-size: 20px; }
-        }
-
-        @media (max-width: 480px) {
-            body { padding: 10px; }
-            .header { flex-wrap: wrap; gap: 5px; margin-bottom: 20px; }
-            .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
-            .logo, .header-right { font-size: 16px; }
-            .header-center { font-size: 16px; }
-            .language { font-size: 18px; }
-            .hero-left h1 { font-size: 40px; }
-            .hero-description p { font-size: 20px; }
-            .hero { margin-bottom: 30px; }
-            .banner { margin-bottom: 40px; }
-            .section-title { font-size: 20px; }
-            .project-info h2 { font-size: 28px; }
-            .project-info p { font-size: 16px; }
-            .project-info a { font-size: 16px; }
-            .project-preview span { font-size: 16px; }
-            .portfolio-button button { font-size: 16px; padding: 10px 24px; }
-            .reviews-button button { font-size: 16px; padding: 10px 24px; }
-            .price-card { font-size: 16px; padding: 16px; min-height: 100px; }
-            .contacts-left h2 { font-size: 22px; }
-            .contacts-right a { font-size: 16px; }
-            .contacts-right { gap: 16px; }
-            .portfolio { margin-bottom: 40px; }
-            .reviews { margin-bottom: 40px; }
-            .prices { margin-bottom: 40px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -578,10 +84,22 @@
         <div class="section-title">ОТЗЫВЫ %</div>
 
         <div class="reviews-grid">
-            <article class="review">atomcheats / ložteam — 20.04.2026</article>
-            <article class="review">whiteness / ložteam — 01.03.2026</article>
-            <article class="review">lacorner / ložteam — 01.03.2026</article>
-            <article class="review">нафан / ložteam — 23.12.2025</article>
+            <article class="review">
+                <strong>atomcheats</strong> / ložteam — 20.04.2026<br>
+                хороший дизайнер, сделал все быстро!
+            </article>
+            <article class="review">
+                <strong>whiteness</strong> / ložteam — 01.03.2026<br>
+                срабатываемся уже два раза, оформил два моих проекта!
+            </article>
+            <article class="review">
+                <strong>lacorner</strong> / ložteam — 01.03.2026<br>
+                работает быстро, качественно, принял все мои капризы!
+            </article>
+            <article class="review">
+                <strong>нафан</strong> / ložteam — 23.12.2025<br>
+                хороший дизайнер, сделал первый вариант и принял правки!
+            </article>
         </div>
 
         <div class="reviews-button">
@@ -594,10 +112,41 @@
         <div class="section-title">ЦЕНА &amp; ДИАПАЗОН УСЛУГ</div>
 
         <div class="price-grid">
-            <article class="price-card">ВЕБ-ДИЗАЙН</article>
-            <article class="price-card">МОУШН-ДИЗАЙН</article>
-            <article class="price-card">БРЕНДИНГ</article>
-            <article class="price-card">ГРАФ-ДИЗАЙН</article>
+            <article class="price-card">
+                <h3>ВЕБ-ДИЗАЙН</h3>
+                <div class="price-items">
+                    <div><span>Лендинг</span> 7.000₽ – 16.000₽</div>
+                    <div><span>+ Сайт</span> 15.000₽ – 25.000₽</div>
+                    <div><span>+ Контакты</span> 3.500₽ – логотип</div>
+                    <div><span>+ 2.000₽ – макет (ai)</span></div>
+                </div>
+            </article>
+            <article class="price-card">
+                <h3>МОУШН-ДИЗАЙН</h3>
+                <div class="price-items">
+                    <div><span>Креатив</span> 2.000₽</div>
+                    <div>+ ДО МИНУТЫ ХРОНОМЕТРАЖА</div>
+                    <div><span>+ Монтаж</span> 6.000₽</div>
+                    <div>+ Сложные анимации</div>
+                </div>
+            </article>
+            <article class="price-card">
+                <h3>БРЕНДИНГ</h3>
+                <div class="price-items">
+                    <div><span>Логотип</span> 3.500₽</div>
+                    <div><span>Айдентика</span> 8.000₽ – 15.000₽</div>
+                    <div><span>Гайдлайн</span> 5.000₽ – 10.000₽</div>
+                </div>
+            </article>
+            <article class="price-card">
+                <h3>ГРАФ-ДИЗАЙН</h3>
+                <div class="price-items">
+                    <div><span>Баннер</span> 1.800₽</div>
+                    <div>+ ДО МИНУТЫ ХРОНОМЕТРАЖА</div>
+                    <div><span>+ Форум</span> 3.000₽</div>
+                    <div>+ Тематический</div>
+                </div>
+            </article>
         </div>
     </section>
 
