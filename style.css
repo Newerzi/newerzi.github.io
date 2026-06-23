@@ -133,7 +133,7 @@ img {
 
 /* ===== HERO ===== */
 .hero {
-    margin-bottom: 30px;
+    margin-bottom: 60px; /* отступ x2 от шапки (30px * 2) */
 }
 
 .language {
@@ -197,9 +197,9 @@ img {
 .hero-left h1 {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 80px;
+    font-size: 240px; /* увеличен в 3 раза (было 80px) */
     color: #1a1a1a;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.1em; /* -10% кернинг */
     line-height: 1;
 }
 
@@ -212,6 +212,7 @@ img {
     max-width: 20%;
     display: flex;
     align-items: center;
+    justify-content: flex-end; /* прижимаем к правому краю */
 }
 
 .hero-right img {
@@ -220,12 +221,12 @@ img {
     object-fit: contain;
 }
 
-/* ===== HERO DESCRIPTION (перенесено вниз) ===== */
+/* ===== HERO DESCRIPTION (после изображения, отступ x2) ===== */
 .hero-description-section {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    margin: 20px 0 40px 0;
+    margin-bottom: 60px; /* отступ x2 перед баннером */
     padding: 0;
 }
 
@@ -252,7 +253,7 @@ img {
 /* ===== BANNER ===== */
 .banner {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     display: flex;
     justify-content: center;
 }
@@ -507,7 +508,7 @@ img {
 
 /* ===== MEDIA ===== */
 @media (max-width: 1200px) {
-    .hero-left h1 { font-size: 60px; }
+    .hero-left h1 { font-size: 160px; }
     .hero-right { max-width: 18%; }
     .hero-right img { width: 66.66%; }
     .hero-description-section p { font-size: 26px; }
@@ -519,10 +520,10 @@ img {
 
 @media (max-width: 992px) {
     .hero-grid { flex-direction: column; align-items: flex-start; }
-    .hero-right { max-width: 25%; }
+    .hero-right { max-width: 25%; align-self: flex-end; }
     .hero-right img { width: 66.66%; }
     .hero-left { padding-right: 0; width: 100%; }
-    .hero-left h1 { font-size: 50px; }
+    .hero-left h1 { font-size: 120px; }
     .hero-description-section p { font-size: 22px; }
     .project { flex-direction: column; }
     .project-preview { flex: 0 0 100%; }
@@ -540,10 +541,12 @@ img {
     body { padding: 15px; }
     .logo, .header-center, .header-right { font-size: 16px; }
     .language { font-size: 18px; }
-    .hero-left h1 { font-size: 38px; }
+    .hero-left h1 { font-size: 80px; }
     .hero-right { max-width: 30%; }
     .hero-right img { width: 66.66%; }
     .hero-description-section p { font-size: 18px; }
+    .hero { margin-bottom: 40px; }
+    .hero-description-section { margin-bottom: 40px; }
     .section-title { font-size: 20px; }
     .project-info h2 { font-size: 30px; }
     .project-info p { font-size: 16px; }
@@ -564,11 +567,12 @@ img {
     .logo, .header-right { font-size: 14px; }
     .header-center { font-size: 14px; }
     .language { font-size: 16px; }
-    .hero-left h1 { font-size: 28px; }
+    .hero-left h1 { font-size: 48px; }
     .hero-right { max-width: 35%; }
     .hero-right img { width: 66.66%; }
     .hero-description-section p { font-size: 14px; }
-    .hero { margin-bottom: 20px; }
+    .hero { margin-bottom: 30px; }
+    .hero-description-section { margin-bottom: 30px; }
     .banner { margin-bottom: 30px; }
     .section-title { font-size: 16px; }
     .project-info h2 { font-size: 22px; }
@@ -587,5 +591,4 @@ img {
     .reviews { margin-bottom: 30px; }
     .prices { margin-bottom: 30px; }
     .review { font-size: 13px; padding: 14px; }
-    .hero-description-section { margin: 10px 0 30px 0; }
 }
