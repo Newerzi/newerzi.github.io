@@ -339,36 +339,37 @@ img {
     max-width: 80%;
 }
 
-/* Название — больше в 1.5 раза (было 75px → 112.5px) */
+/* Название — меньше в 1.25 раз (112px / 1.25 = 90px) */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 112px;
+    font-size: 90px;
     color: #1a1a1a;
     letter-spacing: -0.02em;
-    line-height: 1;
+    line-height: 0.9; /* интерлиньяж меньше */
     text-align: right;
     width: 100%;
     margin-bottom: 16px;
 }
 
-/* Описание — интерлиньяж меньше, первая строка только "Бизнес-мессенджер, где разговор" */
+/* Описание — как на фото, с переносами */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 28px;
     color: #1a1a1a;
-    line-height: 1.2; /* уменьшил интерлиньяж */
+    line-height: 1.4;
     text-align: justify;
     width: 100%;
     margin-bottom: 20px;
+    white-space: pre-line; /* сохраняет переносы из HTML */
 }
 
-/* Кнопка ДАЛЕЕ — больше */
+/* Кнопка ДАЛЕЕ — чуть выше */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 40px; /* увеличил (было 28px) */
+    font-size: 40px;
     color: #1a1a1a;
     text-decoration: none;
     letter-spacing: 0.02em;
@@ -376,7 +377,8 @@ img {
     display: block;
     text-align: right;
     width: 100%;
-    margin-top: auto;
+    margin-top: -10px; /* поднимаем выше */
+    margin-bottom: 0;
 }
 
 .project-next:hover {
