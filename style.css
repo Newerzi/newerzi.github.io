@@ -278,10 +278,10 @@ img {
     margin-bottom: 100px;
 }
 
-/* «ПОРТФОЛИО #» — размером с 1 строку описания (75px) */
+/* «ПОРТФОЛИО #» — 0.8x от 75px = 60px */
 .section-title {
     font-family: 'Neutral Face', sans-serif;
-    font-size: 75px;
+    font-size: 60px;
     letter-spacing: -0.02em;
     margin-bottom: 40px;
     text-align: right;
@@ -306,9 +306,11 @@ img {
     text-align: right;
 }
 
-/* ИЗОБРАЖЕНИЕ РАБОТЫ */
+/* ИЗОБРАЖЕНИЕ — правильный размер (как в прошлых удачных моментах) */
 .project-image {
     width: 100%;
+    max-width: 55%;
+    margin-left: auto;
     margin-bottom: 30px;
 }
 
