@@ -278,7 +278,6 @@ img {
     margin-bottom: 100px;
 }
 
-/* отступ от баннера до портфолио — как от описания до баннера (100px) */
 .section-title {
     font-family: 'Neutral Face', sans-serif;
     font-size: 60px;
@@ -303,10 +302,10 @@ img {
     margin-bottom: 20px;
 }
 
-/* фото 1765 на 1176.67 */
+/* изображение — уменьшено */
 .project-image {
     width: 100%;
-    max-width: 100%;
+    max-width: 55%;
     margin-bottom: 30px;
 }
 
@@ -316,13 +315,6 @@ img {
     display: block;
     aspect-ratio: 1765 / 1176.67;
     object-fit: cover;
-}
-
-.project-divider {
-    width: 100%;
-    height: 1px;
-    background: #ccc;
-    margin: 25px 0;
 }
 
 /* ===== REVIEWS ===== */
