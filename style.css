@@ -229,11 +229,11 @@ img {
 .hero-description-section {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    margin-bottom: 50px;
+    gap: 0px;
+    margin-bottom: 30px;
     padding: 0;
     max-width: 83.33%;
-    margin-top: -10px;
+    margin-top: -30px; /* поднимаем выше, ближе к изображению */
 }
 
 .hero-description-section p {
@@ -241,8 +241,9 @@ img {
     font-weight: 400;
     font-size: 75px;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.06em; /* кернинг -6% */
     word-spacing: 0.08em;
+    white-space: nowrap; /* каждая строка в 1 строку */
 }
 
 .hero-description-section p:nth-child(1) {
