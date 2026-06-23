@@ -278,11 +278,12 @@ img {
     margin-bottom: 100px;
 }
 
+/* ЗАГОЛОВОК: # ПОРТФОЛИО # — размером со строку описания */
 .section-title {
     font-family: 'Neutral Face', sans-serif;
-    font-size: 75px;
+    font-size: 28px; /* такой же, как описание */
     letter-spacing: -0.02em;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .section-title .bold {
@@ -293,22 +294,22 @@ img {
     font-weight: 400;
 }
 
-/* ПРОЕКТ [01] */
+/* ПРОЕКТ [01] — мелкий, как на фото */
 .project-header {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 75px;
+    font-size: 28px; /* мелкий, как описание */
     color: #1a1a1a;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 /* Список проекта */
 .project-list {
     font-family: 'Manrope', sans-serif;
-    font-size: 75px;
+    font-size: 28px;
     color: #1a1a1a;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding-left: 0;
 }
 
@@ -319,43 +320,43 @@ img {
 .project-list .type {
     font-weight: 400;
     display: block;
-    padding-left: 40px;
+    padding-left: 30px;
 }
 
 /* Разделитель */
 .project-divider {
     width: 100%;
-    height: 2px;
-    background: #1a1a1a;
-    margin: 30px 0;
+    height: 1px;
+    background: #ccc;
+    margin: 25px 0;
 }
 
-/* WEXON NETWORK — подзаголовок */
+/* WEXON NETWORK — крупный, как на фото */
 .project-subheader {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 75px;
+    font-size: 60px;
     color: #1a1a1a;
     letter-spacing: -0.02em;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
-/* Описание */
+/* Описание — размер 28px */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 28px;
     color: #1a1a1a;
     line-height: 1.5;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     max-width: 80%;
 }
 
-/* ДАЛЕЕ → */
+/* ДАЛЕЕ → — как WEXON */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 75px;
+    font-size: 60px;
     color: #1a1a1a;
     text-decoration: none;
     letter-spacing: 0.02em;
@@ -365,6 +366,18 @@ img {
 
 .project-next:hover {
     opacity: 0.6;
+}
+
+/* Изображение — возвращаем */
+.project-image {
+    width: 100%;
+    margin: 20px 0 30px 0;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .portfolio-button {
