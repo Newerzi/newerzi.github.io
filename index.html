@@ -13,23 +13,23 @@
     <!-- HEADER -->
     <header class="header">
         <div class="logo">NEWERZI</div>
-        <div class="header-center">• • •</div>
+        <div class="header-center">* * *</div>
         <div class="header-right">DESIGN</div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
         <div class="language">
-            <a href="#" class="rus">рус</a>
+            <a href="#" class="rus" id="lang-ru">рус</a>
             <span class="divider">/</span>
-            <a href="#" class="eng">eng</a>
+            <a href="#" class="eng" id="lang-eng">eng</a>
             <img src="images/russia.png" alt="flag">
         </div>
 
         <div class="hero-grid">
             <div class="hero-left">
-                <h1>im a <span>specific.</span></h1>
-                <div class="hero-description">
+                <h1 id="hero-title">im a <span>specific.</span></h1>
+                <div class="hero-description" id="hero-desc">
                     <p>создаю незабываемый визуал.</p>
                     <p>за спиной более 150 успешных задач.</p>
                     <p>клиенты отзываются положительно.</p>
@@ -48,7 +48,7 @@
 
     <!-- PORTFOLIO -->
     <section class="portfolio">
-        <div class="section-title">ПОРТФОЛИО #</div>
+        <div class="section-title" id="portfolio-title">ПОРТФОЛИО #</div>
 
         <article class="project">
             <div class="project-preview">
@@ -75,15 +75,15 @@
         </article>
 
         <div class="portfolio-button">
-            <button>ДРУГИЕ РАБОТЫ</button>
+            <button id="other-works-btn">ДРУГИЕ РАБОТЫ</button>
         </div>
     </section>
 
     <!-- REVIEWS -->
     <section class="reviews">
-        <div class="section-title">ОТЗЫВЫ %</div>
+        <div class="section-title" id="reviews-title">ОТЗЫВЫ %</div>
 
-        <div class="reviews-grid">
+        <div class="reviews-grid" id="reviews-grid">
             <article class="review">
                 <strong>atomcheats</strong> / ložteam — 20.04.2026<br>
                 хороший дизайнер, сделал все быстро!
@@ -103,13 +103,13 @@
         </div>
 
         <div class="reviews-button">
-            <button>ДРУГИЕ ОТЗЫВЫ</button>
+            <button id="other-reviews-btn">ДРУГИЕ ОТЗЫВЫ</button>
         </div>
     </section>
 
     <!-- PRICE -->
     <section class="prices">
-        <div class="section-title">ЦЕНА &amp; ДИАПАЗОН УСЛУГ</div>
+        <div class="section-title" id="price-title">ЦЕНА &amp; ДИАПАЗОН УСЛУГ</div>
 
         <div class="price-grid">
             <article class="price-card">
@@ -153,7 +153,7 @@
     <!-- CONTACT -->
     <section class="contacts">
         <div class="contacts-left">
-            <h2>СОТРУДНИЧЕСТВО</h2>
+            <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
         </div>
         <div class="contacts-right">
             <a href="#">Telegram</a>
@@ -163,6 +163,86 @@
     </section>
 
 </div>
+
+<script>
+    // Переключение языка
+    const langRu = document.getElementById('lang-ru');
+    const langEng = document.getElementById('lang-eng');
+
+    const translations = {
+        ru: {
+            hero: 'im a <span>specific.</span>',
+            desc: [
+                'создаю незабываемый визуал.',
+                'за спиной более 150 успешных задач.',
+                'клиенты отзываются положительно.'
+            ],
+            portfolio: 'ПОРТФОЛИО #',
+            reviews: 'ОТЗЫВЫ %',
+            price: 'ЦЕНА & ДИАПАЗОН УСЛУГ',
+            contacts: 'СОТРУДНИЧЕСТВО',
+            otherWorks: 'ДРУГИЕ РАБОТЫ',
+            otherReviews: 'ДРУГИЕ ОТЗЫВЫ'
+        },
+        en: {
+            hero: 'im a <span>specific.</span>',
+            desc: [
+                'creating unforgettable visuals.',
+                'over 150 successful tasks completed.',
+                'clients leave positive feedback.'
+            ],
+            portfolio: 'PORTFOLIO #',
+            reviews: 'REVIEWS %',
+            price: 'PRICE & SERVICES RANGE',
+            contacts: 'COLLABORATION',
+            otherWorks: 'OTHER WORKS',
+            otherReviews: 'OTHER REVIEWS'
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function updateLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+
+        document.getElementById('hero-title').innerHTML = t.hero;
+        const descItems = document.querySelectorAll('#hero-desc p');
+        t.desc.forEach((text, i) => {
+            if (descItems[i]) descItems[i].textContent = text;
+        });
+
+        document.getElementById('portfolio-title').textContent = t.portfolio;
+        document.getElementById('reviews-title').textContent = t.reviews;
+        document.getElementById('price-title').textContent = t.price;
+        document.getElementById('contacts-title').textContent = t.contacts;
+        document.getElementById('other-works-btn').textContent = t.otherWorks;
+        document.getElementById('other-reviews-btn').textContent = t.otherReviews;
+
+        // Обновить активную ссылку
+        document.querySelectorAll('.language a').forEach(el => {
+            el.style.fontWeight = '500';
+        });
+        if (lang === 'ru') {
+            document.querySelector('.rus').style.fontWeight = '700';
+        } else {
+            document.querySelector('.eng').style.fontWeight = '700';
+        }
+    }
+
+    langRu.addEventListener('click', function(e) {
+        e.preventDefault();
+        updateLanguage('ru');
+    });
+
+    langEng.addEventListener('click', function(e) {
+        e.preventDefault();
+        updateLanguage('en');
+    });
+
+    // Инициализация
+    updateLanguage('ru');
+</script>
 
 </body>
 </html>
