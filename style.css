@@ -278,11 +278,13 @@ img {
     margin-bottom: 100px;
 }
 
+/* «ПОРТФОЛИО #» — размером с 1 строку описания (75px) */
 .section-title {
     font-family: 'Neutral Face', sans-serif;
-    font-size: 28px;
+    font-size: 75px;
     letter-spacing: -0.02em;
     margin-bottom: 40px;
+    text-align: right;
 }
 
 .section-title .bold {
@@ -293,6 +295,7 @@ img {
     font-weight: 400;
 }
 
+/* ПРОЕКТ [01] */
 .project-header {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
@@ -300,8 +303,22 @@ img {
     color: #1a1a1a;
     letter-spacing: -0.02em;
     margin-bottom: 20px;
+    text-align: right;
 }
 
+/* ИЗОБРАЖЕНИЕ РАБОТЫ */
+.project-image {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* WEXON NETWORK */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -310,8 +327,10 @@ img {
     letter-spacing: -0.02em;
     line-height: 1;
     margin-bottom: 16px;
+    text-align: right;
 }
 
+/* ОПИСАНИЕ — по правому краю */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
@@ -319,8 +338,10 @@ img {
     color: #1a1a1a;
     line-height: 1.4;
     margin-bottom: 30px;
+    text-align: right;
 }
 
+/* ДАЛЕЕ → */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -329,7 +350,8 @@ img {
     text-decoration: none;
     letter-spacing: 0.02em;
     transition: opacity 0.2s;
-    display: inline-block;
+    display: block;
+    text-align: right;
 }
 
 .project-next:hover {
