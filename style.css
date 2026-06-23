@@ -282,7 +282,7 @@ img {
     font-family: 'Neutral Face', sans-serif;
     font-size: 75px;
     letter-spacing: -0.02em;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .section-title .bold {
@@ -293,6 +293,7 @@ img {
     font-weight: 400;
 }
 
+/* ПРОЕКТ [01] */
 .project-header {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
@@ -302,6 +303,7 @@ img {
     margin-bottom: 12px;
 }
 
+/* Список проекта */
 .project-list {
     font-family: 'Manrope', sans-serif;
     font-size: 75px;
@@ -320,6 +322,7 @@ img {
     padding-left: 40px;
 }
 
+/* Разделитель */
 .project-divider {
     width: 100%;
     height: 2px;
@@ -327,6 +330,7 @@ img {
     margin: 30px 0;
 }
 
+/* WEXON NETWORK — подзаголовок */
 .project-subheader {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -336,6 +340,7 @@ img {
     margin-bottom: 16px;
 }
 
+/* Описание */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
@@ -346,6 +351,7 @@ img {
     max-width: 80%;
 }
 
+/* ДАЛЕЕ → */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
