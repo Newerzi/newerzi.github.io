@@ -23,17 +23,12 @@
             <a href="#" class="rus" id="lang-ru">рус</a>
             <span class="divider">/</span>
             <a href="#" class="eng" id="lang-eng">eng</a>
-            <img src="images/russia.png" alt="flag">
+            <img src="images/russia.png" alt="flag" id="flag-icon">
         </div>
 
         <div class="hero-grid">
             <div class="hero-left">
                 <h1 id="hero-title">im a <span>specific.</span></h1>
-                <div class="hero-description" id="hero-desc">
-                    <p>создаю незабываемый визуал.</p>
-                    <p>за спиной более 150 успешных задач.</p>
-                    <p>клиенты отзываются положительно.</p>
-                </div>
             </div>
             <div class="hero-right">
                 <img src="images/flower.png" alt="flower">
@@ -44,6 +39,13 @@
     <!-- BANNER -->
     <section class="banner">
         <img src="images/banner.jpg" alt="banner">
+    </section>
+
+    <!-- HERO DESCRIPTION (перенесено вниз) -->
+    <section class="hero-description-section" id="hero-desc">
+        <p>создаю незабываемый визуал.</p>
+        <p>за спиной более 150 успешных задач.</p>
+        <p>клиенты отзываются положительно.</p>
     </section>
 
     <!-- PORTFOLIO -->
@@ -165,9 +167,9 @@
 </div>
 
 <script>
-    // Переключение языка
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
+    const flagIcon = document.getElementById('flag-icon');
 
     const translations = {
         ru: {
@@ -182,7 +184,8 @@
             price: 'ЦЕНА & ДИАПАЗОН УСЛУГ',
             contacts: 'СОТРУДНИЧЕСТВО',
             otherWorks: 'ДРУГИЕ РАБОТЫ',
-            otherReviews: 'ДРУГИЕ ОТЗЫВЫ'
+            otherReviews: 'ДРУГИЕ ОТЗЫВЫ',
+            flag: 'images/russia.png'
         },
         en: {
             hero: 'im a <span>specific.</span>',
@@ -196,14 +199,12 @@
             price: 'PRICE & SERVICES RANGE',
             contacts: 'COLLABORATION',
             otherWorks: 'OTHER WORKS',
-            otherReviews: 'OTHER REVIEWS'
+            otherReviews: 'OTHER REVIEWS',
+            flag: 'images/usa.png'
         }
     };
 
-    let currentLang = 'ru';
-
     function updateLanguage(lang) {
-        currentLang = lang;
         const t = translations[lang];
 
         document.getElementById('hero-title').innerHTML = t.hero;
@@ -218,6 +219,9 @@
         document.getElementById('contacts-title').textContent = t.contacts;
         document.getElementById('other-works-btn').textContent = t.otherWorks;
         document.getElementById('other-reviews-btn').textContent = t.otherReviews;
+
+        // Смена флага
+        flagIcon.src = t.flag;
 
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
