@@ -340,7 +340,7 @@ img {
     max-width: 80%;
 }
 
-/* Заголовок WEXON NETWORK */
+/* Заголовок WEXON NETWORK — поднимаем выше */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -351,6 +351,7 @@ img {
     margin-bottom: 16px;
     text-align: right;
     width: 100%;
+    margin-top: -10px; /* поднимаем выше */
 }
 
 /* Описание */
@@ -366,7 +367,7 @@ img {
     flex: 1;
 }
 
-/* Кнопка ДАЛЕЕ → */
+/* Кнопка ДАЛЕЕ → — ровно по нижней линии изображения */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -378,6 +379,11 @@ img {
     display: block;
     text-align: right;
     width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    line-height: 1;
 }
 
 /* ===== REVIEWS ===== */
