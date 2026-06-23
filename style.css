@@ -1,4 +1,4 @@
-/* ===== F0NTS ===== */
+/* ===== FONTS ===== */
 @font-face {
     font-family: 'UNCAGE SemiBold';
     src: url('fonts/UNCAGE-SemiBold.otf') format('opentype');
@@ -281,10 +281,10 @@ img {
 .project-wrapper {
     display: flex;
     gap: 60px;
-    align-items: flex-start; /* не stretch */
+    align-items: stretch;
 }
 
-/* ЛЕВАЯ ЧАСТЬ (без изменений) */
+/* ЛЕВАЯ ЧАСТЬ */
 .project-left {
     flex: 0 0 45%;
     display: flex;
@@ -339,7 +339,6 @@ img {
     max-width: 80%;
 }
 
-/* Название */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -352,20 +351,18 @@ img {
     margin-bottom: 16px;
 }
 
-/* Описание — уже на 1 слово, интерлиньяж меньше */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 28px;
     color: #1a1a1a;
-    line-height: 1.2; /* интерлиньяж меньше */
+    line-height: 1.2;
     text-align: justify;
-    width: 85%; /* уже на 1 слово */
+    width: 85%;
     margin-bottom: 30px;
-    margin-left: auto; /* прижимаем вправо */
+    margin-left: auto;
 }
 
-/* Кнопка ДАЛЕЕ → */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -382,6 +379,58 @@ img {
 
 .project-next:hover {
     opacity: 0.6;
+}
+
+/* РАЗДЕЛИТЕЛЬ */
+.project-divider {
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    margin: 60px 0;
+}
+
+/* Список проекта */
+.project-list {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.project-list .name {
+    font-weight: 700;
+}
+
+.project-list .type {
+    font-weight: 400;
+    display: block;
+    padding-left: 30px;
+}
+
+/* КНОПКА */
+.portfolio-button {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 60px;
+}
+
+.portfolio-button button {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #1a1a1a;
+    padding: 16px 48px;
+    border: 2px solid #1a1a1a;
+    border-radius: 60px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.02em;
+}
+
+.portfolio-button button:hover {
+    background: #1a1a1a;
+    color: #fff;
 }
 
 /* ===== REVIEWS ===== */
