@@ -36,16 +36,16 @@
         </div>
     </section>
 
-    <!-- BANNER -->
-    <section class="banner">
-        <img src="images/banner.jpg" alt="banner">
-    </section>
-
-    <!-- HERO DESCRIPTION (перенесено вниз) -->
+    <!-- HERO DESCRIPTION (после изображения, отступ x2) -->
     <section class="hero-description-section" id="hero-desc">
         <p>создаю незабываемый визуал.</p>
         <p>за спиной более 150 успешных задач.</p>
         <p>клиенты отзываются положительно.</p>
+    </section>
+
+    <!-- BANNER (отступ x2 от описания) -->
+    <section class="banner">
+        <img src="images/banner.jpg" alt="banner">
     </section>
 
     <!-- PORTFOLIO -->
@@ -220,7 +220,6 @@
         document.getElementById('other-works-btn').textContent = t.otherWorks;
         document.getElementById('other-reviews-btn').textContent = t.otherReviews;
 
-        // Смена флага
         flagIcon.src = t.flag;
 
         document.querySelectorAll('.language a').forEach(el => {
