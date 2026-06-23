@@ -273,75 +273,17 @@ img {
     object-fit: contain;
 }
 
-/* ===== PORTFOLIO ===== */
-.portfolio {
-    margin-bottom: 100px;
-}
-
-/* Контейнер для левой и правой части */
-.project-wrapper {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-}
-
-/* ЛЕВАЯ ЧАСТЬ */
-.project-left {
-    flex: 0 0 45%;
-    display: flex;
-    flex-direction: column;
-}
-
-.section-title {
-    font-family: 'Neutral Face', sans-serif;
-    font-size: 60px;
-    letter-spacing: -0.02em;
-    margin-bottom: 30px;
-}
-
-.section-title .bold {
-    font-weight: 700;
-}
-
-.section-title .regular {
-    font-weight: 400;
-}
-
-.project-header {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 28px;
-    color: #1a1a1a;
-    letter-spacing: -0.02em;
-    margin-bottom: 20px;
-}
-
-/* изображение — возвращаем полный размер */
-.project-image {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 30px;
-}
-
-.project-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 1765 / 1176.67;
-    object-fit: cover;
-}
-
 /* ПРАВАЯ ЧАСТЬ */
 .project-right {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 0;
+    padding-top: 80px; /* опускаем заголовок ниже */
     position: relative;
 }
 
-/* Заголовок — по верхней линии изображения (относительно .project-image) */
+/* Заголовок */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -387,13 +329,6 @@ img {
 
 .project-next:hover {
     opacity: 0.6;
-}
-
-.project-divider {
-    width: 100%;
-    height: 1px;
-    background: #ccc;
-    margin: 25px 0;
 }
 
 /* ===== REVIEWS ===== */
