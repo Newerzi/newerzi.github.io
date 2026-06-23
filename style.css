@@ -482,7 +482,7 @@ img {
 /* КНОПКА — идентичная кнопке из портфолио, но белая с чёрной обводкой */
 .reviews-button {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin-top: 40px;
 }
 
