@@ -527,7 +527,7 @@ img {
 .price-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 30px;
 }
 
 .price-card {
@@ -563,8 +563,8 @@ img {
 .price-cost {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 22px;
-    color: #1a1a1a;
+    font-size: 28px;
+    color: #0069FB;
 }
 
 .price-desc {
