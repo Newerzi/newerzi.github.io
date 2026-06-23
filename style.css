@@ -1,3 +1,278 @@
+/* ===== FONTS ===== */
+@font-face {
+    font-family: 'UNCAGE SemiBold';
+    src: url('fonts/UNCAGE-SemiBold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neutral Face';
+    src: url('fonts/NeutralFace-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neutral Face';
+    src: url('fonts/NeutralFace-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('fonts/Manrope-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('fonts/Manrope-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('fonts/Manrope-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('fonts/Manrope-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px 30px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== IMAGES ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0 !important;
+}
+
+/* ===== HEADER ===== */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-family: 'UNCAGE SemiBold', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.header-center {
+    font-family: 'UNCAGE SemiBold', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    text-align: center;
+    flex: 1;
+    padding: 0 15px;
+}
+
+.header-right {
+    font-family: 'UNCAGE SemiBold', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+/* ===== HERO ===== */
+.hero {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.language {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 22px;
+    color: #1a1a1a;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.language a {
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.language a:hover {
+    opacity: 0.6;
+}
+
+.language .rus {
+    font-weight: 700;
+}
+
+.language .eng {
+    font-weight: 500;
+}
+
+.language .divider {
+    font-weight: 300;
+    color: #999;
+}
+
+.language img {
+    width: 1.2em;
+    height: 0.8em;
+    object-fit: contain;
+    margin-left: 6px;
+}
+
+.hero-grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 40px;
+    min-height: 65vh;
+}
+
+.hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 20px;
+    padding-top: 60px;
+}
+
+.hero-left h1 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 180px;
+    color: #1a1a1a;
+    letter-spacing: -0.08em;
+    word-spacing: 0.15em;
+    line-height: 1;
+}
+
+.hero-left h1 span {
+    font-weight: 700;
+}
+
+.hero-right {
+    flex-shrink: 0;
+    max-width: 20%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.hero-right img {
+    width: 66.66%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ===== HERO DESCRIPTION ===== */
+.hero-description-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 30px;
+    padding: 0;
+    max-width: 83.33%;
+    margin-top: -120px;
+}
+
+.hero-description-section p {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 75px;
+    line-height: 1.1;
+    letter-spacing: -0.06em;
+    word-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.hero-description-section p:nth-child(1) {
+    color: #000000;
+}
+
+.hero-description-section p:nth-child(2) {
+    color: #404040;
+}
+
+.hero-description-section p:nth-child(3) {
+    color: #808080;
+}
+
+/* ===== BANNER ===== */
+.banner {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 /* ===== PORTFOLIO ===== */
 .portfolio {
     margin-bottom: 100px;
@@ -7,7 +282,7 @@
     font-family: 'Neutral Face', sans-serif;
     font-size: 75px;
     letter-spacing: -0.02em;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .section-title .bold {
@@ -18,7 +293,6 @@
     font-weight: 400;
 }
 
-/* ПРОЕКТ [01] */
 .project-header {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
@@ -28,7 +302,6 @@
     margin-bottom: 12px;
 }
 
-/* Список проекта */
 .project-list {
     font-family: 'Manrope', sans-serif;
     font-size: 75px;
@@ -47,7 +320,6 @@
     padding-left: 40px;
 }
 
-/* Разделитель */
 .project-divider {
     width: 100%;
     height: 2px;
@@ -55,7 +327,6 @@
     margin: 30px 0;
 }
 
-/* WEXON NETWORK — подзаголовок */
 .project-subheader {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -65,7 +336,6 @@
     margin-bottom: 16px;
 }
 
-/* Описание */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
@@ -76,7 +346,6 @@
     max-width: 80%;
 }
 
-/* ДАЛЕЕ → */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
@@ -115,4 +384,246 @@
 .portfolio-button button:hover {
     background: #1a1a1a;
     color: #fff;
+}
+
+/* ===== REVIEWS ===== */
+.reviews {
+    margin-bottom: 100px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.review {
+    background: #f5f5f5;
+    padding: 24px;
+    min-height: 100px;
+    color: #1a1a1a;
+    font-size: 18px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.review strong {
+    font-weight: 600;
+}
+
+.reviews-button {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.reviews-button button {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: #1a1a1a;
+    padding: 14px 40px;
+    border: 2px solid #1a1a1a;
+    border-radius: 60px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.02em;
+}
+
+.reviews-button button:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* ===== PRICES ===== */
+.prices {
+    margin-bottom: 100px;
+}
+
+.price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.price-card {
+    background: #f5f5f5;
+    padding: 30px;
+    min-height: 150px;
+    color: #1a1a1a;
+    font-family: 'Manrope', sans-serif;
+}
+
+.price-card h3 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.price-items {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.price-items div {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #333;
+}
+
+.price-items div span {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* ===== CONTACTS ===== */
+.contacts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-top: 1px solid #ddd;
+}
+
+.contacts-left h2 {
+    font-family: 'Neutral Face', sans-serif;
+    font-weight: 700;
+    font-size: 75px;
+    letter-spacing: -0.02em;
+}
+
+.contacts-right {
+    display: flex;
+    gap: 50px;
+}
+
+.contacts-right a {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.contacts-right a:hover {
+    opacity: 0.6;
+}
+
+/* ===== MEDIA ===== */
+@media (max-width: 1200px) {
+    .hero-left h1 { font-size: 130px; }
+    .hero-left { padding-top: 40px; }
+    .hero-right { max-width: 18%; }
+    .hero-right img { width: 66.66%; }
+    .hero-description-section p { font-size: 56px; }
+    .hero-description-section { max-width: 85%; margin-top: -90px; }
+    .section-title { font-size: 56px; }
+    .project-header { font-size: 56px; }
+    .project-list { font-size: 56px; }
+    .project-subheader { font-size: 56px; }
+    .project-next { font-size: 56px; }
+    .banner { margin-top: 80px; margin-bottom: 80px; }
+    .portfolio { margin-bottom: 80px; }
+    .reviews { margin-bottom: 80px; }
+    .prices { margin-bottom: 80px; }
+    .contacts-left h2 { font-size: 56px; }
+}
+
+@media (max-width: 992px) {
+    .hero-grid { flex-direction: column; align-items: flex-start; min-height: auto; }
+    .hero-left { padding-top: 0; }
+    .hero-right { max-width: 25%; align-self: flex-start; }
+    .hero-right img { width: 66.66%; }
+    .hero-left { padding-right: 0; width: 100%; }
+    .hero-left h1 { font-size: 100px; }
+    .hero-description-section p { font-size: 42px; white-space: normal; }
+    .hero-description-section { max-width: 100%; margin-top: 0; }
+    .section-title { font-size: 42px; }
+    .project-header { font-size: 42px; }
+    .project-list { font-size: 42px; }
+    .project-list .type { padding-left: 20px; }
+    .project-subheader { font-size: 42px; }
+    .project-next { font-size: 42px; }
+    .project-description { font-size: 22px; max-width: 100%; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .price-grid { grid-template-columns: 1fr; }
+    .contacts { flex-direction: column; gap: 20px; align-items: flex-start; }
+    .contacts-right { flex-wrap: wrap; gap: 20px; }
+    .contacts-left h2 { font-size: 42px; }
+    .banner { margin-top: 60px; margin-bottom: 60px; }
+    .portfolio { margin-bottom: 60px; }
+    .reviews { margin-bottom: 60px; }
+    .prices { margin-bottom: 60px; }
+}
+
+@media (max-width: 768px) {
+    body { padding: 15px; }
+    .logo, .header-center, .header-right { font-size: 16px; }
+    .language { font-size: 18px; }
+    .hero-left h1 { font-size: 70px; }
+    .hero-right { max-width: 30%; }
+    .hero-right img { width: 66.66%; }
+    .hero-description-section p { font-size: 30px; }
+    .hero { margin-bottom: 30px; }
+    .hero-description-section { margin-bottom: 20px; }
+    .section-title { font-size: 30px; }
+    .project-header { font-size: 30px; }
+    .project-list { font-size: 30px; }
+    .project-list .type { padding-left: 16px; }
+    .project-subheader { font-size: 30px; }
+    .project-next { font-size: 30px; }
+    .project-description { font-size: 18px; }
+    .portfolio-button button { font-size: 18px; padding: 12px 32px; }
+    .reviews-button button { font-size: 18px; padding: 12px 32px; }
+    .price-card h3 { font-size: 22px; }
+    .price-items div { font-size: 16px; }
+    .contacts-left h2 { font-size: 30px; }
+    .contacts-right a { font-size: 18px; }
+    .banner { margin-top: 50px; margin-bottom: 50px; }
+    .portfolio { margin-bottom: 50px; }
+    .reviews { margin-bottom: 50px; }
+    .prices { margin-bottom: 50px; }
+}
+
+@media (max-width: 480px) {
+    body { padding: 10px; }
+    .header { flex-wrap: wrap; gap: 4px; margin-bottom: 16px; }
+    .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
+    .logo, .header-right { font-size: 14px; }
+    .header-center { font-size: 14px; }
+    .language { font-size: 16px; }
+    .hero-left h1 { font-size: 48px; }
+    .hero-right { max-width: 35%; }
+    .hero-right img { width: 66.66%; }
+    .hero-description-section p { font-size: 22px; }
+    .hero { margin-bottom: 20px; }
+    .hero-description-section { margin-bottom: 15px; }
+    .banner { margin-bottom: 40px; }
+    .section-title { font-size: 22px; }
+    .project-header { font-size: 22px; }
+    .project-list { font-size: 22px; }
+    .project-list .type { padding-left: 12px; }
+    .project-subheader { font-size: 22px; }
+    .project-next { font-size: 22px; }
+    .project-description { font-size: 15px; }
+    .portfolio-button button { font-size: 14px; padding: 10px 24px; }
+    .reviews-button button { font-size: 14px; padding: 10px 24px; }
+    .price-card { padding: 16px; min-height: 80px; }
+    .price-card h3 { font-size: 18px; }
+    .price-items div { font-size: 14px; }
+    .contacts-left h2 { font-size: 22px; }
+    .contacts-right a { font-size: 14px; }
+    .contacts-right { gap: 14px; }
+    .portfolio { margin-bottom: 40px; }
+    .reviews { margin-bottom: 40px; }
+    .prices { margin-bottom: 40px; }
+    .review { font-size: 14px; padding: 14px; }
+    .banner { margin-top: 40px; margin-bottom: 40px; }
 }
