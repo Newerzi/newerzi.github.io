@@ -133,7 +133,7 @@ img {
 
 /* ===== HERO ===== */
 .hero {
-    margin-bottom: 60px; /* отступ x2 от шапки (30px * 2) */
+    margin-bottom: 60px;
 }
 
 .language {
@@ -197,9 +197,9 @@ img {
 .hero-left h1 {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 240px; /* увеличен в 3 раза (было 80px) */
+    font-size: 120px;
     color: #1a1a1a;
-    letter-spacing: -0.1em; /* -10% кернинг */
+    letter-spacing: -0.05em;
     line-height: 1;
 }
 
@@ -212,28 +212,28 @@ img {
     max-width: 20%;
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* прижимаем к правому краю */
+    justify-content: flex-end;
 }
 
 .hero-right img {
-    width: 66.66%; /* 2/3 от текущего размера */
+    width: 66.66%;
     height: auto;
     object-fit: contain;
 }
 
-/* ===== HERO DESCRIPTION (после изображения, отступ x2) ===== */
+/* ===== HERO DESCRIPTION ===== */
 .hero-description-section {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    margin-bottom: 60px; /* отступ x2 перед баннером */
+    margin-bottom: 60px;
     padding: 0;
 }
 
 .hero-description-section p {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 42px;
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
@@ -508,10 +508,10 @@ img {
 
 /* ===== MEDIA ===== */
 @media (max-width: 1200px) {
-    .hero-left h1 { font-size: 160px; }
+    .hero-left h1 { font-size: 90px; }
     .hero-right { max-width: 18%; }
     .hero-right img { width: 66.66%; }
-    .hero-description-section p { font-size: 26px; }
+    .hero-description-section p { font-size: 34px; }
     .project-info h2 { font-size: 48px; }
     .project-info p { font-size: 20px; }
     .project-info a { font-size: 20px; }
@@ -523,8 +523,8 @@ img {
     .hero-right { max-width: 25%; align-self: flex-end; }
     .hero-right img { width: 66.66%; }
     .hero-left { padding-right: 0; width: 100%; }
-    .hero-left h1 { font-size: 120px; }
-    .hero-description-section p { font-size: 22px; }
+    .hero-left h1 { font-size: 80px; }
+    .hero-description-section p { font-size: 28px; }
     .project { flex-direction: column; }
     .project-preview { flex: 0 0 100%; }
     .project-info { align-items: flex-start; text-align: left; padding-top: 0; }
@@ -541,10 +541,10 @@ img {
     body { padding: 15px; }
     .logo, .header-center, .header-right { font-size: 16px; }
     .language { font-size: 18px; }
-    .hero-left h1 { font-size: 80px; }
+    .hero-left h1 { font-size: 56px; }
     .hero-right { max-width: 30%; }
     .hero-right img { width: 66.66%; }
-    .hero-description-section p { font-size: 18px; }
+    .hero-description-section p { font-size: 22px; }
     .hero { margin-bottom: 40px; }
     .hero-description-section { margin-bottom: 40px; }
     .section-title { font-size: 20px; }
@@ -567,10 +567,10 @@ img {
     .logo, .header-right { font-size: 14px; }
     .header-center { font-size: 14px; }
     .language { font-size: 16px; }
-    .hero-left h1 { font-size: 48px; }
+    .hero-left h1 { font-size: 38px; }
     .hero-right { max-width: 35%; }
     .hero-right img { width: 66.66%; }
-    .hero-description-section p { font-size: 14px; }
+    .hero-description-section p { font-size: 16px; }
     .hero { margin-bottom: 30px; }
     .hero-description-section { margin-bottom: 30px; }
     .banner { margin-bottom: 30px; }
