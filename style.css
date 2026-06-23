@@ -430,19 +430,21 @@ img {
     font-weight: 400;
 }
 
-.reviews-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background: #1a1a1a;
+    padding: 40px;
     margin-bottom: 50px;
 }
 
 .review-item {
-    padding: 16px 0;
-    border-bottom: 1px solid #e5e5e5;
+    padding: 16px 20px;
+    border-bottom: 1px solid #333;
 }
 
-.review-item:last-child {
+.review-item:nth-last-child(-n+2) {
     border-bottom: none;
 }
 
@@ -450,21 +452,22 @@ img {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 22px;
-    color: #1a1a1a;
+    color: #ffffff;
     margin-bottom: 4px;
 }
 
 .review-author {
     font-weight: 600;
+    color: #ffffff;
 }
 
 .review-text {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 22px;
-    color: #555;
+    font-size: 20px;
+    color: #aaaaaa;
     line-height: 1.4;
-    padding-left: 30px;
+    padding-left: 0;
 }
 
 .reviews-button {
@@ -476,18 +479,18 @@ img {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 28px;
-    color: #ffffff;
+    color: #1a1a1a;
     padding: 16px 48px;
-    border: none;
+    border: 2px solid #1a1a1a;
     border-radius: 0;
-    background: #1a1a1a;
+    background: #ffffff;
     cursor: pointer;
     transition: all 0.3s;
     letter-spacing: 0.02em;
 }
 
 .reviews-button button:hover {
-    background: #333333;
+    background: #f0f0f0;
 }
 
 /* ===== PRICES ===== */
