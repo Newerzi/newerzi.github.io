@@ -17,7 +17,7 @@
         <div class="header-right">DESIGN</div>
     </header>
 
-    <!-- HER0 -->
+    <!-- HERO -->
     <section class="hero">
         <div class="language">
             <a href="#" class="rus" id="lang-ru">рус</a>
@@ -219,7 +219,6 @@
         document.getElementById('other-works-btn').textContent = t.otherWorks;
         document.getElementById('other-reviews-btn').textContent = t.otherReviews;
 
-        // Обновить активную ссылку
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
         });
@@ -240,7 +239,6 @@
         updateLanguage('en');
     });
 
-    // Инициализация
     updateLanguage('ru');
 </script>
 
