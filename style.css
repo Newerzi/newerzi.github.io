@@ -329,15 +329,14 @@ img {
     object-fit: cover;
 }
 
-/* ===== ПРАВАЯ ЧАСТЬ — исправлено ===== */
+/* ПРАВАЯ ЧАСТЬ — добавляем отступ сверху */
 .project-right {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 0 0 0 40px;
+    justify-content: flex-start; /* меняем с space-between */
+    padding: 95px 0 0 40px; /* отступ сверху 95px */
     max-width: 80%;
-    min-height: 100%;
 }
 
 .project-name {
@@ -349,9 +348,7 @@ img {
     line-height: 1;
     text-align: right;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    flex-shrink: 0;
+    margin-bottom: 16px;
 }
 
 .project-description {
@@ -362,9 +359,7 @@ img {
     line-height: 1.4;
     text-align: justify;
     width: 100%;
-    margin: 16px 0 20px 0;
-    padding: 0;
-    flex: 1;
+    margin-bottom: 20px;
 }
 
 .project-next {
@@ -378,10 +373,7 @@ img {
     display: block;
     text-align: right;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    flex-shrink: 0;
-    line-height: 1;
+    margin-top: auto; /* прижимаем к низу */
 }
 
 .project-next:hover {
