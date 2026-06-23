@@ -233,7 +233,7 @@ img {
     margin-bottom: 30px;
     padding: 0;
     max-width: 83.33%;
-    margin-top: -100px; /* поднимаем выше, чтобы все 3 строки были видны */
+    margin-top: -120px; /* ещё чуть выше */
 }
 
 .hero-description-section p {
