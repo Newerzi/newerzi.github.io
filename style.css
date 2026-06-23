@@ -329,20 +329,21 @@ img {
     object-fit: cover;
 }
 
-/* ПРАВАЯ ЧАСТЬ — увеличиваем отступ сверху */
+/* ПРАВАЯ ЧАСТЬ */
 .project-right {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 160px 0 0 40px; /* увеличил с 95px до 160px */
+    padding: 160px 0 0 40px;
     max-width: 80%;
 }
 
+/* Название — больше в 1.5 раза (было 75px → 112.5px) */
 .project-name {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 75px;
+    font-size: 112px;
     color: #1a1a1a;
     letter-spacing: -0.02em;
     line-height: 1;
@@ -351,21 +352,23 @@ img {
     margin-bottom: 16px;
 }
 
+/* Описание — интерлиньяж меньше, первая строка только "Бизнес-мессенджер, где разговор" */
 .project-description {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 28px;
     color: #1a1a1a;
-    line-height: 1.4;
+    line-height: 1.2; /* уменьшил интерлиньяж */
     text-align: justify;
     width: 100%;
     margin-bottom: 20px;
 }
 
+/* Кнопка ДАЛЕЕ — больше */
 .project-next {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 40px; /* увеличил (было 28px) */
     color: #1a1a1a;
     text-decoration: none;
     letter-spacing: 0.02em;
@@ -373,7 +376,7 @@ img {
     display: block;
     text-align: right;
     width: 100%;
-    margin-top: auto; /* прижимаем к низу */
+    margin-top: auto;
 }
 
 .project-next:hover {
