@@ -349,7 +349,7 @@ img {
     position: relative;
     overflow: hidden;
     aspect-ratio: 1765 / 1176.67;
-    background: url('../images/color2.jpg') center/cover no-repeat;
+    background: url('images/color2.jpg') center/cover no-repeat;
 }
 
 .project-image img {
@@ -364,9 +364,8 @@ img {
     opacity: 0;
 }
 
-/* ПЕРВЫЙ ПРОЕКТ — color1.jpg */
 .project-wrapper:nth-child(2) .project-image {
-    background: url('../images/color1.jpg') center/cover no-repeat;
+    background: url('images/color1.jpg') center/cover no-repeat;
 }
 
 .project-right {
@@ -576,21 +575,22 @@ img {
     border: none;
     background: transparent;
     cursor: pointer;
-    transition: color 0.3s;
+    transition: color 0.3s, background 0.3s;
     text-align: left;
     width: 100%;
     position: relative;
+    border-radius: 0;
 }
 
 .questions-btn::after {
     content: '+';
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 28px;
     font-weight: 300;
-    transition: transform 0.3s;
+    transition: transform 0.4s ease;
 }
 
 .questions-btn.active::after {
@@ -601,20 +601,43 @@ img {
     color: #0069FB;
 }
 
+.questions-btn.active {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 16px 0 16px 20px;
+}
+
+.questions-btn.active::after {
+    right: 20px;
+}
+
+.questions-btn.active:hover {
+    color: #ffffff;
+}
+
 .questions-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.3s ease;
-    padding: 0 0;
+    transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
+    padding: 0 20px;
+    background: #1a1a1a;
+    color: #ffffff;
+    opacity: 0;
 }
 
 .questions-content.open {
-    max-height: 600px;
-    padding: 0 0 20px 0;
+    max-height: 2000px;
+    padding: 0 20px 30px 20px;
+    opacity: 1;
+}
+
+.questions-content.closing {
+    opacity: 0;
+    padding: 0 20px;
 }
 
 .qa-block {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .qa-block:last-child {
@@ -625,7 +648,7 @@ img {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 18px;
-    color: #1a1a1a;
+    color: #ffffff;
     margin-bottom: 4px;
 }
 
@@ -633,9 +656,42 @@ img {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 18px;
-    color: #555;
+    color: #cccccc;
     line-height: 1.5;
     padding-left: 4px;
+}
+
+.qa-divider {
+    width: 100%;
+    height: 1px;
+    background: #333333;
+    margin: 20px 0;
+}
+
+.price-list {
+    margin-top: 8px;
+}
+
+.price-category {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+.price-category:first-child {
+    margin-top: 0;
+}
+
+.price-item {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    color: #cccccc;
+    line-height: 1.6;
+    padding-left: 8px;
 }
 
 /* ===== CONTACTS ===== */
@@ -700,7 +756,7 @@ img {
     background: #f0f0f0;
 }
 
-/* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — ВНИЗУ, НА ВСЮ ШИРИНУ С ОГРАНИЧЕНИЕМ ВЫСОТЫ ===== */
+/* ===== FULL IMAGE ===== */
 .full-image-wrap {
     width: 100%;
     display: flex;
