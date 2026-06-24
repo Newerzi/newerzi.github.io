@@ -494,7 +494,7 @@ img {
     display: flex;
     gap: 40px;
     align-items: flex-start;
-    justify-content: flex-end; /* прижимаем всё содержимое к правой стороне */
+    justify-content: space-between; /* заголовок слева, список справа */
 }
 
 .questions-title {
@@ -514,12 +514,12 @@ img {
 
 .questions-list {
     flex: 0 1 auto;
-    width: 50%; /* фиксированная ширина для контроля */
+    width: 50%;
     max-width: 50%;
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-right: 0; /* убираем отступ справа */
+    margin-right: 0;
 }
 
 .questions-btn {
