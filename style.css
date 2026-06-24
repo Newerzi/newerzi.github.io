@@ -321,6 +321,11 @@ img {
     display: flex;
     gap: 60px;
     align-items: stretch;
+    margin-bottom: 60px;
+}
+
+.project-wrapper:last-child {
+    margin-bottom: 0;
 }
 
 .project-left {
@@ -341,14 +346,31 @@ img {
 .project-image {
     width: 100%;
     max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1765 / 1176.67;
 }
 
 .project-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-    aspect-ratio: 1765 / 1176.67;
     object-fit: cover;
+    transition: opacity 0.6s ease;
+}
+
+.project-image img:hover {
+    opacity: 0;
+}
+
+/* ПЕРВАЯ РАБОТА — color1.jpg */
+.project-wrapper:nth-child(1) .project-image {
+    background: url('images/color1.jpg') center/cover no-repeat;
+}
+
+/* ВТОРАЯ РАБОТА — color2.jpg */
+.project-wrapper:nth-child(2) .project-image {
+    background: url('images/color2.jpg') center/cover no-repeat;
 }
 
 .project-right {
