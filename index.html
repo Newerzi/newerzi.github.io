@@ -72,10 +72,11 @@
             border: none;
             background: transparent;
             cursor: pointer;
-            transition: color 0.3s;
+            transition: color 0.3s, background 0.3s;
             text-align: left;
             width: 100%;
             position: relative;
+            border-radius: 0;
         }
 
         .questions-btn::after {
@@ -97,20 +98,32 @@
             color: #0069FB;
         }
 
+        .questions-btn.active {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 16px 0 16px 20px;
+        }
+
+        .questions-btn.active:hover {
+            color: #ffffff;
+        }
+
         .questions-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease, padding 0.3s ease;
             padding: 0 0;
+            background: #1a1a1a;
+            color: #ffffff;
         }
 
         .questions-content.open {
-            max-height: 600px;
-            padding: 0 0 20px 0;
+            max-height: 2000px;
+            padding: 0 20px 30px 20px;
         }
 
         .qa-block {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .qa-block:last-child {
@@ -121,7 +134,7 @@
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
             font-size: 18px;
-            color: #1a1a1a;
+            color: #ffffff;
             margin-bottom: 4px;
         }
 
@@ -129,9 +142,42 @@
             font-family: 'Manrope', sans-serif;
             font-weight: 400;
             font-size: 18px;
-            color: #555;
+            color: #cccccc;
             line-height: 1.5;
             padding-left: 4px;
+        }
+
+        .qa-divider {
+            width: 100%;
+            height: 1px;
+            background: #333333;
+            margin: 20px 0;
+        }
+
+        .price-list {
+            margin-top: 8px;
+        }
+
+        .price-category {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #ffffff;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        .price-category:first-child {
+            margin-top: 0;
+        }
+
+        .price-item {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 400;
+            font-size: 17px;
+            color: #cccccc;
+            line-height: 1.6;
+            padding-left: 8px;
         }
 
         @media (max-width: 992px) {
@@ -152,6 +198,12 @@
                 font-size: 20px;
                 padding: 12px 0;
             }
+            .questions-btn.active {
+                padding: 12px 0 12px 16px;
+            }
+            .questions-content.open {
+                padding: 0 16px 20px 16px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -162,11 +214,23 @@
                 font-size: 16px;
                 padding: 10px 0;
             }
+            .questions-btn.active {
+                padding: 10px 0 10px 12px;
+            }
+            .questions-content.open {
+                padding: 0 12px 16px 12px;
+            }
             .qa-question {
                 font-size: 16px;
             }
             .qa-answer {
                 font-size: 15px;
+            }
+            .price-category {
+                font-size: 16px;
+            }
+            .price-item {
+                font-size: 14px;
             }
         }
     </style>
@@ -317,8 +381,20 @@
                     <button class="questions-btn" data-index="1">Процесс создания и правки</button>
                     <div class="questions-content">
                         <div class="qa-block">
+                            <div class="qa-question">Как осуществляется сдача работы?</div>
+                            <div class="qa-answer">— После завершения работы я передаю вам готовый результат. На проверку и внесение первичных правок у вас есть 24 часа. Готовые исходные файлы передаются только после полной финальной оплаты.</div>
+                        </div>
+                        <div class="qa-block">
                             <div class="qa-question">Сколько правок входит в стоимость?</div>
-                            <div class="qa-answer">— В стоимость включено до 3-х бесплатных правок. Дополнительные правки обсуждаются отдельно.</div>
+                            <div class="qa-answer">В стоимость включено 3 базовые правки. Под базовыми понимаются корректировки в рамках утверждённого технического задания.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="qa-question">Какая стоимость дополнительных правок?</div>
+                            <div class="qa-answer">— Дополнительные правки оплачиваются отдельно — от 1.5$ за одну правку (в зависимости от объёма).</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="qa-question">Будет ли опубликован мой проект в твоём портфолио?</div>
+                            <div class="qa-answer">— Публикую только избранные работы, которые считаю релевантными для своего портфолио. Если вы против публикации — уведомите меня на этапе согласования технического задания.</div>
                         </div>
                     </div>
                 </div>
@@ -328,8 +404,16 @@
                     <button class="questions-btn" data-index="2">Прочие условия</button>
                     <div class="questions-content">
                         <div class="qa-block">
-                            <div class="qa-question">Какие форматы файлов ты передаёшь?</div>
-                            <div class="qa-answer">— Передаю исходные файлы в форматах: PSD, Figma, AI, а также готовые экспорты в PNG, JPG, PDF.</div>
+                            <div class="qa-question">Ты рассматриваешь работу с разработчиками?</div>
+                            <div class="qa-answer">— Да, открыт к взаимодействию с верстальщиками и программистами. Могу передать макеты в удобном для разработки формате.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="qa-question">Как можно обеспечить безопасность нашей сделки?</div>
+                            <div class="qa-answer">— Допускается проведение сделки через любого известного гаранта.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="qa-question">В каких случаях предусмотрено принудительное завершение работы?</div>
+                            <div class="qa-answer">— В случае некорректного или неадекватного поведения со стороны заказчика сотрудничество прекращается без возврата средств.</div>
                         </div>
                     </div>
                 </div>
@@ -340,7 +424,31 @@
                     <div class="questions-content">
                         <div class="qa-block">
                             <div class="qa-question">Какие способы оплаты ты принимаешь?</div>
-                            <div class="qa-answer">— Принимаю оплату на карту СБП, USDT, а также переводы на QIWI и ЮMoney.</div>
+                            <div class="qa-answer">— Принимаю оплату в популярных криптовалютах, в некоторых случаях — на российский Т-Банк, а также через форум Lolzteam (с учётом комиссии). Комиссия за перевод всегда оплачивается заказчиком.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="qa-question">Что, если я передумаю в процессе работы?</div>
+                            <div class="qa-answer">— Если вы отказываетесь от готового результата, я удерживаю 25% от общей стоимости как компенсацию за уже затраченное время и погружение в проект. Оставшаяся сумма возвращается.</div>
+                        </div>
+
+                        <div class="qa-divider"></div>
+
+                        <div class="price-list">
+                            <div class="price-category">веб-дизайн</div>
+                            <div class="price-item">лендинг — от 100$</div>
+                            <div class="price-item">многостраничный сайт — от 200$</div>
+
+                            <div class="price-category">брендинг</div>
+                            <div class="price-item">соцсети — от 65$</div>
+                            <div class="price-item">фирменный стиль — от 115$</div>
+
+                            <div class="price-category">моушн-дизайн</div>
+                            <div class="price-item">рекламный креатив — от 35$</div>
+                            <div class="price-item">анимационный монтаж — от 80$</div>
+
+                            <div class="price-category">графический дизайн</div>
+                            <div class="price-item">рекламный баннер — от 25$</div>
+                            <div class="price-item">форумный баннер — от 40$</div>
                         </div>
                     </div>
                 </div>
@@ -467,7 +575,6 @@
         document.getElementById('questions-regular').textContent = t.questionsRegular;
         document.getElementById('questions-bold').textContent = t.questionsBold;
 
-        // Обновляем текст кнопок вопросов
         const qBtns = document.querySelectorAll('.questions-btn');
         const qTexts = [t.q1, t.q2, t.q3, t.q4];
         qBtns.forEach((btn, i) => { if (qTexts[i]) btn.textContent = qTexts[i]; });
@@ -500,7 +607,6 @@
                 const content = parent.querySelector('.questions-content');
                 const isOpen = content.classList.contains('open');
 
-                // Закрываем все остальные
                 document.querySelectorAll('.questions-content.open').forEach(el => {
                     if (el !== content) {
                         el.classList.remove('open');
@@ -508,7 +614,6 @@
                     }
                 });
 
-                // Переключаем текущий
                 if (isOpen) {
                     content.classList.remove('open');
                     this.classList.remove('active');
