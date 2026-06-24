@@ -5,21 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEWERZI</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- FLOATING HEADER -->
+<!-- FLOATING HEADER (выезжает при скролле) -->
 <header class="floating-header" id="floatingHeader">
     <div class="floating-header-inner">
         <a href="#" class="floating-logo">NEWERZI</a>
-        <a href="#contacts" class="floating-contact">CONTACT @</a>
+        <a href="#collab" class="floating-contact">
+            <span class="c-text">CONTACT</span>
+            <span class="c-at">@</span>
+        </a>
     </div>
 </header>
 
 <div class="container">
 
-    <!-- HEADER -->
-    <header class="header">
+    <!-- HEADER (обычная шапка) -->
+    <header class="header" id="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
         <div class="header-right">DESIGN</div>
@@ -57,7 +61,7 @@
     </section>
 
     <!-- PORTFOLIO -->
-    <section class="portfolio">
+    <section class="portfolio" id="works">
         <div class="section-title">
             <span class="bold">ПОРТФОЛИО</span>
             <span class="regular">#</span>
@@ -103,7 +107,7 @@
     </section>
 
     <!-- REVIEWS -->
-    <section class="reviews">
+    <section class="reviews" id="reviews">
         <div class="section-title" id="reviews-title">
             <span class="bold">ОТЗЫВЫ</span>
             <span class="regular">%</span>
@@ -169,7 +173,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="contacts" id="contacts">
+    <section class="contacts" id="collab">
         <div class="contacts-left">
             <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
         </div>
@@ -261,17 +265,18 @@
 
     updateLanguage('ru');
 
-    // ===== ПЛАВАЮЩАЯ ШАПКА =====
+    // ===== ПЛАВАЮЩАЯ ШАПКА (выезжает сверху при скролле) =====
     const floatingHeader = document.getElementById('floatingHeader');
-    const contactsSection = document.getElementById('contacts');
     let isHeaderVisible = false;
 
     function checkScroll() {
         const scrollY = window.scrollY || window.pageYOffset;
-        const contactsRect = contactsSection.getBoundingClientRect();
-        const contactsTop = contactsRect.top + window.scrollY;
+        const collabSection = document.getElementById('collab');
+        const collabRect = collabSection.getBoundingClientRect();
+        const collabTop = collabRect.top + window.scrollY;
 
-        if (scrollY > 300 && scrollY < contactsTop - 100) {
+        // Показываем шапку, если проскроллили больше 400px и не дошли до блока сотрудничества
+        if (scrollY > 400 && scrollY < collabTop - 100) {
             if (!isHeaderVisible) {
                 floatingHeader.classList.add('visible');
                 isHeaderVisible = true;
@@ -284,13 +289,14 @@
         }
     }
 
-    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('scroll', checkScroll, { passive: true });
     window.addEventListener('resize', checkScroll);
     checkScroll();
 
+    // Плавный скролл к блоку сотрудничества
     document.querySelector('.floating-contact').addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector('#contacts');
+        const target = document.querySelector('#collab');
         if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
         }
