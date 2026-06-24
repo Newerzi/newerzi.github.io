@@ -50,7 +50,7 @@
             justify-content: space-between;
             width: 100%;
             padding: 0;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             padding-top: 10px;
         }
 
@@ -103,7 +103,7 @@
             font-size: 22px;
             color: #1a1a1a;
             line-height: 1;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .language a {
@@ -147,7 +147,7 @@
             gap: 60px;
             align-items: flex-start;
             margin-top: 10px;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .work-left {
@@ -165,8 +165,6 @@
             width: 100%;
             height: auto;
             display: block;
-            aspect-ratio: 1765 / 1176.67;
-            object-fit: cover;
         }
 
         .work-right {
@@ -202,21 +200,19 @@
             margin-left: auto;
         }
 
-        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — ВНИЗУ, НА ВСЮ ШИРИНУ ===== */
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — НА ВСЮ ШИРИНУ, БОЛЬШОЙ ОТСТУП ===== */
         .full-image-wrap {
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 0;
+            margin: 80px 0 60px 0;
             padding: 0;
         }
 
         .full-image-wrap img {
             width: 100%;
-            max-height: 90vh;
             height: auto;
             display: block;
-            object-fit: contain;
         }
 
         /* ===== АНИМАЦИЯ ===== */
@@ -247,27 +243,30 @@
             .work-wrapper {
                 flex-direction: column;
                 gap: 30px;
-                margin-bottom: 40px;
+                margin-bottom: 50px;
             }
             .work-left { flex: 0 0 100%; }
             .work-right { padding: 0; max-width: 100%; }
             .work-name { text-align: left; font-size: 50px; }
             .work-description { text-align: left; width: 100%; margin-left: 0; }
+            .full-image-wrap { margin: 50px 0 40px 0; }
         }
 
         @media (max-width: 768px) {
             body { padding: 15px 0 0 0; }
             .container { padding: 0 15px; }
             .logo, .header-center, .header-right { font-size: 16px; }
+            .language { font-size: 18px; }
             .work-name { font-size: 36px; }
             .work-description { font-size: 18px; }
             .back-btn { font-size: 16px; padding: 6px 16px; }
+            .full-image-wrap { margin: 40px 0 30px 0; }
         }
 
         @media (max-width: 480px) {
             body { padding: 10px 0 0 0; }
             .container { padding: 0 10px; }
-            .header { flex-wrap: wrap; gap: 4px; margin-bottom: 20px; }
+            .header { flex-wrap: wrap; gap: 4px; margin-bottom: 16px; }
             .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
             .logo, .header-right { font-size: 14px; }
             .header-center { font-size: 14px; }
@@ -275,7 +274,7 @@
             .work-name { font-size: 28px; }
             .work-description { font-size: 15px; }
             .back-btn { font-size: 14px; padding: 4px 14px; }
-            .full-image-wrap img { max-height: 70vh; }
+            .full-image-wrap { margin: 30px 0 20px 0; }
         }
     </style>
 </head>
@@ -283,12 +282,14 @@
 
 <div class="container">
 
+    <!-- ШАПКА -->
     <header class="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
         <div class="header-right">DESIGN</div>
     </header>
 
+    <!-- ЯЗЫК -->
     <div class="language">
         <a href="#" class="rus" id="lang-ru">рус</a>
         <span class="divider">/</span>
@@ -296,11 +297,12 @@
         <img src="../images/russia.png" alt="flag" id="flag-icon">
     </div>
 
+    <!-- ОСНОВНОЙ БЛОК -->
     <div class="work-wrapper">
 
         <div class="work-left reveal reveal-delay-1">
             <div class="work-image">
-                <img src="../images/project1.png" alt="WEXON NETWORK">
+                <img src="../images/project1.jpg" alt="WEXON NETWORK">
             </div>
         </div>
 
@@ -316,6 +318,7 @@
 
 </div>
 
+<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ — НА ВСЮ ШИРИНУ, БОЛЬШОЙ ОТСТУП -->
 <div class="full-image-wrap reveal reveal-delay-3">
     <img src="../images/full1.png" alt="WEXON NETWORK full">
 </div>
