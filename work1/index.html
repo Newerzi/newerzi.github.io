@@ -85,21 +85,6 @@
             flex-direction: column;
         }
 
-        .work-left .back-link {
-            display: inline-block;
-            font-family: 'Manrope', sans-serif;
-            font-weight: 500;
-            font-size: 28px;
-            color: #1a1a1a;
-            text-decoration: none;
-            margin-bottom: 20px;
-            transition: opacity 0.3s;
-        }
-
-        .work-left .back-link:hover {
-            opacity: 0.6;
-        }
-
         .work-left .project-header {
             font-family: 'Manrope', sans-serif;
             font-weight: 500;
@@ -157,8 +142,8 @@
             margin-left: auto;
         }
 
-        /* ===== КНОПКА С ЧЁРНЫМ ФОНОМ ПО ПРАВОЙ ГРАНИЦЕ ===== */
-        .work-next {
+        /* ===== КНОПКА НАЗАД С ЧЁРНЫМ ФОНОМ ПО ПРАВОЙ ГРАНИЦЕ ===== */
+        .back-btn {
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
             font-size: 40px;
@@ -175,7 +160,7 @@
             border: none;
         }
 
-        .work-next:hover {
+        .back-btn:hover {
             background: #333333;
         }
 
@@ -200,8 +185,7 @@
         @media (max-width: 1200px) {
             .work-name { font-size: 60px; }
             .work-description { font-size: 22px; }
-            .work-next { font-size: 32px; padding: 14px 36px; }
-            .work-left .back-link { font-size: 22px; }
+            .back-btn { font-size: 32px; padding: 14px 36px; }
         }
 
         @media (max-width: 992px) {
@@ -210,7 +194,7 @@
             .work-right { padding: 0; max-width: 100%; }
             .work-name { text-align: left; font-size: 50px; }
             .work-description { text-align: left; width: 100%; margin-left: 0; }
-            .work-next { align-self: flex-start; text-align: center; width: 100%; }
+            .back-btn { align-self: flex-start; text-align: center; width: 100%; }
         }
 
         @media (max-width: 768px) {
@@ -218,8 +202,7 @@
             .logo, .header-center, .header-right { font-size: 16px; }
             .work-name { font-size: 36px; }
             .work-description { font-size: 18px; }
-            .work-next { font-size: 24px; padding: 12px 28px; }
-            .work-left .back-link { font-size: 18px; }
+            .back-btn { font-size: 24px; padding: 12px 28px; }
             .work-left .project-header { font-size: 22px; }
         }
 
@@ -231,8 +214,7 @@
             .header-center { font-size: 14px; }
             .work-name { font-size: 28px; }
             .work-description { font-size: 15px; }
-            .work-next { font-size: 18px; padding: 10px 20px; }
-            .work-left .back-link { font-size: 16px; }
+            .back-btn { font-size: 18px; padding: 10px 20px; }
             .work-left .project-header { font-size: 16px; }
         }
     </style>
@@ -253,7 +235,6 @@
 
         <!-- ЛЕВАЯ ЧАСТЬ -->
         <div class="work-left reveal reveal-delay-1">
-            <a href="../" class="back-link">← Назад</a>
             <div class="project-header">ПРОЕКТ [01]</div>
             <div class="work-image">
                 <img src="../images/project1.jpg" alt="WEXON NETWORK">
@@ -266,7 +247,7 @@
             <div class="work-description">
                 Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
             </div>
-            <a href="#" class="work-next">ДАЛЕЕ →</a>
+            <a href="../" class="back-btn">← НАЗАД</a>
         </div>
 
     </div>
