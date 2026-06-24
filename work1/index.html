@@ -25,7 +25,7 @@
             padding: 0 30px;
         }
 
-        /* ===== ШАПКА ===== */
+        /* ===== ШАПКА (НЕКЛИКАБЕЛЬНА) ===== */
         .header {
             display: flex;
             align-items: center;
@@ -45,7 +45,8 @@
             line-height: 1;
             text-transform: uppercase;
             flex-shrink: 0;
-            text-decoration: none;
+            cursor: default;
+            user-select: none;
         }
 
         .header-center {
@@ -58,6 +59,8 @@
             text-align: center;
             flex: 1;
             padding: 0 15px;
+            cursor: default;
+            user-select: none;
         }
 
         .header-right {
@@ -69,7 +72,8 @@
             line-height: 1;
             text-transform: uppercase;
             flex-shrink: 0;
-            text-decoration: none;
+            cursor: default;
+            user-select: none;
         }
 
         /* ===== ЯЗЫК ===== */
@@ -198,6 +202,20 @@
             margin-left: auto;
         }
 
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) ===== */
+        .full-image {
+            width: 100%;
+            margin-top: 60px;
+            margin-left: -30px;
+            padding-right: 0;
+        }
+
+        .full-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* ===== АНИМАЦИЯ ===== */
         .reveal {
             opacity: 0;
@@ -214,6 +232,7 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
 
         @media (max-width: 1200px) {
             .work-name { font-size: 60px; }
@@ -228,6 +247,7 @@
             .work-right { padding: 0; max-width: 100%; }
             .work-name { text-align: left; font-size: 50px; }
             .work-description { text-align: left; width: 100%; margin-left: 0; }
+            .full-image { margin-left: -20px; }
         }
 
         @media (max-width: 768px) {
@@ -238,6 +258,7 @@
             .work-description { font-size: 18px; }
             .back-btn { font-size: 16px; padding: 6px 16px; }
             .work-left { margin-left: -15px; }
+            .full-image { margin-left: -15px; }
         }
 
         @media (max-width: 480px) {
@@ -252,6 +273,7 @@
             .work-description { font-size: 15px; }
             .back-btn { font-size: 14px; padding: 4px 14px; }
             .work-left { margin-left: -10px; }
+            .full-image { margin-left: -10px; }
         }
     </style>
 </head>
@@ -259,11 +281,11 @@
 
 <div class="container">
 
-    <!-- ШАПКА -->
+    <!-- ШАПКА (НЕКЛИКАБЕЛЬНА) -->
     <header class="header">
-        <a href="../" class="logo">NEWERZI</a>
+        <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
-        <a href="../" class="header-right">DESIGN</a>
+        <div class="header-right">DESIGN</div>
     </header>
 
     <!-- ЯЗЫК -->
@@ -277,7 +299,7 @@
     <!-- ОСНОВНОЙ БЛОК -->
     <div class="work-wrapper">
 
-        <!-- ЛЕВАЯ ЧАСТЬ (изображение вплотную к левому краю) -->
+        <!-- ЛЕВАЯ ЧАСТЬ (изображение) -->
         <div class="work-left reveal reveal-delay-1">
             <div class="work-image">
                 <img src="../images/project1.jpg" alt="WEXON NETWORK">
@@ -286,7 +308,7 @@
 
         <!-- ПРАВАЯ ЧАСТЬ -->
         <div class="work-right reveal reveal-delay-2">
-            <a href="../" class="back-btn">← НАЗАД</a>
+            <a href="../" class="back-btn" id="back-btn">← НАЗАД</a>
             <div class="work-name" id="work-name">WEXON NETWORK</div>
             <div class="work-description" id="work-desc">
                 Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
@@ -295,47 +317,52 @@
 
     </div>
 
+    <!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) -->
+    <div class="full-image reveal reveal-delay-3">
+        <img src="../images/full1.jpg" alt="WEXON NETWORK full">
+    </div>
+
 </div>
 
 <script>
     // ===== ПЕРЕВОД =====
-const langRu = document.getElementById('lang-ru');
-const langEng = document.getElementById('lang-eng');
-const flagIcon = document.getElementById('flag-icon');
-const backBtn = document.querySelector('.back-btn'); // добавляем ссылку на кнопку
+    const langRu = document.getElementById('lang-ru');
+    const langEng = document.getElementById('lang-eng');
+    const flagIcon = document.getElementById('flag-icon');
+    const backBtn = document.getElementById('back-btn');
 
-const translations = {
-    ru: {
-        name: 'WEXON NETWORK',
-        desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
-        back: '← НАЗАД',
-        flag: '../images/russia.png'
-    },
-    en: {
-        name: 'WEXON NETWORK',
-        desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
-        back: '← BACK',
-        flag: '../images/usa.png'
+    const translations = {
+        ru: {
+            name: 'WEXON NETWORK',
+            desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
+            back: '← НАЗАД',
+            flag: '../images/russia.png'
+        },
+        en: {
+            name: 'WEXON NETWORK',
+            desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
+            back: '← BACK',
+            flag: '../images/usa.png'
+        }
+    };
+
+    function updateLanguage(lang) {
+        const t = translations[lang];
+
+        document.getElementById('work-name').textContent = t.name;
+        document.getElementById('work-desc').textContent = t.desc;
+        backBtn.textContent = t.back;
+        flagIcon.src = t.flag;
+
+        document.querySelectorAll('.language a').forEach(el => {
+            el.style.fontWeight = '500';
+        });
+        if (lang === 'ru') {
+            document.querySelector('.rus').style.fontWeight = '700';
+        } else {
+            document.querySelector('.eng').style.fontWeight = '700';
+        }
     }
-};
-
-function updateLanguage(lang) {
-    const t = translations[lang];
-
-    document.getElementById('work-name').textContent = t.name;
-    document.getElementById('work-desc').textContent = t.desc;
-    backBtn.textContent = t.back; // меняем текст кнопки
-    flagIcon.src = t.flag;
-
-    document.querySelectorAll('.language a').forEach(el => {
-        el.style.fontWeight = '500';
-    });
-    if (lang === 'ru') {
-        document.querySelector('.rus').style.fontWeight = '700';
-    } else {
-        document.querySelector('.eng').style.fontWeight = '700';
-    }
-}
 
     langRu.addEventListener('click', function(e) {
         e.preventDefault();
