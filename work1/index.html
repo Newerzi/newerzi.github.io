@@ -139,7 +139,7 @@
             background: #333333;
         }
 
-        /* ===== ОСНОВНОЙ БЛОК (2 колонки) ===== */
+        /* ===== ОСНОВНОЙ БЛОК (изображение слева, текст справа) ===== */
         .work-wrapper {
             display: flex;
             gap: 60px;
@@ -148,7 +148,6 @@
             margin-bottom: 60px;
         }
 
-        /* ЛЕВАЯ КОЛОНКА — изображение */
         .work-left {
             flex: 0 0 50%;
             display: flex;
@@ -168,7 +167,6 @@
             object-fit: cover;
         }
 
-        /* ПРАВАЯ КОЛОНКА — текст */
         .work-right {
             flex: 1;
             display: flex;
@@ -202,13 +200,13 @@
             margin-left: auto;
         }
 
-        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) — на всю ширину, без отступов ===== */
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — после блока, по центру ===== */
         .full-image-wrap {
             width: 100%;
-            margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
+            margin: 0;
+            padding: 0;
         }
 
         .full-image-wrap img {
@@ -233,7 +231,6 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
 
         @media (max-width: 1200px) {
             .work-name { font-size: 60px; }
@@ -296,17 +293,15 @@
         <img src="../images/russia.png" alt="flag" id="flag-icon">
     </div>
 
-    <!-- ОСНОВНОЙ БЛОК (2 КОЛОНКИ) -->
+    <!-- ОСНОВНОЙ БЛОК: изображение слева, текст справа -->
     <div class="work-wrapper">
 
-        <!-- ЛЕВАЯ КОЛОНКА — ИЗОБРАЖЕНИЕ -->
         <div class="work-left reveal reveal-delay-1">
             <div class="work-image">
                 <img src="../images/project1.jpg" alt="WEXON NETWORK">
             </div>
         </div>
 
-        <!-- ПРАВАЯ КОЛОНКА — ТЕКСТ -->
         <div class="work-right reveal reveal-delay-2">
             <a href="../" class="back-btn" id="back-btn">← НАЗАД</a>
             <div class="work-name" id="work-name">WEXON NETWORK</div>
@@ -319,9 +314,9 @@
 
 </div>
 
-<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ — на всю ширину, без границ -->
+<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ — после блока, на всю ширину, по центру -->
 <div class="full-image-wrap reveal reveal-delay-3">
-    <img src="../images/full1.png" alt="WEXON NETWORK full">
+    <img src="../images/full1.jpg" alt="WEXON NETWORK full">
 </div>
 
 <script>
