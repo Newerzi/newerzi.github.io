@@ -25,7 +25,6 @@
             padding: 0 30px;
         }
 
-        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
@@ -76,7 +75,6 @@
             user-select: none;
         }
 
-        /* ===== ЯЗЫК ===== */
         .language {
             display: flex;
             align-items: center;
@@ -119,7 +117,6 @@
             margin-left: 6px;
         }
 
-        /* ===== КНОПКА НАЗАД ===== */
         .back-btn {
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
@@ -139,7 +136,6 @@
             background: #333333;
         }
 
-        /* ===== ОСНОВНОЙ БЛОК (2 колонки) ===== */
         .work-wrapper {
             display: flex;
             gap: 60px;
@@ -200,7 +196,7 @@
             margin-left: auto;
         }
 
-        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — ВНИЗУ, НА ВСЮ ШИРИНУ ===== */
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — ВНИЗУ, НА ВСЮ ШИРИНУ С ОГРАНИЧЕНИЕМ ===== */
         .full-image-wrap {
             width: 100%;
             display: flex;
@@ -211,11 +207,12 @@
 
         .full-image-wrap img {
             width: 100%;
+            max-height: 90vh;
             height: auto;
             display: block;
+            object-fit: contain;
         }
 
-        /* ===== АНИМАЦИЯ ===== */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -271,6 +268,7 @@
             .work-name { font-size: 28px; }
             .work-description { font-size: 15px; }
             .back-btn { font-size: 14px; padding: 4px 14px; }
+            .full-image-wrap img { max-height: 70vh; }
         }
     </style>
 </head>
@@ -278,14 +276,12 @@
 
 <div class="container">
 
-    <!-- ШАПКА -->
     <header class="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
         <div class="header-right">DESIGN</div>
     </header>
 
-    <!-- ЯЗЫК -->
     <div class="language">
         <a href="#" class="rus" id="lang-ru">рус</a>
         <span class="divider">/</span>
@@ -293,7 +289,6 @@
         <img src="../images/russia.png" alt="flag" id="flag-icon">
     </div>
 
-    <!-- ОСНОВНОЙ БЛОК -->
     <div class="work-wrapper">
 
         <div class="work-left reveal reveal-delay-1">
@@ -314,13 +309,11 @@
 
 </div>
 
-<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ — ВНИЗУ, НА ВСЮ ШИРИНУ -->
 <div class="full-image-wrap reveal reveal-delay-3">
-    <img src="../images/full1.png" alt="WEXON NETWORK full">
+    <img src="../images/full1.jpg" alt="WEXON NETWORK full">
 </div>
 
 <script>
-    // ===== ПЕРЕВОД =====
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
@@ -371,7 +364,6 @@
 
     updateLanguage('ru');
 
-    // ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
