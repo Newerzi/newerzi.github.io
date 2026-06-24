@@ -34,14 +34,13 @@
         body {
             background: #ffffff;
             font-family: 'Manrope', sans-serif;
-            padding: 20px 0 0 0;
+            padding: 20px 30px;
             overflow-x: hidden;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px;
         }
 
         /* ===== ШАПКА ===== */
@@ -49,10 +48,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
             padding: 0;
             margin-bottom: 20px;
-            padding-top: 10px;
         }
 
         .logo {
@@ -143,13 +140,13 @@
         }
         .back-btn:hover { background: #333333; }
 
-        /* ===== ОСНОВНОЙ БЛОК (2 колонки) ===== */
+        /* ===== ОСНОВНОЙ БЛОК ===== */
         .work-wrapper {
             display: flex;
             gap: 60px;
             align-items: flex-start;
             margin-top: 10px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .work-left {
@@ -207,7 +204,7 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 80px 0 60px 0;
+            margin: 60px 0;
             padding: 0;
             cursor: pointer;
             position: relative;
@@ -225,7 +222,7 @@
             transform: scale(1.01);
         }
 
-        /* ===== ОВЕРЛЕЙ ДЛЯ ПРОСМОТРА ===== */
+        /* ===== ОВЕРЛЕЙ ===== */
         .image-overlay {
             display: none;
             position: fixed;
@@ -290,6 +287,46 @@
             pointer-events: none;
         }
 
+        /* ===== КАСТОМНЫЙ КУРСОР ===== */
+        * {
+            cursor: none !important;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            width: 10px;
+            height: 10px;
+            background: rgba(160, 160, 160, 0.9);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+        }
+
+        .custom-cursor.hover {
+            width: 18px;
+            height: 18px;
+            background: rgba(160, 160, 160, 0.4);
+            box-shadow: 0 0 0 2px rgba(160, 160, 160, 0.3);
+        }
+
+        .custom-cursor.click {
+            width: 6px;
+            height: 6px;
+            background: rgba(160, 160, 160, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            * {
+                cursor: auto !important;
+            }
+            .custom-cursor {
+                display: none !important;
+            }
+        }
+
         /* ===== АНИМАЦИЯ ===== */
         .reveal {
             opacity: 0;
@@ -314,35 +351,33 @@
         }
 
         @media (max-width: 992px) {
-            .container { padding: 0 20px; }
+            body { padding: 20px; }
             .work-wrapper {
                 flex-direction: column;
                 gap: 30px;
-                margin-bottom: 50px;
+                margin-bottom: 40px;
             }
             .work-left { flex: 0 0 100%; }
             .work-right { padding: 0; max-width: 100%; }
             .work-name { text-align: left; font-size: 50px; }
             .work-description { text-align: left; width: 100%; margin-left: 0; }
-            .full-image-wrap { margin: 50px 0 40px 0; }
+            .full-image-wrap { margin: 40px 0; }
             .image-overlay .close-btn { top: 20px; right: 20px; font-size: 32px; }
         }
 
         @media (max-width: 768px) {
-            body { padding: 15px 0 0 0; }
-            .container { padding: 0 15px; }
+            body { padding: 15px; }
             .logo, .header-center, .header-right { font-size: 16px; }
             .language { font-size: 18px; }
             .work-name { font-size: 36px; }
             .work-description { font-size: 18px; }
             .back-btn { font-size: 16px; padding: 6px 16px; }
-            .full-image-wrap { margin: 40px 0 30px 0; }
+            .full-image-wrap { margin: 30px 0; }
             .image-overlay .close-btn { top: 15px; right: 15px; font-size: 28px; }
         }
 
         @media (max-width: 480px) {
-            body { padding: 10px 0 0 0; }
-            .container { padding: 0 10px; }
+            body { padding: 10px; }
             .header { flex-wrap: wrap; gap: 4px; margin-bottom: 16px; }
             .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
             .logo, .header-right { font-size: 14px; }
@@ -351,7 +386,7 @@
             .work-name { font-size: 28px; }
             .work-description { font-size: 15px; }
             .back-btn { font-size: 14px; padding: 4px 14px; }
-            .full-image-wrap { margin: 30px 0 20px 0; }
+            .full-image-wrap { margin: 20px 0; }
         }
     </style>
 </head>
@@ -359,12 +394,17 @@
 
 <div class="container">
 
+    <!-- ===== КАСТОМНЫЙ КУРСОР ===== -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- ШАПКА -->
     <header class="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
         <div class="header-right">DESIGN</div>
     </header>
 
+    <!-- ЯЗЫК -->
     <div class="language">
         <a href="#" class="rus" id="lang-ru">рус</a>
         <span class="divider">/</span>
@@ -372,6 +412,7 @@
         <img src="../images/russia.png" alt="flag" id="flag-icon">
     </div>
 
+    <!-- ОСНОВНОЙ БЛОК -->
     <div class="work-wrapper">
 
         <div class="work-left reveal reveal-delay-1">
@@ -392,12 +433,12 @@
 
 </div>
 
-<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ С КЛИКОМ ДЛЯ ОТКРЫТИЯ -->
+<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ -->
 <div class="full-image-wrap reveal reveal-delay-3" id="fullImageWrap">
     <img src="../images/full1.png" alt="WEXON NETWORK full" id="fullImage">
 </div>
 
-<!-- ОВЕРЛЕЙ ДЛЯ ПРОСМОТРА -->
+<!-- ОВЕРЛЕЙ -->
 <div class="image-overlay" id="imageOverlay">
     <button class="close-btn" id="closeOverlay">✕</button>
     <img src="../images/full1.png" alt="WEXON NETWORK full" id="overlayImage">
@@ -438,7 +479,6 @@
         backBtn.textContent = t.back;
         flagIcon.src = t.flag;
 
-        // Меняем большое изображение
         fullImage.src = t.fullImage;
         overlayImage.src = t.fullImage;
 
@@ -464,7 +504,7 @@
 
     updateLanguage('ru');
 
-    // ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
+    // ===== АНИМАЦИЯ =====
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -482,7 +522,7 @@
         revealObserver.observe(el);
     });
 
-    // ===== ОТКРЫТИЕ ИЗОБРАЖЕНИЯ В ОВЕРЛЕЕ =====
+    // ===== ОВЕРЛЕЙ =====
     const fullImageWrap = document.getElementById('fullImageWrap');
     const imageOverlay = document.getElementById('imageOverlay');
     const closeOverlay = document.getElementById('closeOverlay');
@@ -524,7 +564,6 @@
         }
     });
 
-    // ===== МАСШТАБИРОВАНИЕ КОЛЕСИКОМ =====
     overlayImage.addEventListener('wheel', function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -536,7 +575,6 @@
         overlayImage.style.cursor = currentScale > 1 ? 'grab' : 'default';
     }, { passive: false });
 
-    // ===== ПЕРЕТАСКИВАНИЕ ПРИ УВЕЛИЧЕНИИ =====
     let isDragging = false;
     let startX, startY, translateX = 0, translateY = 0;
 
@@ -561,6 +599,46 @@
             overlayImage.style.cursor = currentScale > 1 ? 'grab' : 'default';
         }
     });
+
+    // ===== КАСТОМНЫЙ КУРСОР =====
+    (function() {
+        const cursor = document.getElementById('customCursor');
+        let mouseX = 0, mouseY = 0;
+
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+
+        const hoverElements = document.querySelectorAll('a, button, .back-btn');
+
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', function() {
+                cursor.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', function() {
+                cursor.classList.remove('hover');
+            });
+        });
+
+        document.addEventListener('mousedown', function() {
+            cursor.classList.add('click');
+        });
+
+        document.addEventListener('mouseup', function() {
+            cursor.classList.remove('click');
+        });
+
+        document.addEventListener('mouseleave', function() {
+            cursor.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', function() {
+            cursor.style.opacity = '1';
+        });
+    })();
 </script>
 
 </body>
