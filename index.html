@@ -68,7 +68,7 @@
             font-weight: 400;
             font-size: 24px;
             color: #1a1a1a;
-            padding: 16px 0;
+            padding: 18px 0;
             border: none;
             background: transparent;
             cursor: pointer;
@@ -82,12 +82,12 @@
         .questions-btn::after {
             content: '+';
             position: absolute;
-            right: 0;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
             font-size: 28px;
             font-weight: 300;
-            transition: transform 0.3s;
+            transition: transform 0.4s ease;
         }
 
         .questions-btn.active::after {
@@ -101,7 +101,11 @@
         .questions-btn.active {
             background: #1a1a1a;
             color: #ffffff;
-            padding: 16px 0 16px 20px;
+            padding: 18px 0 18px 20px;
+        }
+
+        .questions-btn.active::after {
+            right: 20px;
         }
 
         .questions-btn.active:hover {
@@ -111,15 +115,22 @@
         .questions-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease, padding 0.3s ease;
-            padding: 0 0;
+            transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
+            padding: 0 20px;
             background: #1a1a1a;
             color: #ffffff;
+            opacity: 0;
         }
 
         .questions-content.open {
             max-height: 2000px;
             padding: 0 20px 30px 20px;
+            opacity: 1;
+        }
+
+        .questions-content.closing {
+            opacity: 0;
+            padding: 0 20px;
         }
 
         .qa-block {
@@ -196,10 +207,17 @@
             }
             .questions-btn {
                 font-size: 20px;
-                padding: 12px 0;
+                padding: 14px 0;
             }
             .questions-btn.active {
-                padding: 12px 0 12px 16px;
+                padding: 14px 0 14px 16px;
+            }
+            .questions-btn::after {
+                font-size: 24px;
+                right: 6px;
+            }
+            .questions-btn.active::after {
+                right: 14px;
             }
             .questions-content.open {
                 padding: 0 16px 20px 16px;
@@ -212,10 +230,17 @@
             }
             .questions-btn {
                 font-size: 16px;
-                padding: 10px 0;
+                padding: 12px 0;
             }
             .questions-btn.active {
-                padding: 10px 0 10px 12px;
+                padding: 12px 0 12px 12px;
+            }
+            .questions-btn::after {
+                font-size: 20px;
+                right: 4px;
+            }
+            .questions-btn.active::after {
+                right: 10px;
             }
             .questions-content.open {
                 padding: 0 12px 16px 12px;
@@ -610,12 +635,20 @@
                 document.querySelectorAll('.questions-content.open').forEach(el => {
                     if (el !== content) {
                         el.classList.remove('open');
+                        el.classList.add('closing');
+                        setTimeout(() => {
+                            el.classList.remove('closing');
+                        }, 300);
                         el.closest('.questions-item').querySelector('.questions-btn').classList.remove('active');
                     }
                 });
 
                 if (isOpen) {
                     content.classList.remove('open');
+                    content.classList.add('closing');
+                    setTimeout(() => {
+                        content.classList.remove('closing');
+                    }, 300);
                     this.classList.remove('active');
                 } else {
                     content.classList.add('open');
