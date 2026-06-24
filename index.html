@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEWERZI</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.0">
+    <!-- Preload основных шрифтов для ускорения -->
+    <link rel="preload" href="fonts/UNCAGE-SemiBold.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="fonts/Manrope-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="fonts/Manrope-SemiBold.otf" as="font" type="font/otf" crossorigin>
 </head>
 <body>
+
+<!-- FLOATING HEADER -->
+<header class="floating-header" id="floatingHeader">
+    <div class="floating-header-inner">
+        <a href="#" class="floating-logo">NEWERZI</a>
+        <a href="#contacts" class="floating-contact">CONTACT @</a>
+    </div>
+</header>
 
 <div class="container">
 
@@ -23,7 +35,7 @@
             <a href="#" class="rus" id="lang-ru">рус</a>
             <span class="divider">/</span>
             <a href="#" class="eng" id="lang-eng">eng</a>
-            <img src="images/russia.png" alt="flag" id="flag-icon">
+            <img src="images/russia.png" alt="flag" id="flag-icon" loading="lazy" decoding="async">
         </div>
 
         <div class="hero-grid">
@@ -31,7 +43,7 @@
                 <h1 id="hero-title">im a <span>specific.</span></h1>
             </div>
             <div class="hero-right">
-                <img src="images/flower.png" alt="flower">
+                <img src="images/flower.png" alt="flower" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -44,12 +56,12 @@
     </section>
 
     <!-- BANNER -->
-    <section class="banner">
-        <img src="images/banner.jpg" alt="banner">
+    <section class="banner reveal">
+        <img src="images/banner.jpg" alt="banner" loading="lazy" decoding="async">
     </section>
 
     <!-- PORTFOLIO -->
-    <section class="portfolio">
+    <section class="portfolio reveal">
         <div class="section-title">
             <span class="bold">ПОРТФОЛИО</span>
             <span class="regular">#</span>
@@ -60,7 +72,7 @@
             <div class="project-left">
                 <div class="project-header">ПРОЕКТ [01]</div>
                 <div class="project-image">
-                    <img src="images/project1.jpg" alt="project work">
+                    <img src="images/project1.jpg" alt="project work" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="project-right">
@@ -79,7 +91,7 @@
             <div class="project-left">
                 <div class="project-header">ПРОЕКТ [02]</div>
                 <div class="project-image">
-                    <img src="images/project2.jpg" alt="project work">
+                    <img src="images/project2.jpg" alt="project work" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="project-right">
@@ -97,7 +109,7 @@
     </section>
 
     <!-- REVIEWS -->
-    <section class="reviews">
+    <section class="reviews reveal">
         <div class="section-title" id="reviews-title">
             <span class="bold">ОТЗЫВЫ</span>
             <span class="regular">%</span>
@@ -147,7 +159,7 @@
     </section>
 
     <!-- QUESTIONS -->
-    <section class="questions">
+    <section class="questions reveal">
         <div class="questions-wrapper">
             <div class="questions-title">
                 <span class="regular">ДЛЯ</span>
@@ -163,20 +175,64 @@
     </section>
 
     <!-- CONTACT -->
-<section class="contacts">
-    <div class="contacts-left">
-        <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
-    </div>
-    <div class="contacts-right">
-        <a href="#" class="contact-btn primary">Telegram</a>
-        <a href="#" class="contact-btn">Lolzteam</a>
-        <a href="#" class="contact-btn">Portfolio</a>
-    </div>
-</section>
+    <section class="contacts" id="contacts">
+        <div class="contacts-left">
+            <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
+        </div>
+        <div class="contacts-right">
+            <a href="#" class="contact-btn primary">Telegram</a>
+            <a href="#" class="contact-btn">Lolzteam</a>
+            <a href="#" class="contact-btn">Portfolio</a>
+        </div>
+    </section>
 
 </div>
 
 <script>
+    // ===== КЭШИРОВАНИЕ ДАННЫХ =====
+    const CACHE_VERSION = 'newerzi-v1';
+    const CACHE_URLS = [
+        'style.css',
+        'fonts/UNCAGE-SemiBold.otf',
+        'fonts/Manrope-Regular.otf',
+        'fonts/Manrope-SemiBold.otf',
+        'fonts/Manrope-Bold.otf',
+        'fonts/NeutralFace-Bold.otf',
+        'fonts/NeutralFace-Regular.otf'
+    ];
+
+    // Регистрация Service Worker для кэширования
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log('SW registered'))
+            .catch(() => console.log('SW registration failed'));
+    }
+
+    // Кэширование изображений через Intersection Observer + предзагрузка
+    const imageCache = new Map();
+
+    function preloadImage(img) {
+        return new Promise((resolve) => {
+            if (img.complete) {
+                resolve();
+                return;
+            }
+            img.onload = () => resolve();
+            img.onerror = () => resolve();
+        });
+    }
+
+    // Предзагрузка критических изображений
+    document.addEventListener('DOMContentLoaded', () => {
+        const criticalImages = document.querySelectorAll('.hero-right img, .banner img');
+        criticalImages.forEach(img => {
+            if (img.src && !img.complete) {
+                preloadImage(img);
+            }
+        });
+    });
+
+    // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА =====
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
@@ -225,12 +281,20 @@
 
         document.getElementById('portfolio-title').textContent = t.portfolio;
         document.getElementById('reviews-title').textContent = t.reviews;
-        document.getElementById('questions-title').textContent = t.questions;
         document.getElementById('contacts-title').textContent = t.contacts;
         document.getElementById('other-works-btn').textContent = t.otherWorks;
         document.getElementById('other-reviews-btn').textContent = t.otherReviews;
 
-        flagIcon.src = t.flag;
+        // Кэшируем флаг
+        const flagUrl = t.flag;
+        if (flagIcon.src !== flagUrl) {
+            const cachedFlag = imageCache.get(flagUrl);
+            if (cachedFlag) {
+                flagIcon.src = cachedFlag;
+            } else {
+                flagIcon.src = flagUrl;
+            }
+        }
 
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
@@ -253,6 +317,74 @@
     });
 
     updateLanguage('ru');
+
+    // ===== ПЛАВАЮЩАЯ ШАПКА =====
+    const floatingHeader = document.getElementById('floatingHeader');
+    const contactsSection = document.getElementById('contacts');
+    let isHeaderVisible = false;
+
+    function checkScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const contactsRect = contactsSection.getBoundingClientRect();
+        const contactsTop = contactsRect.top + window.scrollY;
+
+        if (scrollY > 200 && scrollY < contactsTop - 100) {
+            if (!isHeaderVisible) {
+                floatingHeader.classList.add('visible');
+                isHeaderVisible = true;
+            }
+        } else {
+            if (isHeaderVisible) {
+                floatingHeader.classList.remove('visible');
+                isHeaderVisible = false;
+            }
+        }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    checkScroll();
+
+    document.querySelector('.floating-contact').addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector('#contacts');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    // ===== ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ =====
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // ===== КЭШИРОВАНИЕ ИЗОБРАЖЕНИЙ ПРИ ЗАГРУЗКЕ =====
+    document.addEventListener('DOMContentLoaded', () => {
+        const allImages = document.querySelectorAll('img');
+        allImages.forEach(img => {
+            if (img.src && !img.complete) {
+                const url = img.src;
+                preloadImage(img).then(() => {
+                    if (url) {
+                        imageCache.set(url, url);
+                    }
+                });
+            }
+        });
+    });
 </script>
 
 </body>
