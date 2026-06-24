@@ -87,72 +87,6 @@ img {
     border-radius: 0 !important;
 }
 
-/* ===== ТРАНСФОРМАЦИЯ ШАПКИ ===== */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.design-text {
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.contact-btn-header {
-    display: none;
-    align-items: center;
-    gap: 8px;
-    background: #1a1a1a;
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 24px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: scale(0.9);
-}
-
-.contact-btn-header .c-text {
-    font-family: 'Neutral Face', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-}
-
-.contact-btn-header .c-at {
-    font-family: 'Neutral Face', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-}
-
-.contact-btn-header:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.header.scrolled .design-text {
-    opacity: 0;
-    transform: scale(0.8);
-    pointer-events: none;
-}
-
-.header.scrolled .contact-btn-header {
-    display: inline-flex;
-    opacity: 1;
-    transform: scale(1);
-}
-
-@media (max-width: 480px) {
-    .contact-btn-header {
-        padding: 6px 14px;
-    }
-    .contact-btn-header .c-text,
-    .contact-btn-header .c-at {
-        font-size: 11px;
-    }
-}
-
 /* ===== HEADER ===== */
 .header {
     display: flex;
@@ -737,9 +671,6 @@ img {
     .questions-title { font-size: 30px; }
     .questions-btn { font-size: 20px; padding: 12px 0; }
     .questions-wrapper { gap: 20px; }
-    .floating-logo { font-size: 18px; }
-    .floating-contact { font-size: 14px; padding: 8px 20px; }
-    .floating-header { padding: 10px 20px; }
 }
 
 @media (max-width: 480px) {
@@ -773,7 +704,4 @@ img {
     .questions-title { font-size: 22px; }
     .questions-btn { font-size: 16px; padding: 10px 0; }
     .questions-wrapper { gap: 16px; }
-    .floating-logo { font-size: 16px; }
-    .floating-contact { font-size: 12px; padding: 6px 16px; }
-    .floating-header { padding: 8px 15px; }
 }
