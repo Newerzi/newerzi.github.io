@@ -8,19 +8,19 @@
     <style>
         @font-face {
             font-family: 'UNCAGE SemiBold';
-            src: url('fonts/UNCAGE-SemiBold.otf') format('opentype');
+            src: url('../fonts/UNCAGE-SemiBold.otf') format('opentype');
             font-weight: 700;
             font-style: normal;
         }
         @font-face {
             font-family: 'Neutral Face';
-            src: url('fonts/NeutralFace-Bold.otf') format('opentype');
+            src: url('../fonts/NeutralFace-Bold.otf') format('opentype');
             font-weight: 700;
             font-style: normal;
         }
         @font-face {
             font-family: 'Neutral Face';
-            src: url('fonts/NeutralFace-Regular.otf') format('opentype');
+            src: url('../fonts/NeutralFace-Regular.otf') format('opentype');
             font-weight: 400;
             font-style: normal;
         }
@@ -137,41 +137,36 @@
             transition: opacity 0.3s, background 0.3s;
             display: inline-block;
             border: none;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             cursor: pointer;
         }
         .back-btn:hover { background: #333333; }
 
-        /* ===== ЗАГОЛОВОК ===== */
-        .page-title {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 800;
-            font-size: 64px;
-            color: #1a1a1a;
-            margin-bottom: 50px;
-        }
-
-        /* ===== СЕТКА РАБОТ ===== */
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .work-item {
+        /* ===== ПРОЕКТЫ ===== */
+        .project-item {
             display: flex;
-            flex-direction: column;
+            gap: 60px;
+            align-items: flex-start;
+            padding: 40px 0;
+            border-bottom: 1px solid #e5e5e5;
             text-decoration: none;
             color: #1a1a1a;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: opacity 0.3s;
         }
 
-        .work-item:hover {
-            transform: translateY(-6px);
+        .project-item:last-child {
+            border-bottom: none;
         }
 
-        .work-item img {
+        .project-item:hover {
+            opacity: 0.7;
+        }
+
+        .project-item .project-left {
+            flex: 0 0 45%;
+        }
+
+        .project-item .project-left img {
             width: 100%;
             height: auto;
             display: block;
@@ -179,12 +174,44 @@
             object-fit: cover;
         }
 
-        .work-item .work-title {
+        .project-item .project-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 20px;
+        }
+
+        .project-item .project-right .project-number {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 500;
+            font-size: 28px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            text-align: right;
+        }
+
+        .project-item .project-right .project-name {
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
+            font-size: 90px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            text-align: right;
+            margin-bottom: 16px;
+        }
+
+        .project-item .project-right .project-desc {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 400;
             font-size: 28px;
-            margin-top: 16px;
-            text-align: center;
+            color: #1a1a1a;
+            line-height: 1.4;
+            text-align: justify;
+            width: 85%;
+            margin-left: auto;
         }
 
         /* ===== АНИМАЦИЯ ===== */
@@ -205,10 +232,23 @@
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
+        @media (max-width: 1200px) {
+            .project-item .project-right .project-name { font-size: 60px; }
+            .project-item .project-right .project-desc { font-size: 22px; }
+        }
+
         @media (max-width: 992px) {
             .container { padding: 0 20px; }
-            .works-grid { grid-template-columns: 1fr; gap: 30px; }
-            .page-title { font-size: 44px; }
+            .project-item {
+                flex-direction: column;
+                gap: 30px;
+                padding: 30px 0;
+            }
+            .project-item .project-left { flex: 0 0 100%; }
+            .project-item .project-right { padding-top: 0; }
+            .project-item .project-right .project-name { text-align: left; font-size: 50px; }
+            .project-item .project-right .project-desc { text-align: left; width: 100%; margin-left: 0; }
+            .project-item .project-right .project-number { text-align: left; }
         }
 
         @media (max-width: 768px) {
@@ -216,8 +256,10 @@
             .container { padding: 0 15px; }
             .logo, .header-center, .header-right { font-size: 16px; }
             .language { font-size: 18px; }
-            .page-title { font-size: 32px; }
-            .work-item .work-title { font-size: 22px; }
+            .project-item .project-right .project-name { font-size: 36px; }
+            .project-item .project-right .project-desc { font-size: 18px; }
+            .project-item .project-right .project-number { font-size: 22px; }
+            .back-btn { font-size: 16px; padding: 6px 16px; }
         }
 
         @media (max-width: 480px) {
@@ -228,9 +270,10 @@
             .logo, .header-right { font-size: 14px; }
             .header-center { font-size: 14px; }
             .language { font-size: 16px; }
-            .page-title { font-size: 24px; }
-            .work-item .work-title { font-size: 18px; }
-            .back-btn { font-size: 16px; padding: 6px 16px; }
+            .project-item .project-right .project-name { font-size: 28px; }
+            .project-item .project-right .project-desc { font-size: 15px; }
+            .project-item .project-right .project-number { font-size: 16px; }
+            .back-btn { font-size: 14px; padding: 4px 14px; }
         }
     </style>
 </head>
@@ -250,43 +293,53 @@
         <a href="#" class="rus" id="lang-ru">рус</a>
         <span class="divider">/</span>
         <a href="#" class="eng" id="lang-eng">eng</a>
-        <img src="images/russia.png" alt="flag" id="flag-icon">
+        <img src="../images/russia.png" alt="flag" id="flag-icon">
     </div>
 
     <!-- НАЗАД -->
     <a href="../" class="back-btn" id="back-btn">← НАЗАД</a>
 
-    <!-- ЗАГОЛОВОК -->
-    <h1 class="page-title" id="page-title">Все работы</h1>
+    <!-- ПРОЕКТ 01 -->
+    <a href="../work1/" class="project-item reveal reveal-delay-1" id="project1-link">
+        <div class="project-left">
+            <img src="../images/project1.jpg" alt="WEXON NETWORK" id="project1-img">
+        </div>
+        <div class="project-right">
+            <div class="project-number" id="project1-number">ПРОЕКТ [01]</div>
+            <div class="project-name" id="project1-name">WEXON NETWORK</div>
+            <div class="project-desc" id="project1-desc">
+                Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
+            </div>
+        </div>
+    </a>
 
-    <!-- СЕТКА РАБОТ -->
-    <div class="works-grid" id="works-grid">
+    <!-- ПРОЕКТ 02 -->
+    <a href="../work2/" class="project-item reveal reveal-delay-2" id="project2-link">
+        <div class="project-left">
+            <img src="../images/project2.jpg" alt="WEXON NETWORK" id="project2-img">
+        </div>
+        <div class="project-right">
+            <div class="project-number" id="project2-number">ПРОЕКТ [02]</div>
+            <div class="project-name" id="project2-name">WEXON NETWORK</div>
+            <div class="project-desc" id="project2-desc">
+                Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
+            </div>
+        </div>
+    </a>
 
-        <!-- РАБОТА 1 -->
-        <a href="work1/" class="work-item reveal reveal-delay-1" id="work1-link">
-            <img src="images/project1.jpg" alt="WEXON NETWORK" id="work1-img">
-            <span class="work-title" id="work1-title">WEXON NETWORK</span>
-        </a>
-
-        <!-- РАБОТА 2 -->
-        <a href="work2/" class="work-item reveal reveal-delay-2" id="work2-link">
-            <img src="images/project2.jpg" alt="WEXON NETWORK" id="work2-img">
-            <span class="work-title" id="work2-title">WEXON NETWORK</span>
-        </a>
-
-        <!-- РАБОТА 3 (новая) -->
-        <a href="#" class="work-item reveal reveal-delay-3" id="work3-link">
-            <img src="images/project3.jpg" alt="Новая работа" id="work3-img">
-            <span class="work-title" id="work3-title">Новая работа</span>
-        </a>
-
-        <!-- РАБОТА 4 (новая) -->
-        <a href="#" class="work-item reveal reveal-delay-4" id="work4-link">
-            <img src="images/project4.jpg" alt="Новая работа" id="work4-img">
-            <span class="work-title" id="work4-title">Новая работа</span>
-        </a>
-
-    </div>
+    <!-- ПРОЕКТ 03 -->
+    <a href="#" class="project-item reveal reveal-delay-3" id="project3-link">
+        <div class="project-left">
+            <img src="../images/project3.jpg" alt="Новая работа" id="project3-img">
+        </div>
+        <div class="project-right">
+            <div class="project-number" id="project3-number">ПРОЕКТ [03]</div>
+            <div class="project-name" id="project3-name">Новая работа</div>
+            <div class="project-desc" id="project3-desc">
+                Описание новой работы появится здесь.
+            </div>
+        </div>
+    </a>
 
 </div>
 
@@ -299,36 +352,48 @@
 
     const translations = {
         ru: {
-            pageTitle: 'Все работы',
             back: '← НАЗАД',
-            flag: 'images/russia.png',
-            work1: 'WEXON NETWORK',
-            work2: 'WEXON NETWORK',
-            work3: 'Новая работа',
-            work4: 'Новая работа'
+            flag: '../images/russia.png',
+            project1Number: 'ПРОЕКТ [01]',
+            project2Number: 'ПРОЕКТ [02]',
+            project3Number: 'ПРОЕКТ [03]',
+            project1Name: 'WEXON NETWORK',
+            project2Name: 'WEXON NETWORK',
+            project3Name: 'Новая работа',
+            project1Desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
+            project2Desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
+            project3Desc: 'Описание новой работы появится здесь.'
         },
         en: {
-            pageTitle: 'All Works',
             back: '← BACK',
-            flag: 'images/usa.png',
-            work1: 'WEXON NETWORK',
-            work2: 'WEXON NETWORK',
-            work3: 'New Work',
-            work4: 'New Work'
+            flag: '../images/usa.png',
+            project1Number: 'PROJECT [01]',
+            project2Number: 'PROJECT [02]',
+            project3Number: 'PROJECT [03]',
+            project1Name: 'WEXON NETWORK',
+            project2Name: 'WEXON NETWORK',
+            project3Name: 'New Work',
+            project1Desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
+            project2Desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
+            project3Desc: 'Description of the new work will appear here.'
         }
     };
 
     function updateLanguage(lang) {
         const t = translations[lang];
 
-        document.getElementById('page-title').textContent = t.pageTitle;
         backBtn.textContent = t.back;
         flagIcon.src = t.flag;
 
-        document.getElementById('work1-title').textContent = t.work1;
-        document.getElementById('work2-title').textContent = t.work2;
-        document.getElementById('work3-title').textContent = t.work3;
-        document.getElementById('work4-title').textContent = t.work4;
+        document.getElementById('project1-number').textContent = t.project1Number;
+        document.getElementById('project2-number').textContent = t.project2Number;
+        document.getElementById('project3-number').textContent = t.project3Number;
+        document.getElementById('project1-name').textContent = t.project1Name;
+        document.getElementById('project2-name').textContent = t.project2Name;
+        document.getElementById('project3-name').textContent = t.project3Name;
+        document.getElementById('project1-desc').textContent = t.project1Desc;
+        document.getElementById('project2-desc').textContent = t.project2Desc;
+        document.getElementById('project3-desc').textContent = t.project3Desc;
 
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
