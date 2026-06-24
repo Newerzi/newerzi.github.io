@@ -107,7 +107,7 @@
         <div class="reviews-grid" id="reviews-grid">
             <div class="review-item">
                 <div class="review-header">
-                    <span class="review-author">atomcheats</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date">20 апреля 2026</span>
+                    <span class="review-author">atomcheats</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date" id="review1-date">20 апреля 2026</span>
                 </div>
                 <div class="review-text" id="review1-text">
                     хороший дизайнер, сделал все быстро!
@@ -116,7 +116,7 @@
 
             <div class="review-item">
                 <div class="review-header">
-                    <span class="review-author">whiteness</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date">01 марта 2026</span>
+                    <span class="review-author">whiteness</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date" id="review2-date">01 марта 2026</span>
                 </div>
                 <div class="review-text" id="review2-text">
                     срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто!
@@ -125,7 +125,7 @@
 
             <div class="review-item">
                 <div class="review-header">
-                    <span class="review-author">lacorner</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date">01 марта 2026</span>
+                    <span class="review-author">lacorner</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date" id="review3-date">01 марта 2026</span>
                 </div>
                 <div class="review-text" id="review3-text">
                     работает быстро, качественно, принял все мои капризы насчет правок!
@@ -134,7 +134,7 @@
 
             <div class="review-item">
                 <div class="review-header">
-                    <span class="review-author">нафаня</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date">23 декабря 2025</span>
+                    <span class="review-author">нафаня</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date" id="review4-date">23 декабря 2025</span>
                 </div>
                 <div class="review-text" id="review4-text">
                     хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика +реп. работа за отзыв
@@ -211,6 +211,11 @@
             review3: 'работает быстро, качественно, принял все мои капризы насчет правок!',
             review4: 'хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика +реп. работа за отзыв',
             otherReviews: 'ДРУГИЕ ОТЗЫВЫ',
+            // Review dates
+            date1: '20 апреля 2026',
+            date2: '01 марта 2026',
+            date3: '01 марта 2026',
+            date4: '23 декабря 2025',
             // Questions
             questionsRegular: 'ДЛЯ',
             questionsBold: 'ВОПРОСОВ',
@@ -249,6 +254,11 @@
             review3: 'works fast, efficiently, accepted all my whims about edits!',
             review4: 'good designer, understood the brief, made the first version and accepted minor edits, made the banner with style. recommend the guy +rep. work for review',
             otherReviews: 'OTHER REVIEWS',
+            // Review dates (English format)
+            date1: 'April 20, 2026',
+            date2: 'March 01, 2026',
+            date3: 'March 01, 2026',
+            date4: 'December 23, 2025',
             // Questions
             questionsRegular: 'FOR',
             questionsBold: 'QUESTIONS',
@@ -293,6 +303,12 @@
         document.getElementById('review3-text').textContent = t.review3;
         document.getElementById('review4-text').textContent = t.review4;
         document.getElementById('other-reviews-btn').textContent = t.otherReviews;
+
+        // Review dates
+        document.getElementById('review1-date').textContent = t.date1;
+        document.getElementById('review2-date').textContent = t.date2;
+        document.getElementById('review3-date').textContent = t.date3;
+        document.getElementById('review4-date').textContent = t.date4;
 
         // Questions
         document.getElementById('questions-regular').textContent = t.questionsRegular;
