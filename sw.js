@@ -1,4 +1,4 @@
-// Service Worker для кэширования
+// Service W0rker для кэширования
 const CACHE_NAME = 'newerzi-cache-v1';
 const urlsToCache = [
     '/',
