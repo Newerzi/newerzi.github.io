@@ -16,23 +16,24 @@
         body {
             background: #ffffff;
             font-family: 'Manrope', sans-serif;
-            padding: 20px 30px;
+            padding: 20px 0;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 0 30px;
         }
 
-        /* ===== ШАПКА КАК НА ГЛАВНОЙ ===== */
+        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
             padding: 0;
-            margin-bottom: 60px;
-            padding-top: 20px;
+            margin-bottom: 40px;
+            padding-top: 10px;
         }
 
         .logo {
@@ -71,27 +72,82 @@
             text-decoration: none;
         }
 
+        /* ===== ЯЗЫК ===== */
+        .language {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 22px;
+            color: #1a1a1a;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .language a {
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: opacity 0.2s;
+            cursor: pointer;
+        }
+
+        .language a:hover {
+            opacity: 0.6;
+        }
+
+        .language .rus {
+            font-weight: 700;
+        }
+
+        .language .eng {
+            font-weight: 500;
+        }
+
+        .language .divider {
+            font-weight: 300;
+            color: #999;
+        }
+
+        .language img {
+            width: 1.2em;
+            height: 0.8em;
+            object-fit: contain;
+            margin-left: 6px;
+        }
+
+        /* ===== КНОПКА НАЗАД ===== */
+        .back-btn {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 22px;
+            color: #ffffff;
+            background: #1a1a1a;
+            padding: 8px 24px;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: opacity 0.3s, background 0.3s;
+            display: inline-block;
+            border: none;
+            margin-bottom: 16px;
+        }
+
+        .back-btn:hover {
+            background: #333333;
+        }
+
         /* ===== ОСНОВНОЙ БЛОК ===== */
         .work-wrapper {
             display: flex;
             gap: 60px;
             align-items: flex-start;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .work-left {
-            flex: 0 0 45%;
+            flex: 0 0 50%;
             display: flex;
             flex-direction: column;
-        }
-
-        .work-left .project-header {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 500;
-            font-size: 28px;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
+            margin-left: -30px;
         }
 
         .work-image {
@@ -113,7 +169,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            padding: 80px 0 0 40px;
+            padding: 0 0 0 40px;
             max-width: 80%;
             position: relative;
         }
@@ -127,6 +183,7 @@
             line-height: 1;
             text-align: right;
             width: 100%;
+            margin-top: 0;
             margin-bottom: 16px;
         }
 
@@ -138,30 +195,7 @@
             line-height: 1.2;
             text-align: justify;
             width: 85%;
-            margin-bottom: 30px;
             margin-left: auto;
-        }
-
-        /* ===== КНОПКА НАЗАД С ЧЁРНЫМ ФОНОМ ПО ПРАВОЙ ГРАНИЦЕ ===== */
-        .back-btn {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            font-size: 40px;
-            color: #ffffff;
-            background: #1a1a1a;
-            padding: 16px 48px;
-            text-decoration: none;
-            letter-spacing: 0.02em;
-            transition: opacity 0.3s, background 0.3s;
-            display: inline-block;
-            text-align: right;
-            align-self: flex-end;
-            margin-top: auto;
-            border: none;
-        }
-
-        .back-btn:hover {
-            background: #333333;
         }
 
         /* ===== АНИМАЦИЯ ===== */
@@ -180,42 +214,44 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
 
         @media (max-width: 1200px) {
             .work-name { font-size: 60px; }
             .work-description { font-size: 22px; }
-            .back-btn { font-size: 32px; padding: 14px 36px; }
+            .back-btn { font-size: 18px; padding: 6px 20px; }
         }
 
         @media (max-width: 992px) {
+            .container { padding: 0 20px; }
             .work-wrapper { flex-direction: column; gap: 30px; }
-            .work-left { flex: 0 0 100%; }
+            .work-left { flex: 0 0 100%; margin-left: -20px; }
             .work-right { padding: 0; max-width: 100%; }
             .work-name { text-align: left; font-size: 50px; }
             .work-description { text-align: left; width: 100%; margin-left: 0; }
-            .back-btn { align-self: flex-start; text-align: center; width: 100%; }
         }
 
         @media (max-width: 768px) {
-            body { padding: 15px; }
+            body { padding: 15px 0; }
+            .container { padding: 0 15px; }
             .logo, .header-center, .header-right { font-size: 16px; }
             .work-name { font-size: 36px; }
             .work-description { font-size: 18px; }
-            .back-btn { font-size: 24px; padding: 12px 28px; }
-            .work-left .project-header { font-size: 22px; }
+            .back-btn { font-size: 16px; padding: 6px 16px; }
+            .work-left { margin-left: -15px; }
         }
 
         @media (max-width: 480px) {
-            body { padding: 10px; }
-            .header { flex-wrap: wrap; gap: 4px; margin-bottom: 30px; }
+            body { padding: 10px 0; }
+            .container { padding: 0 10px; }
+            .header { flex-wrap: wrap; gap: 4px; margin-bottom: 20px; }
             .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
             .logo, .header-right { font-size: 14px; }
             .header-center { font-size: 14px; }
+            .language { font-size: 16px; }
             .work-name { font-size: 28px; }
             .work-description { font-size: 15px; }
-            .back-btn { font-size: 18px; padding: 10px 20px; }
-            .work-left .project-header { font-size: 16px; }
+            .back-btn { font-size: 14px; padding: 4px 14px; }
+            .work-left { margin-left: -10px; }
         }
     </style>
 </head>
@@ -223,19 +259,26 @@
 
 <div class="container">
 
-    <!-- ШАПКА КАК НА ГЛАВНОЙ -->
+    <!-- ШАПКА -->
     <header class="header">
         <a href="../" class="logo">NEWERZI</a>
         <div class="header-center">* * *</div>
         <a href="../" class="header-right">DESIGN</a>
     </header>
 
+    <!-- ЯЗЫК -->
+    <div class="language">
+        <a href="#" class="rus" id="lang-ru">рус</a>
+        <span class="divider">/</span>
+        <a href="#" class="eng" id="lang-eng">eng</a>
+        <img src="../images/russia.png" alt="flag" id="flag-icon">
+    </div>
+
     <!-- ОСНОВНОЙ БЛОК -->
     <div class="work-wrapper">
 
-        <!-- ЛЕВАЯ ЧАСТЬ -->
+        <!-- ЛЕВАЯ ЧАСТЬ (изображение вплотную к левому краю) -->
         <div class="work-left reveal reveal-delay-1">
-            <div class="project-header">ПРОЕКТ [01]</div>
             <div class="work-image">
                 <img src="../images/project1.jpg" alt="WEXON NETWORK">
             </div>
@@ -243,11 +286,11 @@
 
         <!-- ПРАВАЯ ЧАСТЬ -->
         <div class="work-right reveal reveal-delay-2">
-            <div class="work-name">WEXON NETWORK</div>
-            <div class="work-description">
+            <a href="../" class="back-btn">← НАЗАД</a>
+            <div class="work-name" id="work-name">WEXON NETWORK</div>
+            <div class="work-description" id="work-desc">
                 Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
             </div>
-            <a href="../" class="back-btn">← НАЗАД</a>
         </div>
 
     </div>
@@ -255,6 +298,54 @@
 </div>
 
 <script>
+    // ===== ПЕРЕВОД =====
+    const langRu = document.getElementById('lang-ru');
+    const langEng = document.getElementById('lang-eng');
+    const flagIcon = document.getElementById('flag-icon');
+
+    const translations = {
+        ru: {
+            name: 'WEXON NETWORK',
+            desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
+            flag: '../images/russia.png'
+        },
+        en: {
+            name: 'WEXON NETWORK',
+            desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
+            flag: '../images/usa.png'
+        }
+    };
+
+    function updateLanguage(lang) {
+        const t = translations[lang];
+
+        document.getElementById('work-name').textContent = t.name;
+        document.getElementById('work-desc').textContent = t.desc;
+        flagIcon.src = t.flag;
+
+        document.querySelectorAll('.language a').forEach(el => {
+            el.style.fontWeight = '500';
+        });
+        if (lang === 'ru') {
+            document.querySelector('.rus').style.fontWeight = '700';
+        } else {
+            document.querySelector('.eng').style.fontWeight = '700';
+        }
+    }
+
+    langRu.addEventListener('click', function(e) {
+        e.preventDefault();
+        updateLanguage('ru');
+    });
+
+    langEng.addEventListener('click', function(e) {
+        e.preventDefault();
+        updateLanguage('en');
+    });
+
+    updateLanguage('ru');
+
+    // ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
