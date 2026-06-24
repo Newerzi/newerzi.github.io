@@ -349,7 +349,7 @@ img {
     position: relative;
     overflow: hidden;
     aspect-ratio: 1765 / 1176.67;
-    background: url('../images/color1.jpg') center/cover no-repeat;
+    background: url('../images/color2.jpg') center/cover no-repeat;
 }
 
 .project-image img {
@@ -364,9 +364,9 @@ img {
     opacity: 0;
 }
 
-/* ВТОРОЙ ПРОЕКТ — color2.jpg */
+/* ПЕРВЫЙ ПРОЕКТ — color1.jpg */
 .project-wrapper:nth-child(2) .project-image {
-    background: url('../images/color2.jpg') center/cover no-repeat;
+    background: url('../images/color1.jpg') center/cover no-repeat;
 }
 
 .project-right {
