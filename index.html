@@ -21,6 +21,154 @@
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
         .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ===== QUESTIONS ===== */
+        .questions {
+            margin-bottom: 100px;
+        }
+
+        .questions-wrapper {
+            display: flex;
+            gap: 80px;
+            align-items: flex-start;
+        }
+
+        .questions-title {
+            font-family: 'Neutral Face', sans-serif;
+            font-size: 60px;
+            letter-spacing: -0.02em;
+            flex-shrink: 0;
+        }
+
+        .questions-title .regular {
+            font-weight: 400;
+        }
+
+        .questions-title .bold {
+            font-weight: 700;
+        }
+
+        .questions-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .questions-item {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .questions-item:last-child {
+            border-bottom: none;
+        }
+
+        .questions-btn {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            color: #1a1a1a;
+            padding: 16px 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: color 0.3s;
+            text-align: left;
+            width: 100%;
+            position: relative;
+        }
+
+        .questions-btn::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+
+        .questions-btn.active::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .questions-btn:hover {
+            color: #0069FB;
+        }
+
+        .questions-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+            padding: 0 0;
+        }
+
+        .questions-content.open {
+            max-height: 600px;
+            padding: 0 0 20px 0;
+        }
+
+        .qa-block {
+            margin-bottom: 16px;
+        }
+
+        .qa-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .qa-question {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .qa-answer {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: #555;
+            line-height: 1.5;
+            padding-left: 4px;
+        }
+
+        @media (max-width: 992px) {
+            .questions-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .questions-title {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .questions-title {
+                font-size: 30px;
+            }
+            .questions-btn {
+                font-size: 20px;
+                padding: 12px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .questions-title {
+                font-size: 22px;
+            }
+            .questions-btn {
+                font-size: 16px;
+                padding: 10px 0;
+            }
+            .qa-question {
+                font-size: 16px;
+            }
+            .qa-answer {
+                font-size: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -66,17 +214,16 @@
             <span class="regular" id="portfolio-hash">#</span>
         </div>
 
-        <!-- ПРОЕКТ 01 -->
         <div class="project-wrapper reveal reveal-delay-4">
             <div class="project-left">
                 <div class="project-header" id="project1-header">ПРОЕКТ [01]</div>
-                <div class="project-image project-color-1">
+                <div class="project-image">
                     <img src="images/project1.jpg" alt="project work">
                 </div>
             </div>
             <div class="project-right">
-                 <div class="project-name" id="project1-name">WEXON<br>NETWORK</div>
-                 <div class="project-description" id="project1-desc">
+                <div class="project-name" id="project1-name">WEXON<br>NETWORK</div>
+                <div class="project-description" id="project1-desc">
                     Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
                 </div>
                 <a href="work1/" class="project-next" id="project1-next">ДАЛЕЕ →</a>
@@ -85,11 +232,10 @@
 
         <div class="project-divider reveal reveal-delay-5"></div>
 
-        <!-- ПРОЕКТ 02 -->
         <div class="project-wrapper reveal reveal-delay-4">
             <div class="project-left">
                 <div class="project-header" id="project2-header">ПРОЕКТ [02]</div>
-                <div class="project-image project-color-2">
+                <div class="project-image">
                     <img src="images/project2.jpg" alt="project work">
                 </div>
             </div>
@@ -143,36 +289,81 @@
         </div>
     </section>
 
+    <!-- QUESTIONS -->
     <section class="questions reveal reveal-delay-3">
         <div class="questions-wrapper">
             <div class="questions-title" id="questions-title">
                 <span class="regular" id="questions-regular">ДЛЯ</span>
                 <span class="bold" id="questions-bold">ВОПРОСОВ</span>
             </div>
-            <div class="questions-list">
-                <button class="questions-btn reveal reveal-delay-4" data-index="0">Начало работы и согласование</button>
-                <button class="questions-btn reveal reveal-delay-5" data-index="1">Процесс создания и правки</button>
-                <button class="questions-btn reveal reveal-delay-4" data-index="2">Прочие условия</button>
-                <button class="questions-btn reveal reveal-delay-5" data-index="3">Стоимость и оплата</button>
+            <div class="questions-list" id="questions-list">
+                <!-- Вопрос 1 -->
+                <div class="questions-item">
+                    <button class="questions-btn" data-index="0">Начало работы и согласование</button>
+                    <div class="questions-content">
+                        <div class="qa-block">
+                            <div class="qa-question">После чего ты начинаешь работу над проектом?</div>
+                            <div class="qa-answer">— Работа начинается только после согласования технического задания и внесения предоплаты в размере 50% / 100%.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="qa-question">Повторяешь ли ты чужие работы, практически ничего не меняя?</div>
+                            <div class="qa-answer">— Идентичным копированием чужих работ не занимаюсь. Я создаю уникальный дизайн под вашу задачу.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вопрос 2 -->
+                <div class="questions-item">
+                    <button class="questions-btn" data-index="1">Процесс создания и правки</button>
+                    <div class="questions-content">
+                        <div class="qa-block">
+                            <div class="qa-question">Сколько правок входит в стоимость?</div>
+                            <div class="qa-answer">— В стоимость включено до 3-х бесплатных правок. Дополнительные правки обсуждаются отдельно.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вопрос 3 -->
+                <div class="questions-item">
+                    <button class="questions-btn" data-index="2">Прочие условия</button>
+                    <div class="questions-content">
+                        <div class="qa-block">
+                            <div class="qa-question">Какие форматы файлов ты передаёшь?</div>
+                            <div class="qa-answer">— Передаю исходные файлы в форматах: PSD, Figma, AI, а также готовые экспорты в PNG, JPG, PDF.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вопрос 4 -->
+                <div class="questions-item">
+                    <button class="questions-btn" data-index="3">Стоимость и оплата</button>
+                    <div class="questions-content">
+                        <div class="qa-block">
+                            <div class="qa-question">Какие способы оплаты ты принимаешь?</div>
+                            <div class="qa-answer">— Принимаю оплату на карту СБП, USDT, а также переводы на QIWI и ЮMoney.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-        <!-- CONTACT -->
-        <section class="contacts" id="collab">
-            <div class="contacts-left">
-                <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
-            </div>
-            <div class="contacts-right">
-                <a href="https://t.me/specfc" target="_blank" rel="noopener noreferrer" class="contact-btn primary">Telegram</a>
-                <a href="https://lolz.live/specific/" target="_blank" rel="noopener noreferrer" class="contact-btn">Lolzteam</a>
-                <a href="https://t.me/newerzi" target="_blank" rel="noopener noreferrer" class="contact-btn">Portfolio</a>
-            </div>
-        </section>
+    <!-- CONTACT -->
+    <section class="contacts reveal reveal-delay-4" id="collab">
+        <div class="contacts-left">
+            <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
+        </div>
+        <div class="contacts-right">
+            <a href="https://t.me/specfc" target="_blank" rel="noopener noreferrer" class="contact-btn primary reveal reveal-delay-5">Telegram</a>
+            <a href="https://lolz.live/specific/" target="_blank" rel="noopener noreferrer" class="contact-btn reveal reveal-delay-4">Lolzteam</a>
+            <a href="https://t.me/newerzi" target="_blank" rel="noopener noreferrer" class="contact-btn reveal reveal-delay-5">Portfolio</a>
+        </div>
+    </section>
 
 </div>
 
 <script>
+    // ===== ПЕРЕВОД =====
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
@@ -275,9 +466,12 @@
         document.getElementById('review4-date').textContent = t.date4;
         document.getElementById('questions-regular').textContent = t.questionsRegular;
         document.getElementById('questions-bold').textContent = t.questionsBold;
+
+        // Обновляем текст кнопок вопросов
         const qBtns = document.querySelectorAll('.questions-btn');
         const qTexts = [t.q1, t.q2, t.q3, t.q4];
         qBtns.forEach((btn, i) => { if (qTexts[i]) btn.textContent = qTexts[i]; });
+
         document.getElementById('contacts-title').textContent = t.contacts;
         flagIcon.src = t.flag;
         document.querySelectorAll('.language a').forEach(el => { el.style.fontWeight = '500'; });
@@ -289,11 +483,42 @@
     langEng.addEventListener('click', function(e) { e.preventDefault(); updateLanguage('en'); });
     updateLanguage('ru');
 
+    // ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     revealElements.forEach(el => { revealObserver.observe(el); });
+
+    // ===== РАСКРЫТИЕ ВОПРОСОВ =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const questionBtns = document.querySelectorAll('.questions-btn');
+
+        questionBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const parent = this.closest('.questions-item');
+                const content = parent.querySelector('.questions-content');
+                const isOpen = content.classList.contains('open');
+
+                // Закрываем все остальные
+                document.querySelectorAll('.questions-content.open').forEach(el => {
+                    if (el !== content) {
+                        el.classList.remove('open');
+                        el.closest('.questions-item').querySelector('.questions-btn').classList.remove('active');
+                    }
+                });
+
+                // Переключаем текущий
+                if (isOpen) {
+                    content.classList.remove('open');
+                    this.classList.remove('active');
+                } else {
+                    content.classList.add('open');
+                    this.classList.add('active');
+                }
+            });
+        });
+    });
 </script>
 
 </body>
