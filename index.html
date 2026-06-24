@@ -691,18 +691,18 @@
         document.getElementById('q4-a1').textContent = t.q4_a1;
         document.getElementById('q4-q2').textContent = t.q4_q2;
         document.getElementById('q4-a2').textContent = t.q4_a2;
-        document.querySelector('.price-category:nth-child(1)').textContent = t.priceWeb;
-        document.querySelector('.price-item:nth-child(1)').textContent = t.priceLanding;
-        document.querySelector('.price-item:nth-child(2)').textContent = t.priceSite;
-        document.querySelector('.price-category:nth-child(2)').textContent = t.priceBrand;
-        document.querySelector('.price-item:nth-child(3)').textContent = t.priceSocial;
-        document.querySelector('.price-item:nth-child(4)').textContent = t.priceStyle;
-        document.querySelector('.price-category:nth-child(3)').textContent = t.priceMotion;
-        document.querySelector('.price-item:nth-child(5)').textContent = t.priceCreative;
-        document.querySelector('.price-item:nth-child(6)').textContent = t.priceAnimation;
-        document.querySelector('.price-category:nth-child(4)').textContent = t.priceGraph;
-        document.querySelector('.price-item:nth-child(7)').textContent = t.priceBanner;
-        document.querySelector('.price-item:nth-child(8)').textContent = t.priceForum;
+        document.getElementById('price-web').textContent = t.priceWeb;
+        document.getElementById('price-landing').textContent = t.priceLanding;
+        document.getElementById('price-site').textContent = t.priceSite;
+        document.getElementById('price-brand').textContent = t.priceBrand;
+        document.getElementById('price-social').textContent = t.priceSocial;
+        document.getElementById('price-style').textContent = t.priceStyle;
+        document.getElementById('price-motion').textContent = t.priceMotion;
+        document.getElementById('price-creative').textContent = t.priceCreative;
+        document.getElementById('price-animation').textContent = t.priceAnimation;
+        document.getElementById('price-graph').textContent = t.priceGraph;
+        document.getElementById('price-banner').textContent = t.priceBanner;
+        document.getElementById('price-forum').textContent = t.priceForum;
 
         const qBtns = document.querySelectorAll('.questions-btn');
         const qTexts = [t.q1, t.q2, t.q3, t.q4];
@@ -763,44 +763,41 @@
     });
 </script>
 
-<!-- ===== КАСТОМНЫЙ КУРСОР (заполненный значок) ===== -->
+<!-- ===== КАСТОМНЫЙ КУРСОР (гладкий) ===== -->
 <style>
     /* Скрываем стандартный курсор */
     * {
         cursor: none !important;
     }
 
-    /* Кастомный курсор */
+    /* Кастомный курсор — гладкий круг */
     .custom-cursor {
         position: fixed;
         pointer-events: none;
         z-index: 9999;
-        width: 28px;
-        height: 28px;
+        width: 16px;
+        height: 16px;
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 50%;
         transform: translate(-50%, -50%);
-        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+        transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
         mix-blend-mode: difference;
-    }
-
-    .custom-cursor svg {
-        width: 100%;
-        height: 100%;
-        display: block;
-        fill: #ffffff;
     }
 
     /* При наведении на ссылки и кнопки */
     .custom-cursor.hover {
-        width: 36px;
-        height: 36px;
-        opacity: 0.8;
+        width: 24px;
+        height: 24px;
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
     }
 
     /* При нажатии */
     .custom-cursor.click {
-        width: 20px;
-        height: 20px;
-        opacity: 0.7;
+        width: 10px;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.6);
     }
 
     @media (max-width: 768px) {
@@ -813,16 +810,13 @@
     }
 </style>
 
-<div class="custom-cursor" id="customCursor">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5.5 3.5L18.5 12L11 13.5L9.5 21L5.5 3.5Z" />
-    </svg>
-</div>
+<div class="custom-cursor" id="customCursor"></div>
 
 <script>
     (function() {
         const cursor = document.getElementById('customCursor');
         let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
 
         document.addEventListener('mousemove', function(e) {
             mouseX = e.clientX;
