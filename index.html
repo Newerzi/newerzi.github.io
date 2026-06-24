@@ -51,47 +51,49 @@
 
     <!-- PORTFOLIO -->
     <section class="portfolio" id="works">
-        <div class="section-title">
+        <div class="section-title" id="portfolio-title">
             <span class="bold">ПОРТФОЛИО</span>
             <span class="regular">#</span>
         </div>
 
+        <!-- ПРОЕКТ 01 -->
         <div class="project-wrapper">
             <div class="project-left">
-                <div class="project-header">ПРОЕКТ [01]</div>
+                <div class="project-header" id="project1-header">ПРОЕКТ [01]</div>
                 <div class="project-image">
                     <img src="images/project1.jpg" alt="project work">
                 </div>
             </div>
             <div class="project-right">
-                <div class="project-name">WEXON NETWORK</div>
-                <div class="project-description">
+                <div class="project-name" id="project1-name">WEXON NETWORK</div>
+                <div class="project-description" id="project1-desc">
                     Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
                 </div>
-                <a href="#" class="project-next">ДАЛЕЕ →</a>
+                <a href="#" class="project-next" id="project1-next">ДАЛЕЕ →</a>
             </div>
         </div>
 
         <div class="project-divider"></div>
 
+        <!-- ПРОЕКТ 02 -->
         <div class="project-wrapper">
             <div class="project-left">
-                <div class="project-header">ПРОЕКТ [02]</div>
+                <div class="project-header" id="project2-header">ПРОЕКТ [02]</div>
                 <div class="project-image">
                     <img src="images/project2.jpg" alt="project work">
                 </div>
             </div>
             <div class="project-right">
-                <div class="project-name">WEXON NETWORK</div>
-                <div class="project-description">
+                <div class="project-name" id="project2-name">WEXON NETWORK</div>
+                <div class="project-description" id="project2-desc">
                     Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
                 </div>
-                <a href="#" class="project-next">ДАЛЕЕ →</a>
+                <a href="#" class="project-next" id="project2-next">ДАЛЕЕ →</a>
             </div>
         </div>
 
         <div class="portfolio-button">
-            <button>ДРУГИЕ РАБОТЫ</button>
+            <button id="other-works-btn">ДРУГИЕ РАБОТЫ</button>
         </div>
     </section>
 
@@ -102,12 +104,12 @@
             <span class="regular">%</span>
         </div>
 
-        <div class="reviews-grid">
+        <div class="reviews-grid" id="reviews-grid">
             <div class="review-item">
                 <div class="review-header">
                     <span class="review-author">atomcheats</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date">20 апреля 2026</span>
                 </div>
-                <div class="review-text">
+                <div class="review-text" id="review1-text">
                     хороший дизайнер, сделал все быстро!
                 </div>
             </div>
@@ -116,7 +118,7 @@
                 <div class="review-header">
                     <span class="review-author">whiteness</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date">01 марта 2026</span>
                 </div>
-                <div class="review-text">
+                <div class="review-text" id="review2-text">
                     срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто!
                 </div>
             </div>
@@ -125,7 +127,7 @@
                 <div class="review-header">
                     <span class="review-author">lacorner</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date">01 марта 2026</span>
                 </div>
-                <div class="review-text">
+                <div class="review-text" id="review3-text">
                     работает быстро, качественно, принял все мои капризы насчет правок!
                 </div>
             </div>
@@ -134,7 +136,7 @@
                 <div class="review-header">
                     <span class="review-author">нафаня</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date">23 декабря 2025</span>
                 </div>
-                <div class="review-text">
+                <div class="review-text" id="review4-text">
                     хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика +реп. работа за отзыв
                 </div>
             </div>
@@ -148,15 +150,15 @@
     <!-- QUESTIONS -->
     <section class="questions">
         <div class="questions-wrapper">
-            <div class="questions-title">
+            <div class="questions-title" id="questions-title">
                 <span class="regular">ДЛЯ</span>
                 <span class="bold">ВОПРОСОВ</span>
             </div>
-            <div class="questions-list">
-                <button class="questions-btn">Начало работы и согласование</button>
-                <button class="questions-btn">Процесс создания и правки</button>
-                <button class="questions-btn">Прочие условия</button>
-                <button class="questions-btn">Стоимость и оплата</button>
+            <div class="questions-list" id="questions-list">
+                <button class="questions-btn" data-index="0">Начало работы и согласование</button>
+                <button class="questions-btn" data-index="1">Процесс создания и правки</button>
+                <button class="questions-btn" data-index="2">Прочие условия</button>
+                <button class="questions-btn" data-index="3">Стоимость и оплата</button>
             </div>
         </div>
     </section>
@@ -176,40 +178,80 @@
 </div>
 
 <script>
-    // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА =====
+    // ===== ПЕРЕВОД =====
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
 
     const translations = {
         ru: {
+            // Hero
             hero: 'im a <span>specific.</span>',
             desc: [
                 'создаю незабываемый визуал.',
                 'за спиной более 150 успешных задач.',
                 'клиенты отзываются положительно.'
             ],
+            // Portfolio
             portfolio: 'ПОРТФОЛИО #',
-            reviews: 'ОТЗЫВЫ %',
-            questions: 'ДЛЯ ВОПРОСОВ',
-            contacts: 'СОТРУДНИЧЕСТВО',
+            project1: 'ПРОЕКТ [01]',
+            project2: 'ПРОЕКТ [02]',
+            project1Name: 'WEXON NETWORK',
+            project2Name: 'WEXON NETWORK',
+            project1Desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
+            project2Desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
+            next: 'ДАЛЕЕ →',
             otherWorks: 'ДРУГИЕ РАБОТЫ',
+            // Reviews
+            reviews: 'ОТЗЫВЫ %',
+            review1: 'хороший дизайнер, сделал все быстро!',
+            review2: 'срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто!',
+            review3: 'работает быстро, качественно, принял все мои капризы насчет правок!',
+            review4: 'хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика +реп. работа за отзыв',
             otherReviews: 'ДРУГИЕ ОТЗЫВЫ',
+            // Questions
+            questions: 'ДЛЯ ВОПРОСОВ',
+            q1: 'Начало работы и согласование',
+            q2: 'Процесс создания и правки',
+            q3: 'Прочие условия',
+            q4: 'Стоимость и оплата',
+            // Contacts
+            contacts: 'СОТРУДНИЧЕСТВО',
             flag: 'images/russia.png'
         },
         en: {
+            // Hero
             hero: 'im a <span>specific.</span>',
             desc: [
                 'creating unforgettable visuals.',
                 'over 150 successful tasks completed.',
                 'clients leave positive feedback.'
             ],
+            // Portfolio
             portfolio: 'PORTFOLIO #',
-            reviews: 'REVIEWS %',
-            questions: 'FOR QUESTIONS',
-            contacts: 'COLLABORATION',
+            project1: 'PROJECT [01]',
+            project2: 'PROJECT [02]',
+            project1Name: 'WEXON NETWORK',
+            project2Name: 'WEXON NETWORK',
+            project1Desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
+            project2Desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
+            next: 'NEXT →',
             otherWorks: 'OTHER WORKS',
+            // Reviews
+            reviews: 'REVIEWS %',
+            review1: 'good designer, did everything quickly!',
+            review2: 'we\'ve worked together twice, he designed two of my projects! did everything clearly and cool!',
+            review3: 'works fast, efficiently, accepted all my whims about edits!',
+            review4: 'good designer, understood the brief, made the first version and accepted minor edits, made the banner with style. recommend the guy +rep. work for review',
             otherReviews: 'OTHER REVIEWS',
+            // Questions
+            questions: 'FOR QUESTIONS',
+            q1: 'Startup and coordination',
+            q2: 'Creation and editing process',
+            q3: 'Other conditions',
+            q4: 'Pricing and payment',
+            // Contacts
+            contacts: 'COLLABORATION',
             flag: 'images/usa.png'
         }
     };
@@ -217,21 +259,48 @@
     function updateLanguage(lang) {
         const t = translations[lang];
 
+        // Hero
         document.getElementById('hero-title').innerHTML = t.hero;
         const descItems = document.querySelectorAll('#hero-desc p');
         t.desc.forEach((text, i) => {
             if (descItems[i]) descItems[i].textContent = text;
         });
 
-        document.getElementById('portfolio-title').textContent = t.portfolio;
-        document.getElementById('reviews-title').textContent = t.reviews;
-        document.getElementById('questions-title').textContent = t.questions;
-        document.getElementById('contacts-title').textContent = t.contacts;
+        // Portfolio
+        document.getElementById('portfolio-title').innerHTML = t.portfolio;
+        document.getElementById('project1-header').textContent = t.project1;
+        document.getElementById('project2-header').textContent = t.project2;
+        document.getElementById('project1-name').textContent = t.project1Name;
+        document.getElementById('project2-name').textContent = t.project2Name;
+        document.getElementById('project1-desc').textContent = t.project1Desc;
+        document.getElementById('project2-desc').textContent = t.project2Desc;
+        document.getElementById('project1-next').textContent = t.next;
+        document.getElementById('project2-next').textContent = t.next;
         document.getElementById('other-works-btn').textContent = t.otherWorks;
+
+        // Reviews
+        document.getElementById('reviews-title').innerHTML = t.reviews;
+        document.getElementById('review1-text').textContent = t.review1;
+        document.getElementById('review2-text').textContent = t.review2;
+        document.getElementById('review3-text').textContent = t.review3;
+        document.getElementById('review4-text').textContent = t.review4;
         document.getElementById('other-reviews-btn').textContent = t.otherReviews;
 
+        // Questions
+        document.getElementById('questions-title').innerHTML = t.questions;
+        const qBtns = document.querySelectorAll('.questions-btn');
+        const qTexts = [t.q1, t.q2, t.q3, t.q4];
+        qBtns.forEach((btn, i) => {
+            if (qTexts[i]) btn.textContent = qTexts[i];
+        });
+
+        // Contacts
+        document.getElementById('contacts-title').textContent = t.contacts;
+
+        // Flag
         flagIcon.src = t.flag;
 
+        // Language switch styles
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
         });
@@ -252,6 +321,7 @@
         updateLanguage('en');
     });
 
+    // Set default language
     updateLanguage('ru');
 </script>
 
