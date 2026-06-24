@@ -24,6 +24,7 @@
             margin: 0 auto;
         }
 
+        /* ===== ШАПКА КАК НА ГЛАВНОЙ ===== */
         .header {
             display: flex;
             align-items: center;
@@ -70,6 +71,115 @@
             text-decoration: none;
         }
 
+        /* ===== ОСНОВНОЙ БЛОК ===== */
+        .work-wrapper {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .work-left {
+            flex: 0 0 45%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-left .back-link {
+            display: inline-block;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 500;
+            font-size: 28px;
+            color: #1a1a1a;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .work-left .back-link:hover {
+            opacity: 0.6;
+        }
+
+        .work-left .project-header {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 500;
+            font-size: 28px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .work-image {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .work-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 1765 / 1176.67;
+            object-fit: cover;
+        }
+
+        /* ===== ПРАВАЯ ЧАСТЬ ===== */
+        .work-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 80px 0 0 40px;
+            max-width: 80%;
+            position: relative;
+        }
+
+        .work-name {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 90px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            text-align: right;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        .work-description {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 400;
+            font-size: 28px;
+            color: #1a1a1a;
+            line-height: 1.2;
+            text-align: justify;
+            width: 85%;
+            margin-bottom: 30px;
+            margin-left: auto;
+        }
+
+        /* ===== КНОПКА С ЧЁРНЫМ ФОНОМ ПО ПРАВОЙ ГРАНИЦЕ ===== */
+        .work-next {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 40px;
+            color: #ffffff;
+            background: #1a1a1a;
+            padding: 16px 48px;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: opacity 0.3s, background 0.3s;
+            display: inline-block;
+            text-align: right;
+            align-self: flex-end;
+            margin-top: auto;
+            border: none;
+        }
+
+        .work-next:hover {
+            background: #333333;
+        }
+
+        /* ===== АНИМАЦИЯ ===== */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -87,62 +197,30 @@
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        .work-content {
-            padding-top: 20px;
+        @media (max-width: 1200px) {
+            .work-name { font-size: 60px; }
+            .work-description { font-size: 22px; }
+            .work-next { font-size: 32px; padding: 14px 36px; }
+            .work-left .back-link { font-size: 22px; }
         }
 
-        .back-link {
-            display: inline-block;
-            font-family: 'Manrope', sans-serif;
-            font-weight: 500;
-            font-size: 18px;
-            color: #1a1a1a;
-            text-decoration: none;
-            margin-bottom: 40px;
-            transition: opacity 0.3s;
-        }
-
-        .back-link:hover {
-            opacity: 0.6;
-        }
-
-        .work-title {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 800;
-            font-size: 80px;
-            color: #1a1a1a;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .work-description {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 400;
-            font-size: 28px;
-            color: #1a1a1a;
-            line-height: 1.5;
-            max-width: 800px;
-            margin-bottom: 40px;
-        }
-
-        .work-image {
-            width: 100%;
-            max-width: 1000px;
-            display: block;
-        }
-
-        .work-image img {
-            width: 100%;
-            height: auto;
-            display: block;
+        @media (max-width: 992px) {
+            .work-wrapper { flex-direction: column; gap: 30px; }
+            .work-left { flex: 0 0 100%; }
+            .work-right { padding: 0; max-width: 100%; }
+            .work-name { text-align: left; font-size: 50px; }
+            .work-description { text-align: left; width: 100%; margin-left: 0; }
+            .work-next { align-self: flex-start; text-align: center; width: 100%; }
         }
 
         @media (max-width: 768px) {
             body { padding: 15px; }
             .logo, .header-center, .header-right { font-size: 16px; }
-            .work-title { font-size: 44px; }
-            .work-description { font-size: 20px; }
-            .back-link { font-size: 16px; }
+            .work-name { font-size: 36px; }
+            .work-description { font-size: 18px; }
+            .work-next { font-size: 24px; padding: 12px 28px; }
+            .work-left .back-link { font-size: 18px; }
+            .work-left .project-header { font-size: 22px; }
         }
 
         @media (max-width: 480px) {
@@ -151,8 +229,11 @@
             .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
             .logo, .header-right { font-size: 14px; }
             .header-center { font-size: 14px; }
-            .work-title { font-size: 32px; }
-            .work-description { font-size: 16px; }
+            .work-name { font-size: 28px; }
+            .work-description { font-size: 15px; }
+            .work-next { font-size: 18px; padding: 10px 20px; }
+            .work-left .back-link { font-size: 16px; }
+            .work-left .project-header { font-size: 16px; }
         }
     </style>
 </head>
@@ -160,24 +241,32 @@
 
 <div class="container">
 
+    <!-- ШАПКА КАК НА ГЛАВНОЙ -->
     <header class="header">
         <a href="../" class="logo">NEWERZI</a>
         <div class="header-center">* * *</div>
         <a href="../" class="header-right">DESIGN</a>
     </header>
 
-    <div class="work-content">
+    <!-- ОСНОВНОЙ БЛОК -->
+    <div class="work-wrapper">
 
-        <a href="../" class="back-link reveal reveal-delay-1">← Назад</a>
+        <!-- ЛЕВАЯ ЧАСТЬ -->
+        <div class="work-left reveal reveal-delay-1">
+            <a href="../" class="back-link">← Назад</a>
+            <div class="project-header">ПРОЕКТ [01]</div>
+            <div class="work-image">
+                <img src="../images/project1.jpg" alt="WEXON NETWORK">
+            </div>
+        </div>
 
-        <h1 class="work-title reveal reveal-delay-2">WEXON NETWORK</h1>
-
-        <p class="work-description reveal reveal-delay-3">
-            Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
-        </p>
-
-        <div class="work-image reveal reveal-delay-4">
-            <img src="../images/project2.jpg" alt="WEXON NETWORK">
+        <!-- ПРАВАЯ ЧАСТЬ -->
+        <div class="work-right reveal reveal-delay-2">
+            <div class="work-name">WEXON NETWORK</div>
+            <div class="work-description">
+                Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
+            </div>
+            <a href="#" class="work-next">ДАЛЕЕ →</a>
         </div>
 
     </div>
