@@ -349,13 +349,6 @@ img {
     position: relative;
     overflow: hidden;
     aspect-ratio: 1765 / 1176.67;
-    background: url('images/color1.jpg') center/cover no-repeat;
-    min-height: 200px; /* временно, чтобы увидеть фон */
-}
-
-/* ТОЛЬКО ПЕРВЫЙ ПРОЕКТ — color1.jpg */
-.project-wrapper:first-child .project-image {
-    background: url('images/color1.jpg') center/cover no-repeat;
 }
 
 .project-image img {
@@ -368,6 +361,16 @@ img {
 
 .project-image img:hover {
     opacity: 0;
+}
+
+/* ПЕРВЫЙ ПРОЕКТ — color1.jpg */
+.project-wrapper:first-child .project-image {
+    background: url('images/color1.jpg') center/cover no-repeat;
+}
+
+/* ВТОРОЙ ПРОЕКТ — color2.jpg */
+.project-wrapper:nth-child(2) .project-image {
+    background: url('images/color2.jpg') center/cover no-repeat;
 }
 
 .project-right {
