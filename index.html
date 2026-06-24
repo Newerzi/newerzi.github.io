@@ -7,19 +7,15 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ ===== */
         .reveal {
             opacity: 0;
             transform: translateY(60px);
             transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Задержки для последовательного появления */
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
@@ -31,14 +27,12 @@
 
 <div class="container">
 
-    <!-- HEADER (обычная статичная шапка) -->
-    <header class="header" id="header">
+    <header class="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
         <div class="header-right">DESIGN</div>
     </header>
 
-    <!-- HERO -->
     <section class="hero reveal">
         <div class="language">
             <a href="#" class="rus" id="lang-ru">рус</a>
@@ -46,7 +40,6 @@
             <a href="#" class="eng" id="lang-eng">eng</a>
             <img src="images/russia.png" alt="flag" id="flag-icon">
         </div>
-
         <div class="hero-grid">
             <div class="hero-left">
                 <h1 id="hero-title">im a <span>specific.</span></h1>
@@ -57,26 +50,22 @@
         </div>
     </section>
 
-    <!-- HERO DESCRIPTION -->
     <section class="hero-description-section reveal reveal-delay-1" id="hero-desc">
         <p>создаю незабываемый визуал.</p>
         <p>за спиной более 150 успешных задач.</p>
         <p>клиенты отзываются положительно.</p>
     </section>
 
-    <!-- BANNER -->
     <section class="banner reveal reveal-delay-2">
         <img src="images/banner.jpg" alt="banner">
     </section>
 
-    <!-- PORTFOLIO -->
     <section class="portfolio reveal reveal-delay-3" id="works">
         <div class="section-title" id="portfolio-title">
             <span class="bold" id="portfolio-bold">ПОРТФОЛИО</span>
             <span class="regular" id="portfolio-hash">#</span>
         </div>
 
-        <!-- ПРОЕКТ 01 -->
         <div class="project-wrapper reveal reveal-delay-4">
             <div class="project-left">
                 <div class="project-header" id="project1-header">ПРОЕКТ [01]</div>
@@ -95,7 +84,6 @@
 
         <div class="project-divider reveal reveal-delay-5"></div>
 
-        <!-- ПРОЕКТ 02 -->
         <div class="project-wrapper reveal reveal-delay-4">
             <div class="project-left">
                 <div class="project-header" id="project2-header">ПРОЕКТ [02]</div>
@@ -113,68 +101,53 @@
         </div>
 
         <div class="portfolio-button reveal reveal-delay-5">
-            <a href="projects/"><button>ДРУГИЕ РАБОТЫ</button></a>
+            <a href="projects/"><button id="other-works-btn">ДРУГИЕ РАБОТЫ</button></a>
         </div>
     </section>
 
-    <!-- REVIEWS -->
     <section class="reviews reveal reveal-delay-3" id="reviews">
         <div class="section-title" id="reviews-title">
             <span class="bold" id="reviews-bold">ОТЗЫВЫ</span>
             <span class="regular" id="reviews-percent">%</span>
         </div>
-
-        <div class="reviews-grid" id="reviews-grid">
+        <div class="reviews-grid">
             <div class="review-item reveal reveal-delay-4">
                 <div class="review-header">
                     <span class="review-author">atomcheats</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date" id="review1-date">20 апреля 2026</span>
                 </div>
-                <div class="review-text" id="review1-text">
-                    хороший дизайнер, сделал все быстро!
-                </div>
+                <div class="review-text" id="review1-text">хороший дизайнер, сделал все быстро!</div>
             </div>
-
             <div class="review-item reveal reveal-delay-5">
                 <div class="review-header">
                     <span class="review-author">whiteness</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date" id="review2-date">01 марта 2026</span>
                 </div>
-                <div class="review-text" id="review2-text">
-                    срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто!
-                </div>
+                <div class="review-text" id="review2-text">срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто!</div>
             </div>
-
             <div class="review-item reveal reveal-delay-4">
                 <div class="review-header">
                     <span class="review-author">lacorner</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date" id="review3-date">01 марта 2026</span>
                 </div>
-                <div class="review-text" id="review3-text">
-                    работает быстро, качественно, принял все мои капризы насчет правок!
-                </div>
+                <div class="review-text" id="review3-text">работает быстро, качественно, принял все мои капризы насчет правок!</div>
             </div>
-
             <div class="review-item reveal reveal-delay-5">
                 <div class="review-header">
                     <span class="review-author">нафаня</span> <span class="review-divider">/</span> <span class="review-platform">lolzteam</span> <span class="review-divider">//</span> <span class="review-date" id="review4-date">23 декабря 2025</span>
                 </div>
-                <div class="review-text" id="review4-text">
-                    хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика +реп. работа за отзыв
-                </div>
+                <div class="review-text" id="review4-text">хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика +реп. работа за отзыв</div>
             </div>
         </div>
-
         <div class="reviews-button reveal reveal-delay-5">
-            <a href="reviews/"><button>ДРУГИЕ РАБОТЫ</button></a>
+            <a href="reviews/"><button id="other-reviews-btn">ДРУГИЕ ОТЗЫВЫ</button></a>
         </div>
     </section>
 
-    <!-- QUESTIONS -->
     <section class="questions reveal reveal-delay-3">
         <div class="questions-wrapper">
             <div class="questions-title" id="questions-title">
                 <span class="regular" id="questions-regular">ДЛЯ</span>
                 <span class="bold" id="questions-bold">ВОПРОСОВ</span>
             </div>
-            <div class="questions-list" id="questions-list">
+            <div class="questions-list">
                 <button class="questions-btn reveal reveal-delay-4" data-index="0">Начало работы и согласование</button>
                 <button class="questions-btn reveal reveal-delay-5" data-index="1">Процесс создания и правки</button>
                 <button class="questions-btn reveal reveal-delay-4" data-index="2">Прочие условия</button>
@@ -183,7 +156,6 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="contacts reveal reveal-delay-4" id="collab">
         <div class="contacts-left">
             <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
@@ -198,7 +170,6 @@
 </div>
 
 <script>
-    // ===== ПЕРЕВОД =====
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
@@ -206,11 +177,7 @@
     const translations = {
         ru: {
             hero: 'im a <span>specific.</span>',
-            desc: [
-                'создаю незабываемый визуал.',
-                'за спиной более 150 успешных задач.',
-                'клиенты отзываются положительно.'
-            ],
+            desc: ['создаю незабываемый визуал.', 'за спиной более 150 успешных задач.', 'клиенты отзываются положительно.'],
             portfolioBold: 'ПОРТФОЛИО',
             portfolioHash: '#',
             project1: 'ПРОЕКТ [01]',
@@ -243,11 +210,7 @@
         },
         en: {
             hero: 'im a <span>specific.</span>',
-            desc: [
-                'creating unforgettable visuals.',
-                'over 150 successful tasks completed.',
-                'clients leave positive feedback.'
-            ],
+            desc: ['creating unforgettable visuals.', 'over 150 successful tasks completed.', 'clients leave positive feedback.'],
             portfolioBold: 'PORTFOLIO',
             portfolioHash: '#',
             project1: 'PROJECT [01]',
@@ -282,13 +245,9 @@
 
     function updateLanguage(lang) {
         const t = translations[lang];
-
         document.getElementById('hero-title').innerHTML = t.hero;
         const descItems = document.querySelectorAll('#hero-desc p');
-        t.desc.forEach((text, i) => {
-            if (descItems[i]) descItems[i].textContent = text;
-        });
-
+        t.desc.forEach((text, i) => { if (descItems[i]) descItems[i].textContent = text; });
         document.getElementById('portfolio-bold').textContent = t.portfolioBold;
         document.getElementById('portfolio-hash').textContent = t.portfolioHash;
         document.getElementById('project1-header').textContent = t.project1;
@@ -300,7 +259,6 @@
         document.getElementById('project1-next').textContent = t.next;
         document.getElementById('project2-next').textContent = t.next;
         document.getElementById('other-works-btn').textContent = t.otherWorks;
-
         document.getElementById('reviews-bold').textContent = t.reviewsBold;
         document.getElementById('reviews-percent').textContent = t.reviewsPercent;
         document.getElementById('review1-text').textContent = t.review1;
@@ -308,62 +266,31 @@
         document.getElementById('review3-text').textContent = t.review3;
         document.getElementById('review4-text').textContent = t.review4;
         document.getElementById('other-reviews-btn').textContent = t.otherReviews;
-
         document.getElementById('review1-date').textContent = t.date1;
         document.getElementById('review2-date').textContent = t.date2;
         document.getElementById('review3-date').textContent = t.date3;
         document.getElementById('review4-date').textContent = t.date4;
-
         document.getElementById('questions-regular').textContent = t.questionsRegular;
         document.getElementById('questions-bold').textContent = t.questionsBold;
         const qBtns = document.querySelectorAll('.questions-btn');
         const qTexts = [t.q1, t.q2, t.q3, t.q4];
-        qBtns.forEach((btn, i) => {
-            if (qTexts[i]) btn.textContent = qTexts[i];
-        });
-
+        qBtns.forEach((btn, i) => { if (qTexts[i]) btn.textContent = qTexts[i]; });
         document.getElementById('contacts-title').textContent = t.contacts;
         flagIcon.src = t.flag;
-
-        document.querySelectorAll('.language a').forEach(el => {
-            el.style.fontWeight = '500';
-        });
-        if (lang === 'ru') {
-            document.querySelector('.rus').style.fontWeight = '700';
-        } else {
-            document.querySelector('.eng').style.fontWeight = '700';
-        }
+        document.querySelectorAll('.language a').forEach(el => { el.style.fontWeight = '500'; });
+        if (lang === 'ru') { document.querySelector('.rus').style.fontWeight = '700'; } 
+        else { document.querySelector('.eng').style.fontWeight = '700'; }
     }
 
-    langRu.addEventListener('click', function(e) {
-        e.preventDefault();
-        updateLanguage('ru');
-    });
-
-    langEng.addEventListener('click', function(e) {
-        e.preventDefault();
-        updateLanguage('en');
-    });
-
+    langRu.addEventListener('click', function(e) { e.preventDefault(); updateLanguage('ru'); });
+    langEng.addEventListener('click', function(e) { e.preventDefault(); updateLanguage('en'); });
     updateLanguage('ru');
 
-    // ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
     const revealElements = document.querySelectorAll('.reveal');
-
     const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    revealElements.forEach(el => {
-        revealObserver.observe(el);
-    });
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    revealElements.forEach(el => { revealObserver.observe(el); });
 </script>
 
 </body>
