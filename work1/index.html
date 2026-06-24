@@ -299,39 +299,43 @@
 
 <script>
     // ===== ПЕРЕВОД =====
-    const langRu = document.getElementById('lang-ru');
-    const langEng = document.getElementById('lang-eng');
-    const flagIcon = document.getElementById('flag-icon');
+const langRu = document.getElementById('lang-ru');
+const langEng = document.getElementById('lang-eng');
+const flagIcon = document.getElementById('flag-icon');
+const backBtn = document.querySelector('.back-btn'); // добавляем ссылку на кнопку
 
-    const translations = {
-        ru: {
-            name: 'WEXON NETWORK',
-            desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
-            flag: '../images/russia.png'
-        },
-        en: {
-            name: 'WEXON NETWORK',
-            desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
-            flag: '../images/usa.png'
-        }
-    };
-
-    function updateLanguage(lang) {
-        const t = translations[lang];
-
-        document.getElementById('work-name').textContent = t.name;
-        document.getElementById('work-desc').textContent = t.desc;
-        flagIcon.src = t.flag;
-
-        document.querySelectorAll('.language a').forEach(el => {
-            el.style.fontWeight = '500';
-        });
-        if (lang === 'ru') {
-            document.querySelector('.rus').style.fontWeight = '700';
-        } else {
-            document.querySelector('.eng').style.fontWeight = '700';
-        }
+const translations = {
+    ru: {
+        name: 'WEXON NETWORK',
+        desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
+        back: '← НАЗАД',
+        flag: '../images/russia.png'
+    },
+    en: {
+        name: 'WEXON NETWORK',
+        desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
+        back: '← BACK',
+        flag: '../images/usa.png'
     }
+};
+
+function updateLanguage(lang) {
+    const t = translations[lang];
+
+    document.getElementById('work-name').textContent = t.name;
+    document.getElementById('work-desc').textContent = t.desc;
+    backBtn.textContent = t.back; // меняем текст кнопки
+    flagIcon.src = t.flag;
+
+    document.querySelectorAll('.language a').forEach(el => {
+        el.style.fontWeight = '500';
+    });
+    if (lang === 'ru') {
+        document.querySelector('.rus').style.fontWeight = '700';
+    } else {
+        document.querySelector('.eng').style.fontWeight = '700';
+    }
+}
 
     langRu.addEventListener('click', function(e) {
         e.preventDefault();
