@@ -8,14 +8,6 @@
 </head>
 <body>
 
-<!-- FLOATING HEADER -->
-<header class="floating-header" id="floatingHeader">
-    <div class="floating-header-inner">
-        <a href="#" class="floating-logo">NEWERZI</a>
-        <a href="#contacts" class="floating-contact">CONTACT @</a>
-    </div>
-</header>
-
 <div class="container">
 
     <!-- HEADER -->
@@ -31,7 +23,7 @@
             <a href="#" class="rus" id="lang-ru">рус</a>
             <span class="divider">/</span>
             <a href="#" class="eng" id="lang-eng">eng</a>
-            <img src="images/russia.png" alt="flag" id="flag-icon" loading="lazy">
+            <img src="images/russia.png" alt="flag" id="flag-icon">
         </div>
 
         <div class="hero-grid">
@@ -39,7 +31,7 @@
                 <h1 id="hero-title">im a <span>specific.</span></h1>
             </div>
             <div class="hero-right">
-                <img src="images/flower.png" alt="flower" loading="lazy">
+                <img src="images/flower.png" alt="flower">
             </div>
         </div>
     </section>
@@ -52,12 +44,12 @@
     </section>
 
     <!-- BANNER -->
-    <section class="banner reveal">
-        <img src="images/banner.jpg" alt="banner" loading="lazy">
+    <section class="banner">
+        <img src="images/banner.jpg" alt="banner">
     </section>
 
     <!-- PORTFOLIO -->
-    <section class="portfolio reveal">
+    <section class="portfolio">
         <div class="section-title">
             <span class="bold">ПОРТФОЛИО</span>
             <span class="regular">#</span>
@@ -68,7 +60,7 @@
             <div class="project-left">
                 <div class="project-header">ПРОЕКТ [01]</div>
                 <div class="project-image">
-                    <img src="images/project1.jpg" alt="project work" loading="lazy">
+                    <img src="images/project1.jpg" alt="project work">
                 </div>
             </div>
             <div class="project-right">
@@ -87,7 +79,7 @@
             <div class="project-left">
                 <div class="project-header">ПРОЕКТ [02]</div>
                 <div class="project-image">
-                    <img src="images/project2.jpg" alt="project work" loading="lazy">
+                    <img src="images/project2.jpg" alt="project work">
                 </div>
             </div>
             <div class="project-right">
@@ -105,7 +97,7 @@
     </section>
 
     <!-- REVIEWS -->
-    <section class="reviews reveal">
+    <section class="reviews">
         <div class="section-title" id="reviews-title">
             <span class="bold">ОТЗЫВЫ</span>
             <span class="regular">%</span>
@@ -155,7 +147,7 @@
     </section>
 
     <!-- QUESTIONS -->
-    <section class="questions reveal">
+    <section class="questions">
         <div class="questions-wrapper">
             <div class="questions-title">
                 <span class="regular">ДЛЯ</span>
@@ -171,21 +163,20 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="contacts" id="contacts">
+    <section class="contacts">
         <div class="contacts-left">
             <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
         </div>
         <div class="contacts-right">
-            <a href="#" class="contact-btn primary">Telegram</a>
-            <a href="#" class="contact-btn">Lolzteam</a>
-            <a href="#" class="contact-btn">Portfolio</a>
+            <a href="#">Telegram</a>
+            <a href="#">Lolzteam</a>
+            <a href="#">Portfolio</a>
         </div>
     </section>
 
 </div>
 
 <script>
-    // Переключение языка
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
@@ -234,6 +225,7 @@
 
         document.getElementById('portfolio-title').textContent = t.portfolio;
         document.getElementById('reviews-title').textContent = t.reviews;
+        document.getElementById('questions-title').textContent = t.questions;
         document.getElementById('contacts-title').textContent = t.contacts;
         document.getElementById('other-works-btn').textContent = t.otherWorks;
         document.getElementById('other-reviews-btn').textContent = t.otherReviews;
@@ -261,59 +253,6 @@
     });
 
     updateLanguage('ru');
-
-    // Плавающая шапка
-    const floatingHeader = document.getElementById('floatingHeader');
-    const contactsSection = document.getElementById('contacts');
-    let isHeaderVisible = false;
-
-    function checkScroll() {
-        const scrollY = window.scrollY || window.pageYOffset;
-        const contactsRect = contactsSection.getBoundingClientRect();
-        const contactsTop = contactsRect.top + window.scrollY;
-
-        if (scrollY > 200 && scrollY < contactsTop - 100) {
-            if (!isHeaderVisible) {
-                floatingHeader.classList.add('visible');
-                isHeaderVisible = true;
-            }
-        } else {
-            if (isHeaderVisible) {
-                floatingHeader.classList.remove('visible');
-                isHeaderVisible = false;
-            }
-        }
-    }
-
-    window.addEventListener('scroll', checkScroll);
-    window.addEventListener('resize', checkScroll);
-    checkScroll();
-
-    document.querySelector('.floating-contact').addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector('#contacts');
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-
-    // Плавное появление блоков при скролле (Intersection Observer)
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    revealElements.forEach(el => {
-        revealObserver.observe(el);
-    });
 </script>
 
 </body>
