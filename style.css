@@ -364,7 +364,7 @@ img {
 }
 
 /* ПЕРВЫЙ ПРОЕКТ — color1.jpg */
-.project-wrapper:first-child .project-image {
+.project-wrapper:nth-child(1) .project-image {
     background: url('images/color1.jpg') center/cover no-repeat;
 }
 
