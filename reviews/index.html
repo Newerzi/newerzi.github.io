@@ -419,8 +419,15 @@
         </div>
 
         <!-- ПУСТЫШКА ДЛЯ НОВЫХ КОММЕНТАРИЕВ -->
-        <div class="review-placeholder reveal reveal-delay-3" id="placeholder">
-            <span id="placeholder-text">+ новый отзыв</span>
+        <div class="review-card reveal reveal-delay-3" id="placeholder" style="background: #1a1a1a; border: 2px dashed #444; opacity: 0.6;">
+            <div class="review-header">
+                <span class="review-author" id="placeholder-author">пользователь</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform" id="placeholder-platform">площадка</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date" id="placeholder-date">дата</span>
+            </div>
+            <div class="review-text" id="placeholder-text">работа супер</div>
         </div>
 
     </div>
@@ -448,7 +455,11 @@
             date2: '01 марта 2026',
             date3: '01 марта 2026',
             date4: '23 декабря 2025',
-            placeholder: '+ новый отзыв'
+            placeholder: '+ новый отзыв',
+            placeholderAuthor: 'пользователь',
+            placeholderPlatform: 'площадка',
+            placeholderDate: 'дата',
+            placeholderText: 'работа супер'
         },
         en: {
             back: '← BACK',
@@ -463,7 +474,11 @@
             date2: 'March 01, 2026',
             date3: 'March 01, 2026',
             date4: 'December 23, 2025',
-            placeholder: '+ new review'
+            placeholder: '+ new review',
+            placeholderAuthor: 'user',
+            placeholderPlatform: 'platform',
+            placeholderDate: 'date',
+            placeholderText: 'great work'
         }
     };
 
@@ -487,6 +502,11 @@
         document.getElementById('review4-date').textContent = t.date4;
 
         document.getElementById('placeholder-text').textContent = t.placeholder;
+
+        document.getElementById('placeholder-author').textContent = t.placeholderAuthor;
+        document.getElementById('placeholder-platform').textContent = t.placeholderPlatform;
+        document.getElementById('placeholder-date').textContent = t.placeholderDate;
+        document.getElementById('placeholder-text').textContent = t.placeholderText;
 
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
