@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEWERZI</title>
-    <link rel="stylesheet" href="style.css?v=1.0">
-    <link rel="preload" href="fonts/UNCAGE-SemiBold.otf" as="font" type="font/otf" crossorigin>
-    <link rel="preload" href="fonts/Manrope-Regular.otf" as="font" type="font/otf" crossorigin>
-    <link rel="preload" href="fonts/Manrope-SemiBold.otf" as="font" type="font/otf" crossorigin>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -34,7 +31,7 @@
             <a href="#" class="rus" id="lang-ru">рус</a>
             <span class="divider">/</span>
             <a href="#" class="eng" id="lang-eng">eng</a>
-            <img src="images/russia.png" alt="flag" id="flag-icon" loading="lazy" decoding="async">
+            <img src="images/russia.png" alt="flag" id="flag-icon" loading="lazy">
         </div>
 
         <div class="hero-grid">
@@ -42,7 +39,7 @@
                 <h1 id="hero-title">im a <span>specific.</span></h1>
             </div>
             <div class="hero-right">
-                <img src="images/flower.png" alt="flower" loading="lazy" decoding="async">
+                <img src="images/flower.png" alt="flower" loading="lazy">
             </div>
         </div>
     </section>
@@ -56,7 +53,7 @@
 
     <!-- BANNER -->
     <section class="banner reveal">
-        <img src="images/banner.jpg" alt="banner" loading="lazy" decoding="async">
+        <img src="images/banner.jpg" alt="banner" loading="lazy">
     </section>
 
     <!-- PORTFOLIO -->
@@ -66,11 +63,12 @@
             <span class="regular">#</span>
         </div>
 
+        <!-- ПРОЕКТ 01 -->
         <div class="project-wrapper">
             <div class="project-left">
                 <div class="project-header">ПРОЕКТ [01]</div>
                 <div class="project-image">
-                    <img src="images/project1.jpg" alt="project work" loading="lazy" decoding="async">
+                    <img src="images/project1.jpg" alt="project work" loading="lazy">
                 </div>
             </div>
             <div class="project-right">
@@ -84,11 +82,12 @@
 
         <div class="project-divider"></div>
 
+        <!-- ПРОЕКТ 02 -->
         <div class="project-wrapper">
             <div class="project-left">
                 <div class="project-header">ПРОЕКТ [02]</div>
                 <div class="project-image">
-                    <img src="images/project2.jpg" alt="project work" loading="lazy" decoding="async">
+                    <img src="images/project2.jpg" alt="project work" loading="lazy">
                 </div>
             </div>
             <div class="project-right">
@@ -186,7 +185,7 @@
 </div>
 
 <script>
-    // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА =====
+    // Переключение языка
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
@@ -263,7 +262,7 @@
 
     updateLanguage('ru');
 
-    // ===== ПЛАВАЮЩАЯ ШАПКА =====
+    // Плавающая шапка
     const floatingHeader = document.getElementById('floatingHeader');
     const contactsSection = document.getElementById('contacts');
     let isHeaderVisible = false;
@@ -298,7 +297,7 @@
         }
     });
 
-    // ===== ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ =====
+    // Плавное появление блоков при скролле (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
