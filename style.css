@@ -87,7 +87,7 @@ img {
     border-radius: 0 !important;
 }
 
-/* ===== FLOATING HEADER ===== */
+/* ===== FLOATING HEADER (выезжает при скролле) ===== */
 .floating-header {
     position: fixed;
     top: 0;
@@ -97,7 +97,7 @@ img {
     background: #ffffff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     z-index: 1000;
-    transform: translateY(-120%);
+    transform: translateY(-100%);
     opacity: 0;
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
@@ -118,29 +118,63 @@ img {
 }
 
 .floating-logo {
-    font-family: 'UNCAGE SemiBold', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
     color: #1a1a1a;
     text-decoration: none;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
 .floating-contact {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: #1a1a1a;
-    padding: 10px 28px;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    cursor: pointer;
     text-decoration: none;
-    transition: all 0.3s;
-    letter-spacing: 0.02em;
+    min-width: 140px;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .floating-contact:hover {
-    background: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.floating-contact .c-text {
+    font-family: 'Neutral Face', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.floating-contact .c-at {
+    font-family: 'Neutral Face', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+@media (max-width: 480px) {
+    .floating-header {
+        padding: 10px 16px;
+    }
+    .floating-logo {
+        font-size: 16px;
+    }
+    .floating-contact {
+        padding: 8px 16px;
+        min-width: 100px;
+    }
+    .floating-contact .c-text,
+    .floating-contact .c-at {
+        font-size: 12px;
+    }
 }
 
 /* ===== HEADER ===== */
