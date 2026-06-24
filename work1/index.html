@@ -16,7 +16,7 @@
         body {
             background: #ffffff;
             font-family: 'Manrope', sans-serif;
-            padding: 20px 0 0 0;
+            padding: 20px 0;
         }
 
         .container {
@@ -25,7 +25,7 @@
             padding: 0 30px;
         }
 
-        /* ===== ШАПКА ===== */
+        /* ===== ШАПКА (НЕКЛИКАБЕЛЬНА) ===== */
         .header {
             display: flex;
             align-items: center;
@@ -139,19 +139,19 @@
             background: #333333;
         }
 
-        /* ===== ОСНОВНОЙ БЛОК (изображение слева, текст справа) ===== */
+        /* ===== ОСНОВНОЙ БЛОК ===== */
         .work-wrapper {
             display: flex;
             gap: 60px;
             align-items: flex-start;
             margin-top: 10px;
-            margin-bottom: 60px;
         }
 
         .work-left {
             flex: 0 0 50%;
             display: flex;
             flex-direction: column;
+            margin-left: -30px;
         }
 
         .work-image {
@@ -167,6 +167,7 @@
             object-fit: cover;
         }
 
+        /* ===== ПРАВАЯ ЧАСТЬ ===== */
         .work-right {
             flex: 1;
             display: flex;
@@ -174,6 +175,7 @@
             justify-content: flex-start;
             padding: 0 0 0 40px;
             max-width: 80%;
+            position: relative;
         }
 
         .work-name {
@@ -194,22 +196,21 @@
             font-weight: 400;
             font-size: 28px;
             color: #1a1a1a;
-            line-height: 1.4;
+            line-height: 1.2;
             text-align: justify;
             width: 85%;
             margin-left: auto;
         }
 
-        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — после блока, по центру ===== */
-        .full-image-wrap {
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) ===== */
+        .full-image {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
+            margin-top: 60px;
+            margin-left: -30px;
+            padding-right: 0;
         }
 
-        .full-image-wrap img {
+        .full-image img {
             width: 100%;
             height: auto;
             display: block;
@@ -231,6 +232,7 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
 
         @media (max-width: 1200px) {
             .work-name { font-size: 60px; }
@@ -240,28 +242,27 @@
 
         @media (max-width: 992px) {
             .container { padding: 0 20px; }
-            .work-wrapper {
-                flex-direction: column;
-                gap: 30px;
-                margin-bottom: 40px;
-            }
-            .work-left { flex: 0 0 100%; }
+            .work-wrapper { flex-direction: column; gap: 30px; }
+            .work-left { flex: 0 0 100%; margin-left: -20px; }
             .work-right { padding: 0; max-width: 100%; }
             .work-name { text-align: left; font-size: 50px; }
             .work-description { text-align: left; width: 100%; margin-left: 0; }
+            .full-image { margin-left: -20px; }
         }
 
         @media (max-width: 768px) {
-            body { padding: 15px 0 0 0; }
+            body { padding: 15px 0; }
             .container { padding: 0 15px; }
             .logo, .header-center, .header-right { font-size: 16px; }
             .work-name { font-size: 36px; }
             .work-description { font-size: 18px; }
             .back-btn { font-size: 16px; padding: 6px 16px; }
+            .work-left { margin-left: -15px; }
+            .full-image { margin-left: -15px; }
         }
 
         @media (max-width: 480px) {
-            body { padding: 10px 0 0 0; }
+            body { padding: 10px 0; }
             .container { padding: 0 10px; }
             .header { flex-wrap: wrap; gap: 4px; margin-bottom: 20px; }
             .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
@@ -271,6 +272,8 @@
             .work-name { font-size: 28px; }
             .work-description { font-size: 15px; }
             .back-btn { font-size: 14px; padding: 4px 14px; }
+            .work-left { margin-left: -10px; }
+            .full-image { margin-left: -10px; }
         }
     </style>
 </head>
@@ -278,7 +281,7 @@
 
 <div class="container">
 
-    <!-- ШАПКА -->
+    <!-- ШАПКА (НЕКЛИКАБЕЛЬНА) -->
     <header class="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
@@ -293,15 +296,17 @@
         <img src="../images/russia.png" alt="flag" id="flag-icon">
     </div>
 
-    <!-- ОСНОВНОЙ БЛОК: изображение слева, текст справа -->
+    <!-- ОСНОВНОЙ БЛОК -->
     <div class="work-wrapper">
 
+        <!-- ЛЕВАЯ ЧАСТЬ (изображение) -->
         <div class="work-left reveal reveal-delay-1">
             <div class="work-image">
-                <img src="../images/project1.png" alt="WEXON NETWORK">
+                <img src="../images/project1.jpg" alt="WEXON NETWORK">
             </div>
         </div>
 
+        <!-- ПРАВАЯ ЧАСТЬ -->
         <div class="work-right reveal reveal-delay-2">
             <a href="../" class="back-btn" id="back-btn">← НАЗАД</a>
             <div class="work-name" id="work-name">WEXON NETWORK</div>
@@ -312,11 +317,11 @@
 
     </div>
 
-</div>
+    <!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) -->
+    <div class="full-image reveal reveal-delay-3">
+        <img src="../images/full1.png" alt="WEXON NETWORK full">
+    </div>
 
-<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ — после блока, на всю ширину, по центру -->
-<div class="full-image-wrap reveal reveal-delay-3">
-    <img src="../images/full1.jpg" alt="WEXON NETWORK full">
 </div>
 
 <script>
