@@ -87,93 +87,69 @@ img {
     border-radius: 0 !important;
 }
 
-/* ===== FLOATING HEADER (выезжает при скролле) ===== */
-.floating-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 16px 30px;
-    background: #ffffff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    z-index: 1000;
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
-}
-
-.floating-header.visible {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.floating-header-inner {
-    max-width: 1400px;
-    margin: 0 auto;
+/* ===== ТРАНСФОРМАЦИЯ ШАПКИ ===== */
+.header-right {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    gap: 12px;
 }
 
-.floating-logo {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 22px;
-    color: #1a1a1a;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+.design-text {
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.floating-contact {
-    display: inline-flex;
+.contact-btn-header {
+    display: none;
     align-items: center;
     gap: 8px;
     background: #1a1a1a;
     color: #ffffff;
     border: none;
     border-radius: 10px;
-    padding: 12px 28px;
+    padding: 10px 24px;
     cursor: pointer;
     text-decoration: none;
-    min-width: 140px;
-    justify-content: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.9);
 }
 
-.floating-contact:hover {
+.contact-btn-header .c-text {
+    font-family: 'Neutral Face', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.contact-btn-header .c-at {
+    font-family: 'Neutral Face', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.contact-btn-header:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.floating-contact .c-text {
-    font-family: 'Neutral Face', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
+.header.scrolled .design-text {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
 }
 
-.floating-contact .c-at {
-    font-family: 'Neutral Face', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
+.header.scrolled .contact-btn-header {
+    display: inline-flex;
+    opacity: 1;
+    transform: scale(1);
 }
 
 @media (max-width: 480px) {
-    .floating-header {
-        padding: 10px 16px;
+    .contact-btn-header {
+        padding: 6px 14px;
     }
-    .floating-logo {
-        font-size: 16px;
-    }
-    .floating-contact {
-        padding: 8px 16px;
-        min-width: 100px;
-    }
-    .floating-contact .c-text,
-    .floating-contact .c-at {
-        font-size: 12px;
+    .contact-btn-header .c-text,
+    .contact-btn-header .c-at {
+        font-size: 11px;
     }
 }
 
