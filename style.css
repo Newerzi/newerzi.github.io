@@ -509,6 +509,16 @@ img {
     margin-bottom: 100px;
 }
 
+.prices-wrapper {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.prices-left {
+    flex: 1;
+}
+
 .section-title {
     font-family: 'Neutral Face', sans-serif;
     font-size: 60px;
@@ -583,6 +593,50 @@ img {
     font-size: 18px;
     color: #666;
     margin-top: 2px;
+}
+
+/* ПРАВАЯ ЧАСТЬ — ДЛЯ ВОПРОСОВ */
+.prices-right {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 0;
+}
+
+.prices-right .questions-title {
+    font-family: 'Neutral Face', sans-serif;
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+}
+
+.prices-right .questions-title .regular {
+    font-weight: 400;
+}
+
+.prices-right .questions-title .bold {
+    font-weight: 700;
+}
+
+.questions-btn {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #1a1a1a;
+    padding: 12px 24px;
+    border: 2px solid #1a1a1a;
+    border-radius: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+    width: 100%;
+}
+
+.questions-btn:hover {
+    background: #1a1a1a;
+    color: #ffffff;
 }
 
 /* ===== CONTACTS ===== */
