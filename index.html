@@ -183,6 +183,7 @@
 </div>
 
 <script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА =====
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
@@ -270,7 +271,7 @@
         const contactsRect = contactsSection.getBoundingClientRect();
         const contactsTop = contactsRect.top + window.scrollY;
 
-        if (scrollY > 200 && scrollY < contactsTop - 100) {
+        if (scrollY > 300 && scrollY < contactsTop - 100) {
             if (!isHeaderVisible) {
                 floatingHeader.classList.add('visible');
                 isHeaderVisible = true;
