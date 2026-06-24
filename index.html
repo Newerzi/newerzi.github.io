@@ -459,21 +459,21 @@
                         <div class="qa-divider"></div>
 
                         <div class="price-list">
-                            <div class="price-category">веб-дизайн</div>
-                            <div class="price-item">лендинг — от 100$</div>
-                            <div class="price-item">многостраничный сайт — от 200$</div>
+                            <div class="price-category" id="price-web">веб-дизайн</div>
+                            <div class="price-item" id="price-landing">лендинг — от 100$</div>
+                            <div class="price-item" id="price-site">многостраничный сайт — от 200$</div>
 
-                            <div class="price-category">брендинг</div>
-                            <div class="price-item">соцсети — от 65$</div>
-                            <div class="price-item">фирменный стиль — от 115$</div>
+                            <div class="price-category" id="price-brand">брендинг</div>
+                            <div class="price-item" id="price-social">соцсети — от 65$</div>
+                            <div class="price-item" id="price-style">фирменный стиль — от 115$</div>
 
-                            <div class="price-category">моушн-дизайн</div>
-                            <div class="price-item">рекламный креатив — от 35$</div>
-                            <div class="price-item">анимационный монтаж — от 80$</div>
+                            <div class="price-category" id="price-motion">моушн-дизайн</div>
+                            <div class="price-item" id="price-creative">рекламный креатив — от 35$</div>
+                            <div class="price-item" id="price-animation">анимационный монтаж — от 80$</div>
 
-                            <div class="price-category">графический дизайн</div>
-                            <div class="price-item">рекламный баннер — от 25$</div>
-                            <div class="price-item">форумный баннер — от 40$</div>
+                            <div class="price-category" id="price-graph">графический дизайн</div>
+                            <div class="price-item" id="price-banner">рекламный баннер — от 25$</div>
+                            <div class="price-item" id="price-forum">форумный баннер — от 40$</div>
                         </div>
                     </div>
                 </div>
@@ -554,6 +554,18 @@
             q4_a1: '— Принимаю оплату в популярных криптовалютах, в некоторых случаях — на российский Т-Банк, а также через форум Lolzteam (с учётом комиссии). Комиссия за перевод всегда оплачивается заказчиком.',
             q4_q2: 'Что, если я передумаю в процессе работы?',
             q4_a2: '— Если вы отказываетесь от готового результата, я удерживаю 25% от общей стоимости как компенсацию за уже затраченное время и погружение в проект. Оставшаяся сумма возвращается.',
+            priceWeb: 'веб-дизайн',
+            priceLanding: 'лендинг — от 100$',
+            priceSite: 'многостраничный сайт — от 200$',
+            priceBrand: 'брендинг',
+            priceSocial: 'соцсети — от 65$',
+            priceStyle: 'фирменный стиль — от 115$',
+            priceMotion: 'моушн-дизайн',
+            priceCreative: 'рекламный креатив — от 35$',
+            priceAnimation: 'анимационный монтаж — от 80$',
+            priceGraph: 'графический дизайн',
+            priceBanner: 'рекламный баннер — от 25$',
+            priceForum: 'форумный баннер — от 40$',
             contacts: 'СОТРУДНИЧЕСТВО',
             flag: 'images/russia.png'
         },
@@ -609,6 +621,18 @@
             q4_a1: '— I accept payment in popular cryptocurrencies, in some cases — to Russian T-Bank, and also through the Lolzteam forum (with commission). Transfer fees are always paid by the client.',
             q4_q2: 'What if I change my mind during the work?',
             q4_a2: '— If you refuse the finished result, I keep 25% of the total cost as compensation for the time already spent and immersion in the project. The remaining amount is refunded.',
+            priceWeb: 'web design',
+            priceLanding: 'landing — from $100',
+            priceSite: 'multi-page website — from $200',
+            priceBrand: 'branding',
+            priceSocial: 'social media — from $65',
+            priceStyle: 'corporate identity — from $115',
+            priceMotion: 'motion design',
+            priceCreative: 'creative ad — from $35',
+            priceAnimation: 'animation editing — from $80',
+            priceGraph: 'graphic design',
+            priceBanner: 'ad banner — from $25',
+            priceForum: 'forum banner — from $40',
             contacts: 'COLLABORATION',
             flag: 'images/usa.png'
         }
@@ -667,6 +691,18 @@
         document.getElementById('q4-a1').textContent = t.q4_a1;
         document.getElementById('q4-q2').textContent = t.q4_q2;
         document.getElementById('q4-a2').textContent = t.q4_a2;
+        document.querySelector('.price-category:nth-child(1)').textContent = t.priceWeb;
+        document.querySelector('.price-item:nth-child(1)').textContent = t.priceLanding;
+        document.querySelector('.price-item:nth-child(2)').textContent = t.priceSite;
+        document.querySelector('.price-category:nth-child(2)').textContent = t.priceBrand;
+        document.querySelector('.price-item:nth-child(3)').textContent = t.priceSocial;
+        document.querySelector('.price-item:nth-child(4)').textContent = t.priceStyle;
+        document.querySelector('.price-category:nth-child(3)').textContent = t.priceMotion;
+        document.querySelector('.price-item:nth-child(5)').textContent = t.priceCreative;
+        document.querySelector('.price-item:nth-child(6)').textContent = t.priceAnimation;
+        document.querySelector('.price-category:nth-child(4)').textContent = t.priceGraph;
+        document.querySelector('.price-item:nth-child(7)').textContent = t.priceBanner;
+        document.querySelector('.price-item:nth-child(8)').textContent = t.priceForum;
 
         const qBtns = document.querySelectorAll('.questions-btn');
         const qTexts = [t.q1, t.q2, t.q3, t.q4];
@@ -727,7 +763,7 @@
     });
 </script>
 
-<!-- ===== КАСТОМНЫЙ КУРСОР ===== -->
+<!-- ===== КАСТОМНЫЙ КУРСОР (заполненный значок) ===== -->
 <style>
     /* Скрываем стандартный курсор */
     * {
@@ -739,104 +775,61 @@
         position: fixed;
         pointer-events: none;
         z-index: 9999;
-        width: 12px;
-        height: 12px;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 50%;
+        width: 28px;
+        height: 28px;
         transform: translate(-50%, -50%);
-        transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
         mix-blend-mode: difference;
     }
 
-    /* Тень-ореол */
-    .custom-cursor-dot {
-        position: fixed;
-        pointer-events: none;
-        z-index: 9998;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transform: translate(-50%, -50%);
-        transition: width 0.4s ease, height 0.4s ease, border-color 0.3s ease;
-        mix-blend-mode: difference;
+    .custom-cursor svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        fill: #ffffff;
     }
 
     /* При наведении на ссылки и кнопки */
     .custom-cursor.hover {
-        width: 20px;
-        height: 20px;
-        background: rgba(255, 255, 255, 0.3);
-        border: 2px solid rgba(255, 255, 255, 0.8);
-    }
-
-    .custom-cursor-dot.hover {
-        width: 60px;
-        height: 60px;
-        border-color: rgba(255, 255, 255, 0.4);
+        width: 36px;
+        height: 36px;
+        opacity: 0.8;
     }
 
     /* При нажатии */
     .custom-cursor.click {
-        width: 8px;
-        height: 8px;
-    }
-
-    .custom-cursor-dot.click {
-        width: 30px;
-        height: 30px;
-    }
-
-    /* Для тёмных участков — инвертируем */
-    .dark-section .custom-cursor {
-        background: rgba(0, 0, 0, 0.8);
-        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+        width: 20px;
+        height: 20px;
+        opacity: 0.7;
     }
 
     @media (max-width: 768px) {
         * {
             cursor: auto !important;
         }
-        .custom-cursor,
-        .custom-cursor-dot {
+        .custom-cursor {
             display: none !important;
         }
     }
 </style>
 
-<div class="custom-cursor" id="customCursor"></div>
-<div class="custom-cursor-dot" id="customCursorDot"></div>
+<div class="custom-cursor" id="customCursor">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.5 3.5L18.5 12L11 13.5L9.5 21L5.5 3.5Z" />
+    </svg>
+</div>
 
 <script>
     (function() {
         const cursor = document.getElementById('customCursor');
-        const cursorDot = document.getElementById('customCursorDot');
         let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-        let dotX = 0, dotY = 0;
 
-        // Обновляем позицию мыши
         document.addEventListener('mousemove', function(e) {
             mouseX = e.clientX;
             mouseY = e.clientY;
-
-            // Мгновенное обновление для основного курсора
             cursor.style.left = mouseX + 'px';
             cursor.style.top = mouseY + 'px';
         });
-
-        // Плавное обновление для ореола
-        function animateCursor() {
-            dotX += (mouseX - dotX) * 0.15;
-            dotY += (mouseY - dotY) * 0.15;
-
-            cursorDot.style.left = dotX + 'px';
-            cursorDot.style.top = dotY + 'px';
-
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
 
         // Эффект при наведении на ссылки и кнопки
         const hoverElements = document.querySelectorAll('a, button, .questions-btn, .project-next, .contact-btn, .back-btn, .portfolio-button button, .reviews-button button');
@@ -844,49 +837,28 @@
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', function() {
                 cursor.classList.add('hover');
-                cursorDot.classList.add('hover');
             });
             el.addEventListener('mouseleave', function() {
                 cursor.classList.remove('hover');
-                cursorDot.classList.remove('hover');
             });
         });
 
         // Эффект при нажатии
         document.addEventListener('mousedown', function() {
             cursor.classList.add('click');
-            cursorDot.classList.add('click');
         });
 
         document.addEventListener('mouseup', function() {
             cursor.classList.remove('click');
-            cursorDot.classList.remove('click');
         });
 
         // Скрываем курсор при выходе за пределы окна
         document.addEventListener('mouseleave', function() {
             cursor.style.opacity = '0';
-            cursorDot.style.opacity = '0';
         });
 
         document.addEventListener('mouseenter', function() {
             cursor.style.opacity = '1';
-            cursorDot.style.opacity = '1';
-        });
-
-        // Для затемнённых секций (отзывы, вопросы)
-        const darkSections = document.querySelectorAll('.reviews, .questions');
-        darkSections.forEach(section => {
-            section.addEventListener('mouseenter', function() {
-                cursor.style.background = 'rgba(255, 255, 255, 0.2)';
-                cursor.style.boxShadow = '0 0 0 1px rgba(255, 255, 255, 0.1)';
-                cursorDot.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-            });
-            section.addEventListener('mouseleave', function() {
-                cursor.style.background = 'rgba(255, 255, 255, 0.95)';
-                cursor.style.boxShadow = '0 0 0 1px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1)';
-                cursorDot.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-            });
         });
     })();
 </script>
