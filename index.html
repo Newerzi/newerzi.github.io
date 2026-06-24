@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<!-- FLOATING HEADER -->
+<header class="floating-header" id="floatingHeader">
+    <div class="floating-header-inner">
+        <a href="#" class="floating-logo">NEWERZI</a>
+        <a href="#contacts" class="floating-contact">CONTACT @</a>
+    </div>
+</header>
+
 <div class="container">
 
     <!-- HEADER -->
@@ -162,17 +170,17 @@
         </div>
     </section>
 
-<!-- CONTACT -->
-<section class="contacts">
-    <div class="contacts-left">
-        <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
-    </div>
-    <div class="contacts-right">
-        <a href="#" class="contact-btn primary">Telegram</a>
-        <a href="#" class="contact-btn">Lolzteam</a>
-        <a href="#" class="contact-btn">Portfolio</a>
-    </div>
-</section>
+    <!-- CONTACT -->
+    <section class="contacts" id="contacts">
+        <div class="contacts-left">
+            <h2 id="contacts-title">СОТРУДНИЧЕСТВО</h2>
+        </div>
+        <div class="contacts-right">
+            <a href="#" class="contact-btn primary">Telegram</a>
+            <a href="#" class="contact-btn">Lolzteam</a>
+            <a href="#" class="contact-btn">Portfolio</a>
+        </div>
+    </section>
 
 </div>
 
@@ -253,6 +261,41 @@
     });
 
     updateLanguage('ru');
+
+    // Плавающая шапка
+    const floatingHeader = document.getElementById('floatingHeader');
+    const contactsSection = document.getElementById('contacts');
+    let isHeaderVisible = false;
+
+    function checkScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const contactsRect = contactsSection.getBoundingClientRect();
+        const contactsTop = contactsRect.top + window.scrollY;
+
+        if (scrollY > 200 && scrollY < contactsTop - 100) {
+            if (!isHeaderVisible) {
+                floatingHeader.classList.add('visible');
+                isHeaderVisible = true;
+            }
+        } else {
+            if (isHeaderVisible) {
+                floatingHeader.classList.remove('visible');
+                isHeaderVisible = false;
+            }
+        }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    checkScroll();
+
+    document.querySelector('.floating-contact').addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector('#contacts');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 </script>
 
 </body>
