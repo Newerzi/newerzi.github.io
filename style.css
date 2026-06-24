@@ -349,6 +349,7 @@ img {
     position: relative;
     overflow: hidden;
     aspect-ratio: 1765 / 1176.67;
+    background: #ff6b6b; /* временно красный фон */
 }
 
 /* ТОЛЬКО ПЕРВЫЙ ПРОЕКТ — color1.jpg */
