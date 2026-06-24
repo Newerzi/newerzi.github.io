@@ -11,17 +11,11 @@
 
 <div class="container">
 
-    <!-- HEADER (трансформируется при скролле) -->
+    <!-- HEADER (обычная статичная шапка) -->
     <header class="header" id="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
-        <div class="header-right" id="headerRight">
-            <span class="design-text">DESIGN</span>
-            <a href="#collab" class="contact-btn-header" id="contactBtnHeader">
-                <span class="c-text">CONTACT</span>
-                <span class="c-at">@</span>
-            </a>
-        </div>
+        <div class="header-right">DESIGN</div>
     </header>
 
     <!-- HERO -->
@@ -259,33 +253,6 @@
     });
 
     updateLanguage('ru');
-
-    // ===== ТРАНСФОРМАЦИЯ ШАПКИ ПРИ СКРОЛЛЕ =====
-    const header = document.getElementById('header');
-    const designText = document.querySelector('.design-text');
-    const contactBtn = document.getElementById('contactBtnHeader');
-    const collabSection = document.getElementById('collab');
-
-    function checkScroll() {
-        const scrollY = window.scrollY || window.pageYOffset;
-        const collabTop = collabSection.getBoundingClientRect().top + window.scrollY;
-
-        if (scrollY > 150 && scrollY < collabTop - 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    }
-
-    window.addEventListener('scroll', checkScroll);
-    window.addEventListener('resize', checkScroll);
-    checkScroll();
-
-    // Плавный скролл к контактам
-    contactBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        collabSection.scrollIntoView({ behavior: 'smooth' });
-    });
 </script>
 
 </body>
