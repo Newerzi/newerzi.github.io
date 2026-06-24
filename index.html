@@ -9,24 +9,19 @@
 </head>
 <body>
 
-<!-- FLOATING HEADER (выезжает при скролле) -->
-<header class="floating-header" id="floatingHeader">
-    <div class="floating-header-inner">
-        <a href="#" class="floating-logo">NEWERZI</a>
-        <a href="#collab" class="floating-contact">
-            <span class="c-text">CONTACT</span>
-            <span class="c-at">@</span>
-        </a>
-    </div>
-</header>
-
 <div class="container">
 
-    <!-- HEADER (обычная шапка) -->
+    <!-- HEADER (трансформируется при скролле) -->
     <header class="header" id="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
-        <div class="header-right">DESIGN</div>
+        <div class="header-right" id="headerRight">
+            <span class="design-text">DESIGN</span>
+            <a href="#collab" class="contact-btn-header" id="contactBtnHeader">
+                <span class="c-text">CONTACT</span>
+                <span class="c-at">@</span>
+            </a>
+        </div>
     </header>
 
     <!-- HERO -->
@@ -265,41 +260,31 @@
 
     updateLanguage('ru');
 
-    // ===== ПЛАВАЮЩАЯ ШАПКА (выезжает сверху при скролле) =====
-    const floatingHeader = document.getElementById('floatingHeader');
-    let isHeaderVisible = false;
+    // ===== ТРАНСФОРМАЦИЯ ШАПКИ ПРИ СКРОЛЛЕ =====
+    const header = document.getElementById('header');
+    const designText = document.querySelector('.design-text');
+    const contactBtn = document.getElementById('contactBtnHeader');
+    const collabSection = document.getElementById('collab');
 
     function checkScroll() {
         const scrollY = window.scrollY || window.pageYOffset;
-        const collabSection = document.getElementById('collab');
-        const collabRect = collabSection.getBoundingClientRect();
-        const collabTop = collabRect.top + window.scrollY;
+        const collabTop = collabSection.getBoundingClientRect().top + window.scrollY;
 
-        // Показываем шапку, если проскроллили больше 400px и не дошли до блока сотрудничества
-        if (scrollY > 400 && scrollY < collabTop - 100) {
-            if (!isHeaderVisible) {
-                floatingHeader.classList.add('visible');
-                isHeaderVisible = true;
-            }
+        if (scrollY > 150 && scrollY < collabTop - 100) {
+            header.classList.add('scrolled');
         } else {
-            if (isHeaderVisible) {
-                floatingHeader.classList.remove('visible');
-                isHeaderVisible = false;
-            }
+            header.classList.remove('scrolled');
         }
     }
 
-    window.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('scroll', checkScroll);
     window.addEventListener('resize', checkScroll);
     checkScroll();
 
-    // Плавный скролл к блоку сотрудничества
-    document.querySelector('.floating-contact').addEventListener('click', function(e) {
+    // Плавный скролл к контактам
+    contactBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector('#collab');
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
+        collabSection.scrollIntoView({ behavior: 'smooth' });
     });
 </script>
 
