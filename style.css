@@ -349,9 +349,14 @@ img {
     position: relative;
     overflow: hidden;
     aspect-ratio: 1765 / 1176.67;
+}
+
+/* ПЕРВАЯ РАБОТА (ПРОЕКТ 01) — color1.jpg */
+.project-wrapper:first-child .project-image {
     background: url('images/color1.jpg') center/cover no-repeat;
 }
 
+/* ВТОРАЯ РАБОТА (ПРОЕКТ 02) — color2.jpg */
 .project-wrapper:nth-child(2) .project-image {
     background: url('images/color2.jpg') center/cover no-repeat;
 }
@@ -366,88 +371,6 @@ img {
 
 .project-image img:hover {
     opacity: 0;
-}
-
-.project-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 80px 0 0 40px;
-    max-width: 80%;
-}
-
-.project-name {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 90px;
-    color: #1a1a1a;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    text-align: right;
-    width: 100%;
-    margin-bottom: 16px;
-}
-
-.project-description {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 28px;
-    color: #1a1a1a;
-    line-height: 1.2;
-    text-align: justify;
-    width: 85%;
-    margin-bottom: 30px;
-    margin-left: auto;
-}
-
-.project-next {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 40px;
-    color: #1a1a1a;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: opacity 0.2s;
-    display: block;
-    text-align: right;
-    width: 100%;
-    margin-top: auto;
-}
-
-.project-next:hover {
-    opacity: 0.6;
-}
-
-.project-divider {
-    width: 100%;
-    height: 1px;
-    background: #ccc;
-    margin: 60px 0;
-}
-
-.portfolio-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
-}
-
-.portfolio-button button {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 28px;
-    color: #ffffff;
-    padding: 16px 48px;
-    border: none;
-    border-radius: 0;
-    background: #1a1a1a;
-    cursor: pointer;
-    transition: all 0.3s;
-    letter-spacing: 0.02em;
-}
-
-.portfolio-button button:hover {
-    background: #333333;
 }
 
 /* ===== REVIEWS ===== */
