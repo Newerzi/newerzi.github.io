@@ -349,11 +349,11 @@ img {
     position: relative;
     overflow: hidden;
     aspect-ratio: 1765 / 1176.67;
-    background: url('images/color1.jpg') center/cover no-repeat;
 }
 
-.project-wrapper:nth-child(2) .project-image {
-    background: url('images/color2.jpg') center/cover no-repeat;
+/* ТОЛЬКО ПЕРВЫЙ ПРОЕКТ — color1.jpg */
+.project-wrapper:first-child .project-image {
+    background: url('images/color1.jpg') center/cover no-repeat;
 }
 
 .project-image img {
