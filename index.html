@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEWERZI</title>
     <link rel="stylesheet" href="style.css?v=1.0">
-    <!-- Preload основных шрифтов для ускорения -->
     <link rel="preload" href="fonts/UNCAGE-SemiBold.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="fonts/Manrope-Regular.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="fonts/Manrope-SemiBold.otf" as="font" type="font/otf" crossorigin>
@@ -67,7 +66,6 @@
             <span class="regular">#</span>
         </div>
 
-        <!-- ПРОЕКТ 01 -->
         <div class="project-wrapper">
             <div class="project-left">
                 <div class="project-header">ПРОЕКТ [01]</div>
@@ -86,7 +84,6 @@
 
         <div class="project-divider"></div>
 
-        <!-- ПРОЕКТ 02 -->
         <div class="project-wrapper">
             <div class="project-left">
                 <div class="project-header">ПРОЕКТ [02]</div>
@@ -189,49 +186,6 @@
 </div>
 
 <script>
-    // ===== КЭШИРОВАНИЕ ДАННЫХ =====
-    const CACHE_VERSION = 'newerzi-v1';
-    const CACHE_URLS = [
-        'style.css',
-        'fonts/UNCAGE-SemiBold.otf',
-        'fonts/Manrope-Regular.otf',
-        'fonts/Manrope-SemiBold.otf',
-        'fonts/Manrope-Bold.otf',
-        'fonts/NeutralFace-Bold.otf',
-        'fonts/NeutralFace-Regular.otf'
-    ];
-
-    // Регистрация Service Worker для кэширования
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-            .then(() => console.log('SW registered'))
-            .catch(() => console.log('SW registration failed'));
-    }
-
-    // Кэширование изображений через Intersection Observer + предзагрузка
-    const imageCache = new Map();
-
-    function preloadImage(img) {
-        return new Promise((resolve) => {
-            if (img.complete) {
-                resolve();
-                return;
-            }
-            img.onload = () => resolve();
-            img.onerror = () => resolve();
-        });
-    }
-
-    // Предзагрузка критических изображений
-    document.addEventListener('DOMContentLoaded', () => {
-        const criticalImages = document.querySelectorAll('.hero-right img, .banner img');
-        criticalImages.forEach(img => {
-            if (img.src && !img.complete) {
-                preloadImage(img);
-            }
-        });
-    });
-
     // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА =====
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
@@ -285,16 +239,7 @@
         document.getElementById('other-works-btn').textContent = t.otherWorks;
         document.getElementById('other-reviews-btn').textContent = t.otherReviews;
 
-        // Кэшируем флаг
-        const flagUrl = t.flag;
-        if (flagIcon.src !== flagUrl) {
-            const cachedFlag = imageCache.get(flagUrl);
-            if (cachedFlag) {
-                flagIcon.src = cachedFlag;
-            } else {
-                flagIcon.src = flagUrl;
-            }
-        }
+        flagIcon.src = t.flag;
 
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
@@ -369,21 +314,6 @@
 
     revealElements.forEach(el => {
         revealObserver.observe(el);
-    });
-
-    // ===== КЭШИРОВАНИЕ ИЗОБРАЖЕНИЙ ПРИ ЗАГРУЗКЕ =====
-    document.addEventListener('DOMContentLoaded', () => {
-        const allImages = document.querySelectorAll('img');
-        allImages.forEach(img => {
-            if (img.src && !img.complete) {
-                const url = img.src;
-                preloadImage(img).then(() => {
-                    if (url) {
-                        imageCache.set(url, url);
-                    }
-                });
-            }
-        });
     });
 </script>
 
