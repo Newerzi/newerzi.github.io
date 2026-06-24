@@ -282,7 +282,7 @@ img {
     font-family: 'Neutral Face', sans-serif;
     font-size: 60px;
     letter-spacing: -0.02em;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .section-title .bold {
@@ -385,7 +385,6 @@ img {
     margin: 60px 0;
 }
 
-/* КНОПКА ПО ЦЕНТРУ С ЧЁРНЫМ ФОНОМ */
 .portfolio-button {
     display: flex;
     justify-content: center;
@@ -415,21 +414,6 @@ img {
     margin-bottom: 100px;
 }
 
-.section-title {
-    font-family: 'Neutral Face', sans-serif;
-    font-size: 60px;
-    letter-spacing: -0.02em;
-    margin-bottom: 40px;
-}
-
-.section-title .bold {
-    font-weight: 700;
-}
-
-.section-title .regular {
-    font-weight: 400;
-}
-
 .reviews-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -440,7 +424,6 @@ img {
 .review-item {
     background: #1a1a1a;
     padding: 20px 24px;
-    border: none;
 }
 
 .review-header {
@@ -476,14 +459,11 @@ img {
     font-size: 18px;
     color: #999999;
     line-height: 1.4;
-    padding-left: 0;
 }
 
-/* КНОПКА — идентичная кнопке из портфолио, но белая с чёрной обводкой */
 .reviews-button {
     display: flex;
-    justify-content: center;
-    margin-top: 40px;
+    justify-content: flex-start;
 }
 
 .reviews-button button {
@@ -504,127 +484,45 @@ img {
     background: #f0f0f0;
 }
 
-/* ===== PRICES ===== */
-.prices {
+/* ===== QUESTIONS ===== */
+.questions {
     margin-bottom: 100px;
 }
 
-.prices-wrapper {
+.questions-wrapper {
     display: flex;
     gap: 80px;
     align-items: flex-start;
 }
 
-.prices-left {
-    flex: 1;
-}
-
-.section-title {
+.questions-title {
     font-family: 'Neutral Face', sans-serif;
     font-size: 60px;
     letter-spacing: -0.02em;
-    margin-bottom: 40px;
+    flex-shrink: 0;
 }
 
-.section-title .bold {
-    font-weight: 700;
-}
-
-.section-title .regular {
+.questions-title .regular {
     font-weight: 400;
 }
 
-.price-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.price-card {
-    padding: 0;
-}
-
-.price-card h3 {
-    font-family: 'Manrope', sans-serif;
+.questions-title .bold {
     font-weight: 700;
-    font-size: 28px;
-    color: #ffffff;
-    background: #1a1a1a;
-    padding: 12px 20px;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
-    display: inline-block;
 }
 
-.price-item {
-    margin-bottom: 20px;
-}
-
-.price-item:last-child {
-    margin-bottom: 0;
-}
-
-.price-name {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 24px;
-    color: #1a1a1a;
-    margin-bottom: 2px;
-}
-
-.price-name .star {
-    display: inline-block;
-    font-size: 20px;
-    margin-right: 6px;
-    transform: rotate(45deg);
-}
-
-.price-cost {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 28px;
-    color: #0069FB;
-    display: inline-block;
-}
-
-.price-desc {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    color: #666;
-    margin-top: 2px;
-}
-
-/* ПРАВАЯ ЧАСТЬ — ДЛЯ ВОПРОСОВ */
-.prices-right {
-    flex: 0 0 320px;
+.questions-list {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding-top: 0;
-}
-
-.prices-right .questions-title {
-    font-family: 'Neutral Face', sans-serif;
-    font-size: 36px;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-}
-
-.prices-right .questions-title .regular {
-    font-weight: 400;
-}
-
-.prices-right .questions-title .bold {
-    font-weight: 700;
+    gap: 0;
 }
 
 .questions-btn {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 24px;
     color: #1a1a1a;
-    padding: 10px 0;
+    padding: 16px 0;
     border: none;
     border-bottom: 1px solid #e0e0e0;
     background: transparent;
@@ -693,8 +591,9 @@ img {
     .banner { margin-top: 80px; margin-bottom: 80px; }
     .portfolio { margin-bottom: 80px; }
     .reviews { margin-bottom: 80px; }
-    .prices { margin-bottom: 80px; }
+    .questions { margin-bottom: 80px; }
     .contacts-left h2 { font-size: 56px; }
+    .questions-title { font-size: 56px; }
 }
 
 @media (max-width: 992px) {
@@ -714,14 +613,15 @@ img {
     .project-next { font-size: 42px; }
     .project-description { font-size: 22px; max-width: 100%; }
     .reviews-grid { grid-template-columns: 1fr; }
-    .price-grid { grid-template-columns: 1fr; }
     .contacts { flex-direction: column; gap: 20px; align-items: flex-start; }
     .contacts-right { flex-wrap: wrap; gap: 20px; }
     .contacts-left h2 { font-size: 42px; }
     .banner { margin-top: 60px; margin-bottom: 60px; }
     .portfolio { margin-bottom: 60px; }
     .reviews { margin-bottom: 60px; }
-    .prices { margin-bottom: 60px; }
+    .questions { margin-bottom: 60px; }
+    .questions-wrapper { flex-direction: column; gap: 30px; }
+    .questions-title { font-size: 42px; }
 }
 
 @media (max-width: 768px) {
@@ -743,14 +643,15 @@ img {
     .project-description { font-size: 18px; }
     .portfolio-button button { font-size: 18px; padding: 12px 32px; }
     .reviews-button button { font-size: 18px; padding: 12px 32px; }
-    .price-card h3 { font-size: 22px; }
-    .price-items div { font-size: 16px; }
     .contacts-left h2 { font-size: 30px; }
     .contacts-right a { font-size: 18px; }
     .banner { margin-top: 50px; margin-bottom: 50px; }
     .portfolio { margin-bottom: 50px; }
     .reviews { margin-bottom: 50px; }
-    .prices { margin-bottom: 50px; }
+    .questions { margin-bottom: 50px; }
+    .questions-title { font-size: 30px; }
+    .questions-btn { font-size: 20px; padding: 12px 0; }
+    .questions-wrapper { gap: 20px; }
 }
 
 @media (max-width: 480px) {
@@ -776,15 +677,15 @@ img {
     .project-description { font-size: 15px; }
     .portfolio-button button { font-size: 14px; padding: 10px 24px; }
     .reviews-button button { font-size: 14px; padding: 10px 24px; }
-    .price-card { padding: 16px; min-height: 80px; }
-    .price-card h3 { font-size: 18px; }
-    .price-items div { font-size: 14px; }
     .contacts-left h2 { font-size: 22px; }
     .contacts-right a { font-size: 14px; }
     .contacts-right { gap: 14px; }
     .portfolio { margin-bottom: 40px; }
     .reviews { margin-bottom: 40px; }
-    .prices { margin-bottom: 40px; }
+    .questions { margin-bottom: 40px; }
     .review { font-size: 14px; padding: 14px; }
     .banner { margin-top: 40px; margin-bottom: 40px; }
+    .questions-title { font-size: 22px; }
+    .questions-btn { font-size: 16px; padding: 10px 0; }
+    .questions-wrapper { gap: 16px; }
 }
