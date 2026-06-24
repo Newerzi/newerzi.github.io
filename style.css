@@ -552,6 +552,7 @@ img {
     align-items: flex-start;
     padding: 30px 0;
     border-top: none;
+    gap: 40px;
 }
 
 .contacts-left h2 {
@@ -560,28 +561,30 @@ img {
     font-size: 60px;
     letter-spacing: -0.02em;
     color: #1a1a1a;
+    flex-shrink: 0;
 }
 
 .contacts-right {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 12px;
-    width: 50%;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+    max-width: 450px;
 }
 
 .contact-btn {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 28px;
     color: #1a1a1a;
     text-decoration: none;
-    padding: 12px 30px;
+    padding: 18px 40px;
     transition: all 0.3s;
     text-align: center;
-    width: auto;
-    min-width: 200px;
+    width: 100%;
     border: 2px solid #1a1a1a;
+    box-sizing: border-box;
 }
 
 .contact-btn.primary {
