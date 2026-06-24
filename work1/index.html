@@ -35,6 +35,7 @@
             background: #ffffff;
             font-family: 'Manrope', sans-serif;
             padding: 20px 0 0 0;
+            overflow-x: hidden;
         }
 
         .container {
@@ -138,6 +139,7 @@
             display: inline-block;
             border: none;
             margin-bottom: 16px;
+            cursor: pointer;
         }
         .back-btn:hover { background: #333333; }
 
@@ -200,19 +202,92 @@
             margin-left: auto;
         }
 
-        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — НА ВСЮ ШИРИНУ, БОЛЬШОЙ ОТСТУП ===== */
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — С ВОЗМОЖНОСТЬЮ УВЕЛИЧЕНИЯ ===== */
         .full-image-wrap {
             width: 100%;
             display: flex;
             justify-content: center;
             margin: 80px 0 60px 0;
             padding: 0;
+            cursor: pointer;
+            position: relative;
         }
 
         .full-image-wrap img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.3s ease;
+            user-select: none;
+        }
+
+        .full-image-wrap img:hover {
+            transform: scale(1.01);
+        }
+
+        /* ===== ОВЕРЛЕЙ ДЛЯ ПРОСМОТРА ИЗОБРАЖЕНИЯ ===== */
+        .image-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            overflow: hidden;
+        }
+
+        .image-overlay.active {
+            display: flex;
+        }
+
+        .image-overlay img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            cursor: grab;
+            transition: transform 0.1s ease;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .image-overlay img:active {
+            cursor: grabbing;
+        }
+
+        .image-overlay .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: #ffffff;
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 300;
+            transition: opacity 0.3s;
+            background: none;
+            border: none;
+            z-index: 10000;
+        }
+
+        .image-overlay .close-btn:hover {
+            opacity: 0.6;
+        }
+
+        .image-overlay .zoom-info {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            font-family: 'Manrope', sans-serif;
+            user-select: none;
+            pointer-events: none;
         }
 
         /* ===== АНИМАЦИЯ ===== */
@@ -250,6 +325,7 @@
             .work-name { text-align: left; font-size: 50px; }
             .work-description { text-align: left; width: 100%; margin-left: 0; }
             .full-image-wrap { margin: 50px 0 40px 0; }
+            .image-overlay .close-btn { top: 20px; right: 20px; font-size: 32px; }
         }
 
         @media (max-width: 768px) {
@@ -261,6 +337,7 @@
             .work-description { font-size: 18px; }
             .back-btn { font-size: 16px; padding: 6px 16px; }
             .full-image-wrap { margin: 40px 0 30px 0; }
+            .image-overlay .close-btn { top: 15px; right: 15px; font-size: 28px; }
         }
 
         @media (max-width: 480px) {
@@ -282,14 +359,12 @@
 
 <div class="container">
 
-    <!-- ШАПКА -->
     <header class="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
         <div class="header-right">DESIGN</div>
     </header>
 
-    <!-- ЯЗЫК -->
     <div class="language">
         <a href="#" class="rus" id="lang-ru">рус</a>
         <span class="divider">/</span>
@@ -297,7 +372,6 @@
         <img src="../images/russia.png" alt="flag" id="flag-icon">
     </div>
 
-    <!-- ОСНОВНОЙ БЛОК -->
     <div class="work-wrapper">
 
         <div class="work-left reveal reveal-delay-1">
@@ -318,12 +392,20 @@
 
 </div>
 
-<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ — НА ВСЮ ШИРИНУ, БОЛЬШОЙ ОТСТУП -->
-<div class="full-image-wrap reveal reveal-delay-3">
-    <img src="../images/full1.png" alt="WEXON NETWORK full">
+<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ С КЛИКОМ ДЛЯ ОТКРЫТИЯ -->
+<div class="full-image-wrap reveal reveal-delay-3" id="fullImageWrap">
+    <img src="../images/full1.png" alt="WEXON NETWORK full" id="fullImage">
+</div>
+
+<!-- ОВЕРЛЕЙ ДЛЯ ПРОСМОТРА -->
+<div class="image-overlay" id="imageOverlay">
+    <button class="close-btn" id="closeOverlay">✕</button>
+    <img src="../images/full1.png" alt="WEXON NETWORK full" id="overlayImage">
+    <div class="zoom-info">Колесико мыши — масштаб · Клик — закрыть</div>
 </div>
 
 <script>
+    // ===== ПЕРЕВОД =====
     const langRu = document.getElementById('lang-ru');
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
@@ -374,6 +456,7 @@
 
     updateLanguage('ru');
 
+    // ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -390,6 +473,93 @@
     revealElements.forEach(el => {
         revealObserver.observe(el);
     });
+
+    // ===== ОТКРЫТИЕ ИЗОБРАЖЕНИЯ В ОВЕРЛЕЕ =====
+    const fullImageWrap = document.getElementById('fullImageWrap');
+    const imageOverlay = document.getElementById('imageOverlay');
+    const overlayImage = document.getElementById('overlayImage');
+    const closeOverlay = document.getElementById('closeOverlay');
+
+    let currentScale = 1;
+    const MIN_SCALE = 0.5;
+    const MAX_SCALE = 5;
+
+    function openOverlay() {
+        imageOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        currentScale = 1;
+        overlayImage.style.transform = `scale(${currentScale})`;
+        overlayImage.style.cursor = 'grab';
+    }
+
+    function closeOverlayFn() {
+        imageOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    fullImageWrap.addEventListener('click', openOverlay);
+
+    closeOverlay.addEventListener('click', closeOverlayFn);
+
+    imageOverlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeOverlayFn();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && imageOverlay.classList.contains('active')) {
+            closeOverlayFn();
+        }
+    });
+
+    // ===== МАСШТАБИРОВАНИЕ КОЛЕСИКОМ =====
+    overlayImage.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const delta = e.deltaY > 0 ? -0.1 : 0.1;
+        currentScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, currentScale + delta));
+
+        overlayImage.style.transform = `scale(${currentScale})`;
+        overlayImage.style.cursor = currentScale > 1 ? 'grab' : 'default';
+    }, { passive: false });
+
+    // ===== ПЕРЕТАСКИВАНИЕ ПРИ УВЕЛИЧЕНИИ =====
+    let isDragging = false;
+    let startX, startY, translateX = 0, translateY = 0;
+
+    overlayImage.addEventListener('mousedown', function(e) {
+        if (currentScale <= 1) return;
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+        overlayImage.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        overlayImage.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+    });
+
+    document.addEventListener('mouseup', function() {
+        if (isDragging) {
+            isDragging = false;
+            overlayImage.style.cursor = currentScale > 1 ? 'grab' : 'default';
+        }
+    });
+
+    // Сброс позиции при закрытии
+    const origClose = closeOverlayFn;
+    closeOverlayFn = function() {
+        origClose();
+        translateX = 0;
+        translateY = 0;
+        currentScale = 1;
+        overlayImage.style.transform = `scale(1) translate(0, 0)`;
+    };
 </script>
 
 </body>
