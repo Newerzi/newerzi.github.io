@@ -492,8 +492,9 @@ img {
 
 .questions-wrapper {
     display: flex;
-    gap: 80px;
+    gap: 40px; /* уменьшил расстояние между заголовком и списком */
     align-items: flex-start;
+    justify-content: flex-end; /* прижимает список к правой стороне */
 }
 
 .questions-title {
@@ -513,9 +514,10 @@ img {
 
 .questions-list {
     flex: 1;
+    max-width: 65%; /* ограничиваем ширину списка */
     display: flex;
     flex-direction: column;
-    gap: 20px; /* увеличил расстояние между вопросами */
+    gap: 30px; /* больше вертикального пространства между вопросами */
 }
 
 .questions-btn {
@@ -523,7 +525,7 @@ img {
     font-weight: 400;
     font-size: 24px;
     color: #1a1a1a;
-    padding: 16px 0;
+    padding: 20px 0; /* увеличил отступы внутри кнопки */
     border: none;
     border-bottom: 1px solid #e0e0e0;
     background: transparent;
