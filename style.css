@@ -363,12 +363,12 @@ img {
     opacity: 0;
 }
 
-/* ПЕРВАЯ РАБОТА — color1.jpg */
-.project-wrapper:nth-child(1) .project-image {
+/* ПЕРВАЯ РАБОТА (ПРОЕКТ 01) — color1.jpg */
+.project-wrapper:first-child .project-image {
     background: url('images/color1.jpg') center/cover no-repeat;
 }
 
-/* ВТОРАЯ РАБОТА — color2.jpg */
+/* ВТОРАЯ РАБОТА (ПРОЕКТ 02) — color2.jpg */
 .project-wrapper:nth-child(2) .project-image {
     background: url('images/color2.jpg') center/cover no-repeat;
 }
