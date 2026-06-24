@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEXON NETWORK — NEWERZI</title>
-    <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'UNCAGE SemiBold';
+            src: url('../fonts/UNCAGE-SemiBold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Neutral Face';
+            src: url('../fonts/NeutralFace-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Neutral Face';
+            src: url('../fonts/NeutralFace-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -25,6 +43,7 @@
             padding: 0 30px;
         }
 
+        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
@@ -75,6 +94,7 @@
             user-select: none;
         }
 
+        /* ===== ЯЗЫК ===== */
         .language {
             display: flex;
             align-items: center;
@@ -92,23 +112,10 @@
             transition: opacity 0.2s;
             cursor: pointer;
         }
-
-        .language a:hover {
-            opacity: 0.6;
-        }
-
-        .language .rus {
-            font-weight: 700;
-        }
-
-        .language .eng {
-            font-weight: 500;
-        }
-
-        .language .divider {
-            font-weight: 300;
-            color: #999;
-        }
+        .language a:hover { opacity: 0.6; }
+        .language .rus { font-weight: 700; }
+        .language .eng { font-weight: 500; }
+        .language .divider { font-weight: 300; color: #999; }
 
         .language img {
             width: 1.2em;
@@ -117,6 +124,7 @@
             margin-left: 6px;
         }
 
+        /* ===== КНОПКА НАЗАД ===== */
         .back-btn {
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
@@ -131,11 +139,9 @@
             border: none;
             margin-bottom: 16px;
         }
+        .back-btn:hover { background: #333333; }
 
-        .back-btn:hover {
-            background: #333333;
-        }
-
+        /* ===== ОСНОВНОЙ БЛОК (2 колонки) ===== */
         .work-wrapper {
             display: flex;
             gap: 60px;
@@ -196,7 +202,7 @@
             margin-left: auto;
         }
 
-        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — ВНИЗУ, НА ВСЮ ШИРИНУ С ОГРАНИЧЕНИЕМ ===== */
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — ВНИЗУ, НА ВСЮ ШИРИНУ ===== */
         .full-image-wrap {
             width: 100%;
             display: flex;
@@ -213,6 +219,7 @@
             object-fit: contain;
         }
 
+        /* ===== АНИМАЦИЯ ===== */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -293,7 +300,7 @@
 
         <div class="work-left reveal reveal-delay-1">
             <div class="work-image">
-                <img src="../images/project1.jpg" alt="WEXON NETWORK">
+                <img src="../images/project1.png" alt="WEXON NETWORK">
             </div>
         </div>
 
@@ -310,7 +317,7 @@
 </div>
 
 <div class="full-image-wrap reveal reveal-delay-3">
-    <img src="../images/full1.jpg" alt="WEXON NETWORK full">
+    <img src="../images/full1.png" alt="WEXON NETWORK full">
 </div>
 
 <script>
