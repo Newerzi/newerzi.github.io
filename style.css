@@ -549,7 +549,7 @@ img {
 .contacts {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 30px 0;
     border-top: none;
 }
@@ -564,20 +564,44 @@ img {
 
 .contacts-right {
     display: flex;
-    gap: 50px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    width: 50%;
 }
 
-.contacts-right a {
+.contact-btn {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
     font-size: 24px;
     color: #1a1a1a;
     text-decoration: none;
-    transition: opacity 0.2s;
+    padding: 12px 30px;
+    transition: all 0.3s;
+    text-align: center;
+    width: auto;
+    min-width: 200px;
+    border: 2px solid #1a1a1a;
 }
 
-.contacts-right a:hover {
-    opacity: 0.6;
+.contact-btn.primary {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+}
+
+.contact-btn.primary:hover {
+    background: #333333;
+}
+
+.contact-btn:not(.primary) {
+    background: transparent;
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.contact-btn:not(.primary):hover {
+    background: #f0f0f0;
 }
 
 /* ===== MEDIA ===== */
