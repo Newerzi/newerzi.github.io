@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wexon</title>
+    <title>WEXON NETWORK — NEWERZI</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         @font-face {
@@ -202,7 +202,7 @@
             margin-left: auto;
         }
 
-        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — С ВОЗМОЖНОСТЬЮ УВЕЛИЧЕНИЯ ===== */
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ ===== */
         .full-image-wrap {
             width: 100%;
             display: flex;
@@ -225,7 +225,7 @@
             transform: scale(1.01);
         }
 
-        /* ===== ОВЕРЛЕЙ ДЛЯ ПРОСМОТРА ИЗОБРАЖЕНИЯ ===== */
+        /* ===== ОВЕРЛЕЙ ДЛЯ ПРОСМОТРА ===== */
         .image-overlay {
             display: none;
             position: fixed;
@@ -376,7 +376,7 @@
 
         <div class="work-left reveal reveal-delay-1">
             <div class="work-image">
-                <img src="../images/project1.jpg" alt="WEXON NETWORK">
+                <img src="../images/project1.png" alt="WEXON NETWORK">
             </div>
         </div>
 
@@ -410,19 +410,23 @@
     const langEng = document.getElementById('lang-eng');
     const flagIcon = document.getElementById('flag-icon');
     const backBtn = document.getElementById('back-btn');
+    const fullImage = document.getElementById('fullImage');
+    const overlayImage = document.getElementById('overlayImage');
 
     const translations = {
         ru: {
             name: 'WEXON NETWORK',
             desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
             back: '← НАЗАД',
-            flag: '../images/russia.png'
+            flag: '../images/russia.png',
+            fullImage: '../images/full1.png'
         },
         en: {
             name: 'WEXON NETWORK',
             desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
             back: '← BACK',
-            flag: '../images/usa.png'
+            flag: '../images/usa.png',
+            fullImage: '../images/full1_eng.png'
         }
     };
 
@@ -433,6 +437,10 @@
         document.getElementById('work-desc').textContent = t.desc;
         backBtn.textContent = t.back;
         flagIcon.src = t.flag;
+
+        // Меняем большое изображение
+        fullImage.src = t.fullImage;
+        overlayImage.src = t.fullImage;
 
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
@@ -477,7 +485,6 @@
     // ===== ОТКРЫТИЕ ИЗОБРАЖЕНИЯ В ОВЕРЛЕЕ =====
     const fullImageWrap = document.getElementById('fullImageWrap');
     const imageOverlay = document.getElementById('imageOverlay');
-    const overlayImage = document.getElementById('overlayImage');
     const closeOverlay = document.getElementById('closeOverlay');
 
     let currentScale = 1;
@@ -495,6 +502,10 @@
     function closeOverlayFn() {
         imageOverlay.classList.remove('active');
         document.body.style.overflow = '';
+        translateX = 0;
+        translateY = 0;
+        currentScale = 1;
+        overlayImage.style.transform = `scale(1) translate(0, 0)`;
     }
 
     fullImageWrap.addEventListener('click', openOverlay);
@@ -550,16 +561,6 @@
             overlayImage.style.cursor = currentScale > 1 ? 'grab' : 'default';
         }
     });
-
-    // Сброс позиции при закрытии
-    const origClose = closeOverlayFn;
-    closeOverlayFn = function() {
-        origClose();
-        translateX = 0;
-        translateY = 0;
-        currentScale = 1;
-        overlayImage.style.transform = `scale(1) translate(0, 0)`;
-    };
 </script>
 
 </body>
