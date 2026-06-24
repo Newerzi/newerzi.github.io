@@ -142,31 +142,62 @@
         }
         .back-btn:hover { background: #333333; }
 
-        /* ===== ПРОЕКТЫ ===== */
-        .project-item {
+        /* ===== ПОРТФОЛИО (как на главной) ===== */
+        .portfolio {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-family: 'Neutral Face', sans-serif;
+            font-size: 60px;
+            letter-spacing: -0.02em;
+            margin-bottom: 40px;
+        }
+
+        .section-title .bold {
+            font-weight: 700;
+        }
+
+        .section-title .regular {
+            font-weight: 400;
+        }
+
+        .project-wrapper {
             display: flex;
             gap: 60px;
-            align-items: flex-start;
-            padding: 40px 0;
+            align-items: stretch;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
             border-bottom: 1px solid #e5e5e5;
-            text-decoration: none;
-            color: #1a1a1a;
-            transition: opacity 0.3s;
         }
 
-        .project-item:last-child {
+        .project-wrapper:last-child {
             border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
-        .project-item:hover {
-            opacity: 0.7;
-        }
-
-        .project-item .project-left {
+        .project-left {
             flex: 0 0 45%;
+            display: flex;
+            flex-direction: column;
         }
 
-        .project-item .project-left img {
+        .project-header {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 500;
+            font-size: 28px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .project-image img {
             width: 100%;
             height: auto;
             display: block;
@@ -174,25 +205,16 @@
             object-fit: cover;
         }
 
-        .project-item .project-right {
+        .project-right {
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            padding-top: 20px;
+            padding: 80px 0 0 40px;
+            max-width: 80%;
         }
 
-        .project-item .project-right .project-number {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 500;
-            font-size: 28px;
-            color: #1a1a1a;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-            text-align: right;
-        }
-
-        .project-item .project-right .project-name {
+        .project-name {
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
             font-size: 90px;
@@ -200,18 +222,38 @@
             letter-spacing: -0.02em;
             line-height: 1;
             text-align: right;
+            width: 100%;
             margin-bottom: 16px;
         }
 
-        .project-item .project-right .project-desc {
+        .project-description {
             font-family: 'Manrope', sans-serif;
             font-weight: 400;
             font-size: 28px;
             color: #1a1a1a;
-            line-height: 1.4;
+            line-height: 1.2;
             text-align: justify;
             width: 85%;
+            margin-bottom: 30px;
             margin-left: auto;
+        }
+
+        .project-next {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 40px;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s;
+            display: block;
+            text-align: right;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .project-next:hover {
+            opacity: 0.6;
         }
 
         /* ===== АНИМАЦИЯ ===== */
@@ -230,25 +272,27 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
 
         @media (max-width: 1200px) {
-            .project-item .project-right .project-name { font-size: 60px; }
-            .project-item .project-right .project-desc { font-size: 22px; }
+            .project-name { font-size: 60px; }
+            .project-description { font-size: 22px; }
+            .project-next { font-size: 32px; }
         }
 
         @media (max-width: 992px) {
             .container { padding: 0 20px; }
-            .project-item {
+            .project-wrapper {
                 flex-direction: column;
                 gap: 30px;
-                padding: 30px 0;
+                padding-bottom: 40px;
+                margin-bottom: 40px;
             }
-            .project-item .project-left { flex: 0 0 100%; }
-            .project-item .project-right { padding-top: 0; }
-            .project-item .project-right .project-name { text-align: left; font-size: 50px; }
-            .project-item .project-right .project-desc { text-align: left; width: 100%; margin-left: 0; }
-            .project-item .project-right .project-number { text-align: left; }
+            .project-left { flex: 0 0 100%; }
+            .project-right { padding: 0; max-width: 100%; }
+            .project-name { text-align: left; font-size: 50px; }
+            .project-description { text-align: left; width: 100%; margin-left: 0; }
+            .project-next { text-align: left; }
+            .section-title { font-size: 42px; }
         }
 
         @media (max-width: 768px) {
@@ -256,9 +300,11 @@
             .container { padding: 0 15px; }
             .logo, .header-center, .header-right { font-size: 16px; }
             .language { font-size: 18px; }
-            .project-item .project-right .project-name { font-size: 36px; }
-            .project-item .project-right .project-desc { font-size: 18px; }
-            .project-item .project-right .project-number { font-size: 22px; }
+            .project-name { font-size: 36px; }
+            .project-description { font-size: 18px; }
+            .project-next { font-size: 24px; }
+            .project-header { font-size: 22px; }
+            .section-title { font-size: 30px; }
             .back-btn { font-size: 16px; padding: 6px 16px; }
         }
 
@@ -270,9 +316,11 @@
             .logo, .header-right { font-size: 14px; }
             .header-center { font-size: 14px; }
             .language { font-size: 16px; }
-            .project-item .project-right .project-name { font-size: 28px; }
-            .project-item .project-right .project-desc { font-size: 15px; }
-            .project-item .project-right .project-number { font-size: 16px; }
+            .project-name { font-size: 28px; }
+            .project-description { font-size: 15px; }
+            .project-next { font-size: 18px; }
+            .project-header { font-size: 16px; }
+            .section-title { font-size: 22px; }
             .back-btn { font-size: 14px; padding: 4px 14px; }
         }
     </style>
@@ -299,47 +347,61 @@
     <!-- НАЗАД -->
     <a href="../" class="back-btn" id="back-btn">← НАЗАД</a>
 
-    <!-- ПРОЕКТ 01 -->
-    <a href="../work1/" class="project-item reveal reveal-delay-1" id="project1-link">
-        <div class="project-left">
-            <img src="../images/project1.jpg" alt="WEXON NETWORK" id="project1-img">
-        </div>
-        <div class="project-right">
-            <div class="project-number" id="project1-number">ПРОЕКТ [01]</div>
-            <div class="project-name" id="project1-name">WEXON NETWORK</div>
-            <div class="project-desc" id="project1-desc">
-                Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
-            </div>
-        </div>
-    </a>
+    <!-- ПОРТФОЛИО -->
+    <section class="portfolio">
 
-    <!-- ПРОЕКТ 02 -->
-    <a href="../work2/" class="project-item reveal reveal-delay-2" id="project2-link">
-        <div class="project-left">
-            <img src="../images/project2.jpg" alt="WEXON NETWORK" id="project2-img">
-        </div>
-        <div class="project-right">
-            <div class="project-number" id="project2-number">ПРОЕКТ [02]</div>
-            <div class="project-name" id="project2-name">WEXON NETWORK</div>
-            <div class="project-desc" id="project2-desc">
-                Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
+        <!-- ПРОЕКТ 01 -->
+        <div class="project-wrapper reveal reveal-delay-1">
+            <div class="project-left">
+                <div class="project-header" id="project1-header">ПРОЕКТ [01]</div>
+                <div class="project-image">
+                    <img src="../images/project1.jpg" alt="project work" id="project1-img">
+                </div>
+            </div>
+            <div class="project-right">
+                <div class="project-name" id="project1-name">WEXON NETWORK</div>
+                <div class="project-description" id="project1-desc">
+                    Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
+                </div>
+                <a href="../work1/" class="project-next" id="project1-next">ДАЛЕЕ →</a>
             </div>
         </div>
-    </a>
 
-    <!-- ПРОЕКТ 03 -->
-    <a href="#" class="project-item reveal reveal-delay-3" id="project3-link">
-        <div class="project-left">
-            <img src="../images/project3.jpg" alt="Новая работа" id="project3-img">
-        </div>
-        <div class="project-right">
-            <div class="project-number" id="project3-number">ПРОЕКТ [03]</div>
-            <div class="project-name" id="project3-name">Новая работа</div>
-            <div class="project-desc" id="project3-desc">
-                Описание новой работы появится здесь.
+        <!-- ПРОЕКТ 02 -->
+        <div class="project-wrapper reveal reveal-delay-2">
+            <div class="project-left">
+                <div class="project-header" id="project2-header">ПРОЕКТ [02]</div>
+                <div class="project-image">
+                    <img src="../images/project2.jpg" alt="project work" id="project2-img">
+                </div>
+            </div>
+            <div class="project-right">
+                <div class="project-name" id="project2-name">WEXON NETWORK</div>
+                <div class="project-description" id="project2-desc">
+                    Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
+                </div>
+                <a href="../work2/" class="project-next" id="project2-next">ДАЛЕЕ →</a>
             </div>
         </div>
-    </a>
+
+        <!-- ПРОЕКТ 03 (новый) -->
+        <div class="project-wrapper reveal reveal-delay-3">
+            <div class="project-left">
+                <div class="project-header" id="project3-header">ПРОЕКТ [03]</div>
+                <div class="project-image">
+                    <img src="../images/project3.jpg" alt="project work" id="project3-img">
+                </div>
+            </div>
+            <div class="project-right">
+                <div class="project-name" id="project3-name">Новая работа</div>
+                <div class="project-description" id="project3-desc">
+                    Описание новой работы появится здесь.
+                </div>
+                <a href="#" class="project-next" id="project3-next">ДАЛЕЕ →</a>
+            </div>
+        </div>
+
+    </section>
 
 </div>
 
@@ -354,28 +416,30 @@
         ru: {
             back: '← НАЗАД',
             flag: '../images/russia.png',
-            project1Number: 'ПРОЕКТ [01]',
-            project2Number: 'ПРОЕКТ [02]',
-            project3Number: 'ПРОЕКТ [03]',
+            project1Header: 'ПРОЕКТ [01]',
+            project2Header: 'ПРОЕКТ [02]',
+            project3Header: 'ПРОЕКТ [03]',
             project1Name: 'WEXON NETWORK',
             project2Name: 'WEXON NETWORK',
             project3Name: 'Новая работа',
             project1Desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
             project2Desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
-            project3Desc: 'Описание новой работы появится здесь.'
+            project3Desc: 'Описание новой работы появится здесь.',
+            next: 'ДАЛЕЕ →'
         },
         en: {
             back: '← BACK',
             flag: '../images/usa.png',
-            project1Number: 'PROJECT [01]',
-            project2Number: 'PROJECT [02]',
-            project3Number: 'PROJECT [03]',
+            project1Header: 'PROJECT [01]',
+            project2Header: 'PROJECT [02]',
+            project3Header: 'PROJECT [03]',
             project1Name: 'WEXON NETWORK',
             project2Name: 'WEXON NETWORK',
             project3Name: 'New Work',
             project1Desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
             project2Desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
-            project3Desc: 'Description of the new work will appear here.'
+            project3Desc: 'Description of the new work will appear here.',
+            next: 'NEXT →'
         }
     };
 
@@ -385,15 +449,18 @@
         backBtn.textContent = t.back;
         flagIcon.src = t.flag;
 
-        document.getElementById('project1-number').textContent = t.project1Number;
-        document.getElementById('project2-number').textContent = t.project2Number;
-        document.getElementById('project3-number').textContent = t.project3Number;
+        document.getElementById('project1-header').textContent = t.project1Header;
+        document.getElementById('project2-header').textContent = t.project2Header;
+        document.getElementById('project3-header').textContent = t.project3Header;
         document.getElementById('project1-name').textContent = t.project1Name;
         document.getElementById('project2-name').textContent = t.project2Name;
         document.getElementById('project3-name').textContent = t.project3Name;
         document.getElementById('project1-desc').textContent = t.project1Desc;
         document.getElementById('project2-desc').textContent = t.project2Desc;
         document.getElementById('project3-desc').textContent = t.project3Desc;
+        document.getElementById('project1-next').textContent = t.next;
+        document.getElementById('project2-next').textContent = t.next;
+        document.getElementById('project3-next').textContent = t.next;
 
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
