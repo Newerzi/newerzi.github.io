@@ -16,7 +16,7 @@
         body {
             background: #ffffff;
             font-family: 'Manrope', sans-serif;
-            padding: 20px 0;
+            padding: 20px 0 0 0;
         }
 
         .container {
@@ -203,17 +203,20 @@
         }
 
         /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) ===== */
-        .full-image {
+        .full-image-wrap {
             width: 100%;
             margin-top: 60px;
-            margin-left: -30px;
-            padding-right: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
         }
 
-        .full-image img {
+        .full-image-wrap img {
             width: 100%;
+            max-width: 1400px;
             height: auto;
             display: block;
+            padding: 0 30px;
         }
 
         /* ===== АНИМАЦИЯ ===== */
@@ -247,22 +250,22 @@
             .work-right { padding: 0; max-width: 100%; }
             .work-name { text-align: left; font-size: 50px; }
             .work-description { text-align: left; width: 100%; margin-left: 0; }
-            .full-image { margin-left: -20px; }
+            .full-image-wrap img { padding: 0 20px; }
         }
 
         @media (max-width: 768px) {
-            body { padding: 15px 0; }
+            body { padding: 15px 0 0 0; }
             .container { padding: 0 15px; }
             .logo, .header-center, .header-right { font-size: 16px; }
             .work-name { font-size: 36px; }
             .work-description { font-size: 18px; }
             .back-btn { font-size: 16px; padding: 6px 16px; }
             .work-left { margin-left: -15px; }
-            .full-image { margin-left: -15px; }
+            .full-image-wrap img { padding: 0 15px; }
         }
 
         @media (max-width: 480px) {
-            body { padding: 10px 0; }
+            body { padding: 10px 0 0 0; }
             .container { padding: 0 10px; }
             .header { flex-wrap: wrap; gap: 4px; margin-bottom: 20px; }
             .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
@@ -273,7 +276,7 @@
             .work-description { font-size: 15px; }
             .back-btn { font-size: 14px; padding: 4px 14px; }
             .work-left { margin-left: -10px; }
-            .full-image { margin-left: -10px; }
+            .full-image-wrap img { padding: 0 10px; }
         }
     </style>
 </head>
@@ -317,11 +320,11 @@
 
     </div>
 
-    <!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) -->
-    <div class="full-image reveal reveal-delay-3">
-        <img src="../images/full1.png" alt="WEXON NETWORK full">
-    </div>
+</div>
 
+<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) — вне контейнера, на всю ширину -->
+<div class="full-image-wrap reveal reveal-delay-3">
+    <img src="../images/full1.jpg" alt="WEXON NETWORK full">
 </div>
 
 <script>
