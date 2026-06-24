@@ -55,20 +55,52 @@
     font-display: swap;
 }
 
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px 30px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== IMAGES ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0 !important;
+}
+
 /* ===== FLOATING HEADER ===== */
 .floating-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 12px 30px;
+    padding: 16px 30px;
     background: #ffffff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     z-index: 1000;
-    transform: translateY(-100%);
+    transform: translateY(-120%);
     opacity: 0;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
 }
 
 .floating-header.visible {
@@ -109,38 +141,6 @@
 
 .floating-contact:hover {
     background: #333333;
-}
-
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #ffffff;
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 20px 30px;
-    font-family: 'Manrope', sans-serif;
-}
-
-.container {
-    width: 100%;
-    max-width: 1400px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ===== IMAGES ===== */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0 !important;
 }
 
 /* ===== HEADER ===== */
@@ -668,8 +668,6 @@ img {
     .hero-description-section { max-width: 85%; margin-top: -90px; }
     .section-title { font-size: 56px; }
     .project-header { font-size: 56px; }
-    .project-list { font-size: 56px; }
-    .project-subheader { font-size: 56px; }
     .project-next { font-size: 56px; }
     .banner { margin-top: 80px; margin-bottom: 80px; }
     .portfolio { margin-bottom: 80px; }
@@ -690,9 +688,6 @@ img {
     .hero-description-section { max-width: 100%; margin-top: 0; }
     .section-title { font-size: 42px; }
     .project-header { font-size: 42px; }
-    .project-list { font-size: 42px; }
-    .project-list .type { padding-left: 20px; }
-    .project-subheader { font-size: 42px; }
     .project-next { font-size: 42px; }
     .project-description { font-size: 22px; max-width: 100%; }
     .reviews-grid { grid-template-columns: 1fr; }
@@ -719,15 +714,12 @@ img {
     .hero-description-section { margin-bottom: 20px; }
     .section-title { font-size: 30px; }
     .project-header { font-size: 30px; }
-    .project-list { font-size: 30px; }
-    .project-list .type { padding-left: 16px; }
-    .project-subheader { font-size: 30px; }
     .project-next { font-size: 30px; }
     .project-description { font-size: 18px; }
     .portfolio-button button { font-size: 18px; padding: 12px 32px; }
     .reviews-button button { font-size: 18px; padding: 12px 32px; }
     .contacts-left h2 { font-size: 30px; }
-    .contacts-right a { font-size: 18px; }
+    .contact-btn { font-size: 22px; padding: 14px 30px; }
     .banner { margin-top: 50px; margin-bottom: 50px; }
     .portfolio { margin-bottom: 50px; }
     .reviews { margin-bottom: 50px; }
@@ -735,6 +727,9 @@ img {
     .questions-title { font-size: 30px; }
     .questions-btn { font-size: 20px; padding: 12px 0; }
     .questions-wrapper { gap: 20px; }
+    .floating-logo { font-size: 18px; }
+    .floating-contact { font-size: 14px; padding: 8px 20px; }
+    .floating-header { padding: 10px 20px; }
 }
 
 @media (max-width: 480px) {
@@ -753,16 +748,13 @@ img {
     .banner { margin-bottom: 40px; }
     .section-title { font-size: 22px; }
     .project-header { font-size: 22px; }
-    .project-list { font-size: 22px; }
-    .project-list .type { padding-left: 12px; }
-    .project-subheader { font-size: 22px; }
     .project-next { font-size: 22px; }
     .project-description { font-size: 15px; }
     .portfolio-button button { font-size: 14px; padding: 10px 24px; }
     .reviews-button button { font-size: 14px; padding: 10px 24px; }
     .contacts-left h2 { font-size: 22px; }
-    .contacts-right a { font-size: 14px; }
-    .contacts-right { gap: 14px; }
+    .contact-btn { font-size: 18px; padding: 12px 20px; }
+    .contacts-right { gap: 12px; }
     .portfolio { margin-bottom: 40px; }
     .reviews { margin-bottom: 40px; }
     .questions { margin-bottom: 40px; }
@@ -771,4 +763,7 @@ img {
     .questions-title { font-size: 22px; }
     .questions-btn { font-size: 16px; padding: 10px 0; }
     .questions-wrapper { gap: 16px; }
+    .floating-logo { font-size: 16px; }
+    .floating-contact { font-size: 12px; padding: 6px 16px; }
+    .floating-header { padding: 8px 15px; }
 }
