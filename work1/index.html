@@ -25,7 +25,7 @@
             padding: 0 30px;
         }
 
-        /* ===== ШАПКА (НЕКЛИКАБЕЛЬНА) ===== */
+        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
@@ -139,19 +139,20 @@
             background: #333333;
         }
 
-        /* ===== ОСНОВНОЙ БЛОК ===== */
+        /* ===== ОСНОВНОЙ БЛОК (2 колонки) ===== */
         .work-wrapper {
             display: flex;
             gap: 60px;
             align-items: flex-start;
             margin-top: 10px;
+            margin-bottom: 60px;
         }
 
+        /* ЛЕВАЯ КОЛОНКА — изображение */
         .work-left {
             flex: 0 0 50%;
             display: flex;
             flex-direction: column;
-            margin-left: -30px;
         }
 
         .work-image {
@@ -167,7 +168,7 @@
             object-fit: cover;
         }
 
-        /* ===== ПРАВАЯ ЧАСТЬ ===== */
+        /* ПРАВАЯ КОЛОНКА — текст */
         .work-right {
             flex: 1;
             display: flex;
@@ -175,7 +176,6 @@
             justify-content: flex-start;
             padding: 0 0 0 40px;
             max-width: 80%;
-            position: relative;
         }
 
         .work-name {
@@ -196,16 +196,16 @@
             font-weight: 400;
             font-size: 28px;
             color: #1a1a1a;
-            line-height: 1.2;
+            line-height: 1.4;
             text-align: justify;
             width: 85%;
             margin-left: auto;
         }
 
-        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) ===== */
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) — на всю ширину, без отступов ===== */
         .full-image-wrap {
             width: 100%;
-            margin-top: 60px;
+            margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
@@ -213,10 +213,8 @@
 
         .full-image-wrap img {
             width: 100%;
-            max-width: 1400px;
             height: auto;
             display: block;
-            padding: 0 30px;
         }
 
         /* ===== АНИМАЦИЯ ===== */
@@ -245,12 +243,15 @@
 
         @media (max-width: 992px) {
             .container { padding: 0 20px; }
-            .work-wrapper { flex-direction: column; gap: 30px; }
-            .work-left { flex: 0 0 100%; margin-left: -20px; }
+            .work-wrapper {
+                flex-direction: column;
+                gap: 30px;
+                margin-bottom: 40px;
+            }
+            .work-left { flex: 0 0 100%; }
             .work-right { padding: 0; max-width: 100%; }
             .work-name { text-align: left; font-size: 50px; }
             .work-description { text-align: left; width: 100%; margin-left: 0; }
-            .full-image-wrap img { padding: 0 20px; }
         }
 
         @media (max-width: 768px) {
@@ -260,8 +261,6 @@
             .work-name { font-size: 36px; }
             .work-description { font-size: 18px; }
             .back-btn { font-size: 16px; padding: 6px 16px; }
-            .work-left { margin-left: -15px; }
-            .full-image-wrap img { padding: 0 15px; }
         }
 
         @media (max-width: 480px) {
@@ -275,8 +274,6 @@
             .work-name { font-size: 28px; }
             .work-description { font-size: 15px; }
             .back-btn { font-size: 14px; padding: 4px 14px; }
-            .work-left { margin-left: -10px; }
-            .full-image-wrap img { padding: 0 10px; }
         }
     </style>
 </head>
@@ -284,7 +281,7 @@
 
 <div class="container">
 
-    <!-- ШАПКА (НЕКЛИКАБЕЛЬНА) -->
+    <!-- ШАПКА -->
     <header class="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
@@ -299,17 +296,17 @@
         <img src="../images/russia.png" alt="flag" id="flag-icon">
     </div>
 
-    <!-- ОСНОВНОЙ БЛОК -->
+    <!-- ОСНОВНОЙ БЛОК (2 КОЛОНКИ) -->
     <div class="work-wrapper">
 
-        <!-- ЛЕВАЯ ЧАСТЬ (изображение) -->
+        <!-- ЛЕВАЯ КОЛОНКА — ИЗОБРАЖЕНИЕ -->
         <div class="work-left reveal reveal-delay-1">
             <div class="work-image">
                 <img src="../images/project1.jpg" alt="WEXON NETWORK">
             </div>
         </div>
 
-        <!-- ПРАВАЯ ЧАСТЬ -->
+        <!-- ПРАВАЯ КОЛОНКА — ТЕКСТ -->
         <div class="work-right reveal reveal-delay-2">
             <a href="../" class="back-btn" id="back-btn">← НАЗАД</a>
             <div class="work-name" id="work-name">WEXON NETWORK</div>
@@ -322,9 +319,9 @@
 
 </div>
 
-<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ (full1) — вне контейнера, на всю ширину -->
+<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ — на всю ширину, без границ -->
 <div class="full-image-wrap reveal reveal-delay-3">
-    <img src="../images/full1.png" alt="WEXON NETWORK full">
+    <img src="../images/full1.jpg" alt="WEXON NETWORK full">
 </div>
 
 <script>
