@@ -349,7 +349,8 @@ img {
     position: relative;
     overflow: hidden;
     aspect-ratio: 1765 / 1176.67;
-    background: #ff6b6b; /* временно красный фон */
+    background: url('images/color1.jpg') center/cover no-repeat;
+    min-height: 200px; /* временно, чтобы увидеть фон */
 }
 
 /* ТОЛЬКО ПЕРВЫЙ ПРОЕКТ — color1.jpg */
