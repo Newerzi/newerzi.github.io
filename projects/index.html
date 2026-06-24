@@ -195,14 +195,22 @@
         .project-image {
             width: 100%;
             max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1765 / 1176.67;
+            background: url('../images/color1.jpg') center/cover no-repeat;
         }
 
         .project-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
-            aspect-ratio: 1765 / 1176.67;
             object-fit: cover;
+            transition: opacity 0.6s ease;
+        }
+
+        .project-image img:hover {
+            opacity: 0;
         }
 
         .project-right {
