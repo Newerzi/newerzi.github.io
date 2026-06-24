@@ -602,6 +602,23 @@ img {
     background: #f0f0f0;
 }
 
+/* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ — ВНИЗУ, НА ВСЮ ШИРИНУ С ОГРАНИЧЕНИЕМ ВЫСОТЫ ===== */
+.full-image-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.full-image-wrap img {
+    width: 100%;
+    max-height: 90vh; /* не выше 90% высоты экрана */
+    height: auto;
+    display: block;
+    object-fit: contain; /* сохраняет пропорции */
+}
+
 /* ===== MEDIA ===== */
 @media (max-width: 1200px) {
     .hero-left h1 { font-size: 130px; }
