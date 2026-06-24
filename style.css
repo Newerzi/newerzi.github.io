@@ -492,9 +492,9 @@ img {
 
 .questions-wrapper {
     display: flex;
-    gap: 40px; /* уменьшил расстояние между заголовком и списком */
+    gap: 40px;
     align-items: flex-start;
-    justify-content: flex-end; /* прижимает список к правой стороне */
+    justify-content: flex-end; /* прижимаем всё содержимое к правой стороне */
 }
 
 .questions-title {
@@ -513,11 +513,13 @@ img {
 }
 
 .questions-list {
-    flex: 1;
-    max-width: 65%; /* ограничиваем ширину списка */
+    flex: 0 1 auto;
+    width: 50%; /* фиксированная ширина для контроля */
+    max-width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* больше вертикального пространства между вопросами */
+    gap: 30px;
+    margin-right: 0; /* убираем отступ справа */
 }
 
 .questions-btn {
@@ -525,7 +527,7 @@ img {
     font-weight: 400;
     font-size: 24px;
     color: #1a1a1a;
-    padding: 20px 0; /* увеличил отступы внутри кнопки */
+    padding: 20px 0;
     border: none;
     border-bottom: 1px solid #e0e0e0;
     background: transparent;
