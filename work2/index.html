@@ -3,16 +3,643 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEXON NETWORK — NEWERZI</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>wexon network / newerzi</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'UNCAGE SemiBold';
+            src: url('../fonts/UNCAGE-SemiBold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Neutral Face';
+            src: url('../fonts/NeutralFace-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Neutral Face';
+            src: url('../fonts/NeutralFace-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            font-family: 'Manrope', sans-serif;
+            padding: 20px 30px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ===== ШАПКА ===== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-family: 'UNCAGE SemiBold', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            cursor: default;
+            user-select: none;
+        }
+
+        .header-center {
+            font-family: 'UNCAGE SemiBold', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 0.15em;
+            line-height: 1;
+            text-align: center;
+            flex: 1;
+            padding: 0 15px;
+            cursor: default;
+            user-select: none;
+        }
+
+        .header-right {
+            font-family: 'UNCAGE SemiBold', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            cursor: default;
+            user-select: none;
+        }
+
+        /* ===== ЯЗЫК ===== */
+        .language {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 22px;
+            color: #1a1a1a;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .language a {
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: opacity 0.2s;
+            cursor: pointer;
+        }
+        .language a:hover { opacity: 0.6; }
+        .language .rus { font-weight: 700; }
+        .language .eng { font-weight: 500; }
+        .language .divider { font-weight: 300; color: #999; }
+
+        .language img {
+            width: 1.2em;
+            height: 0.8em;
+            object-fit: contain;
+            margin-left: 6px;
+        }
+
+        /* ===== КНОПКА НАЗАД ===== */
+        .back-btn {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 22px;
+            color: #ffffff;
+            background: #1a1a1a;
+            padding: 8px 24px;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: opacity 0.3s, background 0.3s;
+            display: inline-block;
+            border: none;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+        .back-btn:hover { background: #333333; }
+
+        /* ===== ОСНОВНОЙ БЛОК ===== */
+        .work-wrapper {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            margin-top: 10px;
+            margin-bottom: 60px;
+        }
+
+        .work-left {
+            flex: 0 0 50%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-image {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .work-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .work-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 0 0 0 40px;
+            max-width: 80%;
+        }
+
+        .work-name {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 90px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            text-align: right;
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .work-description {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 400;
+            font-size: 28px;
+            color: #1a1a1a;
+            line-height: 1.4;
+            text-align: justify;
+            width: 85%;
+            margin-left: auto;
+        }
+
+        /* ===== ПОЛНОЕ ИЗОБРАЖЕНИЕ ===== */
+        .full-image-wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 60px 0;
+            padding: 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .full-image-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+            user-select: none;
+        }
+
+        .full-image-wrap img:hover {
+            transform: scale(1.01);
+        }
+
+        /* ===== ОВЕРЛЕЙ ===== */
+        .image-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            overflow: hidden;
+        }
+
+        .image-overlay.active {
+            display: flex;
+        }
+
+        .image-overlay img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            cursor: grab;
+            transition: transform 0.1s ease;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .image-overlay img:active {
+            cursor: grabbing;
+        }
+
+        .image-overlay .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: #ffffff;
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 300;
+            transition: opacity 0.3s;
+            background: none;
+            border: none;
+            z-index: 10000;
+        }
+
+        .image-overlay .close-btn:hover {
+            opacity: 0.6;
+        }
+
+        .image-overlay .zoom-info {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            font-family: 'Manrope', sans-serif;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* ===== КАСТОМНЫЙ КУРСОР ===== */
+        * {
+            cursor: none !important;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            width: 10px;
+            height: 10px;
+            background: rgba(160, 160, 160, 0.9);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+        }
+
+        .custom-cursor.hover {
+            width: 18px;
+            height: 18px;
+            background: rgba(160, 160, 160, 0.4);
+            box-shadow: 0 0 0 2px rgba(160, 160, 160, 0.3);
+        }
+
+        .custom-cursor.click {
+            width: 6px;
+            height: 6px;
+            background: rgba(160, 160, 160, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            * {
+                cursor: auto !important;
+            }
+            .custom-cursor {
+                display: none !important;
+            }
+        }
+
+        /* ===== АНИМАЦИЯ ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        @media (max-width: 1200px) {
+            .work-name { font-size: 60px; }
+            .work-description { font-size: 22px; }
+            .back-btn { font-size: 18px; padding: 6px 20px; }
+        }
+
+        @media (max-width: 992px) {
+            body { padding: 20px; }
+            .work-wrapper {
+                flex-direction: column;
+                gap: 30px;
+                margin-bottom: 40px;
+            }
+            .work-left { flex: 0 0 100%; }
+            .work-right { padding: 0; max-width: 100%; }
+            .work-name { text-align: left; font-size: 50px; }
+            .work-description { text-align: left; width: 100%; margin-left: 0; }
+            .full-image-wrap { margin: 40px 0; }
+            .image-overlay .close-btn { top: 20px; right: 20px; font-size: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .logo, .header-center, .header-right { font-size: 16px; }
+            .language { font-size: 18px; }
+            .work-name { font-size: 36px; }
+            .work-description { font-size: 18px; }
+            .back-btn { font-size: 16px; padding: 6px 16px; }
+            .full-image-wrap { margin: 30px 0; }
+            .image-overlay .close-btn { top: 15px; right: 15px; font-size: 28px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .header { flex-wrap: wrap; gap: 4px; margin-bottom: 16px; }
+            .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
+            .logo, .header-right { font-size: 14px; }
+            .header-center { font-size: 14px; }
+            .language { font-size: 16px; }
+            .work-name { font-size: 28px; }
+            .work-description { font-size: 15px; }
+            .back-btn { font-size: 14px; padding: 4px 14px; }
+            .full-image-wrap { margin: 20px 0; }
+        }
+    </style>
 </head>
 <body>
-<div class="container" style="padding-top: 120px;">
-    <a href="../" style="font-size:20px; text-decoration:none; color:#1a1a1a; margin-bottom:40px; display:inline-block;">← Назад</a>
-    <h1 style="font-size:80px; font-weight:800; margin-bottom:20px;">WEXON NETWORK</h1>
-    <p style="font-size:28px; max-width:800px; margin-bottom:40px;">Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.</p>
-    <img src="../images/project2.jpg" alt="WEXON NETWORK" style="width:100%; max-width:1000px; border-radius:0;">
+
+<div class="container">
+
+    <!-- ===== КАСТОМНЫЙ КУРСОР ===== -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="logo">NEWERZI</div>
+        <div class="header-center">* * *</div>
+        <div class="header-right">DESIGN</div>
+    </header>
+
+    <!-- ЯЗЫК -->
+    <div class="language">
+        <a href="#" class="rus" id="lang-ru">рус</a>
+        <span class="divider">/</span>
+        <a href="#" class="eng" id="lang-eng">eng</a>
+        <img src="../images/russia.png" alt="flag" id="flag-icon">
+    </div>
+
+    <!-- ОСНОВНОЙ БЛОК -->
+    <div class="work-wrapper">
+
+        <div class="work-left reveal reveal-delay-1">
+            <div class="work-image">
+                <img src="../images/color2.jpg" alt="sweet spot">
+            </div>
+        </div>
+
+        <div class="work-right reveal reveal-delay-2">
+            <a href="../" class="back-btn" id="back-btn">← НАЗАД</a>
+            <div class="work-name" id="work-name">WEXON NETWORK</div>
+            <div class="work-description" id="work-desc">
+                Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
+            </div>
+        </div>
+
+    </div>
+
 </div>
+
+<!-- ПОЛНОЕ ИЗОБРАЖЕНИЕ -->
+<div class="full-image-wrap reveal reveal-delay-3" id="fullImageWrap">
+    <img src="../images/full2.png" alt="sweet spot / full" id="fullImage">
+</div>
+
+<!-- ОВЕРЛЕЙ -->
+<div class="image-overlay" id="imageOverlay">
+    <button class="close-btn" id="closeOverlay">✕</button>
+    <img src="../images/full1.png" alt="sweet spot / full" id="overlayImage">
+    <div class="zoom-info">Колесико мыши — масштаб  /  Клик — закрыть</div>
+</div>
+
+<script>
+    // ===== ПЕРЕВОД =====
+    const langRu = document.getElementById('lang-ru');
+    const langEng = document.getElementById('lang-eng');
+    const flagIcon = document.getElementById('flag-icon');
+    const backBtn = document.getElementById('back-btn');
+    const fullImage = document.getElementById('fullImage');
+    const overlayImage = document.getElementById('overlayImage');
+
+    const translations = {
+        ru: {
+            name: 'WEXON NETWORK',
+            desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
+            back: '← НАЗАД',
+            flag: '../images/russia.png',
+            fullImage: '../images/full2.png'
+        },
+        en: {
+            name: 'WEXON NETWORK',
+            desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
+            back: '← BACK',
+            flag: '../images/usa.png',
+            fullImage: '../images/full2_eng.png'
+        }
+    };
+
+    function updateLanguage(lang) {
+        const t = translations[lang];
+
+        document.getElementById('work-name').textContent = t.name;
+        document.getElementById('work-desc').textContent = t.desc;
+        backBtn.textContent = t.back;
+        flagIcon.src = t.flag;
+
+        fullImage.src = t.fullImage;
+        overlayImage.src = t.fullImage;
+
+        document.querySelectorAll('.language a').forEach(el => {
+            el.style.fontWeight = '500';
+        });
+        if (lang === 'ru') {
+            document.querySelector('.rus').style.fontWeight = '700';
+        } else {
+            document.querySelector('.eng').style.fontWeight = '700';
+        }
+    }
+
+    langRu.addEventListener('click', function(e) {
+        e.preventDefault();
+        updateLanguage('ru');
+    });
+
+    langEng.addEventListener('click', function(e) {
+        e.preventDefault();
+        updateLanguage('en');
+    });
+
+    updateLanguage('ru');
+
+    // ===== АНИМАЦИЯ =====
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // ===== ОВЕРЛЕЙ =====
+    const fullImageWrap = document.getElementById('fullImageWrap');
+    const imageOverlay = document.getElementById('imageOverlay');
+    const closeOverlay = document.getElementById('closeOverlay');
+
+    let currentScale = 1;
+    const MIN_SCALE = 0.5;
+    const MAX_SCALE = 5;
+
+    function openOverlay() {
+        imageOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        currentScale = 1;
+        overlayImage.style.transform = `scale(${currentScale})`;
+        overlayImage.style.cursor = 'grab';
+    }
+
+    function closeOverlayFn() {
+        imageOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        translateX = 0;
+        translateY = 0;
+        currentScale = 1;
+        overlayImage.style.transform = `scale(1) translate(0, 0)`;
+    }
+
+    fullImageWrap.addEventListener('click', openOverlay);
+
+    closeOverlay.addEventListener('click', closeOverlayFn);
+
+    imageOverlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeOverlayFn();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && imageOverlay.classList.contains('active')) {
+            closeOverlayFn();
+        }
+    });
+
+    overlayImage.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const delta = e.deltaY > 0 ? -0.1 : 0.1;
+        currentScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, currentScale + delta));
+
+        overlayImage.style.transform = `scale(${currentScale})`;
+        overlayImage.style.cursor = currentScale > 1 ? 'grab' : 'default';
+    }, { passive: false });
+
+    let isDragging = false;
+    let startX, startY, translateX = 0, translateY = 0;
+
+    overlayImage.addEventListener('mousedown', function(e) {
+        if (currentScale <= 1) return;
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+        overlayImage.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        overlayImage.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+    });
+
+    document.addEventListener('mouseup', function() {
+        if (isDragging) {
+            isDragging = false;
+            overlayImage.style.cursor = currentScale > 1 ? 'grab' : 'default';
+        }
+    });
+
+    // ===== КАСТОМНЫЙ КУРСОР =====
+    (function() {
+        const cursor = document.getElementById('customCursor');
+        let mouseX = 0, mouseY = 0;
+
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+
+        const hoverElements = document.querySelectorAll('a, button, .back-btn');
+
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', function() {
+                cursor.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', function() {
+                cursor.classList.remove('hover');
+            });
+        });
+
+        document.addEventListener('mousedown', function() {
+            cursor.classList.add('click');
+        });
+
+        document.addEventListener('mouseup', function() {
+            cursor.classList.remove('click');
+        });
+
+        document.addEventListener('mouseleave', function() {
+            cursor.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', function() {
+            cursor.style.opacity = '1';
+        });
+    })();
+</script>
+
 </body>
 </html>
