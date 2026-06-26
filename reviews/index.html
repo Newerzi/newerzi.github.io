@@ -165,23 +165,6 @@
             transform: translateY(-4px);
         }
 
-        .review-placeholder {
-            border: 2px dashed #444;
-            opacity: 0.5;
-            transition: border-color 0.3s, opacity 0.3s;
-            cursor: pointer;
-        }
-
-        .review-placeholder:hover {
-            border-color: #888;
-            opacity: 0.8;
-        }
-
-        .review-placeholder .review-text {
-            color: #666;
-            font-style: italic;
-        }
-
         .review-header {
             font-family: 'Manrope', sans-serif;
             font-weight: 400;
@@ -200,7 +183,7 @@
             font-weight: 400;
             font-size: 18px;
             color: #cccccc;
-            line-height: 1.5;
+            line-height: 1.6;
             margin-top: 4px;
         }
 
@@ -262,10 +245,7 @@
         }
 
         @media (max-width: 992px) {
-            .reviews-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
+            .reviews-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
             .page-title { font-size: 42px; }
             .review-header { font-size: 18px; }
             .review-text { font-size: 16px; }
@@ -277,10 +257,7 @@
             .language { font-size: 18px; }
             .page-title { font-size: 30px; }
             .back-btn { font-size: 16px; padding: 6px 16px; }
-            .reviews-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
+            .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
             .review-card { padding: 20px 24px; }
             .review-header { font-size: 16px; }
             .review-text { font-size: 15px; }
@@ -330,64 +307,127 @@
 
     <div class="reviews-grid" id="reviewsGrid">
 
-        <!-- ПУСТЫШКА (всегда сверху) -->
-        <div class="review-card review-placeholder reveal reveal-delay-1" id="placeholder">
-            <div class="review-header">
-                <span class="review-author" id="placeholder-author">пользователь</span>
-                <span class="review-divider"> / </span>
-                <span class="review-platform" id="placeholder-platform">площадка</span>
-                <span class="review-divider"> // </span>
-                <span class="review-date" id="placeholder-date">дата</span>
+        <!-- 
+            ===== ДЛЯ ДОБАВЛЕНИЯ НОВЫХ ОТЗЫВОВ =====
+            Скопируйте этот блок и вставьте сверху (после комментария):
+            <div class="review-card reveal reveal-delay-2">
+                <div class="review-header">
+                    <span class="review-author">имя</span>
+                    <span class="review-divider"> / </span>
+                    <span class="review-platform">площадка</span>
+                    <span class="review-divider"> // </span>
+                    <span class="review-date">дата</span>
+                </div>
+                <div class="review-text">текст отзыва</div>
             </div>
-            <div class="review-text" id="placeholder-text">+ добавить отзыв</div>
+        -->
+
+        <!-- 1. АЙГЕРИМ — 23 июня 2026 -->
+        <div class="review-card reveal reveal-delay-2">
+            <div class="review-header">
+                <span class="review-author">айгерим</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">вконтакте</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date">23 июня 2026</span>
+            </div>
+            <div class="review-text">по срокам: всё быстро, иногда раньше установленного времени. также брал горящие задачи. лояльность: взял дополнительные задачи, которые ранее не обговаривали. качество: всё согласно техническому заданию и фирменному стилю проекта.</div>
         </div>
 
-        <!-- ОТЗЫВ 4 (самый старый) -->
-        <div class="review-card reveal reveal-delay-4" id="review4">
-            <div class="review-header">
-                <span class="review-author">нафаня</span>
-                <span class="review-divider"> / </span>
-                <span class="review-platform">lolzteam</span>
-                <span class="review-divider"> // </span>
-                <span class="review-date" id="review4-date">23 декабря 2025</span>
-            </div>
-            <div class="review-text" id="review4-text">хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика +реп. работа за отзыв</div>
-        </div>
-
-        <!-- ОТЗЫВ 3 -->
-        <div class="review-card reveal reveal-delay-3" id="review3">
-            <div class="review-header">
-                <span class="review-author">lacorner</span>
-                <span class="review-divider"> / </span>
-                <span class="review-platform">lolzteam</span>
-                <span class="review-divider"> // </span>
-                <span class="review-date" id="review3-date">01 марта 2026</span>
-            </div>
-            <div class="review-text" id="review3-text">работает быстро, качественно, принял все мои капризы насчет правок!</div>
-        </div>
-
-        <!-- ОТЗЫВ 2 -->
-        <div class="review-card reveal reveal-delay-2" id="review2">
-            <div class="review-header">
-                <span class="review-author">whiteness</span>
-                <span class="review-divider"> / </span>
-                <span class="review-platform">lolzteam</span>
-                <span class="review-divider"> // </span>
-                <span class="review-date" id="review2-date">01 марта 2026</span>
-            </div>
-            <div class="review-text" id="review2-text">срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто!</div>
-        </div>
-
-        <!-- ОТЗЫВ 1 (самый новый) -->
-        <div class="review-card reveal reveal-delay-1" id="review1">
+        <!-- 2. ATOMCHEATS — 20 апреля 2026 -->
+        <div class="review-card reveal reveal-delay-2">
             <div class="review-header">
                 <span class="review-author">atomcheats</span>
                 <span class="review-divider"> / </span>
                 <span class="review-platform">lolzteam</span>
                 <span class="review-divider"> // </span>
-                <span class="review-date" id="review1-date">20 апреля 2026</span>
+                <span class="review-date">20 апреля 2026</span>
             </div>
-            <div class="review-text" id="review1-text">хороший дизайнер, сделал все быстро!</div>
+            <div class="review-text">хороший дизайнер, сделал всё быстро!</div>
+        </div>
+
+        <!-- 3. WHITENESS — 01 марта 2026 -->
+        <div class="review-card reveal reveal-delay-3">
+            <div class="review-header">
+                <span class="review-author">whiteness</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">lolzteam</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date">01 марта 2026</span>
+            </div>
+            <div class="review-text">срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто! +rep</div>
+        </div>
+
+        <!-- 4. LACORNER — 18 января 2026 -->
+        <div class="review-card reveal reveal-delay-3">
+            <div class="review-header">
+                <span class="review-author">lacorner</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">lolzteam</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date">18 января 2026</span>
+            </div>
+            <div class="review-text">работает быстро, качественно, принял все мои капризы насчет правок)</div>
+        </div>
+
+        <!-- 5. НАФАНЯ — 23 декабря 2025 -->
+        <div class="review-card reveal reveal-delay-3">
+            <div class="review-header">
+                <span class="review-author">нафаня</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">telegram</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date">23 декабря 2025</span>
+            </div>
+            <div class="review-text">хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика. +реп @specfc ☺️</div>
+        </div>
+
+        <!-- 6. MERCUIT — 29 марта 2025 -->
+        <div class="review-card reveal reveal-delay-4">
+            <div class="review-header">
+                <span class="review-author">mercuit</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">lolzteam</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date">29 марта 2025</span>
+            </div>
+            <div class="review-text">всё отлично, всем советую. чел сделал ахуенную работу. всё понравилось!</div>
+        </div>
+
+        <!-- 7. CROFFER — 25 марта 2025 -->
+        <div class="review-card reveal reveal-delay-4">
+            <div class="review-header">
+                <span class="review-author">croffer</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">lolzteam</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date">25 марта 2025</span>
+            </div>
+            <div class="review-text">сделал свою работу хорошо, определенно будем работать ещё!</div>
+        </div>
+
+        <!-- 8. ЭКСФАДОР — 18 марта 2025 -->
+        <div class="review-card reveal reveal-delay-4">
+            <div class="review-header">
+                <span class="review-author">эксфадор</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">lolzteam</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date">18 марта 2025</span>
+            </div>
+            <div class="review-text">+rep</div>
+        </div>
+
+        <!-- 9. HORNYKILLER — 11 марта 2025 -->
+        <div class="review-card reveal reveal-delay-4">
+            <div class="review-header">
+                <span class="review-author">hornykiller</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">lolzteam</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date">11 марта 2025</span>
+            </div>
+            <div class="review-text">сделал быстро, круто, топ, советую, рекомендую.</div>
         </div>
 
     </div>
@@ -406,37 +446,13 @@
             back: '← НАЗАД',
             flag: '../images/russia.png',
             titleBold: 'ОТЗЫВЫ',
-            titlePercent: '%',
-            review1: 'хороший дизайнер, сделал все быстро!',
-            review2: 'срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто!',
-            review3: 'работает быстро, качественно, принял все мои капризы насчет правок!',
-            review4: 'хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика +реп. работа за отзыв',
-            date1: '20 апреля 2026',
-            date2: '01 марта 2026',
-            date3: '01 марта 2026',
-            date4: '23 декабря 2025',
-            placeholderAuthor: 'пользователь',
-            placeholderPlatform: 'площадка',
-            placeholderDate: 'дата',
-            placeholderText: '+ добавить отзыв'
+            titlePercent: '%'
         },
         en: {
             back: '← BACK',
             flag: '../images/usa.png',
             titleBold: 'REVIEWS',
-            titlePercent: '%',
-            review1: 'good designer, did everything quickly!',
-            review2: 'we\'ve worked together twice, he designed two of my projects! did everything clearly and cool!',
-            review3: 'works fast, efficiently, accepted all my whims about edits!',
-            review4: 'good designer, understood the brief, made the first version and accepted minor edits, made the banner with style. recommend the guy +rep. work for review',
-            date1: 'April 20, 2026',
-            date2: 'March 01, 2026',
-            date3: 'March 01, 2026',
-            date4: 'December 23, 2025',
-            placeholderAuthor: 'user',
-            placeholderPlatform: 'platform',
-            placeholderDate: 'date',
-            placeholderText: '+ add review'
+            titlePercent: '%'
         }
     };
 
@@ -448,21 +464,6 @@
 
         document.getElementById('title-bold').textContent = t.titleBold;
         document.getElementById('title-percent').textContent = t.titlePercent;
-
-        document.getElementById('review1-text').textContent = t.review1;
-        document.getElementById('review2-text').textContent = t.review2;
-        document.getElementById('review3-text').textContent = t.review3;
-        document.getElementById('review4-text').textContent = t.review4;
-
-        document.getElementById('review1-date').textContent = t.date1;
-        document.getElementById('review2-date').textContent = t.date2;
-        document.getElementById('review3-date').textContent = t.date3;
-        document.getElementById('review4-date').textContent = t.date4;
-
-        document.getElementById('placeholder-author').textContent = t.placeholderAuthor;
-        document.getElementById('placeholder-platform').textContent = t.placeholderPlatform;
-        document.getElementById('placeholder-date').textContent = t.placeholderDate;
-        document.getElementById('placeholder-text').textContent = t.placeholderText;
 
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
@@ -504,36 +505,6 @@
         revealObserver.observe(el);
     });
 
-    // ===== ДОБАВЛЕНИЕ НОВОГО ОТЗЫВА =====
-    document.getElementById('placeholder').addEventListener('click', function() {
-        const newReview = {
-            author: 'новый пользователь',
-            platform: 'telegram',
-            date: new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }),
-            text: 'отличная работа, спасибо!'
-        };
-
-        const card = document.createElement('div');
-        card.className = 'review-card reveal';
-        card.innerHTML = `
-            <div class="review-header">
-                <span class="review-author">${newReview.author}</span>
-                <span class="review-divider"> / </span>
-                <span class="review-platform">${newReview.platform}</span>
-                <span class="review-divider"> // </span>
-                <span class="review-date">${newReview.date}</span>
-            </div>
-            <div class="review-text">${newReview.text}</div>
-        `;
-
-        const grid = document.getElementById('reviewsGrid');
-        const placeholder = document.getElementById('placeholder');
-        grid.insertBefore(card, placeholder.nextSibling);
-
-        setTimeout(() => card.classList.add('visible'), 50);
-        revealObserver.observe(card);
-    });
-
     // ===== КУРСОР =====
     (function() {
         const cursor = document.getElementById('customCursor');
@@ -546,7 +517,7 @@
             cursor.style.top = mouseY + 'px';
         });
 
-        const hoverElements = document.querySelectorAll('a, button, .back-btn, .review-placeholder');
+        const hoverElements = document.querySelectorAll('a, button, .back-btn');
 
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', function() {
