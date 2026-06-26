@@ -43,7 +43,6 @@
             margin: 0 auto;
         }
 
-        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
@@ -92,7 +91,6 @@
             user-select: none;
         }
 
-        /* ===== ЯЗЫК ===== */
         .language {
             display: flex;
             align-items: center;
@@ -122,7 +120,6 @@
             margin-left: 6px;
         }
 
-        /* ===== КНОПКА НАЗАД ===== */
         .back-btn {
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
@@ -140,7 +137,6 @@
         }
         .back-btn:hover { background: #333333; }
 
-        /* ===== ЗАГОЛОВОК ===== */
         .page-title {
             font-family: 'Neutral Face', sans-serif;
             font-size: 60px;
@@ -150,7 +146,6 @@
         .page-title .bold { font-weight: 700; }
         .page-title .regular { font-weight: 400; }
 
-        /* ===== ОТЗЫВЫ ===== */
         .reviews-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -170,6 +165,23 @@
             transform: translateY(-4px);
         }
 
+        .review-placeholder {
+            border: 2px dashed #444;
+            opacity: 0.5;
+            transition: border-color 0.3s, opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .review-placeholder:hover {
+            border-color: #888;
+            opacity: 0.8;
+        }
+
+        .review-placeholder .review-text {
+            color: #666;
+            font-style: italic;
+        }
+
         .review-header {
             font-family: 'Manrope', sans-serif;
             font-weight: 400;
@@ -178,24 +190,10 @@
             margin-bottom: 8px;
         }
 
-        .review-author {
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        .review-divider {
-            color: #666;
-        }
-
-        .review-platform {
-            color: #aaaaaa;
-            font-weight: 400;
-        }
-
-        .review-date {
-            color: #666;
-            font-weight: 400;
-        }
+        .review-author { font-weight: 600; color: #ffffff; }
+        .review-divider { color: #666; }
+        .review-platform { color: #aaaaaa; font-weight: 400; }
+        .review-date { color: #666; font-weight: 400; }
 
         .review-text {
             font-family: 'Manrope', sans-serif;
@@ -206,32 +204,6 @@
             margin-top: 4px;
         }
 
-        /* ===== ПУСТЫШКА ДЛЯ НОВЫХ КОММЕНТАРИЕВ ===== */
-        .review-placeholder {
-            background: #1a1a1a;
-            padding: 30px 32px;
-            border: 2px dashed #444;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 180px;
-            cursor: default;
-            transition: border-color 0.3s;
-        }
-
-        .review-placeholder:hover {
-            border-color: #888;
-        }
-
-        .review-placeholder span {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 400;
-            font-size: 20px;
-            color: #666;
-            letter-spacing: 0.02em;
-        }
-
-        /* ===== АНИМАЦИЯ ===== */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -289,7 +261,6 @@
             }
         }
 
-        /* ===== АДАПТИВ ===== */
         @media (max-width: 992px) {
             .reviews-grid {
                 grid-template-columns: 1fr 1fr;
@@ -313,13 +284,10 @@
             .review-card { padding: 20px 24px; }
             .review-header { font-size: 16px; }
             .review-text { font-size: 15px; }
-            .review-placeholder { padding: 20px 24px; min-height: 120px; }
-            .review-placeholder span { font-size: 16px; }
         }
 
         @media (max-width: 480px) {
             body { padding: 10px; }
-            .container { padding: 0; }
             .header { flex-wrap: wrap; gap: 4px; margin-bottom: 20px; }
             .header-center { order: 3; flex-basis: 100%; padding: 3px 0 0; }
             .logo, .header-right { font-size: 14px; }
@@ -331,8 +299,6 @@
             .review-card { padding: 16px 18px; }
             .review-header { font-size: 14px; }
             .review-text { font-size: 14px; }
-            .review-placeholder { padding: 16px 18px; min-height: 80px; }
-            .review-placeholder span { font-size: 14px; }
         }
     </style>
 </head>
@@ -340,17 +306,14 @@
 
 <div class="container">
 
-    <!-- ===== КАСТОМНЫЙ КУРСОР ===== -->
     <div class="custom-cursor" id="customCursor"></div>
 
-    <!-- ШАПКА -->
     <header class="header">
         <div class="logo">NEWERZI</div>
         <div class="header-center">* * *</div>
         <div class="header-right">DESIGN</div>
     </header>
 
-    <!-- ЯЗЫК -->
     <div class="language">
         <a href="#" class="rus" id="lang-ru">рус</a>
         <span class="divider">/</span>
@@ -358,56 +321,29 @@
         <img src="../images/russia.png" alt="flag" id="flag-icon">
     </div>
 
-    <!-- НАЗАД -->
     <a href="../" class="back-btn" id="back-btn">← НАЗАД</a>
 
-    <!-- ЗАГОЛОВОК -->
     <div class="page-title" id="page-title">
         <span class="bold" id="title-bold">ОТЗЫВЫ</span>
         <span class="regular" id="title-percent">%</span>
     </div>
 
-    <!-- ОТЗЫВЫ -->
-    <div class="reviews-grid">
+    <div class="reviews-grid" id="reviewsGrid">
 
-        <!-- ОТЗЫВ 1 -->
-        <div class="review-card reveal reveal-delay-1">
+        <!-- ПУСТЫШКА (всегда сверху) -->
+        <div class="review-card review-placeholder reveal reveal-delay-1" id="placeholder">
             <div class="review-header">
-                <span class="review-author">atomcheats</span>
+                <span class="review-author" id="placeholder-author">пользователь</span>
                 <span class="review-divider"> / </span>
-                <span class="review-platform">lolzteam</span>
+                <span class="review-platform" id="placeholder-platform">площадка</span>
                 <span class="review-divider"> // </span>
-                <span class="review-date" id="review1-date">20 апреля 2026</span>
+                <span class="review-date" id="placeholder-date">дата</span>
             </div>
-            <div class="review-text" id="review1-text">хороший дизайнер, сделал все быстро!</div>
+            <div class="review-text" id="placeholder-text">+ добавить отзыв</div>
         </div>
 
-        <!-- ОТЗЫВ 2 -->
-        <div class="review-card reveal reveal-delay-2">
-            <div class="review-header">
-                <span class="review-author">whiteness</span>
-                <span class="review-divider"> / </span>
-                <span class="review-platform">lolzteam</span>
-                <span class="review-divider"> // </span>
-                <span class="review-date" id="review2-date">01 марта 2026</span>
-            </div>
-            <div class="review-text" id="review2-text">срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто!</div>
-        </div>
-
-        <!-- ОТЗЫВ 3 -->
-        <div class="review-card reveal reveal-delay-3">
-            <div class="review-header">
-                <span class="review-author">lacorner</span>
-                <span class="review-divider"> / </span>
-                <span class="review-platform">lolzteam</span>
-                <span class="review-divider"> // </span>
-                <span class="review-date" id="review3-date">01 марта 2026</span>
-            </div>
-            <div class="review-text" id="review3-text">работает быстро, качественно, принял все мои капризы насчет правок!</div>
-        </div>
-
-        <!-- ОТЗЫВ 4 -->
-        <div class="review-card reveal reveal-delay-4">
+        <!-- ОТЗЫВ 4 (самый старый) -->
+        <div class="review-card reveal reveal-delay-4" id="review4">
             <div class="review-header">
                 <span class="review-author">нафаня</span>
                 <span class="review-divider"> / </span>
@@ -418,16 +354,40 @@
             <div class="review-text" id="review4-text">хороший дизайнер, понял тз, сделал первый вариант и принял небольшие правки, с кайфом сделал баннер. рекомендую челика +реп. работа за отзыв</div>
         </div>
 
-        <!-- ПУСТЫШКА ДЛЯ НОВЫХ КОММЕНТАРИЕВ -->
-        <div class="review-card reveal reveal-delay-4">
+        <!-- ОТЗЫВ 3 -->
+        <div class="review-card reveal reveal-delay-3" id="review3">
             <div class="review-header">
-                <span class="review-author" id="placeholder-author">пользователь</span>
+                <span class="review-author">lacorner</span>
                 <span class="review-divider"> / </span>
-                <span class="review-platform" id="placeholder-platform">площадка</span>
+                <span class="review-platform">lolzteam</span>
                 <span class="review-divider"> // </span>
-                <span class="review-date" id="placeholder-date">дата</span>
+                <span class="review-date" id="review3-date">01 марта 2026</span>
             </div>
-            <div class="review-text" id="placeholder-text">работа супер</div>
+            <div class="review-text" id="review3-text">работает быстро, качественно, принял все мои капризы насчет правок!</div>
+        </div>
+
+        <!-- ОТЗЫВ 2 -->
+        <div class="review-card reveal reveal-delay-2" id="review2">
+            <div class="review-header">
+                <span class="review-author">whiteness</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">lolzteam</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date" id="review2-date">01 марта 2026</span>
+            </div>
+            <div class="review-text" id="review2-text">срабатываемся уже два раза, оформил два моих проекта! сделал все четко и круто!</div>
+        </div>
+
+        <!-- ОТЗЫВ 1 (самый новый) -->
+        <div class="review-card reveal reveal-delay-1" id="review1">
+            <div class="review-header">
+                <span class="review-author">atomcheats</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">lolzteam</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date" id="review1-date">20 апреля 2026</span>
+            </div>
+            <div class="review-text" id="review1-text">хороший дизайнер, сделал все быстро!</div>
         </div>
 
     </div>
@@ -455,11 +415,10 @@
             date2: '01 марта 2026',
             date3: '01 марта 2026',
             date4: '23 декабря 2025',
-            placeholder: '+ новый отзыв',
             placeholderAuthor: 'пользователь',
             placeholderPlatform: 'площадка',
             placeholderDate: 'дата',
-            placeholderText: 'работа супер'
+            placeholderText: '+ добавить отзыв'
         },
         en: {
             back: '← BACK',
@@ -474,11 +433,10 @@
             date2: 'March 01, 2026',
             date3: 'March 01, 2026',
             date4: 'December 23, 2025',
-            placeholder: '+ new review',
             placeholderAuthor: 'user',
             placeholderPlatform: 'platform',
             placeholderDate: 'date',
-            placeholderText: 'great work'
+            placeholderText: '+ add review'
         }
     };
 
@@ -500,8 +458,6 @@
         document.getElementById('review2-date').textContent = t.date2;
         document.getElementById('review3-date').textContent = t.date3;
         document.getElementById('review4-date').textContent = t.date4;
-
-        document.getElementById('placeholder-text').textContent = t.placeholder;
 
         document.getElementById('placeholder-author').textContent = t.placeholderAuthor;
         document.getElementById('placeholder-platform').textContent = t.placeholderPlatform;
@@ -530,7 +486,7 @@
 
     updateLanguage('ru');
 
-    // ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
+    // ===== АНИМАЦИЯ =====
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -548,7 +504,37 @@
         revealObserver.observe(el);
     });
 
-    // ===== КАСТОМНЫЙ КУРСОР =====
+    // ===== ДОБАВЛЕНИЕ НОВОГО ОТЗЫВА =====
+    document.getElementById('placeholder').addEventListener('click', function() {
+        const newReview = {
+            author: 'новый пользователь',
+            platform: 'telegram',
+            date: new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }),
+            text: 'отличная работа, спасибо!'
+        };
+
+        const card = document.createElement('div');
+        card.className = 'review-card reveal';
+        card.innerHTML = `
+            <div class="review-header">
+                <span class="review-author">${newReview.author}</span>
+                <span class="review-divider"> / </span>
+                <span class="review-platform">${newReview.platform}</span>
+                <span class="review-divider"> // </span>
+                <span class="review-date">${newReview.date}</span>
+            </div>
+            <div class="review-text">${newReview.text}</div>
+        `;
+
+        const grid = document.getElementById('reviewsGrid');
+        const placeholder = document.getElementById('placeholder');
+        grid.insertBefore(card, placeholder.nextSibling);
+
+        setTimeout(() => card.classList.add('visible'), 50);
+        revealObserver.observe(card);
+    });
+
+    // ===== КУРСОР =====
     (function() {
         const cursor = document.getElementById('customCursor');
         let mouseX = 0, mouseY = 0;
@@ -560,7 +546,7 @@
             cursor.style.top = mouseY + 'px';
         });
 
-        const hoverElements = document.querySelectorAll('a, button, .back-btn');
+        const hoverElements = document.querySelectorAll('a, button, .back-btn, .review-placeholder');
 
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', function() {
