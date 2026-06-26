@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Все работы — NEWERZI</title>
+    <title>projects / newerzi</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         @font-face {
@@ -43,7 +43,6 @@
             margin: 0 auto;
         }
 
-        /* ===== ШАПКА КАК НА ГЛАВНОЙ ===== */
         .header {
             display: flex;
             align-items: center;
@@ -92,7 +91,6 @@
             user-select: none;
         }
 
-        /* ===== ЯЗЫК ===== */
         .language {
             display: flex;
             align-items: center;
@@ -122,7 +120,6 @@
             margin-left: 6px;
         }
 
-        /* ===== КНОПКА НАЗАД ===== */
         .back-btn {
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
@@ -140,7 +137,6 @@
         }
         .back-btn:hover { background: #333333; }
 
-        /* ===== ПОРТФОЛИО ===== */
         .portfolio {
             margin-bottom: 100px;
         }
@@ -260,7 +256,6 @@
 
         .project-next:hover { opacity: 0.6; }
 
-        /* ===== АНИМАЦИЯ ===== */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -275,7 +270,6 @@
 
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
 
         /* ===== КАСТОМНЫЙ КУРСОР ===== */
         * {
@@ -398,43 +392,13 @@
 
         <!-- 
             ===== ДЛЯ ДОБАВЛЕНИЯ НОВОГО ПРОЕКТА =====
-            Скопируйте этот блок и вставьте его СВЕРХУ (после комментария):
-            <div class="project-wrapper reveal reveal-delay-1">
-                <div class="project-left">
-                    <div class="project-header" id="projectX-header">ПРОЕКТ [XX]</div>
-                    <div class="project-image">
-                        <img src="../images/projectX.jpg" alt="project work" id="projectX-img">
-                    </div>
-                </div>
-                <div class="project-right">
-                    <div class="project-name" id="projectX-name">Название работы</div>
-                    <div class="project-description" id="projectX-desc">Описание работы.</div>
-                    <a href="../workX/" class="project-next" id="projectX-next">ДАЛЕЕ →</a>
-                </div>
-            </div>
+            Новые проекты добавляются СВЕРХУ (после этого комментария).
+            Скопируйте блок project-wrapper и вставьте его в начало списка.
             Не забудьте добавить перевод в translations (ru и en) для всех новых полей!
-            Порядок: новые проекты добавляются СВЕРХУ, старые спускаются вниз.
         -->
 
-        <!-- ПРОЕКТ 01 (самый новый — сверху) -->
+        <!-- ПРОЕКТ 02 (более новый) -->
         <div class="project-wrapper reveal reveal-delay-1">
-            <div class="project-left">
-                <div class="project-header" id="project1-header">ПРОЕКТ [01]</div>
-                <div class="project-image">
-                    <img src="../images/project1.jpg" alt="project work" id="project1-img">
-                </div>
-            </div>
-            <div class="project-right">
-                <div class="project-name" id="project1-name">WEXON NETWORK</div>
-                <div class="project-description" id="project1-desc">
-                    Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
-                </div>
-                <a href="../work1/" class="project-next" id="project1-next">ДАЛЕЕ →</a>
-            </div>
-        </div>
-
-        <!-- ПРОЕКТ 02 -->
-        <div class="project-wrapper reveal reveal-delay-2">
             <div class="project-left">
                 <div class="project-header" id="project2-header">ПРОЕКТ [02]</div>
                 <div class="project-image">
@@ -450,20 +414,20 @@
             </div>
         </div>
 
-        <!-- ПРОЕКТ 03 (самый старый — внизу) -->
-        <div class="project-wrapper reveal reveal-delay-3">
+        <!-- ПРОЕКТ 01 (самый старый — внизу) -->
+        <div class="project-wrapper reveal reveal-delay-2">
             <div class="project-left">
-                <div class="project-header" id="project3-header">ПРОЕКТ [03]</div>
+                <div class="project-header" id="project1-header">ПРОЕКТ [01]</div>
                 <div class="project-image">
-                    <img src="../images/project3.jpg" alt="project work" id="project3-img">
+                    <img src="../images/project1.jpg" alt="project work" id="project1-img">
                 </div>
             </div>
             <div class="project-right">
-                <div class="project-name" id="project3-name">Новая работа</div>
-                <div class="project-description" id="project3-desc">
-                    Описание новой работы появится здесь.
+                <div class="project-name" id="project1-name">WEXON NETWORK</div>
+                <div class="project-description" id="project1-desc">
+                    Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.
                 </div>
-                <a href="#" class="project-next" id="project3-next">ДАЛЕЕ →</a>
+                <a href="../work1/" class="project-next" id="project1-next">ДАЛЕЕ →</a>
             </div>
         </div>
 
@@ -484,13 +448,10 @@
             flag: '../images/russia.png',
             project1Header: 'ПРОЕКТ [01]',
             project2Header: 'ПРОЕКТ [02]',
-            project3Header: 'ПРОЕКТ [03]',
             project1Name: 'WEXON NETWORK',
             project2Name: 'WEXON NETWORK',
-            project3Name: 'Новая работа',
             project1Desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
             project2Desc: 'Бизнес-мессенджер, где разговор незаметно управляет рабочим процессом, а помощь появляется лишь в нужный момент, словно её уже ожидали.',
-            project3Desc: 'Описание новой работы появится здесь.',
             next: 'ДАЛЕЕ →'
         },
         en: {
@@ -498,13 +459,10 @@
             flag: '../images/usa.png',
             project1Header: 'PROJECT [01]',
             project2Header: 'PROJECT [02]',
-            project3Header: 'PROJECT [03]',
             project1Name: 'WEXON NETWORK',
             project2Name: 'WEXON NETWORK',
-            project3Name: 'New Work',
             project1Desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
             project2Desc: 'Business messenger where conversation seamlessly manages workflow, and help appears only when needed, as if it was already expected.',
-            project3Desc: 'Description of the new work will appear here.',
             next: 'NEXT →'
         }
     };
@@ -517,16 +475,12 @@
 
         document.getElementById('project1-header').textContent = t.project1Header;
         document.getElementById('project2-header').textContent = t.project2Header;
-        document.getElementById('project3-header').textContent = t.project3Header;
         document.getElementById('project1-name').textContent = t.project1Name;
         document.getElementById('project2-name').textContent = t.project2Name;
-        document.getElementById('project3-name').textContent = t.project3Name;
         document.getElementById('project1-desc').textContent = t.project1Desc;
         document.getElementById('project2-desc').textContent = t.project2Desc;
-        document.getElementById('project3-desc').textContent = t.project3Desc;
         document.getElementById('project1-next').textContent = t.next;
         document.getElementById('project2-next').textContent = t.next;
-        document.getElementById('project3-next').textContent = t.next;
 
         document.querySelectorAll('.language a').forEach(el => {
             el.style.fontWeight = '500';
