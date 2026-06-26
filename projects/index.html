@@ -396,7 +396,27 @@
     <!-- ПОРТФОЛИО -->
     <section class="portfolio">
 
-        <!-- ПРОЕКТ 01 -->
+        <!-- 
+            ===== ДЛЯ ДОБАВЛЕНИЯ НОВОГО ПРОЕКТА =====
+            Скопируйте этот блок и вставьте его СВЕРХУ (после комментария):
+            <div class="project-wrapper reveal reveal-delay-1">
+                <div class="project-left">
+                    <div class="project-header" id="projectX-header">ПРОЕКТ [XX]</div>
+                    <div class="project-image">
+                        <img src="../images/projectX.jpg" alt="project work" id="projectX-img">
+                    </div>
+                </div>
+                <div class="project-right">
+                    <div class="project-name" id="projectX-name">Название работы</div>
+                    <div class="project-description" id="projectX-desc">Описание работы.</div>
+                    <a href="../workX/" class="project-next" id="projectX-next">ДАЛЕЕ →</a>
+                </div>
+            </div>
+            Не забудьте добавить перевод в translations (ru и en) для всех новых полей!
+            Порядок: новые проекты добавляются СВЕРХУ, старые спускаются вниз.
+        -->
+
+        <!-- ПРОЕКТ 01 (самый новый — сверху) -->
         <div class="project-wrapper reveal reveal-delay-1">
             <div class="project-left">
                 <div class="project-header" id="project1-header">ПРОЕКТ [01]</div>
@@ -430,7 +450,7 @@
             </div>
         </div>
 
-        <!-- ПРОЕКТ 03 (новый) -->
+        <!-- ПРОЕКТ 03 (самый старый — внизу) -->
         <div class="project-wrapper reveal reveal-delay-3">
             <div class="project-left">
                 <div class="project-header" id="project3-header">ПРОЕКТ [03]</div>
