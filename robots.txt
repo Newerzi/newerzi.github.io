@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nwrz-visual-archive.artem-popov27.chatgpt.site/sitemap.xml
