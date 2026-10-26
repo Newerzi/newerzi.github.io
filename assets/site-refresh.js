@@ -5,21 +5,25 @@
   if (headerGlass && !headerGlass.querySelector('.header-glass-layer')) {
     const steps = 16;
     const strength = 13;
+    const minimumStrength = 0.5;
     const stepSize = 100 / steps;
+    const strengthFalloff = (minimumStrength / strength) ** (1 / (steps - 1));
 
     for (let index = 0; index < steps; index += 1) {
       const layer = document.createElement('span');
-      const bandStart = index * stepSize;
-      const bandEnd = (index + 1) * stepSize;
-      const fadeStart = Math.max(0, bandStart - stepSize);
-      const fadeEnd = Math.min(100, bandEnd + stepSize);
+      let mask;
+
+      if (index === 0) {
+        mask = `linear-gradient(to bottom, #000 0%, transparent ${stepSize}%)`;
+      } else if (index === 1) {
+        mask = `linear-gradient(to bottom, #000 0%, #000 ${stepSize}%, transparent ${stepSize * 2}%)`;
+      } else {
+        mask = `linear-gradient(to bottom, transparent ${(index - 2) * stepSize}%, #000 ${(index - 1) * stepSize}%, #000 ${index * stepSize}%, transparent ${(index + 1) * stepSize}%)`;
+      }
 
       layer.className = 'header-glass-layer';
-      layer.style.setProperty('--glass-blur', `${strength / (2 ** index)}px`);
-      layer.style.setProperty('--glass-mask-a', `${fadeStart}%`);
-      layer.style.setProperty('--glass-mask-b', `${bandStart}%`);
-      layer.style.setProperty('--glass-mask-c', `${bandEnd}%`);
-      layer.style.setProperty('--glass-mask-d', `${fadeEnd}%`);
+      layer.style.setProperty('--glass-blur', `${strength * (strengthFalloff ** index)}px`);
+      layer.style.setProperty('--glass-mask', mask);
       headerGlass.append(layer);
     }
   }

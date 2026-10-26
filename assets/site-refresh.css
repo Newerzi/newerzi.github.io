@@ -42,20 +42,8 @@ body {
   background: transparent;
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
-  mask-image: linear-gradient(
-    to bottom,
-    transparent var(--glass-mask-a),
-    #000 var(--glass-mask-b),
-    #000 var(--glass-mask-c),
-    transparent var(--glass-mask-d)
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent var(--glass-mask-a),
-    #000 var(--glass-mask-b),
-    #000 var(--glass-mask-c),
-    transparent var(--glass-mask-d)
-  );
+  mask-image: var(--glass-mask);
+  -webkit-mask-image: var(--glass-mask);
 }
 
 .header-glass {
