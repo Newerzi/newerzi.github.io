@@ -1,6 +1,29 @@
 (() => {
   'use strict';
 
+  const headerGlass = document.getElementById('header-glass');
+  if (headerGlass && !headerGlass.querySelector('.header-glass-layer')) {
+    const steps = 16;
+    const strength = 13;
+    const stepSize = 100 / steps;
+
+    for (let index = 0; index < steps; index += 1) {
+      const layer = document.createElement('span');
+      const bandStart = index * stepSize;
+      const bandEnd = (index + 1) * stepSize;
+      const fadeStart = Math.max(0, bandStart - stepSize);
+      const fadeEnd = Math.min(100, bandEnd + stepSize);
+
+      layer.className = 'header-glass-layer';
+      layer.style.setProperty('--glass-blur', `${strength / (2 ** index)}px`);
+      layer.style.setProperty('--glass-mask-a', `${fadeStart}%`);
+      layer.style.setProperty('--glass-mask-b', `${bandStart}%`);
+      layer.style.setProperty('--glass-mask-c', `${bandEnd}%`);
+      layer.style.setProperty('--glass-mask-d', `${fadeEnd}%`);
+      headerGlass.append(layer);
+    }
+  }
+
   const statusNote = document.createElement('div');
   statusNote.className = 'site-status-note';
   statusNote.setAttribute('role', 'status');
