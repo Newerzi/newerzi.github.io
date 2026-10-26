@@ -28,19 +28,14 @@ body {
   inset: 0 0 auto;
   z-index: 69;
   width: 100%;
-  height: calc(var(--header) + 68px);
+  height: calc(var(--header) + 42px);
   border-radius: 0;
   pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgb(255 255 255 / 0.05) 0%,
-    rgb(255 255 255 / 0.032) 46%,
-    rgb(255 255 255 / 0) 100%
-  );
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 42%, rgb(0 0 0 / 0.82) 62%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 42%, rgb(0 0 0 / 0.82) 62%, transparent 100%);
+  background: rgb(255 255 255 / 0.025);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  mask-image: linear-gradient(to bottom, #000 0 58%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0 58%, transparent 100%);
 }
 
 .header-glass {
@@ -95,8 +90,8 @@ html:has(body.menu-visible)::-webkit-scrollbar-thumb {
 
 .motion-ready .blur-reveal.blur-pending {
   opacity: 0;
-  filter: blur(7px);
-  transform: translateY(8px);
+  filter: blur(4px);
+  transform: translateY(6px);
 }
 
 .motion-ready .blur-reveal.blur-visible {
@@ -235,6 +230,13 @@ html:has(body.menu-visible)::-webkit-scrollbar-thumb {
   padding: 0 var(--pad) 8vw;
 }
 
+.pricing-disclaimer {
+  max-width: 960px;
+  padding: 0 0 clamp(32px, 4vw, 60px) 64px;
+  color: #858585;
+  font: 14px/1.55 Manrope, Arial, sans-serif;
+}
+
 .pricing-card {
   display: grid;
   grid-template-columns: 64px minmax(240px, .85fr) minmax(260px, 1.1fr) minmax(185px, .55fr);
@@ -279,9 +281,41 @@ html:has(body.menu-visible)::-webkit-scrollbar-thumb {
   font-size: 13px;
 }
 
+.pricing-options {
+  display: grid;
+  gap: 0;
+  margin: 25px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #292929;
+}
+
+.pricing-options li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid #292929;
+  color: #a5a5a5;
+  font: 14px/1.35 Manrope, Arial, sans-serif;
+}
+
+.pricing-options strong {
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 .pricing-meta {
   display: grid;
   gap: 20px;
+}
+
+.pricing-meta dl {
+  display: grid;
+  gap: 20px;
+  margin: 0;
 }
 
 .pricing-meta dt {
@@ -314,6 +348,37 @@ html:has(body.menu-visible)::-webkit-scrollbar-thumb {
   margin-top: 10px;
   color: #929292;
   font: 16px/1.45 Manrope, Arial, sans-serif;
+}
+
+.site-status-note {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 145;
+  max-width: min(260px, calc(100vw - 24px));
+  padding: 7px 9px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 5px;
+  background: rgb(8 8 8 / 0.82);
+  color: rgb(255 255 255 / 0.72);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font: 11px/1.35 Manrope, Arial, sans-serif;
+  letter-spacing: -.01em;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity .22s ease, transform .22s ease;
+  pointer-events: none;
+}
+
+.site-status-note.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.menu-visible .site-status-note {
+  opacity: 0;
 }
 
 @media (max-width: 900px) {
@@ -372,6 +437,11 @@ html:has(body.menu-visible)::-webkit-scrollbar-thumb {
     padding: 0 7% 65px;
   }
 
+  .pricing-disclaimer {
+    padding: 0 0 32px;
+    font-size: 13px;
+  }
+
   .pricing-card {
     grid-template-columns: 34px minmax(0, 1fr);
     gap: 15px;
@@ -388,6 +458,15 @@ html:has(body.menu-visible)::-webkit-scrollbar-thumb {
     padding-left: 49px;
   }
 
+  .pricing-options li {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .pricing-options strong {
+    white-space: normal;
+  }
+
   .pricing-cta {
     align-items: flex-start;
     flex-direction: column;
@@ -398,6 +477,10 @@ html:has(body.menu-visible)::-webkit-scrollbar-thumb {
 
 @media (prefers-reduced-motion: reduce) {
   .motion-ready .blur-reveal {
+    transition: none;
+  }
+
+  .site-status-note {
     transition: none;
   }
 }

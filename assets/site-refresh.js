@@ -1,12 +1,23 @@
 (() => {
   'use strict';
 
+  const statusNote = document.createElement('div');
+  statusNote.className = 'site-status-note';
+  statusNote.setAttribute('role', 'status');
+  statusNote.textContent = document.documentElement.lang === 'en'
+    ? 'The site is being refined — small changes may appear.'
+    : 'Сайт обновляется — возможны небольшие изменения.';
+  document.body.append(statusNote);
+  requestAnimationFrame(() => statusNote.classList.add('is-visible'));
+  setTimeout(() => statusNote.classList.remove('is-visible'), 4600);
+  setTimeout(() => statusNote.remove(), 5000);
+
   if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
 
   const selector = [
     'main h1', 'main h2', 'main h3', 'main .eyebrow', 'main .body-copy',
     'main .project-sector', 'main .project-tags', 'main .metric',
-    'main blockquote', 'main .pricing-copy', 'main .pricing-meta',
+    'main blockquote', 'main .pricing-copy', 'main .pricing-options', 'main .pricing-meta',
     'footer h2', 'footer .footer-nav', 'footer .footer-contact-actions',
     'footer .footer-bottom'
   ].join(',');
