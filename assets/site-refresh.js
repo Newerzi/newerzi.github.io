@@ -3,29 +3,25 @@
 
   const headerGlass = document.getElementById('header-glass');
   if (headerGlass && !headerGlass.querySelector('.header-glass-layer')) {
-    const steps = 16;
-    const strength = 13;
-    const minimumStrength = 0.5;
-    const stepSize = 100 / steps;
-    const strengthFalloff = (minimumStrength / strength) ** (1 / (steps - 1));
+    const layers = [
+      { blur: 0.5, mask: 'linear-gradient(to top, transparent 0%, #000 12.5%, #000 25%, transparent 37.5%)' },
+      { blur: 0.5625, mask: 'linear-gradient(to top, transparent 12.5%, #000 25%, #000 37.5%, transparent 50%)' },
+      { blur: 1.125, mask: 'linear-gradient(to top, transparent 25%, #000 37.5%, #000 50%, transparent 62.5%)' },
+      { blur: 2.25, mask: 'linear-gradient(to top, transparent 37.5%, #000 50%, #000 62.5%, transparent 75%)' },
+      { blur: 4.5, mask: 'linear-gradient(to top, transparent 50%, #000 62.5%, #000 75%, transparent 87.5%)' },
+      { blur: 9, mask: 'linear-gradient(to top, transparent 62.5%, #000 75%, #000 87.5%, transparent 100%)' },
+      { blur: 18, mask: 'linear-gradient(to top, transparent 75%, #000 87.5%, #000 100%)' },
+      { blur: 36, mask: 'linear-gradient(to top, transparent 87.5%, #000 100%)' }
+    ];
 
-    for (let index = 0; index < steps; index += 1) {
+    layers.forEach(({ blur, mask }, index) => {
       const layer = document.createElement('span');
-      let mask;
-
-      if (index === 0) {
-        mask = `linear-gradient(to bottom, #000 0%, transparent ${stepSize}%)`;
-      } else if (index === 1) {
-        mask = `linear-gradient(to bottom, #000 0%, #000 ${stepSize}%, transparent ${stepSize * 2}%)`;
-      } else {
-        mask = `linear-gradient(to bottom, transparent ${(index - 2) * stepSize}%, #000 ${(index - 1) * stepSize}%, #000 ${index * stepSize}%, transparent ${(index + 1) * stepSize}%)`;
-      }
-
       layer.className = 'header-glass-layer';
-      layer.style.setProperty('--glass-blur', `${strength * (strengthFalloff ** index)}px`);
+      layer.style.zIndex = index + 1;
+      layer.style.setProperty('--glass-blur', `${blur}px`);
       layer.style.setProperty('--glass-mask', mask);
       headerGlass.append(layer);
-    }
+    });
   }
 
   const statusNote = document.createElement('div');
