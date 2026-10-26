@@ -1,7 +1,38 @@
+html {
+  scrollbar-gutter: stable;
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+}
+
+.header {
+  isolation: isolate;
+}
+
 .header.scrolled {
-  background: rgb(255 255 255 / 0.035);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.header.scrolled::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 -28px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.045) 0%,
+    rgb(255 255 255 / 0.035) 58%,
+    rgb(255 255 255 / 0) 100%
+  );
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 58%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 58%, transparent 100%);
 }
 
 .header-glass,
@@ -9,10 +40,22 @@
   display: none;
 }
 
-.menu-visible .header.scrolled {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+.menu-visible .header {
+  inset: 0 0 auto;
+  transform: none;
+}
+
+.menu-visible .drawer {
+  box-shadow: 20px 0 0 #fff;
+}
+
+html:has(body.menu-visible) {
+  scrollbar-color: #fff #fff;
+}
+
+html:has(body.menu-visible)::-webkit-scrollbar-track,
+html:has(body.menu-visible)::-webkit-scrollbar-thumb {
+  background: #fff;
 }
 
 .menu-visible .cursor {
@@ -33,4 +76,318 @@
 
 .drawer-search {
   margin-top: 24px;
+}
+
+/* Text appears once as it enters the viewport. JS adds these classes. */
+.motion-ready .blur-reveal {
+  transition: opacity 520ms var(--ease), filter 520ms var(--ease), transform 520ms var(--ease);
+}
+
+.motion-ready .blur-reveal.blur-pending {
+  opacity: 0;
+  filter: blur(7px);
+  transform: translateY(8px);
+}
+
+.motion-ready .blur-reveal.blur-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* Project priority labels preserve the existing card markup. */
+.catalog-card[data-group-label]::before {
+  content: attr(data-group-label);
+  display: block;
+  margin: 0 0 18px;
+  color: #858585;
+  font-size: 14px;
+  letter-spacing: .01em;
+}
+
+.catalog-card[data-group-start="true"] {
+  padding-top: 3.4vw;
+}
+
+.catalog-card[data-group-start="true"]:not(:first-child) {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--line);
+}
+
+.catalog-card[data-group-start="true"]:not(:first-child) .catalog-visual .media,
+.catalog-card[data-group-start="true"]:not(:first-child) .catalog-visual .media-placeholder {
+  aspect-ratio: 2.08;
+}
+
+/* Footer: navigation first, contact statement second, legal data last. */
+.footer {
+  padding: 0;
+  background: #080808;
+}
+
+.footer-shell {
+  padding: 5.2vw var(--pad) 4vw;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px clamp(24px, 4vw, 72px);
+  padding-bottom: 3.2vw;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(17px, 1.55vw, 24px);
+  letter-spacing: -.04em;
+}
+
+.footer-nav a,
+.footer-social a,
+.footer-docs a {
+  transition: color .25s ease;
+}
+
+.footer-nav a:hover,
+.footer-social a:hover,
+.footer-docs a:hover {
+  color: #8faaff;
+}
+
+.footer-contact-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(240px, .6fr);
+  align-items: end;
+  gap: 5vw;
+  padding: 5vw 0 4.7vw;
+}
+
+.footer-contact-row h2 {
+  max-width: 850px;
+  font-size: clamp(45px, 6.2vw, 108px);
+  line-height: .9;
+}
+
+.footer-contact-actions {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+
+.footer-contact-actions .footer-contact {
+  min-width: min(100%, 330px);
+}
+
+.footer-bottom {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) minmax(0, 1.15fr);
+  gap: 6vw;
+  padding: 28px var(--pad) 32px;
+  border-top: 1px solid var(--line);
+  color: #8e8e8e;
+  font-size: 14px;
+}
+
+.footer-brandline {
+  color: #fff;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.footer-bottom-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.footer-bottom-title {
+  color: #656565;
+  margin-bottom: 11px;
+}
+
+.footer-social,
+.footer-docs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 9px 20px;
+}
+
+/* Pricing uses the same editorial spacing and rules as the project catalog. */
+.pricing-page {
+  background: #080808;
+  color: #fff;
+}
+
+.pricing-intro {
+  padding-bottom: clamp(55px, 7vw, 120px);
+}
+
+.pricing-list {
+  padding: 0 var(--pad) 8vw;
+}
+
+.pricing-card {
+  display: grid;
+  grid-template-columns: 64px minmax(240px, .85fr) minmax(260px, 1.1fr) minmax(185px, .55fr);
+  gap: clamp(20px, 3vw, 55px);
+  padding: clamp(32px, 4vw, 70px) 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+
+.pricing-card:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.pricing-number {
+  color: #666;
+  font-size: 14px;
+}
+
+.pricing-name {
+  font-size: clamp(31px, 3.2vw, 54px);
+  line-height: .98;
+}
+
+.pricing-copy {
+  font: clamp(16px, 1.45vw, 22px)/1.38 Manrope, Arial, sans-serif;
+  color: #b0b0b0;
+  letter-spacing: -.035em;
+}
+
+.pricing-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.pricing-features span {
+  padding: 8px 11px;
+  border: 1px solid #303030;
+  border-radius: 5px;
+  color: #d0d0d0;
+  font-size: 13px;
+}
+
+.pricing-meta {
+  display: grid;
+  gap: 20px;
+}
+
+.pricing-meta dt {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.pricing-meta dd {
+  margin: 0;
+  font-size: 17px;
+}
+
+.pricing-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-top: 4vw;
+  padding: clamp(30px, 4vw, 60px);
+  border-radius: 8px;
+  background: #101010;
+}
+
+.pricing-cta h2 {
+  font-size: clamp(30px, 3.5vw, 58px);
+}
+
+.pricing-cta p {
+  margin-top: 10px;
+  color: #929292;
+  font: 16px/1.45 Manrope, Arial, sans-serif;
+}
+
+@media (max-width: 900px) {
+  .pricing-card {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .pricing-description,
+  .pricing-meta {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .catalog-card[data-group-start="true"] {
+    padding-top: 42px;
+  }
+
+  .catalog-card[data-group-start="true"]:not(:first-child) .catalog-visual .media,
+  .catalog-card[data-group-start="true"]:not(:first-child) .catalog-visual .media-placeholder {
+    aspect-ratio: 1.38;
+  }
+
+  .footer-shell {
+    padding: 48px 7% 38px;
+  }
+
+  .footer-nav {
+    gap: 11px 22px;
+    padding-bottom: 32px;
+    font-size: 17px;
+  }
+
+  .footer-contact-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 0 12px;
+  }
+
+  .footer-contact-row h2 {
+    font-size: 48px;
+  }
+
+  .footer-bottom {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 25px 7% 30px;
+  }
+
+  .footer-bottom-right {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricing-list {
+    padding: 0 7% 65px;
+  }
+
+  .pricing-card {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 15px;
+    padding: 35px 0;
+  }
+
+  .pricing-name {
+    font-size: 32px;
+  }
+
+  .pricing-description,
+  .pricing-meta {
+    grid-column: 1 / -1;
+    padding-left: 49px;
+  }
+
+  .pricing-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .blur-reveal {
+    transition: none;
+  }
 }
