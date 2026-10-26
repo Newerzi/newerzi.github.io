@@ -18,26 +18,40 @@ body {
 }
 
 .header.scrolled::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0 0 -28px;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgb(255 255 255 / 0.045) 0%,
-    rgb(255 255 255 / 0.035) 58%,
-    rgb(255 255 255 / 0) 100%
-  );
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 58%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 58%, transparent 100%);
+  display: none;
 }
 
 .header-glass,
 .header-glass.active {
-  display: none;
+  display: block;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 69;
+  width: 100%;
+  height: calc(var(--header) + 68px);
+  border-radius: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.05) 0%,
+    rgb(255 255 255 / 0.032) 46%,
+    rgb(255 255 255 / 0) 100%
+  );
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 42%, rgb(0 0 0 / 0.82) 62%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 42%, rgb(0 0 0 / 0.82) 62%, transparent 100%);
+}
+
+.header-glass {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.header-glass.active,
+.menu-visible .header-glass.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .menu-visible .header {
@@ -56,10 +70,6 @@ html:has(body.menu-visible) {
 html:has(body.menu-visible)::-webkit-scrollbar-track,
 html:has(body.menu-visible)::-webkit-scrollbar-thumb {
   background: #fff;
-}
-
-.menu-visible .cursor {
-  display: none !important;
 }
 
 .drawer-nav {
