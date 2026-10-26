@@ -1,0 +1,36 @@
+.header.scrolled {
+  background: rgb(255 255 255 / 0.035);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.header-glass,
+.header-glass.active {
+  display: none;
+}
+
+.menu-visible .header.scrolled {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.menu-visible .cursor {
+  display: none !important;
+}
+
+.drawer-nav {
+  gap: 0;
+}
+
+.drawer-group {
+  margin-bottom: 8px;
+}
+
+.drawer-nav a {
+  padding: 5px 0;
+}
+
+.drawer-search {
+  margin-top: 24px;
+}

@@ -1,14 +1,20 @@
-@media (min-width:701px) {
-  .works-section .project { grid-template-columns:45.53% 54.47%; min-height:37.32vw; }
-  .works-section .project-copy,
-  .works-section .project:nth-child(even) .project-copy {
-    order:0; padding:2.5vw 2.57vw 2.5vw 2.57vw;
-  }
-  .works-section .project-media,
-  .works-section .project:nth-child(even) .project-media { order:1; }
-  .works-section .project-media .media { min-height:37.32vw; }
+.works-section,
+.more-section {
+  background-color: #141414;
 }
-@media (min-width:1700px) {
-  .works-section .project { min-height:635px; }
-  .works-section .project-media .media { min-height:635px; }
+
+.vertical-grid {
+  background-image: none;
+}
+
+@media (min-width: 701px) {
+  .works-section .project:nth-child(even) .project-copy {
+    order: 0;
+    padding-left: var(--pad);
+    padding-right: 2.57vw;
+  }
+
+  .works-section .project:nth-child(even) .project-media {
+    order: 1;
+  }
 }
