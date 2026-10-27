@@ -2,26 +2,41 @@
   'use strict';
 
   const headerGlass = document.getElementById('header-glass');
-  if (headerGlass && !headerGlass.querySelector('.header-glass-layer')) {
-    const layers = [
-      { blur: 0.5, mask: 'linear-gradient(to top, transparent 0%, #000 12.5%, #000 25%, transparent 37.5%)' },
-      { blur: 0.5625, mask: 'linear-gradient(to top, transparent 12.5%, #000 25%, #000 37.5%, transparent 50%)' },
-      { blur: 1.125, mask: 'linear-gradient(to top, transparent 25%, #000 37.5%, #000 50%, transparent 62.5%)' },
-      { blur: 2.25, mask: 'linear-gradient(to top, transparent 37.5%, #000 50%, #000 62.5%, transparent 75%)' },
-      { blur: 4.5, mask: 'linear-gradient(to top, transparent 50%, #000 62.5%, #000 75%, transparent 87.5%)' },
-      { blur: 9, mask: 'linear-gradient(to top, transparent 62.5%, #000 75%, #000 87.5%, transparent 100%)' },
-      { blur: 18, mask: 'linear-gradient(to top, transparent 75%, #000 87.5%, #000 100%)' },
-      { blur: 36, mask: 'linear-gradient(to top, transparent 87.5%, #000 100%)' }
-    ];
+  if (headerGlass) {
+    const renderHeaderGlass = () => {
+      headerGlass.replaceChildren();
 
-    layers.forEach(({ blur, mask }, index) => {
-      const layer = document.createElement('span');
-      layer.className = 'header-glass-layer';
-      layer.style.zIndex = index + 1;
-      layer.style.setProperty('--glass-blur', `${blur}px`);
-      layer.style.setProperty('--glass-mask', mask);
-      headerGlass.append(layer);
-    });
+      const headerHeight = Math.max(72, document.getElementById('header')?.getBoundingClientRect().height || 0);
+      const fadeEnd = headerHeight + 24;
+      headerGlass.style.setProperty('--glass-tint-mid', `${headerHeight * .58}px`);
+      headerGlass.style.setProperty('--glass-fade-end', `${fadeEnd}px`);
+      const layers = [
+        {
+          blur: 9.4,
+          mask: `linear-gradient(to bottom, #000 0, rgb(0 0 0 / .82) ${headerHeight * .42}px, rgb(0 0 0 / .28) ${headerHeight * .78}px, transparent ${fadeEnd}px, transparent 100%)`
+        },
+        {
+          blur: 35,
+          mask: `linear-gradient(to bottom, #000 0, rgb(0 0 0 / .9) ${headerHeight * .18}px, rgb(0 0 0 / .48) ${headerHeight * .5}px, rgb(0 0 0 / .12) ${headerHeight * .84}px, transparent ${fadeEnd}px, transparent 100%)`
+        }
+      ];
+
+      layers.forEach(({ blur, mask }, index) => {
+        const layer = document.createElement('span');
+        layer.className = 'header-glass-layer';
+        layer.style.zIndex = index + 1;
+        layer.style.setProperty('--glass-blur', `${blur}px`);
+        layer.style.setProperty('--glass-mask', mask);
+        headerGlass.append(layer);
+      });
+    };
+
+    renderHeaderGlass();
+    let glassResizeFrame = 0;
+    addEventListener('resize', () => {
+      cancelAnimationFrame(glassResizeFrame);
+      glassResizeFrame = requestAnimationFrame(renderHeaderGlass);
+    }, { passive: true });
   }
 
   const statusNote = document.createElement('div');

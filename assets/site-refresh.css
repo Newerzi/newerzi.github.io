@@ -28,32 +28,64 @@ body {
   inset: 0 0 auto;
   z-index: 69;
   width: 100%;
-  height: 194px;
-  border-radius: 0;
+  /* The transparent tail keeps Chromium's backdrop surface edge out of view. */
+  height: calc(var(--header) + 72px);
+  overflow: visible;
   pointer-events: none;
   background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-radius: 0;
+  isolation: isolate;
+}
+
+.header-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0 -24px auto;
+  z-index: 3;
+  height: calc(var(--header) + 38px);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / .11) 0,
+    rgb(0 0 0 / .055) var(--glass-tint-mid, 48px),
+    transparent var(--glass-fade-end, 96px),
+    transparent 100%
+  );
 }
 
 .header-glass-layer {
   position: absolute;
-  inset: 0;
+  inset: 0 -24px;
   pointer-events: none;
-  background: transparent;
+  background: rgb(255 255 255 / 0.001);
   -webkit-mask-image: var(--glass-mask);
   mask-image: var(--glass-mask);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
   -webkit-backdrop-filter: blur(var(--glass-blur));
   backdrop-filter: blur(var(--glass-blur));
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: backdrop-filter;
 }
 
 .header-glass {
   opacity: 0;
   visibility: hidden;
+  transition: opacity .24s ease, visibility .24s ease;
 }
 
-.header-glass.active,
-.menu-visible .header-glass.active {
+.header-glass.active {
   opacity: 1;
   visibility: visible;
+}
+
+.menu-visible .header.scrolled {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .menu-visible .header {
@@ -136,98 +168,6 @@ html:has(body.menu-visible)::-webkit-scrollbar-thumb {
 .catalog-card[data-group-start="true"]:not(:first-child) .catalog-visual .media,
 .catalog-card[data-group-start="true"]:not(:first-child) .catalog-visual .media-placeholder {
   aspect-ratio: 2.08;
-}
-
-/* Footer: navigation first, contact statement second, legal data last. */
-.footer {
-  padding: 0;
-  background: #080808;
-}
-
-.footer-shell {
-  padding: 5.2vw var(--pad) 4vw;
-}
-
-.footer-nav {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px clamp(24px, 4vw, 72px);
-  padding-bottom: 3.2vw;
-  border-bottom: 1px solid var(--line);
-  font-size: clamp(17px, 1.55vw, 24px);
-  letter-spacing: -.04em;
-}
-
-.footer-nav a,
-.footer-social a,
-.footer-docs a {
-  transition: color .25s ease;
-}
-
-.footer-nav a:hover,
-.footer-social a:hover,
-.footer-docs a:hover {
-  color: #8faaff;
-}
-
-.footer-contact-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(240px, .6fr);
-  align-items: end;
-  gap: 5vw;
-  padding: 5vw 0 4.7vw;
-}
-
-.footer-contact-row h2 {
-  max-width: 850px;
-  font-size: clamp(45px, 6.2vw, 108px);
-  line-height: .9;
-}
-
-.footer-contact-actions {
-  display: grid;
-  justify-items: start;
-  gap: 18px;
-}
-
-.footer-contact-actions .footer-contact {
-  min-width: min(100%, 330px);
-}
-
-.footer-bottom {
-  display: grid;
-  grid-template-columns: minmax(250px, 1fr) minmax(0, 1.15fr);
-  gap: 6vw;
-  padding: 28px var(--pad) 32px;
-  border-top: 1px solid var(--line);
-  color: #8e8e8e;
-  font-size: 14px;
-}
-
-.footer-brandline {
-  color: #fff;
-  font-size: 17px;
-  margin-bottom: 10px;
-}
-
-.footer-bottom-right {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.footer-bottom-title {
-  color: #656565;
-  margin-bottom: 11px;
-}
-
-.footer-social,
-.footer-docs {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 9px 20px;
 }
 
 /* Pricing uses the same editorial spacing and rules as the project catalog. */
@@ -414,37 +354,6 @@ html:has(body.menu-visible)::-webkit-scrollbar-thumb {
   .catalog-card[data-group-start="true"]:not(:first-child) .catalog-visual .media,
   .catalog-card[data-group-start="true"]:not(:first-child) .catalog-visual .media-placeholder {
     aspect-ratio: 1.38;
-  }
-
-  .footer-shell {
-    padding: 48px 7% 38px;
-  }
-
-  .footer-nav {
-    gap: 11px 22px;
-    padding-bottom: 32px;
-    font-size: 17px;
-  }
-
-  .footer-contact-row {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 48px 0 12px;
-  }
-
-  .footer-contact-row h2 {
-    font-size: 48px;
-  }
-
-  .footer-bottom {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 25px 7% 30px;
-  }
-
-  .footer-bottom-right {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
 
   .pricing-list {
