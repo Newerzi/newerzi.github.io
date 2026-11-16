@@ -2,7 +2,8 @@
   'use strict';
 
   const body = document.body;
-  if (!body?.classList.contains('home-modern-v3') || body.dataset.lang !== 'ru') return;
+  if (!body?.classList.contains('home-modern-v3')) return;
+  const isEnglish = body.dataset.lang === 'en';
 
   const main = document.querySelector('main');
   const works = main?.querySelector(':scope > .works-section');
@@ -10,7 +11,7 @@
   const reviews = main?.querySelector(':scope > .home-reviews-v5');
   if (!main || !works || !more || !reviews || document.querySelector('.online-services')) return;
 
-  const serviceData = [
+  const ruServiceData = [
     {
       key: 'branding', title: 'Брендинг', image: '/assets/service-branding.png',
       description: 'Создаём основу визуального образа бренда — от отдельного знака до цельной системы и правил её применения.',
@@ -72,6 +73,128 @@
     }
   ];
 
+  const enServiceData = [
+    {
+      key: 'branding', title: 'Branding', image: '/assets/service-branding.png',
+      description: 'We build the visual foundation of a brand — from a single mark to a coherent system and clear rules for using it.',
+      items: [
+        ['Logo', 'We design the primary mark and its core versions so the brand remains recognizable across digital and physical media.'],
+        ['Identity / visual system', 'We combine typography, color, composition and image direction into one recognizable visual language.'],
+        ['Mascot', 'We create a character with a distinct personality and visual traits for communication and content.']
+      ]
+    },
+    {
+      key: 'web', title: 'Web design', image: '/assets/service-web.png', activeImage: '/assets/service-web-active.png',
+      description: 'We design landing pages and multi-page websites, shaping the structure, user journey, interface and responsive states.',
+      items: [
+        ['Landing page', 'A focused single-page website with a clear product story, purposeful content blocks and responsive layouts.'],
+        ['Multi-page website', 'A system of connected pages with consistent navigation, reusable components and a clear content structure.']
+      ]
+    },
+    {
+      key: 'social', title: 'Social media', image: '/assets/service-social.png',
+      description: 'We create a recognizable profile and a repeatable content system that is easy to maintain and grow.',
+      items: [
+        ['Social media identity', 'A cohesive profile system with avatar, covers, essential templates and rules for presenting visual content.'],
+        ['Single post', 'One publication designed for a specific task, platform and existing visual style.'],
+        ['Five-post system', 'A connected series of publications with consistent rhythm, composition and recognition.']
+      ]
+    },
+    {
+      key: 'print', title: 'Print & advertising', image: '/assets/service-print.png',
+      description: 'We prepare advertising, print and merchandise materials for their format, medium and production requirements.',
+      items: [
+        ['Banner', 'A clear advertising composition adapted to the required size and placement.'],
+        ['Roll-up', 'A vertical exhibition layout designed to be read quickly from a distance and prepared for print.'],
+        ['Badge', 'A participant or staff badge system prepared for variable data and production.'],
+        ['Certificate / diploma', 'A precise formal layout prepared for print or digital delivery.'],
+        ['Sticker', 'Standalone artwork designed around the final shape, cut line and viewing scale.'],
+        ['Sticker pack, 6–8 pieces', 'A consistent series of thematically connected stickers.'],
+        ['Merchandise', 'Artwork adapted to the selected ready-made item and production requirements.'],
+        ['Notebook cover', 'Front and back cover design prepared for print.'],
+        ['Notebook with inner pages', 'A complete notebook system combining the cover and internal page layouts.'],
+        ['Vectorization', 'Careful conversion of raster artwork or objects into scalable vector graphics.']
+      ]
+    },
+    {
+      key: 'events', title: 'Events', event: true,
+      description: 'We create an event identity and adapt it for communication, navigation, print and large production runs.',
+      items: [
+        ['Large-run personalization', 'A series of layouts with variable names, numbers or other data while preserving one visual system.'],
+        ['Small event', 'A core event image and the essential set of materials for promotion and delivery.'],
+        ['Large event', 'An extended system for stage graphics, navigation, social media, handouts and print.']
+      ]
+    },
+    {
+      key: 'motion', title: 'Motion design', image: '/assets/service-motion.png',
+      description: 'We add motion to advertising and visual communication while preserving the project’s character and rules.',
+      items: [
+        ['Short advertising creative', 'A concise animation for ads, social posts or digital placement with a fast, clear message.'],
+        ['Animated edit', 'A finished video assembled from supplied materials with titles, transitions and graphic accents.']
+      ]
+    }
+  ];
+  const serviceData = isEnglish ? enServiceData : ruServiceData;
+  const pageCopy = isEnglish ? {
+    servicesTitle: 'Services', more: 'details',
+    studioKicker: 'NEWERZI / studio',
+    studioTitle: 'Visual design brings the project together.',
+    studioLead: 'NEWERZI is an independent visual systems studio. We help projects look and speak consistently — from the first image and identity to websites, social media, advertising and motion.',
+    studioItems: [
+      ['Meaning comes first', 'We clarify what the project offers, who it serves and what impression it should leave. The visual direction grows from the task rather than a passing trend.'],
+      ['One recognizable language', 'Typography, color, composition, imagery and motion work together so the project feels equally confident across different media.'],
+      ['A system, not a single layout', 'Rules and states are considered in advance, making the design easier to extend without losing its character.'],
+      ['A clear process', 'We explain the logic behind decisions and record the agreed direction. At every stage, it is clear what is ready and what comes next.'],
+      ['Materials built for real use', 'You receive production-ready files and practical rules so the result keeps working after launch.']
+    ],
+    processKicker: '04 / approach & process',
+    processTitle: 'From the task to a system ready to work and grow.',
+    processSteps: [
+      ['Introduction', 'We discuss the product, audience, task, constraints and expected result.', 'Outcome: a clear project scope'],
+      ['Research', 'We study the context and category, then identify what can make the project distinct.', 'Outcome: visual references'],
+      ['Direction', 'We propose the image, typography, color and core principles for presenting materials.', 'Outcome: an approved concept'],
+      ['Development', 'We build key layouts, states and adaptations for the agreed media.', 'Outcome: a working design system'],
+      ['Delivery', 'We prepare the materials, file structure and guidelines needed for further work.', 'Outcome: a complete handoff']
+    ],
+    faqKicker: '06 / FAQ',
+    faqTitle: 'The essentials that usually matter before we begin.',
+    faqItems: [
+      ['How does the work begin?', 'With a short conversation about the project, the task and the result the design should achieve. We then confirm the scope, timing and working format.'],
+      ['Can we start without a detailed brief?', 'Yes. A plain-language description of the project is enough. Follow-up questions will turn it into a clear working brief.'],
+      ['How many concepts and revisions are included?', 'The number of approaches depends on the task and is agreed before the start. Revisions refine the selected direction toward the required result.'],
+      ['Can the project be divided into stages?', 'Yes, when the sequence does not compromise the coherence of the solution. Stages, materials and approval points are agreed individually.']
+    ]
+  } : {
+    servicesTitle: 'Список услуг', more: 'подробнее',
+    studioKicker: 'NEWERZI / о студии',
+    studioTitle: 'Визуал собирает проект в одно целое.',
+    studioLead: 'NEWERZI — независимая студия визуальных систем. Мы помогаем проектам последовательно выглядеть и говорить с аудиторией: от первого образа и айдентики до сайта, социальных сетей, рекламы и движения.',
+    studioItems: [
+      ['Сначала — смысл', 'Разбираемся, что проект предлагает, кому он нужен и какое впечатление должен оставить. Визуальное направление появляется из задачи, а не из случайного тренда.'],
+      ['Один узнаваемый язык', 'Соединяем типографику, цвет, композицию, изображения и движение так, чтобы проект одинаково уверенно выглядел на разных носителях.'],
+      ['Не отдельный макет, а система', 'Продумываем правила и состояния заранее. Благодаря этому дизайн можно развивать и переносить на новые форматы без потери характера.'],
+      ['Понятный процесс', 'Показываем логику решений и фиксируем согласованное направление. На каждом этапе понятно, что уже готово и что происходит дальше.'],
+      ['Материалы для реальной работы', 'Передаём готовые файлы и правила использования, чтобы результат работал после запуска, а не оставался только красивой презентацией.']
+    ],
+    processKicker: '04 / подход и этапы',
+    processTitle: 'От задачи к системе, готовой работать и развиваться.',
+    processSteps: [
+      ['Знакомство', 'Обсуждаем продукт, аудиторию, задачу, ограничения и ожидаемый результат.', 'Результат: понятный состав проекта'],
+      ['Исследование', 'Собираем контекст, смотрим на категорию и определяем, что поможет проекту отличаться.', 'Результат: визуальные ориентиры'],
+      ['Направление', 'Предлагаем образ, типографику, цвет и основные принципы подачи материалов.', 'Результат: выбранная концепция'],
+      ['Разработка', 'Собираем ключевые макеты, состояния и адаптации для согласованных носителей.', 'Результат: рабочая дизайн-система'],
+      ['Передача', 'Подготавливаем материалы, структуру файлов и правила, необходимые для дальнейшей работы.', 'Результат: готовый комплект']
+    ],
+    faqKicker: '06 / FAQ',
+    faqTitle: 'Коротко о том, что обычно важно до старта.',
+    faqItems: [
+      ['С чего начинается работа?', 'С короткого разговора о проекте, задаче и том, какой результат должен дать дизайн. После этого уточняются состав, сроки и формат работы.'],
+      ['Можно начать, если нет точного ТЗ?', 'Да. Достаточно описать проект своими словами. Уточняющие вопросы помогут собрать исходную информацию в понятный рабочий бриф.'],
+      ['Сколько вариантов и правок входит?', 'Количество подходов зависит от задачи и фиксируется до старта. Правки обсуждаются по выбранному направлению и помогают довести решение до нужного результата.'],
+      ['Можно ли разбить проект на этапы?', 'Да, если такой порядок не мешает целостности решения. Этапы, материалы и точки согласования определяются индивидуально.']
+    ]
+  };
+
   const eventVisual = `
     <span class="online-service-event" aria-hidden="true">
       <img class="ground" src="/assets/service-event-ground.svg" alt="">
@@ -86,7 +209,7 @@
   services.dataset.theme = 'dark';
   services.setAttribute('aria-labelledby', 'online-services-title');
   services.innerHTML = `
-    <h2 class="online-section-title online-reveal" id="online-services-title">Список услуг</h2>
+    <h2 class="online-section-title online-reveal" id="online-services-title">${pageCopy.servicesTitle}</h2>
     <div class="online-services-grid">
       ${serviceData.map((service, index) => `
         <button class="online-service-card" type="button" data-service-key="${service.key}" aria-haspopup="dialog">
@@ -96,7 +219,7 @@
           </span>
           <span class="online-service-meta">
             <span>${service.title}</span>
-            <span class="online-service-more">подробнее <img src="/assets/project-arrow-figma.svg" alt="" width="17" height="17"></span>
+            <span class="online-service-more">${pageCopy.more} <img src="/assets/project-arrow-figma.svg" alt="" width="17" height="17"></span>
           </span>
         </button>
       `).join('')}
@@ -108,16 +231,12 @@
   studio.dataset.theme = 'dark';
   studio.innerHTML = `
     <div class="online-studio-intro online-reveal">
-      <p class="online-kicker">NEWERZI / о студии</p>
-      <h2>Визуал собирает проект в одно целое.</h2>
-      <p>NEWERZI — независимая студия визуальных систем. Мы помогаем проектам последовательно выглядеть и говорить с аудиторией: от первого образа и айдентики до сайта, социальных сетей, рекламы и движения.</p>
+      <p class="online-kicker">${pageCopy.studioKicker}</p>
+      <h2>${pageCopy.studioTitle}</h2>
+      <p>${pageCopy.studioLead}</p>
     </div>
     <div class="online-studio-list">
-      <article class="online-studio-item online-reveal"><span>01</span><div><h3>Сначала — смысл</h3><p>Разбираемся, что проект предлагает, кому он нужен и какое впечатление должен оставить. Визуальное направление появляется из задачи, а не из случайного тренда.</p></div></article>
-      <article class="online-studio-item online-reveal"><span>02</span><div><h3>Один узнаваемый язык</h3><p>Соединяем типографику, цвет, композицию, изображения и движение так, чтобы проект одинаково уверенно выглядел на разных носителях.</p></div></article>
-      <article class="online-studio-item online-reveal"><span>03</span><div><h3>Не отдельный макет, а система</h3><p>Продумываем правила и состояния заранее. Благодаря этому дизайн можно развивать и переносить на новые форматы без потери характера.</p></div></article>
-      <article class="online-studio-item online-reveal"><span>04</span><div><h3>Понятный процесс</h3><p>Показываем логику решений и фиксируем согласованное направление. На каждом этапе понятно, что уже готово и что происходит дальше.</p></div></article>
-      <article class="online-studio-item online-reveal"><span>05</span><div><h3>Материалы для реальной работы</h3><p>Передаём готовые файлы и правила использования, чтобы результат работал после запуска, а не оставался только красивой презентацией.</p></div></article>
+      ${pageCopy.studioItems.map(([title, text], index) => `<article class="online-studio-item online-reveal"><span>${String(index + 1).padStart(2, '0')}</span><div><h3>${title}</h3><p>${text}</p></div></article>`).join('')}
     </div>`;
 
   const process = document.createElement('section');
@@ -125,13 +244,9 @@
   process.id = 'approach';
   process.dataset.theme = 'dark';
   process.innerHTML = `
-    <div class="online-process-head online-reveal"><p class="online-kicker">04 / подход и этапы</p><h2>От задачи к системе, готовой работать и развиваться.</h2></div>
+    <div class="online-process-head online-reveal"><p class="online-kicker">${pageCopy.processKicker}</p><h2>${pageCopy.processTitle}</h2></div>
     <div class="online-process-list">
-      <article class="online-process-step online-reveal"><span>01</span><div><h3>Знакомство</h3><p>Обсуждаем продукт, аудиторию, задачу, ограничения и ожидаемый результат.</p><small>Результат: понятный состав проекта</small></div></article>
-      <article class="online-process-step online-reveal"><span>02</span><div><h3>Исследование</h3><p>Собираем контекст, смотрим на категорию и определяем, что поможет проекту отличаться.</p><small>Результат: визуальные ориентиры</small></div></article>
-      <article class="online-process-step online-reveal"><span>03</span><div><h3>Направление</h3><p>Предлагаем образ, типографику, цвет и основные принципы подачи материалов.</p><small>Результат: выбранная концепция</small></div></article>
-      <article class="online-process-step online-reveal"><span>04</span><div><h3>Разработка</h3><p>Собираем ключевые макеты, состояния и адаптации для согласованных носителей.</p><small>Результат: рабочая дизайн-система</small></div></article>
-      <article class="online-process-step online-reveal"><span>05</span><div><h3>Передача</h3><p>Подготавливаем материалы, структуру файлов и правила, необходимые для дальнейшей работы.</p><small>Результат: готовый комплект</small></div></article>
+      ${pageCopy.processSteps.map(([title, text, result], index) => `<article class="online-process-step online-reveal"><span>${String(index + 1).padStart(2, '0')}</span><div><h3>${title}</h3><p>${text}</p><small>${result}</small></div></article>`).join('')}
     </div>`;
 
   const faq = document.createElement('section');
@@ -139,17 +254,37 @@
   faq.id = 'faq';
   faq.dataset.theme = 'dark';
   faq.innerHTML = `
-    <div class="online-faq-head online-reveal"><p class="online-kicker">06 / FAQ</p><h2>Коротко о том, что обычно важно до старта.</h2></div>
+    <div class="online-faq-head online-reveal"><p class="online-kicker">${pageCopy.faqKicker}</p><h2>${pageCopy.faqTitle}</h2></div>
     <div class="online-faq-list">
-      <div class="online-faq-item online-reveal"><button class="online-faq-question" type="button" aria-expanded="false">С чего начинается работа?<span aria-hidden="true">+</span></button><div class="online-faq-answer"><div><p>С короткого разговора о проекте, задаче и том, какой результат должен дать дизайн. После этого уточняются состав, сроки и формат работы.</p></div></div></div>
-      <div class="online-faq-item online-reveal"><button class="online-faq-question" type="button" aria-expanded="false">Можно начать, если нет точного ТЗ?<span aria-hidden="true">+</span></button><div class="online-faq-answer"><div><p>Да. Достаточно описать проект своими словами. Уточняющие вопросы помогут собрать исходную информацию в понятный рабочий бриф.</p></div></div></div>
-      <div class="online-faq-item online-reveal"><button class="online-faq-question" type="button" aria-expanded="false">Сколько вариантов и правок входит?<span aria-hidden="true">+</span></button><div class="online-faq-answer"><div><p>Количество подходов зависит от задачи и фиксируется до старта. Правки обсуждаются по выбранному направлению и помогают довести решение до нужного результата.</p></div></div></div>
-      <div class="online-faq-item online-reveal"><button class="online-faq-question" type="button" aria-expanded="false">Можно ли разбить проект на этапы?<span aria-hidden="true">+</span></button><div class="online-faq-answer"><div><p>Да, если такой порядок не мешает целостности решения. Этапы, материалы и точки согласования определяются индивидуально.</p></div></div></div>
+      ${pageCopy.faqItems.map(([question, answer]) => `<div class="online-faq-item online-reveal"><button class="online-faq-question" type="button" aria-expanded="false">${question}<span aria-hidden="true">+</span></button><div class="online-faq-answer"><div><p>${answer}</p></div></div></div>`).join('')}
     </div>`;
 
-  const briefServices = [
+  const briefCopy = isEnglish ? {
+    title: 'Ready to transform your project?',
+    servicesLabel: 'What do you need?', servicesHint: 'Select more than one if needed',
+    projectLabel: 'Tell us about the project', projectPlaceholder: 'What do you do, and what challenge should the design solve?',
+    details: 'Add details', budgetLabel: 'What budget are you considering?', optional: 'Optional', budgetPlaceholder: 'For example, 5,000',
+    deadlineLabel: 'When do you need the result?', dateLabel: 'Choose a date', dateAria: 'Target date', budgetAria: 'Budget',
+    ready: 'Ready-to-send message', platformAria: 'Contact platform', sendTelegram: 'Open Telegram', copy: 'Copy text', back: 'back'
+  } : {
+    title: 'Готовы к преображению?',
+    servicesLabel: 'Что нужно сделать?', servicesHint: 'Можно выбрать несколько',
+    projectLabel: 'Расскажите о проекте', projectPlaceholder: 'Чем занимаетесь, какую задачу хотите решить?',
+    details: 'Уточнить детали', budgetLabel: 'На какой бюджет рассчитываете?', optional: 'Необязательно', budgetPlaceholder: 'Например, 5.000',
+    deadlineLabel: 'Когда нужен результат?', dateLabel: 'Указать дату', dateAria: 'Дата готовности', budgetAria: 'Бюджет',
+    ready: 'Готовое сообщение', platformAria: 'Площадка для связи', sendTelegram: 'Перейти в Telegram', copy: 'Скопировать текст', back: 'назад'
+  };
+  const briefServices = isEnglish ? [
+    ['branding', 'Branding'], ['web', 'Web design'], ['social', 'Social media'], ['other', 'Other'],
+    ['print', 'Print & advertising'], ['events', 'Events'], ['motion', 'Motion design']
+  ] : [
     ['branding', 'Брендинг'], ['web', 'Веб-дизайн'], ['social', 'Соцсети'], ['other', 'Другое'],
     ['print', 'Печать и реклама'], ['events', 'Мероприятия'], ['motion', 'Моушн-дизайн']
+  ];
+  const deadlineOptions = isEnglish ? [
+    ['1–3 days', '1–3 days'], ['1–2 weeks', '1–2 weeks'], ['1 month', '1 month']
+  ] : [
+    ['1–3 дня', '1–3 дня'], ['1–2 недели', '1–2 недели'], ['1 месяц', '1 месяц']
   ];
 
   const brief = document.createElement('section');
@@ -157,45 +292,43 @@
   brief.id = 'brief';
   brief.dataset.theme = 'dark';
   brief.innerHTML = `
-    <h2 class="online-reveal">Готовы к преображению?</h2>
+    <h2 class="online-reveal">${briefCopy.title}</h2>
     <div class="online-brief-grid">
       <div class="online-brief-main">
-        <p class="online-brief-label">Что нужно сделать? <small>Можно выбрать несколько</small></p>
+        <p class="online-brief-label">${briefCopy.servicesLabel} <small>${briefCopy.servicesHint}</small></p>
         <div class="online-service-options">
           ${briefServices.map(([key, label]) => `<button class="online-option" type="button" data-brief-service="${key}" aria-pressed="false">${label}</button>`).join('')}
         </div>
-        <label class="online-brief-label" for="online-project-text">Расскажите о проекте</label>
+        <label class="online-brief-label" for="online-project-text">${briefCopy.projectLabel}</label>
         <div class="online-textarea-wrap">
-          <textarea class="online-project-text" id="online-project-text" maxlength="500" placeholder="Чем занимаетесь, какую задачу хотите решить?"></textarea>
+          <textarea class="online-project-text" id="online-project-text" maxlength="500" placeholder="${briefCopy.projectPlaceholder}"></textarea>
           <span class="online-counter">0/500</span>
         </div>
         <button class="online-details-toggle" type="button" aria-expanded="false" aria-controls="online-details">
-          <img src="/assets/form-details-figma.svg" alt="" width="59" height="59"> Уточнить детали <span class="online-details-arrow" aria-hidden="true"></span>
+          <img src="/assets/form-details-figma.svg" alt="" width="59" height="59"> ${briefCopy.details} <span class="online-details-arrow" aria-hidden="true"></span>
         </button>
         <div class="online-details" id="online-details"><div>
-          <p class="online-brief-label">На какой бюджет рассчитываете? <small>Необязательно</small></p>
-          <div class="online-budget-wrap"><input class="online-budget-input" inputmode="numeric" maxlength="12" placeholder="Например, 5.000" aria-label="Бюджет"></div>
-          <p class="online-brief-label" style="margin-top:32px">Когда нужен результат? <small>Необязательно</small></p>
+          <p class="online-brief-label">${briefCopy.budgetLabel} <small>${briefCopy.optional}</small></p>
+          <div class="online-budget-wrap"><input class="online-budget-input" inputmode="numeric" maxlength="12" placeholder="${briefCopy.budgetPlaceholder}" aria-label="${briefCopy.budgetAria}"></div>
+          <p class="online-brief-label" style="margin-top:32px">${briefCopy.deadlineLabel} <small>${briefCopy.optional}</small></p>
           <div class="online-deadline-options">
-            <button class="online-option online-deadline" type="button" data-deadline="1–3 дня" aria-pressed="false">1–3 дня</button>
-            <button class="online-option online-deadline" type="button" data-deadline="1–2 недели" aria-pressed="false">1–2 недели</button>
-            <button class="online-option online-deadline" type="button" data-deadline="1 месяц" aria-pressed="false">1 месяц</button>
-            <button class="online-option online-deadline" type="button" data-deadline="date" aria-pressed="false">Указать дату<input class="online-date" type="date" aria-label="Дата готовности"></button>
+            ${deadlineOptions.map(([value, label]) => `<button class="online-option online-deadline" type="button" data-deadline="${value}" aria-pressed="false">${label}</button>`).join('')}
+            <button class="online-option online-deadline" type="button" data-deadline="date" aria-pressed="false">${briefCopy.dateLabel}<input class="online-date" type="date" aria-label="${briefCopy.dateAria}"></button>
           </div>
         </div></div>
       </div>
       <aside class="online-brief-side">
-        <p class="online-brief-label">Готовое сообщение</p>
+        <p class="online-brief-label">${briefCopy.ready}</p>
         <div class="online-ready-message" data-ready-message aria-live="polite"></div>
-        <div class="online-platforms" aria-label="Площадка для связи">
+        <div class="online-platforms" aria-label="${briefCopy.platformAria}">
           <button class="online-platform" type="button" data-platform="telegram" aria-pressed="true" aria-label="Telegram"><img src="/assets/contact-telegram-figma.svg" alt=""></button>
           <button class="online-platform" type="button" data-platform="vk" aria-pressed="false" aria-label="VK"><img src="/assets/contact-vk-figma.svg" alt=""></button>
           <button class="online-platform" type="button" data-platform="whatsapp" aria-pressed="false" aria-label="WhatsApp"><img src="/assets/contact-whatsapp-figma.svg" alt=""></button>
           <button class="online-platform" type="button" data-platform="email" aria-pressed="false" aria-label="Email"><img src="/assets/contact-mail-figma.svg" alt=""></button>
         </div>
-        <a class="online-send" data-send-link href="https://t.me/specfc" target="_blank" rel="noopener">Перейти в Telegram <img src="/assets/form-send-figma.svg" alt="" width="60" height="36"></a>
+        <a class="online-send" data-send-link href="https://t.me/specfc" target="_blank" rel="noopener">${briefCopy.sendTelegram} <img src="/assets/form-send-figma.svg" alt="" width="60" height="36"></a>
         <p class="online-platform-note" data-platform-note aria-live="polite"></p>
-        <button class="online-copy-button" type="button" data-copy-message><img src="/assets/form-copy-figma.svg" alt="" width="58" height="59"> Скопировать текст</button>
+        <button class="online-copy-button" type="button" data-copy-message><img src="/assets/form-copy-figma.svg" alt="" width="58" height="59"> ${briefCopy.copy}</button>
       </aside>
     </div>`;
 
@@ -212,7 +345,7 @@
         <p class="online-service-dialog-lead"></p>
         <div class="online-service-subcategories"></div>
       </div>
-      <button class="online-service-dialog-close" type="button">назад</button>
+      <button class="online-service-dialog-close" type="button">${briefCopy.back}</button>
     </div>`;
   document.body.append(dialog);
   const customCursor = document.querySelector('#cursor');
@@ -258,7 +391,7 @@
   });
 
   /* Replace the former horizontal track with an infinite, bidirectional card deck. */
-  const reviewData = [
+  const ruReviewData = [
     { name: 'Айгерим', date: '07.11.2026', project: 'Проект: ВМКФ 2026', text: '«Работали над проектом Всероссийского медицинского карьерного форума. Были проведены работы по разработке 15 макетов различной сложности — от ручки и стикерпаков до лонгсливов и нескольких баннеров. Также были проведены работы по персонализации благодарственных писем. Вся обратная связь от нас была отработана в полном объёме.»' },
     { name: 'Айгерим', date: '23.06.2026', project: 'Проект: Перспектива', text: '«По срокам: всё быстро, иногда раньше установленного времени. Также брал горящие задачи. Лояльность: взял дополнительные задачи, которые ранее не обговаривали. Качество: всё согласно техническому заданию и фирменному стилю проекта.»' },
     { name: 'holic', date: '20.04.2026', project: 'Проект: AtomCheats', text: '«хороший дизайнер, сделал всё быстро!»' },
@@ -270,6 +403,19 @@
     { name: 'Эксфадор', date: '18.03.2025', project: 'Проект: CoxerHub', text: '«+rep»' },
     { name: 'hornykiller', date: '11.03.2025', project: 'Проект: Деригатор', text: '«сделал быстро, круто, топ, советую, рекомендую.»' }
   ];
+  const enReviewData = [
+    { name: 'Aigerim', date: '07.11.2026', project: 'Project: ARMCF 2026', text: '“We worked together on the All-Russian Medical Career Forum. Fifteen layouts of varying complexity were created — from a pen and sticker packs to long sleeves and several banners. Thank-you letters were also personalized, and all feedback was fully addressed.”' },
+    { name: 'Aigerim', date: '23.06.2026', project: 'Project: Perspektiva', text: '“Everything was delivered quickly, sometimes ahead of schedule. Urgent and additional tasks were handled too, while the result stayed true to the brief and the project’s visual identity.”' },
+    { name: 'holic', date: '20.04.2026', project: 'Project: AtomCheats', text: '“A good designer — everything was completed quickly.”' },
+    { name: 'Whiteness', date: '01.03.2026', project: 'Projects: Astra VPS, Franchise Support, RayTun VPN, Sempai VPN, Kaguya VPN, Whiteness VPN', text: '“We have worked together twice and he designed two of my projects. Everything was clear and came out great.”' },
+    { name: 'Makhkets (Lacorner)', date: '18.01.2026', project: 'Project: Makhkets VPN', text: '“Works quickly and efficiently, and accepted all my requests for revisions.”' },
+    { name: 'Nafanya', date: '23.12.2025', project: 'Project: Darknet VPN', text: '“He understood the brief, made the first version and accepted small edits. The banner came out with style — recommended.”' },
+    { name: 'Mercuit', date: '29.03.2025', project: 'Services: Social media; video thumbnails', text: '“Everything was great. I recommend the work — I really liked the result.”' },
+    { name: 'Croffer', date: '25.03.2025', project: 'Service: Branding; logo', text: '“The work was done well. We will definitely work together again.”' },
+    { name: 'Exfador', date: '18.03.2025', project: 'Project: CoxerHub', text: '“+rep”' },
+    { name: 'hornykiller', date: '11.03.2025', project: 'Project: Derigator', text: '“Fast, strong work — recommended.”' }
+  ];
+  const reviewData = isEnglish ? enReviewData : ruReviewData;
   const viewport = reviews.querySelector('.home-reviews-v5__viewport');
   const oldControls = reviews.querySelector('.home-reviews-v5__controls');
   reviews.querySelector(':scope > [data-review-status]')?.remove();
@@ -298,7 +444,7 @@
         const item = reviewData[(current + depth) % reviewData.length];
         return cardMarkup(item, depth);
       }).join('');
-      status.textContent = `Отзыв ${current + 1} из ${reviewData.length}`;
+      status.textContent = `${isEnglish ? 'Review' : 'Отзыв'} ${current + 1} ${isEnglish ? 'of' : 'из'} ${reviewData.length}`;
     };
 
     const moveDeck = direction => {
@@ -329,7 +475,10 @@
 
   /* Interactive brief. Visible text starts empty; links always have a neutral fallback. */
   const chosenServices = new Set();
-  const serviceNames = {
+  const serviceNames = isEnglish ? {
+    branding: 'branding', web: 'web design', social: 'social media design', other: 'design',
+    print: 'print and advertising', events: 'event design', motion: 'motion design'
+  } : {
     branding: 'брендинг', web: 'веб-дизайн', social: 'оформление соцсетей', other: 'дизайн',
     print: 'печать и реклама', events: 'оформление мероприятия', motion: 'моушн-дизайн'
   };
@@ -342,12 +491,14 @@
   const platformNote = brief.querySelector('[data-platform-note]');
   let deadline = '';
   let platform = 'telegram';
-  const neutralMessage = 'Здравствуйте! Хочу обсудить дизайн для своего проекта.\n\nПока я не выбрал конкретную услугу и хочу обсудить задачу. Подскажите, пожалуйста, какие детали и материалы нужны для начала работы.';
+  const neutralMessage = isEnglish
+    ? 'Hello! I would like to discuss design for my project.\n\nI have not selected a specific service yet and would like to talk through the task. Please let me know what details and materials you need to get started.'
+    : 'Здравствуйте! Хочу обсудить дизайн для своего проекта.\n\nПока я не выбрал конкретную услугу и хочу обсудить задачу. Подскажите, пожалуйста, какие детали и материалы нужны для начала работы.';
 
   const formatDate = value => {
     if (!value) return '';
     const [year, month, day] = value.split('-');
-    return `${day}.${month}.${year}`;
+    return isEnglish ? `${month}/${day}/${year}` : `${day}.${month}.${year}`;
   };
 
   const buildMessage = () => {
@@ -356,12 +507,12 @@
     const budgetValue = budget.value.trim();
     const deadlineValue = deadline === 'date' ? formatDate(dateInput.value) : deadline;
     if (!servicesList.length && !project && !budgetValue && !deadlineValue) return neutralMessage;
-    const lines = ['Здравствуйте! Хочу обсудить дизайн для своего проекта.'];
-    if (servicesList.length) lines.push(`Интересуют услуги: ${servicesList.join(', ')}.`);
-    if (project) lines.push(`Немного о проекте: ${project}`);
-    if (budgetValue) lines.push(`Ориентир по бюджету: ${budgetValue} ₽.`);
-    if (deadlineValue) lines.push(`Желаемый срок: ${deadlineValue}.`);
-    lines.push('Пожалуйста, подскажите точную стоимость и сроки выполнения работы.');
+    const lines = [isEnglish ? 'Hello! I would like to discuss design for my project.' : 'Здравствуйте! Хочу обсудить дизайн для своего проекта.'];
+    if (servicesList.length) lines.push(isEnglish ? `Services of interest: ${servicesList.join(', ')}.` : `Интересуют услуги: ${servicesList.join(', ')}.`);
+    if (project) lines.push(isEnglish ? `About the project: ${project}` : `Немного о проекте: ${project}`);
+    if (budgetValue) lines.push(isEnglish ? `Budget guide: ${budgetValue} RUB.` : `Ориентир по бюджету: ${budgetValue} ₽.`);
+    if (deadlineValue) lines.push(isEnglish ? `Preferred deadline: ${deadlineValue}.` : `Желаемый срок: ${deadlineValue}.`);
+    lines.push(isEnglish ? 'Please let me know the estimated cost and delivery time.' : 'Пожалуйста, подскажите точную стоимость и сроки выполнения работы.');
     return lines.join('\n\n');
   };
 
@@ -371,21 +522,21 @@
     platformNote.textContent = '';
     if (!platform || platform === 'telegram') {
       send.href = `https://t.me/specfc?text=${encodeURIComponent(outbound)}`;
-      send.innerHTML = `Перейти в Telegram <img src="/assets/form-send-figma.svg" alt="" width="60" height="36">`;
+      send.innerHTML = `${isEnglish ? 'Open Telegram' : 'Перейти в Telegram'} <img src="/assets/form-send-figma.svg" alt="" width="60" height="36">`;
       return;
     }
     if (platform === 'email') {
-      send.href = `mailto:neformya@mail.ru?subject=${encodeURIComponent('Запрос на дизайн')}&body=${encodeURIComponent(outbound)}`;
-      send.innerHTML = `Перейти в Email <img src="/assets/form-send-figma.svg" alt="" width="60" height="36">`;
+      send.href = `mailto:neformya@mail.ru?subject=${encodeURIComponent(isEnglish ? 'Design enquiry' : 'Запрос на дизайн')}&body=${encodeURIComponent(outbound)}`;
+      send.innerHTML = `${isEnglish ? 'Open Email' : 'Перейти в Email'} <img src="/assets/form-send-figma.svg" alt="" width="60" height="36">`;
       return;
     }
     if (platform === 'vk') {
       send.href = 'https://vk.com/shxd1n';
-      send.innerHTML = `Перейти в VK <img src="/assets/form-send-figma.svg" alt="" width="60" height="36">`;
+      send.innerHTML = `${isEnglish ? 'Open VK' : 'Перейти в VK'} <img src="/assets/form-send-figma.svg" alt="" width="60" height="36">`;
       return;
     }
     send.href = `https://wa.me/specfck?text=${encodeURIComponent(outbound)}`;
-    send.innerHTML = `Перейти в WhatsApp <img src="/assets/form-send-figma.svg" alt="" width="60" height="36">`;
+    send.innerHTML = `${isEnglish ? 'Open WhatsApp' : 'Перейти в WhatsApp'} <img src="/assets/form-send-figma.svg" alt="" width="60" height="36">`;
   };
 
   const updateMessage = () => {
@@ -469,8 +620,8 @@
     const original = button.innerHTML;
     const copied = Boolean(text) && await copyText(text);
     button.innerHTML = copied
-      ? '<img src="/assets/form-copy-figma.svg" alt="" width="58" height="59"> Текст скопирован'
-      : '<img src="/assets/form-copy-figma.svg" alt="" width="58" height="59"> Не удалось скопировать';
+      ? `<img src="/assets/form-copy-figma.svg" alt="" width="58" height="59"> ${isEnglish ? 'Text copied' : 'Текст скопирован'}`
+      : `<img src="/assets/form-copy-figma.svg" alt="" width="58" height="59"> ${isEnglish ? 'Could not copy' : 'Не удалось скопировать'}`;
     setTimeout(() => { button.innerHTML = original; }, 1500);
   });
   updateMessage();

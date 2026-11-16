@@ -305,9 +305,9 @@
 })();
 
 (() => {
-  if (!document.body?.classList.contains('home-modern-v3') || document.body.dataset.lang !== 'ru') return;
+  if (!document.body?.classList.contains('home-modern-v3')) return;
   const onlineScript = document.createElement('script');
-  onlineScript.src = '/assets/site-online.js?v=20261115-11';
+  onlineScript.src = '/assets/site-online.js?v=20261116-12';
   onlineScript.defer = true;
   document.head.append(onlineScript);
 })();
