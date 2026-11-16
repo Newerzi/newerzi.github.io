@@ -1,0 +1,490 @@
+body.home-modern-v3 {
+  --online-bg: #141414;
+  --online-card: #0f0f0f;
+  --online-blue: #0c47e9;
+  --online-muted: rgb(255 255 255 / .45);
+  --online-line: rgb(255 255 255 / .15);
+  --online-pad: 5.7%;
+}
+
+body.home-modern-v3 .online-section {
+  position: relative;
+  color: #fff;
+  background: var(--online-bg);
+  padding: clamp(82px, 7vw, 132px) var(--online-pad);
+}
+
+body.home-modern-v3 .online-section-title {
+  margin: 0 0 clamp(34px, 3.2vw, 62px) 2.6%;
+  font: 500 clamp(34px, 3.4vw, 66px)/.96 Manrope, Arial, sans-serif;
+  letter-spacing: -.055em;
+}
+
+/* Services: the 4821px Figma frame is a 3 x 2 grid with 100px gaps. */
+body.home-modern-v3 .online-services { padding-top: clamp(68px, 6vw, 112px); }
+body.home-modern-v3 .online-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(34px, 3.2vw, 62px) 2.1%;
+}
+
+body.home-modern-v3 .online-service-card {
+  appearance: none;
+  display: grid;
+  gap: clamp(14px, 1.35vw, 24px);
+  width: 100%;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+  border: 0;
+  background: transparent;
+}
+
+body.home-modern-v3 .online-service-visual {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1357 / 905;
+  border-radius: clamp(22px, 2.1vw, 38px);
+  background: var(--online-card);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / .015);
+}
+
+body.home-modern-v3 .online-service-visual > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) saturate(0) brightness(.82);
+  transition: filter 420ms cubic-bezier(.2,.75,.25,1), opacity 420ms ease, transform 520ms cubic-bezier(.2,.75,.25,1);
+}
+
+body.home-modern-v3 .online-service-card:hover .online-service-visual > img,
+body.home-modern-v3 .online-service-card:focus-visible .online-service-visual > img {
+  filter: none;
+  transform: scale(1.012);
+}
+
+body.home-modern-v3 .online-service-visual .online-service-web-active {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  filter: none;
+}
+
+body.home-modern-v3 .online-service-card:hover .online-service-web-active,
+body.home-modern-v3 .online-service-card:focus-visible .online-service-web-active { opacity: 1; }
+body.home-modern-v3 .online-service-card:hover .online-service-web-base,
+body.home-modern-v3 .online-service-card:focus-visible .online-service-web-base { opacity: 0; }
+
+body.home-modern-v3 .online-service-event {
+  position: absolute;
+  inset: 0;
+  filter: grayscale(1) saturate(0) brightness(.82);
+  transition: filter 420ms ease, transform 520ms cubic-bezier(.2,.75,.25,1);
+}
+
+body.home-modern-v3 .online-service-event img { position: absolute; object-fit: contain; }
+body.home-modern-v3 .online-service-event .ground { left: 15.45%; top: 61.55%; width: 69%; height: 20.25%; }
+body.home-modern-v3 .online-service-event .banner { left: 30.1%; top: 25.6%; width: 39.7%; height: 46.1%; }
+body.home-modern-v3 .online-service-event .flag-left { left: 15%; top: 18.25%; width: 11.2%; height: 60.7%; transform: scaleX(-1); }
+body.home-modern-v3 .online-service-event .flag-right { right: 15%; top: 18.25%; width: 11.2%; height: 60.7%; }
+body.home-modern-v3 .online-service-card:hover .online-service-event,
+body.home-modern-v3 .online-service-card:focus-visible .online-service-event { filter: none; transform: scale(1.012); }
+
+body.home-modern-v3 .online-service-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  font: 500 clamp(18px, 1.42vw, 27px)/1 Manrope, Arial, sans-serif;
+  letter-spacing: -.04em;
+}
+
+body.home-modern-v3 .online-service-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgb(255 255 255 / .35);
+  font: 400 clamp(16px, 1.2vw, 23px)/1 Somic, Arial, sans-serif;
+  letter-spacing: -.04em;
+}
+
+body.home-modern-v3 .online-service-more img {
+  width: clamp(10px, .74vw, 12px);
+  height: auto;
+  opacity: 1;
+  transition: opacity 220ms ease, transform 260ms cubic-bezier(.2,.75,.25,1);
+}
+body.home-modern-v3 .online-service-card:hover .online-service-more img,
+body.home-modern-v3 .online-service-card:focus-visible .online-service-more img { opacity: 1; transform: translate(2px,-2px); }
+
+/* Large informational service sheet. */
+body.home-modern-v3 .online-service-dialog {
+  width: min(82vw, 1120px);
+  max-width: none;
+  height: min(72svh, 720px);
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  color: #fff;
+  border: 0;
+  border-radius: clamp(22px, 2.5vw, 44px);
+  background: #f4f4f2;
+  overflow: hidden;
+}
+
+body.home-modern-v3 .online-service-dialog::backdrop {
+  background: rgb(0 0 0 / .72);
+  backdrop-filter: blur(10px);
+}
+
+body.home-modern-v3 .online-service-dialog-inner {
+  display: grid;
+  grid-template-rows: auto minmax(0,1fr) auto;
+  height: 100%;
+  padding: clamp(28px, 3.6vw, 58px);
+  color: #0a0a0a;
+}
+
+body.home-modern-v3 .online-service-dialog-index { color: #777; font: 500 13px/1 Manrope, Arial, sans-serif; }
+body.home-modern-v3 .online-service-dialog-copy {
+  align-self: stretch;
+  max-width: 100%;
+  margin-top: clamp(22px, 3vw, 44px);
+  padding-right: 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #999 transparent;
+}
+body.home-modern-v3 .online-service-dialog h3 {
+  margin: 0 0 clamp(22px, 2vw, 34px);
+  font: 500 clamp(44px, 5.6vw, 86px)/.9 Manrope, Arial, sans-serif;
+  letter-spacing: -.07em;
+}
+body.home-modern-v3 .online-service-dialog-lead {
+  max-width: 820px;
+  margin: 0;
+  color: #4e4e4e;
+  font: 400 clamp(17px, 1.35vw, 23px)/1.35 Manrope, Arial, sans-serif;
+  letter-spacing: -.025em;
+}
+body.home-modern-v3 .online-service-subcategories { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); margin-top: clamp(28px, 3vw, 48px); border-top: 1px solid #d2d2d2; }
+body.home-modern-v3 .online-service-subcategory {
+  display: grid;
+  grid-template-columns: 34px minmax(120px,.72fr) minmax(0,1.28fr);
+  gap: 14px;
+  align-items: start;
+  min-height: 104px;
+  padding: 20px 18px 22px 0;
+  border-bottom: 1px solid #d2d2d2;
+}
+body.home-modern-v3 .online-service-subcategory:nth-child(odd) { padding-right: 28px; border-right: 1px solid #d2d2d2; }
+body.home-modern-v3 .online-service-subcategory:nth-child(even) { padding-left: 28px; }
+body.home-modern-v3 .online-service-subcategory > span { color: #888; font: 500 11px/1 Manrope,Arial,sans-serif; }
+body.home-modern-v3 .online-service-subcategory h4 { margin: 0; color: #111; font: 500 clamp(16px,1.15vw,20px)/1.06 Somic,Arial,sans-serif; letter-spacing: -.035em; }
+body.home-modern-v3 .online-service-subcategory p { margin: 0; color: #666; font: 400 clamp(13px,.85vw,15px)/1.35 Manrope,Arial,sans-serif; letter-spacing: -.015em; }
+body.home-modern-v3 .online-service-dialog-close {
+  justify-self: start;
+  min-height: 52px;
+  padding: 0 24px;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  background: #0a0a0a;
+  font: 500 16px/1 Manrope, Arial, sans-serif;
+}
+
+body.cursor-shown.service-dialog-open .online-service-dialog,
+body.cursor-shown.service-dialog-open .online-service-dialog * { cursor: none !important; }
+body.home-modern-v3 .online-service-dialog > .cursor { z-index: 20; }
+body.cursor-shown .online-date { cursor: none !important; }
+
+/* About and process are intentionally quieter than the Figma-authored blocks. */
+body.home-modern-v3 .online-studio,
+body.home-modern-v3 .online-process,
+body.home-modern-v3 .online-faq { border-top: 1px solid var(--online-line); }
+
+body.home-modern-v3 .online-studio {
+  display: grid;
+  grid-template-columns: minmax(240px, .75fr) minmax(0, 1.55fr);
+  gap: clamp(60px, 10vw, 190px);
+}
+
+body.home-modern-v3 .online-studio-intro { position: sticky; top: 118px; align-self: start; }
+body.home-modern-v3 .online-kicker { margin: 0 0 20px; color: #747474; font: 500 13px/1 Manrope, Arial, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
+body.home-modern-v3 .online-studio h2,
+body.home-modern-v3 .online-process h2,
+body.home-modern-v3 .online-faq h2,
+body.home-modern-v3 .online-brief h2 {
+  margin: 0;
+  font: 500 clamp(42px, 5vw, 92px)/.93 Manrope, Arial, sans-serif;
+  letter-spacing: -.065em;
+}
+body.home-modern-v3 .online-studio-intro > p:last-child { max-width: 530px; margin: 30px 0 0; color: #999; font: 400 clamp(17px, 1.3vw, 23px)/1.36 Manrope, Arial, sans-serif; }
+body.home-modern-v3 .online-studio-list { display: grid; }
+body.home-modern-v3 .online-studio-item {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 28px;
+  min-height: clamp(180px, 18vw, 330px);
+  padding: clamp(28px, 3.4vw, 60px) 0;
+  border-top: 1px solid var(--online-line);
+}
+body.home-modern-v3 .online-studio-item:last-child { border-bottom: 1px solid var(--online-line); }
+body.home-modern-v3 .online-studio-item > span { color: #777; font: 500 13px/1 Manrope, Arial, sans-serif; }
+body.home-modern-v3 .online-studio-item h3 { margin: 0 0 18px; font: 500 clamp(28px, 3vw, 54px)/.98 Manrope, Arial, sans-serif; letter-spacing: -.05em; }
+body.home-modern-v3 .online-studio-item p { max-width: 700px; margin: 0; color: #8f8f8f; font: 400 clamp(16px, 1.18vw, 21px)/1.42 Manrope, Arial, sans-serif; }
+
+body.home-modern-v3 .online-process-head,
+body.home-modern-v3 .online-faq-head { display: grid; grid-template-columns: minmax(220px, .7fr) minmax(0, 1.5fr); gap: 8vw; margin-bottom: clamp(48px, 7vw, 120px); }
+body.home-modern-v3 .online-process-list { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--online-line); }
+body.home-modern-v3 .online-process-step {
+  display: grid;
+  grid-template-columns: 72px minmax(220px,.72fr) minmax(0,1.28fr);
+  align-items: start;
+  gap: clamp(20px, 3vw, 56px);
+  min-height: 0;
+  padding: clamp(28px, 3vw, 52px) 0;
+  border-bottom: 1px solid var(--online-line);
+}
+body.home-modern-v3 .online-process-step span { color: #6f6f6f; font: 500 13px/1 Manrope, Arial, sans-serif; }
+body.home-modern-v3 .online-process-step > div { display: contents; }
+body.home-modern-v3 .online-process-step h3 { margin: 0; font: 500 clamp(27px, 2.7vw, 48px)/.98 Manrope, Arial, sans-serif; letter-spacing: -.05em; }
+body.home-modern-v3 .online-process-step p { max-width: 680px; margin: 0; color: #aaa; font: 400 clamp(16px, 1.18vw, 21px)/1.42 Manrope, Arial, sans-serif; }
+body.home-modern-v3 .online-process-step small { display: block; grid-column: 3; margin-top: -22px; color: #5f5f5f; font: 400 12px/1.25 Manrope, Arial, sans-serif; }
+
+/* Review cards are a bottom-anchored three-card deck, not a horizontal track. */
+body.home-modern-v3 .home-reviews-v5 { padding: clamp(78px, 7vw, 128px) 7% clamp(96px, 9vw, 160px); background: var(--online-bg); }
+body.home-modern-v3 .home-reviews-v5__viewport { overflow: visible; border-radius: 0; }
+body.home-modern-v3 .home-reviews-v5__track { display: none !important; }
+body.home-modern-v3 .online-review-deck { position: relative; min-height: clamp(300px, 25vw, 455px); margin-top: clamp(28px, 3vw, 48px); overflow-anchor: none; }
+body.home-modern-v3 .online-review-card {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  grid-template-columns: minmax(250px, .72fr) minmax(0, 1.5fr);
+  gap: clamp(36px, 5vw, 92px);
+  min-height: clamp(275px, 23vw, 420px);
+  padding: clamp(28px, 3.2vw, 58px);
+  border-radius: clamp(18px, 1.8vw, 32px);
+  transform-origin: 50% 100%;
+  transition: transform 300ms cubic-bezier(.2,.72,.24,1), opacity 250ms ease, filter 300ms ease, background-color 150ms ease;
+}
+body.home-modern-v3 .online-review-card[data-depth="0"] { z-index: 3; background: #0f0f0f; transform: translateY(-20px) scale(1); }
+body.home-modern-v3 .online-review-card[data-depth="1"] { z-index: 2; background: #0c0c0c; transform: translateY(-10px) scale(.994); }
+body.home-modern-v3 .online-review-card[data-depth="2"] { z-index: 1; background: #090909; transform: translateY(0) scale(.988); }
+body.home-modern-v3 .online-review-card.is-leaving-next { transform: translateY(-54px) scale(.992); opacity: 0; filter: blur(4px); }
+body.home-modern-v3 .online-review-card.is-leaving-prev { transform: translateY(14px) scale(.986); opacity: 0; filter: blur(3px); }
+body.home-modern-v3 .online-review-card.is-incoming-next,
+body.home-modern-v3 .online-review-card.is-incoming-prev { z-index: 4; }
+body.home-modern-v3 .online-review-card.is-incoming-next { background: #0c0c0c; transform: translateY(-10px) scale(.994); opacity: .54; filter: blur(3px); }
+body.home-modern-v3 .online-review-card.is-incoming-prev { background: #0f0f0f; transform: translateY(-48px) scale(.992); opacity: 0; filter: blur(4px); }
+body.home-modern-v3 .online-review-meta { display: flex; flex-direction: column; justify-content: space-between; min-height: 180px; }
+body.home-modern-v3 .online-review-name { display: flex; align-items: center; gap: 12px; margin: 0; font: 400 clamp(19px, 1.55vw, 28px)/1 Somic, Arial, sans-serif; letter-spacing: -.035em; }
+body.home-modern-v3 .online-review-name img { width: 17px; height: 17px; }
+body.home-modern-v3 .online-review-meta div { display: grid; gap: 6px; color: rgb(255 255 255 / .5); font: 400 clamp(13px, .95vw, 17px)/1.1 Somic, Arial, sans-serif; }
+body.home-modern-v3 .online-review-meta div span { color: rgb(255 255 255 / .32); }
+body.home-modern-v3 .online-review-card blockquote { align-self: center; max-width: 980px; margin: 0; color: #fff; font: 400 clamp(19px, 1.65vw, 30px)/1.12 Somic, Arial, sans-serif; letter-spacing: -.04em; transition: opacity 240ms ease, filter 300ms ease, transform 300ms cubic-bezier(.2,.72,.24,1); }
+body.home-modern-v3 .online-review-card.is-leaving-next blockquote,
+body.home-modern-v3 .online-review-card.is-leaving-prev blockquote { opacity: 0; filter: blur(5px); transform: translateY(-8px); }
+
+body.home-modern-v3 .online-faq-list { margin-left: min(28vw, 520px); border-top: 1px solid var(--online-line); }
+body.home-modern-v3 .online-faq-item { border-bottom: 1px solid var(--online-line); }
+body.home-modern-v3 .online-faq-question {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: 24px;
+  width: 100%;
+  padding: 28px 0;
+  color: #fff;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  font: 500 clamp(21px, 2vw, 34px)/1.05 Manrope, Arial, sans-serif;
+  letter-spacing: -.04em;
+}
+body.home-modern-v3 .online-faq-question span { color: #777; font-weight: 400; transition: transform 460ms cubic-bezier(.2,.75,.25,1), color 260ms ease; }
+body.home-modern-v3 .online-faq-item.is-open .online-faq-question span { color: #fff; transform: rotate(180deg); }
+body.home-modern-v3 .online-faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  filter: blur(5px);
+  transition: grid-template-rows 480ms cubic-bezier(.2,.75,.25,1), opacity 380ms ease, filter 480ms ease;
+}
+body.home-modern-v3 .online-faq-answer > div { min-height: 0; overflow: hidden; }
+body.home-modern-v3 .online-faq-item.is-open .online-faq-answer { grid-template-rows: 1fr; opacity: 1; filter: blur(0); }
+body.home-modern-v3 .online-faq-answer p { max-width: 760px; margin: -4px 0 32px; color: #919191; font: 400 clamp(16px, 1.15vw, 20px)/1.45 Manrope, Arial, sans-serif; }
+
+/* Contact form follows the 2623 / 1574 split in the Figma frame. */
+body.home-modern-v3 .online-brief { border-top: 1px solid var(--online-line); padding-bottom: clamp(100px, 10vw, 190px); }
+body.home-modern-v3 .online-brief > h2 { margin: 0 0 clamp(54px, 6vw, 110px) 2.6%; }
+body.home-modern-v3 .online-brief-grid { display: grid; grid-template-columns: 1.667fr 1fr; align-items: start; gap: 1.55%; }
+body.home-modern-v3 .online-brief-main,
+body.home-modern-v3 .online-brief-side { min-width: 0; }
+body.home-modern-v3 .online-brief-label { display: flex; align-items: baseline; gap: 12px; margin: 0 0 18px; font: 500 clamp(18px, 1.35vw, 25px)/1 Manrope, Arial, sans-serif; letter-spacing: -.035em; }
+body.home-modern-v3 .online-brief-label small { color: #555; font-size: 12px; letter-spacing: 0; }
+body.home-modern-v3 .online-service-options { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin-bottom: clamp(38px, 4vw, 72px); }
+body.home-modern-v3 .online-option {
+  min-height: clamp(58px, 5vw, 86px);
+  padding: 12px 16px;
+  color: rgb(255 255 255 / .48);
+  border: 0;
+  border-radius: 14px;
+  background: #0f0f0f;
+  box-shadow: 0 3px 0 rgb(255 255 255 / .05);
+  font: 400 clamp(15px, 1.04vw, 19px)/1 Somic, Arial, sans-serif;
+  transition: color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+body.home-modern-v3 .online-option[aria-pressed="true"] { color: #fff; box-shadow: 0 3px 0 var(--online-blue); transform: translateY(-1px); }
+body.home-modern-v3 .online-service-options .online-option[aria-pressed="true"] { color: #fff; box-shadow: 0 3px 0 var(--online-blue); transform: translateY(-1px); }
+body.home-modern-v3 .online-project-text,
+body.home-modern-v3 .online-budget-input {
+  width: 100%;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  outline: 0;
+  background: #0f0f0f;
+  box-shadow: 0 2px 0 rgb(255 255 255 / .12);
+  font: 400 clamp(16px, 1.12vw, 20px)/1.35 Somic, Arial, sans-serif;
+}
+body.home-modern-v3 .online-project-text { min-height: 170px; padding: 24px; resize: vertical; }
+body.home-modern-v3 .online-budget-input { min-height: 78px; padding: 0 58px 0 24px; border-color: #1d1d1d; box-shadow: 0 3px 0 #282828; }
+body.home-modern-v3 .online-project-text:focus { border-color: rgb(12 71 233 / .7); }
+body.home-modern-v3 .online-budget-input:focus { border-color: transparent; box-shadow: 0 3px 0 var(--online-blue); }
+body.home-modern-v3 .online-textarea-wrap { position: relative; }
+body.home-modern-v3 .online-counter { position: absolute; right: 18px; bottom: 14px; color: #444; font: 400 13px/1 Somic, Arial, sans-serif; }
+body.home-modern-v3 .online-details-toggle,
+body.home-modern-v3 .online-copy-button { display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; padding: 0; color: #777; border: 0; background: transparent; font: 400 clamp(15px, 1.08vw, 19px)/1 Somic, Arial, sans-serif; }
+body.home-modern-v3 .online-details-toggle { margin-top: 50px; }
+body.home-modern-v3 .online-details-toggle img,
+body.home-modern-v3 .online-copy-button img { width: clamp(18px, 1.3vw, 22px); height: auto; opacity: 1; }
+body.home-modern-v3 .online-details-arrow { width: 7px; height: 7px; margin: -4px 0 0 2px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); transform-origin: 50% 50%; transition: transform 300ms ease; }
+body.home-modern-v3 .online-details-toggle[aria-expanded="true"] .online-details-arrow { transform: rotate(225deg); }
+body.home-modern-v3 .online-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 460ms cubic-bezier(.2,.75,.25,1), opacity 360ms ease, margin 460ms ease;
+}
+body.home-modern-v3 .online-details > div { overflow: hidden; }
+body.home-modern-v3 .online-details.is-open { grid-template-rows: 1fr; margin-top: 34px; opacity: 1; }
+body.home-modern-v3 .online-budget-wrap { position: relative; }
+body.home-modern-v3 .online-budget-wrap::after { content: '₽'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font: 500 20px/1 Manrope, Arial, sans-serif; }
+body.home-modern-v3 .online-deadline-options { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin-top: 18px; }
+body.home-modern-v3 .online-deadline { position: relative; }
+body.home-modern-v3 .online-date { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
+body.home-modern-v3 .online-ready-message {
+  min-height: clamp(220px, 18vw, 330px);
+  padding: clamp(22px, 2vw, 34px);
+  white-space: pre-wrap;
+  color: #fff;
+  border-radius: 18px;
+  background: #202020;
+  box-shadow: 0 3px 0 #fff;
+  font: 400 clamp(16px, 1.15vw, 21px)/1.42 Somic, Arial, sans-serif;
+}
+body.home-modern-v3 .online-ready-message:empty::before { content: ''; }
+body.home-modern-v3 .online-platforms { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1.35%; margin-top: 22px; }
+body.home-modern-v3 .online-platform {
+  position: relative;
+  min-height: 0;
+  padding: 0;
+  aspect-ratio: 375 / 155;
+  border: 0;
+  border-radius: clamp(8px, .8vw, 14px);
+  background: transparent;
+  overflow: hidden;
+  transition: transform 220ms ease, filter 220ms ease, box-shadow 220ms ease;
+}
+body.home-modern-v3 .online-platform img { display: block; width: 100%; height: 100%; object-fit: fill; filter: grayscale(1); opacity: .46; transition: opacity 180ms ease, filter 180ms ease; }
+body.home-modern-v3 .online-platform:hover,
+body.home-modern-v3 .online-platform:focus-visible { filter: brightness(1.12); }
+body.home-modern-v3 .online-platform[aria-pressed="true"] { box-shadow: 0 4px 0 var(--online-blue); transform: translateY(-1px); }
+body.home-modern-v3 .online-platform[aria-pressed="true"] img { filter: none; opacity: 1; }
+body.home-modern-v3 .online-send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 70px;
+  margin-top: 20px;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  background: var(--online-blue);
+  font: 500 clamp(16px, 1.1vw, 20px)/1 Somic, Arial, sans-serif;
+  text-decoration: none;
+}
+body.home-modern-v3 .online-send img { width: 21px; height: 14px; }
+body.home-modern-v3 .online-platform-note { min-height: 18px; margin: 12px 0 0; color: #6f6f6f; font: 400 12px/1.25 Manrope, Arial, sans-serif; }
+body.home-modern-v3 .online-platform-note:empty { min-height: 0; margin: 0; }
+
+body.home-modern-v3 .online-reveal { opacity: 0; filter: blur(8px); transform: translateY(10px); transition: opacity 520ms ease, filter 520ms ease, transform 520ms cubic-bezier(.2,.75,.25,1); }
+body.home-modern-v3 .online-reveal.is-visible { opacity: 1; filter: blur(0); transform: none; }
+
+@media (max-width: 900px) {
+  body.home-modern-v3 .online-services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.home-modern-v3 .online-service-dialog { width: 88vw; }
+  body.home-modern-v3 .online-service-subcategories { grid-template-columns: 1fr; }
+  body.home-modern-v3 .online-service-subcategory,
+  body.home-modern-v3 .online-service-subcategory:nth-child(odd),
+  body.home-modern-v3 .online-service-subcategory:nth-child(even) {
+    grid-template-columns: 34px minmax(150px, .58fr) minmax(0, 1.42fr);
+    padding: 18px 0 20px;
+    border-right: 0;
+  }
+  body.home-modern-v3 .online-studio { grid-template-columns: 1fr; }
+  body.home-modern-v3 .online-studio-intro { position: static; }
+  body.home-modern-v3 .online-process-list { grid-template-columns: 1fr; }
+  body.home-modern-v3 .online-review-card { grid-template-columns: minmax(190px, .6fr) minmax(0, 1.4fr); }
+  body.home-modern-v3 .online-brief-grid { grid-template-columns: 1fr; gap: 60px; }
+  body.home-modern-v3 .online-faq-list { margin-left: 0; }
+}
+
+@media (max-width: 640px) {
+  body.home-modern-v3 .cursor { display: none !important; }
+  body.home-modern-v3 { --online-pad: 4.5%; }
+  body.home-modern-v3 .online-section { padding-top: 72px; padding-bottom: 72px; }
+  body.home-modern-v3 .online-section-title { margin-left: 0; }
+  body.home-modern-v3 .online-services-grid { grid-template-columns: 1fr; gap: 40px; }
+  body.home-modern-v3 .online-service-meta { font-size: 19px; }
+  body.home-modern-v3 .online-service-more { font-size: 17px; }
+  body.home-modern-v3 .online-studio-item { grid-template-columns: 42px minmax(0, 1fr); gap: 14px; min-height: 0; }
+  body.home-modern-v3 .online-process-head,
+  body.home-modern-v3 .online-faq-head { grid-template-columns: 1fr; gap: 22px; }
+  body.home-modern-v3 .online-process-list { grid-template-columns: 1fr; }
+  body.home-modern-v3 .online-process-step,
+  body.home-modern-v3 .online-process-step + .online-process-step { grid-template-columns: 42px minmax(0,1fr); gap: 18px; min-height: 0; padding: 26px 0 34px; border-right: 0; border-bottom: 1px solid var(--online-line); }
+  body.home-modern-v3 .online-process-step h3 { margin: 0; }
+  body.home-modern-v3 .online-process-step p,
+  body.home-modern-v3 .online-process-step small { grid-column: 2; margin-top: 0; }
+  body.home-modern-v3 .home-reviews-v5 { padding-inline: 4.5%; }
+  body.home-modern-v3 .online-review-deck { min-height: 520px; }
+  body.home-modern-v3 .online-review-card { grid-template-columns: 1fr; gap: 42px; min-height: 490px; padding: 26px 22px; }
+  body.home-modern-v3 .online-review-meta { min-height: 124px; }
+  body.home-modern-v3 .online-review-card blockquote { align-self: start; font-size: 21px; line-height: 1.16; }
+  body.home-modern-v3 .online-service-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.home-modern-v3 .online-deadline-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.home-modern-v3 .online-ready-message { min-height: 250px; }
+  body.home-modern-v3 .online-details-toggle { margin-top: 20px; }
+  body.home-modern-v3 .online-service-dialog { width: 92vw; height: 76svh; }
+  body.home-modern-v3 .online-service-subcategories { grid-template-columns: 1fr; }
+  body.home-modern-v3 .online-service-subcategory,
+  body.home-modern-v3 .online-service-subcategory:nth-child(odd),
+  body.home-modern-v3 .online-service-subcategory:nth-child(even) { grid-template-columns: 28px minmax(0,1fr); padding: 17px 0; border-right: 0; }
+  body.home-modern-v3 .online-service-subcategory p { grid-column: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-modern-v3 .online-reveal { opacity: 1; filter: none; transform: none; transition: none; }
+  body.home-modern-v3 .online-service-visual > img,
+  body.home-modern-v3 .online-service-event,
+  body.home-modern-v3 .online-review-card,
+  body.home-modern-v3 .online-review-card blockquote,
+  body.home-modern-v3 .online-details,
+  body.home-modern-v3 .online-faq-answer,
+  body.home-modern-v3 .online-faq-question span { transition: none; }
+}
