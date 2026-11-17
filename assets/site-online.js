@@ -318,7 +318,7 @@
         <p class="online-platform-note" data-platform-note aria-live="polite"></p>
       </aside>
       <button class="online-details-toggle" type="button" aria-expanded="false" aria-controls="online-details">
-        <img src="/assets/form-details-figma.svg" alt="" width="59" height="59"> ${briefCopy.details} <img class="online-details-arrow" src="/assets/form-chevron-figma.svg" alt="" width="40" height="21" aria-hidden="true">
+        <img src="/assets/form-details-figma.svg" alt="" width="59" height="59"> ${briefCopy.details} <span class="online-details-arrow" aria-hidden="true"><span></span><span></span></span>
       </button>
       <button class="online-copy-button" type="button" data-copy-message><img src="/assets/form-copy-figma.svg" alt="" width="58" height="59"> ${briefCopy.copy}</button>
       <div class="online-details" id="online-details"><div>
