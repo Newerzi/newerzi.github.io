@@ -304,18 +304,6 @@
           <textarea class="online-project-text" id="online-project-text" maxlength="500" placeholder="${briefCopy.projectPlaceholder}"></textarea>
           <span class="online-counter">0/500</span>
         </div>
-        <button class="online-details-toggle" type="button" aria-expanded="false" aria-controls="online-details">
-          <img src="/assets/form-details-figma.svg" alt="" width="59" height="59"> ${briefCopy.details} <span class="online-details-arrow" aria-hidden="true"></span>
-        </button>
-        <div class="online-details" id="online-details"><div>
-          <p class="online-brief-label">${briefCopy.budgetLabel} <small>${briefCopy.optional}</small></p>
-          <div class="online-budget-wrap"><input class="online-budget-input" inputmode="numeric" maxlength="12" placeholder="${briefCopy.budgetPlaceholder}" aria-label="${briefCopy.budgetAria}"></div>
-          <p class="online-brief-label" style="margin-top:32px">${briefCopy.deadlineLabel} <small>${briefCopy.optional}</small></p>
-          <div class="online-deadline-options">
-            ${deadlineOptions.map(([value, label]) => `<button class="online-option online-deadline" type="button" data-deadline="${value}" aria-pressed="false">${label}</button>`).join('')}
-            <button class="online-option online-deadline" type="button" data-deadline="date" aria-pressed="false">${briefCopy.dateLabel}<input class="online-date" type="date" aria-label="${briefCopy.dateAria}"></button>
-          </div>
-        </div></div>
       </div>
       <aside class="online-brief-side">
         <p class="online-brief-label">${briefCopy.ready}</p>
@@ -328,8 +316,20 @@
         </div>
         <a class="online-send" data-send-link href="https://t.me/specfc" target="_blank" rel="noopener">${briefCopy.sendTelegram} <img src="/assets/form-send-figma.svg" alt="" width="60" height="36"></a>
         <p class="online-platform-note" data-platform-note aria-live="polite"></p>
-        <button class="online-copy-button" type="button" data-copy-message><img src="/assets/form-copy-figma.svg" alt="" width="58" height="59"> ${briefCopy.copy}</button>
       </aside>
+      <button class="online-details-toggle" type="button" aria-expanded="false" aria-controls="online-details">
+        <img src="/assets/form-details-figma.svg" alt="" width="59" height="59"> ${briefCopy.details} <span class="online-details-arrow" aria-hidden="true"></span>
+      </button>
+      <button class="online-copy-button" type="button" data-copy-message><img src="/assets/form-copy-figma.svg" alt="" width="58" height="59"> ${briefCopy.copy}</button>
+      <div class="online-details" id="online-details"><div>
+        <p class="online-brief-label">${briefCopy.budgetLabel} <small>${briefCopy.optional}</small></p>
+        <div class="online-budget-wrap"><input class="online-budget-input" inputmode="numeric" maxlength="12" placeholder="${briefCopy.budgetPlaceholder}" aria-label="${briefCopy.budgetAria}"></div>
+        <p class="online-brief-label" style="margin-top:32px">${briefCopy.deadlineLabel} <small>${briefCopy.optional}</small></p>
+        <div class="online-deadline-options">
+          ${deadlineOptions.map(([value, label]) => `<button class="online-option online-deadline" type="button" data-deadline="${value}" aria-pressed="false">${label}</button>`).join('')}
+          <button class="online-option online-deadline" type="button" data-deadline="date" aria-pressed="false">${briefCopy.dateLabel}<input class="online-date" type="date" tabindex="-1" aria-label="${briefCopy.dateAria}"></button>
+        </div>
+      </div></div>
     </div>`;
 
   more.after(services, studio, process, reviews, faq, brief);
@@ -566,19 +566,41 @@
     details.classList.toggle('is-open', !open);
   });
 
-  brief.querySelectorAll('[data-deadline]').forEach(button => {
-    button.addEventListener('click', event => {
-      if (event.target === dateInput) return;
-      deadline = button.dataset.deadline;
-      brief.querySelectorAll('[data-deadline]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      if (deadline === 'date') {
+  const deadlineButtons = [...brief.querySelectorAll('[data-deadline]')];
+  const resetDeadline = () => {
+    deadline = '';
+    dateInput.value = '';
+    deadlineButtons.forEach(item => item.setAttribute('aria-pressed', 'false'));
+    updateMessage();
+  };
+  deadlineButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const value = button.dataset.deadline;
+      const active = button.getAttribute('aria-pressed') === 'true';
+      if (active) {
+        resetDeadline();
+        return;
+      }
+      deadline = value;
+      if (value !== 'date') dateInput.value = '';
+      deadlineButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      updateMessage();
+      if (value === 'date') {
         if (typeof dateInput.showPicker === 'function') dateInput.showPicker();
         else dateInput.focus();
       }
-      updateMessage();
     });
   });
-  dateInput.addEventListener('change', () => { deadline = 'date'; updateMessage(); });
+  dateInput.addEventListener('change', () => {
+    if (!dateInput.value) {
+      resetDeadline();
+      return;
+    }
+    deadline = 'date';
+    deadlineButtons.forEach(item => item.setAttribute('aria-pressed', String(item.dataset.deadline === 'date')));
+    updateMessage();
+  });
+  dateInput.addEventListener('cancel', resetDeadline);
 
   brief.querySelectorAll('[data-platform]').forEach(button => {
     button.addEventListener('click', () => {
