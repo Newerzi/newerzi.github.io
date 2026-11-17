@@ -307,7 +307,7 @@
 (() => {
   if (!document.body?.classList.contains('home-modern-v3')) return;
   const onlineScript = document.createElement('script');
-  onlineScript.src = '/assets/site-online.js?v=20261117-1';
+  onlineScript.src = '/assets/site-online.js?v=20261117-2';
   onlineScript.defer = true;
   document.head.append(onlineScript);
 })();
