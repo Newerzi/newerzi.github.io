@@ -371,7 +371,29 @@ body.home-modern-v3 .online-copy-button { display: inline-flex; align-items: cen
 body.home-modern-v3 .online-details-toggle { grid-area: details-toggle; }
 body.home-modern-v3 .online-copy-button { grid-area: copy-action; }
 body.home-modern-v3 .online-details-toggle img,
-body.home-modern-v3 .online-copy-button img { width: clamp(20px, 1.44vw, 24px); height: clamp(20px, 1.44vw, 24px); flex: 0 0 auto; object-fit: contain; opacity: 1; transition: filter 240ms ease; }
+body.home-modern-v3 .online-copy-button img { display: none; }
+body.home-modern-v3 .online-details-toggle::before,
+body.home-modern-v3 .online-copy-button::before {
+  content: '';
+  width: clamp(20px, 1.44vw, 24px);
+  height: clamp(20px, 1.44vw, 24px);
+  flex: 0 0 auto;
+  background: currentColor;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+body.home-modern-v3 .online-details-toggle::before {
+  -webkit-mask-image: url('/assets/form-details-figma.svg');
+  mask-image: url('/assets/form-details-figma.svg');
+}
+body.home-modern-v3 .online-copy-button::before {
+  -webkit-mask-image: url('/assets/form-copy-figma.svg');
+  mask-image: url('/assets/form-copy-figma.svg');
+}
 body.home-modern-v3 .online-details-arrow {
   position: relative;
   width: 18px;
@@ -424,10 +446,6 @@ body.home-modern-v3 .online-date { position: absolute; inset: 0; width: 100%; he
   body.home-modern-v3 .online-details-toggle:hover,
   body.home-modern-v3 .online-copy-button:hover {
     color: var(--online-blue);
-  }
-  body.home-modern-v3 .online-details-toggle:hover > img,
-  body.home-modern-v3 .online-copy-button:hover > img {
-    filter: brightness(0) saturate(100%) invert(25%) sepia(98%) saturate(5418%) hue-rotate(226deg) brightness(93%) contrast(99%);
   }
   body.home-modern-v3 .online-details-toggle:hover .online-details-arrow > span {
     background: var(--online-blue);
