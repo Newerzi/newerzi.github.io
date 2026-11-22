@@ -488,7 +488,7 @@ body.home-modern-v3 .online-deadline-wrap { position: relative; }
 body.home-modern-v3 .online-deadline { position: relative; }
 body.home-modern-v3 .online-date { display: none; }
 body.home-modern-v3 .online-calendar {
-  position: fixed;
+  position: absolute;
   z-index: 40;
   left: 0;
   top: 0;

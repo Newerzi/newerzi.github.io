@@ -636,20 +636,23 @@
     calendar.hidden = true;
     dateButton.setAttribute('aria-expanded', 'false');
   };
-  const placeCalendar = () => {
+  const placeCalendar = (ensureVisible = false) => {
     if (calendar.hidden) return;
     const buttonRect = dateButton.getBoundingClientRect();
     const calendarRect = calendar.getBoundingClientRect();
     const margin = 12;
     const gap = 10;
-    const left = Math.min(Math.max(margin, buttonRect.right - calendarRect.width), innerWidth - calendarRect.width - margin);
-    const above = buttonRect.top - calendarRect.height - gap;
-    const below = buttonRect.bottom + gap;
-    const top = above >= margin
-      ? above
-      : Math.min(below, innerHeight - calendarRect.height - margin);
+    const left = scrollX + Math.min(Math.max(margin, buttonRect.right - calendarRect.width), innerWidth - calendarRect.width - margin);
+    const top = scrollY + buttonRect.bottom + gap;
     calendar.style.left = `${Math.round(left)}px`;
-    calendar.style.top = `${Math.round(Math.max(margin, top))}px`;
+    calendar.style.top = `${Math.round(top)}px`;
+    if (ensureVisible) {
+      const overflow = top + calendarRect.height - (scrollY + innerHeight - margin);
+      if (overflow > 0) {
+        window.scrollBy({ top: overflow, left: 0, behavior: 'instant' });
+        requestAnimationFrame(() => placeCalendar());
+      }
+    }
   };
   const renderCalendar = () => {
     const locale = isEnglish ? 'en-US' : 'ru-RU';
@@ -704,7 +707,7 @@
         dateButton.setAttribute('aria-expanded', 'true');
         calendarMonth = dateInput.value ? new Date(`${dateInput.value}T00:00:00`) : new Date(today.getFullYear(), today.getMonth(), 1);
         renderCalendar();
-        placeCalendar();
+        placeCalendar(true);
       }
     });
   });
