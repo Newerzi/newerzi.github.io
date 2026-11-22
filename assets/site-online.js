@@ -643,11 +643,11 @@
     const margin = 12;
     const gap = 10;
     const left = Math.min(Math.max(margin, buttonRect.right - calendarRect.width), innerWidth - calendarRect.width - margin);
-    const below = buttonRect.bottom + gap;
     const above = buttonRect.top - calendarRect.height - gap;
-    const top = below + calendarRect.height <= innerHeight - margin || above < margin
-      ? Math.min(below, innerHeight - calendarRect.height - margin)
-      : above;
+    const below = buttonRect.bottom + gap;
+    const top = above >= margin
+      ? above
+      : Math.min(below, innerHeight - calendarRect.height - margin);
     calendar.style.left = `${Math.round(left)}px`;
     calendar.style.top = `${Math.round(Math.max(margin, top))}px`;
   };
