@@ -334,6 +334,24 @@
 
   more.after(services, studio, process, reviews, faq, brief);
 
+  const header = document.querySelector('#header');
+  if (header) {
+    if ('IntersectionObserver' in window) {
+      const briefObserver = new IntersectionObserver(([entry]) => {
+        header.classList.toggle('at-brief', entry.isIntersecting);
+      });
+      briefObserver.observe(brief);
+    } else {
+      const syncHeaderWithBrief = () => {
+        const rect = brief.getBoundingClientRect();
+        header.classList.toggle('at-brief', rect.top < innerHeight && rect.bottom > 0);
+      };
+      addEventListener('scroll', syncHeaderWithBrief, { passive: true });
+      addEventListener('resize', syncHeaderWithBrief);
+      syncHeaderWithBrief();
+    }
+  }
+
   const dialog = document.createElement('dialog');
   dialog.className = 'online-service-dialog';
   dialog.setAttribute('aria-labelledby', 'online-service-dialog-title');
@@ -470,6 +488,22 @@
 
     prev?.addEventListener('click', () => moveDeck(-1));
     next?.addEventListener('click', () => moveDeck(1));
+
+    let swipeStart = null;
+    deck.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'mouse' || !event.isPrimary) return;
+      swipeStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
+    }, { passive: true });
+    deck.addEventListener('pointerup', event => {
+      if (!swipeStart || event.pointerId !== swipeStart.id) return;
+      const deltaX = event.clientX - swipeStart.x;
+      const deltaY = event.clientY - swipeStart.y;
+      swipeStart = null;
+      if (Math.abs(deltaX) >= 42 && Math.abs(deltaX) > Math.abs(deltaY) * 1.15) {
+        moveDeck(deltaX < 0 ? 1 : -1);
+      }
+    }, { passive: true });
+    deck.addEventListener('pointercancel', () => { swipeStart = null; }, { passive: true });
     renderDeck();
   }
 
