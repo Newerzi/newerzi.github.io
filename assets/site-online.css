@@ -556,6 +556,8 @@ body.home-modern-v3 .online-calendar-days > * {
   height: 34px;
 }
 body.home-modern-v3 .online-calendar-days button {
+  width: 34px;
+  justify-self: center;
   padding: 0;
   color: #8f8f8f;
   border: 0;
