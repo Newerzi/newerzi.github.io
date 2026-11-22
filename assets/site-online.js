@@ -325,18 +325,20 @@
         <p class="online-brief-label">${briefCopy.budgetLabel} <small>${briefCopy.optional}</small></p>
         <div class="online-budget-wrap"><input class="online-budget-input" inputmode="numeric" maxlength="12" placeholder="${briefCopy.budgetPlaceholder}" aria-label="${briefCopy.budgetAria}"></div>
         <p class="online-brief-label" style="margin-top:32px">${briefCopy.deadlineLabel} <small>${briefCopy.optional}</small></p>
-        <div class="online-deadline-options">
-          ${deadlineOptions.map(([value, label]) => `<button class="online-option online-deadline" type="button" data-deadline="${value}" aria-pressed="false">${label}</button>`).join('')}
-          <button class="online-option online-deadline" type="button" data-deadline="date" aria-pressed="false" aria-expanded="false" aria-controls="online-calendar"><span data-date-label>${briefCopy.dateLabel}</span><input class="online-date" type="hidden"></button>
-        </div>
-        <div class="online-calendar" id="online-calendar" data-calendar hidden>
-          <div class="online-calendar-head">
-            <button type="button" data-calendar-prev aria-label="${isEnglish ? 'Previous month' : 'Предыдущий месяц'}"><span aria-hidden="true"></span></button>
-            <p data-calendar-title aria-live="polite"></p>
-            <button type="button" data-calendar-next aria-label="${isEnglish ? 'Next month' : 'Следующий месяц'}"><span aria-hidden="true"></span></button>
+        <div class="online-deadline-wrap">
+          <div class="online-deadline-options">
+            ${deadlineOptions.map(([value, label]) => `<button class="online-option online-deadline" type="button" data-deadline="${value}" aria-pressed="false">${label}</button>`).join('')}
+            <button class="online-option online-deadline" type="button" data-deadline="date" aria-pressed="false" aria-expanded="false" aria-controls="online-calendar"><span data-date-label>${briefCopy.dateLabel}</span><input class="online-date" type="hidden"></button>
           </div>
-          <div class="online-calendar-weekdays" aria-hidden="true"></div>
-          <div class="online-calendar-days" role="grid" aria-label="${briefCopy.dateAria}"></div>
+          <div class="online-calendar" id="online-calendar" data-calendar hidden>
+            <div class="online-calendar-head">
+              <button type="button" data-calendar-prev aria-label="${isEnglish ? 'Previous month' : 'Предыдущий месяц'}"><span aria-hidden="true"></span></button>
+              <p data-calendar-title aria-live="polite"></p>
+              <button type="button" data-calendar-next aria-label="${isEnglish ? 'Next month' : 'Следующий месяц'}"><span aria-hidden="true"></span></button>
+            </div>
+            <div class="online-calendar-weekdays" aria-hidden="true"></div>
+            <div class="online-calendar-days" role="grid" aria-label="${briefCopy.dateAria}"></div>
+          </div>
         </div>
       </div></div>
     </div>`;
@@ -536,6 +538,7 @@
   const calendarTitle = brief.querySelector('[data-calendar-title]');
   const calendarWeekdays = brief.querySelector('.online-calendar-weekdays');
   const calendarDays = brief.querySelector('.online-calendar-days');
+  document.body.append(calendar);
   const send = brief.querySelector('[data-send-link]');
   const platformNote = brief.querySelector('[data-platform-note]');
   let deadline = '';
@@ -613,6 +616,10 @@
     const open = detailsToggle.getAttribute('aria-expanded') === 'true';
     detailsToggle.setAttribute('aria-expanded', String(!open));
     details.classList.toggle('is-open', !open);
+    if (open) {
+      calendar.hidden = true;
+      dateButton.setAttribute('aria-expanded', 'false');
+    }
   });
 
   const deadlineButtons = [...brief.querySelectorAll('[data-deadline]')];
@@ -628,6 +635,21 @@
   const closeCalendar = () => {
     calendar.hidden = true;
     dateButton.setAttribute('aria-expanded', 'false');
+  };
+  const placeCalendar = () => {
+    if (calendar.hidden) return;
+    const buttonRect = dateButton.getBoundingClientRect();
+    const calendarRect = calendar.getBoundingClientRect();
+    const margin = 12;
+    const gap = 10;
+    const left = Math.min(Math.max(margin, buttonRect.right - calendarRect.width), innerWidth - calendarRect.width - margin);
+    const below = buttonRect.bottom + gap;
+    const above = buttonRect.top - calendarRect.height - gap;
+    const top = below + calendarRect.height <= innerHeight - margin || above < margin
+      ? Math.min(below, innerHeight - calendarRect.height - margin)
+      : above;
+    calendar.style.left = `${Math.round(left)}px`;
+    calendar.style.top = `${Math.round(Math.max(margin, top))}px`;
   };
   const renderCalendar = () => {
     const locale = isEnglish ? 'en-US' : 'ru-RU';
@@ -682,6 +704,7 @@
         dateButton.setAttribute('aria-expanded', 'true');
         calendarMonth = dateInput.value ? new Date(`${dateInput.value}T00:00:00`) : new Date(today.getFullYear(), today.getMonth(), 1);
         renderCalendar();
+        placeCalendar();
       }
     });
   });
@@ -711,6 +734,8 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && !calendar.hidden) closeCalendar();
   });
+  addEventListener('resize', placeCalendar);
+  addEventListener('scroll', placeCalendar, { passive: true, capture: true });
 
   brief.querySelectorAll('[data-platform]').forEach(button => {
     button.addEventListener('click', () => {
