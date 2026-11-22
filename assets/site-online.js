@@ -327,7 +327,16 @@
         <p class="online-brief-label" style="margin-top:32px">${briefCopy.deadlineLabel} <small>${briefCopy.optional}</small></p>
         <div class="online-deadline-options">
           ${deadlineOptions.map(([value, label]) => `<button class="online-option online-deadline" type="button" data-deadline="${value}" aria-pressed="false">${label}</button>`).join('')}
-          <button class="online-option online-deadline" type="button" data-deadline="date" aria-pressed="false">${briefCopy.dateLabel}<input class="online-date" type="date" tabindex="-1" aria-label="${briefCopy.dateAria}"></button>
+          <button class="online-option online-deadline" type="button" data-deadline="date" aria-pressed="false" aria-expanded="false" aria-controls="online-calendar"><span data-date-label>${briefCopy.dateLabel}</span><input class="online-date" type="hidden"></button>
+        </div>
+        <div class="online-calendar" id="online-calendar" data-calendar hidden>
+          <div class="online-calendar-head">
+            <button type="button" data-calendar-prev aria-label="${isEnglish ? 'Previous month' : 'Предыдущий месяц'}"><span aria-hidden="true"></span></button>
+            <p data-calendar-title aria-live="polite"></p>
+            <button type="button" data-calendar-next aria-label="${isEnglish ? 'Next month' : 'Следующий месяц'}"><span aria-hidden="true"></span></button>
+          </div>
+          <div class="online-calendar-weekdays" aria-hidden="true"></div>
+          <div class="online-calendar-days" role="grid" aria-label="${briefCopy.dateAria}"></div>
         </div>
       </div></div>
     </div>`;
@@ -521,6 +530,12 @@
   const ready = brief.querySelector('[data-ready-message]');
   const budget = brief.querySelector('.online-budget-input');
   const dateInput = brief.querySelector('.online-date');
+  const dateButton = brief.querySelector('[data-deadline="date"]');
+  const dateLabel = brief.querySelector('[data-date-label]');
+  const calendar = brief.querySelector('[data-calendar]');
+  const calendarTitle = brief.querySelector('[data-calendar-title]');
+  const calendarWeekdays = brief.querySelector('.online-calendar-weekdays');
+  const calendarDays = brief.querySelector('.online-calendar-days');
   const send = brief.querySelector('[data-send-link]');
   const platformNote = brief.querySelector('[data-platform-note]');
   let deadline = '';
@@ -601,10 +616,49 @@
   });
 
   const deadlineButtons = [...brief.querySelectorAll('[data-deadline]')];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  let calendarMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  const toIsoDate = value => {
+    const year = value.getFullYear();
+    const month = String(value.getMonth() + 1).padStart(2, '0');
+    const day = String(value.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+  const closeCalendar = () => {
+    calendar.hidden = true;
+    dateButton.setAttribute('aria-expanded', 'false');
+  };
+  const renderCalendar = () => {
+    const locale = isEnglish ? 'en-US' : 'ru-RU';
+    calendarTitle.textContent = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(calendarMonth);
+    calendarWeekdays.innerHTML = (isEnglish ? ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] : ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'])
+      .map(day => `<span>${day}</span>`).join('');
+    const year = calendarMonth.getFullYear();
+    const month = calendarMonth.getMonth();
+    const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const cells = [];
+    for (let index = 0; index < firstWeekday; index += 1) cells.push('<span class="is-empty" aria-hidden="true"></span>');
+    for (let day = 1; day <= daysInMonth; day += 1) {
+      const date = new Date(year, month, day);
+      const iso = toIsoDate(date);
+      const isToday = date.getTime() === today.getTime();
+      const isSelected = dateInput.value === iso;
+      const isPast = date < today;
+      const state = [isToday ? 'is-today' : '', isSelected ? 'is-selected' : ''].filter(Boolean).join(' ');
+      cells.push(`<button type="button" role="gridcell" data-calendar-date="${iso}" class="${state}" ${isPast ? 'disabled' : ''} aria-label="${new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric' }).format(date)}" aria-selected="${isSelected}">${day}</button>`);
+    }
+    calendarDays.innerHTML = cells.join('');
+  };
+  renderCalendar();
   const resetDeadline = () => {
     deadline = '';
     dateInput.value = '';
+    dateLabel.textContent = briefCopy.dateLabel;
+    closeCalendar();
     deadlineButtons.forEach(item => item.setAttribute('aria-pressed', 'false'));
+    renderCalendar();
     updateMessage();
   };
   deadlineButtons.forEach(button => {
@@ -616,25 +670,47 @@
         return;
       }
       deadline = value;
-      if (value !== 'date') dateInput.value = '';
+      if (value !== 'date') {
+        dateInput.value = '';
+        dateLabel.textContent = briefCopy.dateLabel;
+        closeCalendar();
+      }
       deadlineButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       updateMessage();
       if (value === 'date') {
-        if (typeof dateInput.showPicker === 'function') dateInput.showPicker();
-        else dateInput.focus();
+        calendar.hidden = false;
+        dateButton.setAttribute('aria-expanded', 'true');
+        calendarMonth = dateInput.value ? new Date(`${dateInput.value}T00:00:00`) : new Date(today.getFullYear(), today.getMonth(), 1);
+        renderCalendar();
       }
     });
   });
-  dateInput.addEventListener('change', () => {
-    if (!dateInput.value) {
-      resetDeadline();
-      return;
-    }
+  calendar.querySelector('[data-calendar-prev]').addEventListener('click', () => {
+    calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() - 1, 1);
+    renderCalendar();
+  });
+  calendar.querySelector('[data-calendar-next]').addEventListener('click', () => {
+    calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + 1, 1);
+    renderCalendar();
+  });
+  calendarDays.addEventListener('click', event => {
+    const day = event.target.closest('[data-calendar-date]');
+    if (!day || day.disabled) return;
+    dateInput.value = day.dataset.calendarDate;
     deadline = 'date';
+    dateLabel.textContent = formatDate(dateInput.value);
     deadlineButtons.forEach(item => item.setAttribute('aria-pressed', String(item.dataset.deadline === 'date')));
+    renderCalendar();
+    closeCalendar();
     updateMessage();
   });
-  dateInput.addEventListener('cancel', resetDeadline);
+  document.addEventListener('click', event => {
+    if (calendar.hidden || calendar.contains(event.target) || dateButton.contains(event.target)) return;
+    closeCalendar();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !calendar.hidden) closeCalendar();
+  });
 
   brief.querySelectorAll('[data-platform]').forEach(button => {
     button.addEventListener('click', () => {

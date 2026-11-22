@@ -485,7 +485,87 @@ body.home-modern-v3 .online-budget-wrap { position: relative; }
 body.home-modern-v3 .online-budget-wrap::after { content: '₽'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font: 500 20px/1 Manrope, Arial, sans-serif; }
 body.home-modern-v3 .online-deadline-options { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin-top: 18px; padding-bottom: 4px; }
 body.home-modern-v3 .online-deadline { position: relative; }
-body.home-modern-v3 .online-date { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; }
+body.home-modern-v3 .online-date { display: none; }
+body.home-modern-v3 .online-calendar {
+  width: min(100%, 620px);
+  margin-top: 12px;
+  padding: clamp(18px, 2vw, 28px);
+  border: 1px solid rgb(255 255 255 / .08);
+  border-radius: 18px;
+  background: #0f0f0f;
+  box-shadow: 0 3px 0 rgb(255 255 255 / .08);
+}
+body.home-modern-v3 .online-calendar[hidden] { display: none; }
+body.home-modern-v3 .online-calendar-head {
+  display: grid;
+  grid-template-columns: 38px 1fr 38px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+body.home-modern-v3 .online-calendar-head p {
+  margin: 0;
+  text-align: center;
+  text-transform: capitalize;
+  font: 400 clamp(17px, 1.2vw, 21px)/1 Somic, Arial, sans-serif;
+}
+body.home-modern-v3 .online-calendar-head button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  color: #7a7a7a;
+  border: 0;
+  border-radius: 10px;
+  background: #171717;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+body.home-modern-v3 .online-calendar-head button:hover,
+body.home-modern-v3 .online-calendar-head button:focus-visible { color: #fff; background: #202020; }
+body.home-modern-v3 .online-calendar-head button > span {
+  width: 9px;
+  height: 9px;
+  border-left: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translate(1px, -1px);
+}
+body.home-modern-v3 .online-calendar-head [data-calendar-next] > span { transform: rotate(225deg) translate(1px, -1px); }
+body.home-modern-v3 .online-calendar-weekdays,
+body.home-modern-v3 .online-calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+body.home-modern-v3 .online-calendar-weekdays { margin-bottom: 8px; }
+body.home-modern-v3 .online-calendar-weekdays span {
+  color: #555;
+  text-align: center;
+  font: 400 12px/1 Manrope, Arial, sans-serif;
+  text-transform: lowercase;
+}
+body.home-modern-v3 .online-calendar-days > * {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  aspect-ratio: 1;
+}
+body.home-modern-v3 .online-calendar-days button {
+  padding: 0;
+  color: #969696;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  font: 400 clamp(13px, .95vw, 16px)/1 Somic, Arial, sans-serif;
+  transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+body.home-modern-v3 .online-calendar-days button:hover:not(:disabled),
+body.home-modern-v3 .online-calendar-days button:focus-visible:not(:disabled) { color: #fff; background: #202020; transform: scale(1.04); }
+body.home-modern-v3 .online-calendar-days button:disabled { color: #303030; cursor: default; }
+body.home-modern-v3 .online-calendar-days button.is-today { color: #111; background: #fff; }
+body.home-modern-v3 .online-calendar-days button.is-selected,
+body.home-modern-v3 .online-calendar-days button.is-selected:hover,
+body.home-modern-v3 .online-calendar-days button.is-selected:focus-visible { color: #fff; background: var(--online-blue); }
 @media (hover:hover) and (pointer:fine) {
   body.home-modern-v3 .online-details-toggle:hover,
   body.home-modern-v3 .online-copy-button:hover {
@@ -611,6 +691,7 @@ body.home-modern-v3 .online-reveal.is-visible { opacity: 1; filter: blur(0); tra
   body.home-modern-v3 .online-review-card blockquote { align-self: start; font-size: 21px; line-height: 1.16; }
   body.home-modern-v3 .online-service-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   body.home-modern-v3 .online-deadline-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.home-modern-v3 .online-calendar { width: 100%; }
   body.home-modern-v3 .online-ready-message { min-height: 250px; }
   body.home-modern-v3 .online-details-toggle,
   body.home-modern-v3 .online-copy-button { margin-top: 20px; padding-top: 0; }
